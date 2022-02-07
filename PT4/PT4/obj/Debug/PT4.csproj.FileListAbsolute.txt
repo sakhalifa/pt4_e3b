@@ -1,0 +1,11 @@
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\bin\Debug\PT4.exe.config
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\bin\Debug\PT4.exe
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\bin\Debug\PT4.pdb
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.AssemblyReference.cache
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.MenuAccueil.resources
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Connexion.resources
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Properties.Resources.resources
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.GenerateResource.cache
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CoreCompileInputs.cache
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.exe
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.pdb
