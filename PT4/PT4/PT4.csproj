@@ -47,11 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AfficherStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherStock.Designer.cs">
+      <DependentUpon>AfficherStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterStock.Designer.cs">
+      <DependentUpon>AjouterStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreerPrescription.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreerPrescription.Designer.cs">
       <DependentUpon>CreerPrescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditerStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditerStock.Designer.cs">
+      <DependentUpon>EditerStock.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -79,11 +97,17 @@
     <Compile Include="Vente.Designer.cs">
       <DependentUpon>Vente.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AfficherStock.resx">
+      <DependentUpon>AfficherStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterCompte.resx">
       <DependentUpon>AjouterCompte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreerPrescription.resx">
       <DependentUpon>CreerPrescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditerStock.resx">
+      <DependentUpon>EditerStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

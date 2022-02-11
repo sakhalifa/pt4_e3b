@@ -36,19 +36,20 @@ namespace PT4
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownPrix = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.comboBoxAnimal = new System.Windows.Forms.ComboBox();
+            this.comboBoxProduit = new System.Windows.Forms.ComboBox();
+            this.buttonConfirmer = new System.Windows.Forms.Button();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrix)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(318, 43);
+            this.label1.Location = new System.Drawing.Point(297, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 20);
             this.label1.TabIndex = 0;
@@ -109,20 +110,12 @@ namespace PT4
             this.comboBoxClient.Size = new System.Drawing.Size(121, 21);
             this.comboBoxClient.TabIndex = 6;
             // 
-            // richTextBox1
+            // numericUpDownPrix
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(202, 185);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(341, 116);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(202, 334);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 8;
+            this.numericUpDownPrix.Location = new System.Drawing.Point(202, 334);
+            this.numericUpDownPrix.Name = "numericUpDownPrix";
+            this.numericUpDownPrix.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownPrix.TabIndex = 8;
             // 
             // label7
             // 
@@ -133,32 +126,51 @@ namespace PT4
             this.label7.TabIndex = 9;
             this.label7.Text = "€";
             // 
-            // comboBox1
+            // comboBoxAnimal
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(474, 125);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 10;
+            this.comboBoxAnimal.FormattingEnabled = true;
+            this.comboBoxAnimal.Location = new System.Drawing.Point(474, 125);
+            this.comboBoxAnimal.Name = "comboBoxAnimal";
+            this.comboBoxAnimal.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxAnimal.TabIndex = 10;
             // 
-            // comboBox2
+            // comboBoxProduit
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(474, 334);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 11;
+            this.comboBoxProduit.FormattingEnabled = true;
+            this.comboBoxProduit.Location = new System.Drawing.Point(474, 334);
+            this.comboBoxProduit.Name = "comboBoxProduit";
+            this.comboBoxProduit.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxProduit.TabIndex = 11;
+            // 
+            // buttonConfirmer
+            // 
+            this.buttonConfirmer.Location = new System.Drawing.Point(347, 388);
+            this.buttonConfirmer.Name = "buttonConfirmer";
+            this.buttonConfirmer.Size = new System.Drawing.Size(75, 23);
+            this.buttonConfirmer.TabIndex = 12;
+            this.buttonConfirmer.Text = "Confirmer";
+            this.buttonConfirmer.UseVisualStyleBackColor = true;
+            this.buttonConfirmer.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBoxDescription
+            // 
+            this.textBoxDescription.Location = new System.Drawing.Point(202, 185);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(393, 130);
+            this.textBoxDescription.TabIndex = 13;
             // 
             // CreerPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBoxDescription);
+            this.Controls.Add(this.buttonConfirmer);
+            this.Controls.Add(this.comboBoxProduit);
+            this.Controls.Add(this.comboBoxAnimal);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.numericUpDownPrix);
             this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -168,7 +180,7 @@ namespace PT4
             this.Controls.Add(this.label1);
             this.Name = "CreerPrescription";
             this.Text = "CreerPrescription";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrix)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,10 +195,11 @@ namespace PT4
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxClient;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDownPrix;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxAnimal;
+        private System.Windows.Forms.ComboBox comboBoxProduit;
+        private System.Windows.Forms.Button buttonConfirmer;
+        private System.Windows.Forms.TextBox textBoxDescription;
     }
 }
