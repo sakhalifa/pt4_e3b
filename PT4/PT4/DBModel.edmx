@@ -1,0 +1,954 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="A_CONTRACTÉ">
+          <Key>
+            <PropertyRef Name="DATEDEBUT" />
+            <PropertyRef Name="IDANIMAL" />
+          </Key>
+          <Property Name="DATEDEBUT" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="IDANIMAL" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="A_ÉTÉ_CONTRACTÉ">
+          <Key>
+            <PropertyRef Name="IDMALADIE" />
+            <PropertyRef Name="DATEDEBUT" />
+          </Key>
+          <Property Name="IDMALADIE" Type="smallint" Nullable="false" />
+          <Property Name="DATEDEBUT" Type="char" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ANIMAL">
+          <Key>
+            <PropertyRef Name="IDANIMAL" />
+          </Key>
+          <Property Name="IDANIMAL" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCLIENT" Type="smallint" />
+          <Property Name="NOMESPECE" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="NOMRACE" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="NOMANIMAL" Type="varchar" MaxLength="128" />
+          <Property Name="DATENAISSANCE" Type="datetime" />
+          <Property Name="TAILLE" Type="smallint" Nullable="false" />
+          <Property Name="POIDS" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="IDCLIENT" />
+          </Key>
+          <Property Name="IDCLIENT" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMCLIENT" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="PRENOMCLIENT" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="NUMERO" Type="smallint" Nullable="false" />
+          <Property Name="ANIMAL" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONGÉ">
+          <Key>
+            <PropertyRef Name="DATEDEBUT" />
+            <PropertyRef Name="DATEFIN" />
+          </Key>
+          <Property Name="DATEDEBUT" Type="datetime" Nullable="false" />
+          <Property Name="DATEFIN" Type="datetime" Nullable="false" />
+          <Property Name="ESTREGULIER" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EST_DANS_LE_SOIN">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDPRODUIT" />
+          </Key>
+          <Property Name="ID" Type="smallint" Nullable="false" />
+          <Property Name="IDPRODUIT" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EST_SOIGNÉ">
+          <Key>
+            <PropertyRef Name="IDMALADIE" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="IDMALADIE" Type="smallint" Nullable="false" />
+          <Property Name="ID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTENCONGÉ">
+          <Key>
+            <PropertyRef Name="DATEDEBUT" />
+            <PropertyRef Name="DATEFIN" />
+            <PropertyRef Name="IDCOMPTE" />
+          </Key>
+          <Property Name="DATEDEBUT" Type="datetime" Nullable="false" />
+          <Property Name="DATEFIN" Type="datetime" Nullable="false" />
+          <Property Name="IDCOMPTE" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FACTURE">
+          <Key>
+            <PropertyRef Name="IDFACTURE" />
+          </Key>
+          <Property Name="IDFACTURE" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCLIENT" Type="smallint" Nullable="false" />
+          <Property Name="NUMEROFACTURE" Type="smallint" Nullable="false" />
+          <Property Name="MONTANT" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DATEFACTURE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HISTORIQUEMALADIE">
+          <Key>
+            <PropertyRef Name="DATEDEBUT" />
+          </Key>
+          <Property Name="DATEDEBUT" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="DATEFIN" Type="char" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="MALADIE">
+          <Key>
+            <PropertyRef Name="IDMALADIE" />
+          </Key>
+          <Property Name="IDMALADIE" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMMALADIE" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="ORDONNANCE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDANIMAL" Type="smallint" Nullable="false" />
+          <Property Name="ID_CONCERNE" Type="smallint" Nullable="false" />
+          <Property Name="DATEORDO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUIT">
+          <Key>
+            <PropertyRef Name="IDPRODUIT" />
+          </Key>
+          <Property Name="IDPRODUIT" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QUANTITEENSTOCK" Type="smallint" Nullable="false" />
+          <Property Name="NOMPRODUIT" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="PRIXDEVENTE" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PRIXACHAT" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="MEDICAMENT" Type="bit" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="PRODUIT_VENDU">
+          <Key>
+            <PropertyRef Name="IDFACTURE" />
+            <PropertyRef Name="IDPRODUIT" />
+          </Key>
+          <Property Name="IDFACTURE" Type="smallint" Nullable="false" />
+          <Property Name="IDPRODUIT" Type="smallint" Nullable="false" />
+          <Property Name="QUANTITÉ" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RENDEZVOUS">
+          <Key>
+            <PropertyRef Name="IDRDV" />
+          </Key>
+          <Property Name="IDRDV" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCLIENT" Type="smallint" Nullable="false" />
+          <Property Name="CLIENT" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="HEURE" Type="datetime" Nullable="false" />
+          <Property Name="RAISON" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SALARIÉ">
+          <Key>
+            <PropertyRef Name="IDCOMPTE" />
+          </Key>
+          <Property Name="IDCOMPTE" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOGIN" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="MDP" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="DONNEES_PERSONNELLES" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SOIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_A_CONTRACTÉ_ANIMAL">
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="1" />
+          <End Role="A_CONTRACTÉ" Type="Self.A_CONTRACTÉ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ANIMAL">
+              <PropertyRef Name="IDANIMAL" />
+            </Principal>
+            <Dependent Role="A_CONTRACTÉ">
+              <PropertyRef Name="IDANIMAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_A_CONTRACTÉ_HISTORIQUEMALADIE">
+          <End Role="HISTORIQUEMALADIE" Type="Self.HISTORIQUEMALADIE" Multiplicity="1" />
+          <End Role="A_CONTRACTÉ" Type="Self.A_CONTRACTÉ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HISTORIQUEMALADIE">
+              <PropertyRef Name="DATEDEBUT" />
+            </Principal>
+            <Dependent Role="A_CONTRACTÉ">
+              <PropertyRef Name="DATEDEBUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_A_ÉTÉ_CONTRACTÉ_HISTORIQUEMALADIE">
+          <End Role="HISTORIQUEMALADIE" Type="Self.HISTORIQUEMALADIE" Multiplicity="1" />
+          <End Role="A_ÉTÉ_CONTRACTÉ" Type="Self.A_ÉTÉ_CONTRACTÉ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HISTORIQUEMALADIE">
+              <PropertyRef Name="DATEDEBUT" />
+            </Principal>
+            <Dependent Role="A_ÉTÉ_CONTRACTÉ">
+              <PropertyRef Name="DATEDEBUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_A_ÉTÉ_CONTRACTÉ_MALADIE">
+          <End Role="MALADIE" Type="Self.MALADIE" Multiplicity="1" />
+          <End Role="A_ÉTÉ_CONTRACTÉ" Type="Self.A_ÉTÉ_CONTRACTÉ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MALADIE">
+              <PropertyRef Name="IDMALADIE" />
+            </Principal>
+            <Dependent Role="A_ÉTÉ_CONTRACTÉ">
+              <PropertyRef Name="IDMALADIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ANIMAL_CLIENT">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" />
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="IDCLIENT" />
+            </Principal>
+            <Dependent Role="ANIMAL">
+              <PropertyRef Name="IDCLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EST_DANS_LE_SOIN_PRODUIT">
+          <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="1" />
+          <End Role="EST_DANS_LE_SOIN" Type="Self.EST_DANS_LE_SOIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUIT">
+              <PropertyRef Name="IDPRODUIT" />
+            </Principal>
+            <Dependent Role="EST_DANS_LE_SOIN">
+              <PropertyRef Name="IDPRODUIT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EST_DANS_LE_SOIN_SOIN">
+          <End Role="SOIN" Type="Self.SOIN" Multiplicity="1" />
+          <End Role="EST_DANS_LE_SOIN" Type="Self.EST_DANS_LE_SOIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOIN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EST_DANS_LE_SOIN">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EST_SOIGNÉ_MALADIE">
+          <End Role="MALADIE" Type="Self.MALADIE" Multiplicity="1" />
+          <End Role="EST_SOIGNÉ" Type="Self.EST_SOIGNÉ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MALADIE">
+              <PropertyRef Name="IDMALADIE" />
+            </Principal>
+            <Dependent Role="EST_SOIGNÉ">
+              <PropertyRef Name="IDMALADIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EST_SOIGNÉ_SOIN">
+          <End Role="SOIN" Type="Self.SOIN" Multiplicity="1" />
+          <End Role="EST_SOIGNÉ" Type="Self.EST_SOIGNÉ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOIN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EST_SOIGNÉ">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTENCONGÉ_CONGÉ">
+          <End Role="CONGÉ" Type="Self.CONGÉ" Multiplicity="1" />
+          <End Role="ESTENCONGÉ" Type="Self.ESTENCONGÉ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONGÉ">
+              <PropertyRef Name="DATEDEBUT" />
+              <PropertyRef Name="DATEFIN" />
+            </Principal>
+            <Dependent Role="ESTENCONGÉ">
+              <PropertyRef Name="DATEDEBUT" />
+              <PropertyRef Name="DATEFIN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTENCONGÉ_SALARIÉ">
+          <End Role="SALARIÉ" Type="Self.SALARIÉ" Multiplicity="1" />
+          <End Role="ESTENCONGÉ" Type="Self.ESTENCONGÉ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALARIÉ">
+              <PropertyRef Name="IDCOMPTE" />
+            </Principal>
+            <Dependent Role="ESTENCONGÉ">
+              <PropertyRef Name="IDCOMPTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FACTURE_CLIENT">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+          <End Role="FACTURE" Type="Self.FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="IDCLIENT" />
+            </Principal>
+            <Dependent Role="FACTURE">
+              <PropertyRef Name="IDCLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDONNANCE_ANIMAL">
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="1" />
+          <End Role="ORDONNANCE" Type="Self.ORDONNANCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ANIMAL">
+              <PropertyRef Name="IDANIMAL" />
+            </Principal>
+            <Dependent Role="ORDONNANCE">
+              <PropertyRef Name="IDANIMAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDONNANCE_SOIN">
+          <End Role="SOIN" Type="Self.SOIN" Multiplicity="1" />
+          <End Role="ORDONNANCE" Type="Self.ORDONNANCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOIN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDONNANCE">
+              <PropertyRef Name="ID_CONCERNE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUIT_VENDU_FACTURE">
+          <End Role="FACTURE" Type="Self.FACTURE" Multiplicity="1" />
+          <End Role="PRODUIT_VENDU" Type="Self.PRODUIT_VENDU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURE">
+              <PropertyRef Name="IDFACTURE" />
+            </Principal>
+            <Dependent Role="PRODUIT_VENDU">
+              <PropertyRef Name="IDFACTURE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUIT_VENDU_PRODUIT">
+          <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="1" />
+          <End Role="PRODUIT_VENDU" Type="Self.PRODUIT_VENDU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUIT">
+              <PropertyRef Name="IDPRODUIT" />
+            </Principal>
+            <Dependent Role="PRODUIT_VENDU">
+              <PropertyRef Name="IDPRODUIT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RENDEZVOUS_CLIENT">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+          <End Role="RENDEZVOUS" Type="Self.RENDEZVOUS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="IDCLIENT" />
+            </Principal>
+            <Dependent Role="RENDEZVOUS">
+              <PropertyRef Name="IDCLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PT4_PLANNIMAUX_S4p2B_JKVBLBModelStoreContainer">
+          <EntitySet Name="A_CONTRACTÉ" EntityType="Self.A_CONTRACTÉ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_ÉTÉ_CONTRACTÉ" EntityType="Self.A_ÉTÉ_CONTRACTÉ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ANIMAL" EntityType="Self.ANIMAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENT" EntityType="Self.CLIENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONGÉ" EntityType="Self.CONGÉ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EST_DANS_LE_SOIN" EntityType="Self.EST_DANS_LE_SOIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EST_SOIGNÉ" EntityType="Self.EST_SOIGNÉ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTENCONGÉ" EntityType="Self.ESTENCONGÉ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FACTURE" EntityType="Self.FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HISTORIQUEMALADIE" EntityType="Self.HISTORIQUEMALADIE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MALADIE" EntityType="Self.MALADIE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDONNANCE" EntityType="Self.ORDONNANCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUIT" EntityType="Self.PRODUIT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUIT_VENDU" EntityType="Self.PRODUIT_VENDU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RENDEZVOUS" EntityType="Self.RENDEZVOUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SALARIÉ" EntityType="Self.SALARIÉ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SOIN" EntityType="Self.SOIN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_A_CONTRACTÉ_ANIMAL" Association="Self.FK_A_CONTRACTÉ_ANIMAL">
+            <End Role="ANIMAL" EntitySet="ANIMAL" />
+            <End Role="A_CONTRACTÉ" EntitySet="A_CONTRACTÉ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_A_CONTRACTÉ_HISTORIQUEMALADIE" Association="Self.FK_A_CONTRACTÉ_HISTORIQUEMALADIE">
+            <End Role="HISTORIQUEMALADIE" EntitySet="HISTORIQUEMALADIE" />
+            <End Role="A_CONTRACTÉ" EntitySet="A_CONTRACTÉ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_A_ÉTÉ_CONTRACTÉ_HISTORIQUEMALADIE" Association="Self.FK_A_ÉTÉ_CONTRACTÉ_HISTORIQUEMALADIE">
+            <End Role="HISTORIQUEMALADIE" EntitySet="HISTORIQUEMALADIE" />
+            <End Role="A_ÉTÉ_CONTRACTÉ" EntitySet="A_ÉTÉ_CONTRACTÉ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_A_ÉTÉ_CONTRACTÉ_MALADIE" Association="Self.FK_A_ÉTÉ_CONTRACTÉ_MALADIE">
+            <End Role="MALADIE" EntitySet="MALADIE" />
+            <End Role="A_ÉTÉ_CONTRACTÉ" EntitySet="A_ÉTÉ_CONTRACTÉ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ANIMAL_CLIENT" Association="Self.FK_ANIMAL_CLIENT">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="ANIMAL" EntitySet="ANIMAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EST_DANS_LE_SOIN_PRODUIT" Association="Self.FK_EST_DANS_LE_SOIN_PRODUIT">
+            <End Role="PRODUIT" EntitySet="PRODUIT" />
+            <End Role="EST_DANS_LE_SOIN" EntitySet="EST_DANS_LE_SOIN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EST_DANS_LE_SOIN_SOIN" Association="Self.FK_EST_DANS_LE_SOIN_SOIN">
+            <End Role="SOIN" EntitySet="SOIN" />
+            <End Role="EST_DANS_LE_SOIN" EntitySet="EST_DANS_LE_SOIN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EST_SOIGNÉ_MALADIE" Association="Self.FK_EST_SOIGNÉ_MALADIE">
+            <End Role="MALADIE" EntitySet="MALADIE" />
+            <End Role="EST_SOIGNÉ" EntitySet="EST_SOIGNÉ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EST_SOIGNÉ_SOIN" Association="Self.FK_EST_SOIGNÉ_SOIN">
+            <End Role="SOIN" EntitySet="SOIN" />
+            <End Role="EST_SOIGNÉ" EntitySet="EST_SOIGNÉ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTENCONGÉ_CONGÉ" Association="Self.FK_ESTENCONGÉ_CONGÉ">
+            <End Role="CONGÉ" EntitySet="CONGÉ" />
+            <End Role="ESTENCONGÉ" EntitySet="ESTENCONGÉ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTENCONGÉ_SALARIÉ" Association="Self.FK_ESTENCONGÉ_SALARIÉ">
+            <End Role="SALARIÉ" EntitySet="SALARIÉ" />
+            <End Role="ESTENCONGÉ" EntitySet="ESTENCONGÉ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FACTURE_CLIENT" Association="Self.FK_FACTURE_CLIENT">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="FACTURE" EntitySet="FACTURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDONNANCE_ANIMAL" Association="Self.FK_ORDONNANCE_ANIMAL">
+            <End Role="ANIMAL" EntitySet="ANIMAL" />
+            <End Role="ORDONNANCE" EntitySet="ORDONNANCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDONNANCE_SOIN" Association="Self.FK_ORDONNANCE_SOIN">
+            <End Role="SOIN" EntitySet="SOIN" />
+            <End Role="ORDONNANCE" EntitySet="ORDONNANCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUIT_VENDU_FACTURE" Association="Self.FK_PRODUIT_VENDU_FACTURE">
+            <End Role="FACTURE" EntitySet="FACTURE" />
+            <End Role="PRODUIT_VENDU" EntitySet="PRODUIT_VENDU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUIT_VENDU_PRODUIT" Association="Self.FK_PRODUIT_VENDU_PRODUIT">
+            <End Role="PRODUIT" EntitySet="PRODUIT" />
+            <End Role="PRODUIT_VENDU" EntitySet="PRODUIT_VENDU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RENDEZVOUS_CLIENT" Association="Self.FK_RENDEZVOUS_CLIENT">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="RENDEZVOUS" EntitySet="RENDEZVOUS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ANIMAL">
+          <Key>
+            <PropertyRef Name="IDANIMAL" />
+          </Key>
+          <Property Name="IDANIMAL" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCLIENT" Type="Int16" />
+          <Property Name="NOMESPECE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMRACE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMANIMAL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="DATENAISSANCE" Type="DateTime" Precision="3" />
+          <Property Name="TAILLE" Type="Int16" Nullable="false" />
+          <Property Name="POIDS" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="CLIENT" Relationship="Self.FK_ANIMAL_CLIENT" FromRole="ANIMAL" ToRole="CLIENT" />
+          <NavigationProperty Name="ORDONNANCE" Relationship="Self.FK_ORDONNANCE_ANIMAL" FromRole="ANIMAL" ToRole="ORDONNANCE" />
+          <NavigationProperty Name="HISTORIQUEMALADIE" Relationship="Self.A_CONTRACTÉ" FromRole="ANIMAL" ToRole="HISTORIQUEMALADIE" />
+        </EntityType>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="IDCLIENT" />
+          </Key>
+          <Property Name="IDCLIENT" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMCLIENT" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRENOMCLIENT" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUMERO" Type="Int16" Nullable="false" />
+          <Property Name="ANIMAL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ANIMAL1" Relationship="Self.FK_ANIMAL_CLIENT" FromRole="CLIENT" ToRole="ANIMAL" />
+          <NavigationProperty Name="FACTURE" Relationship="Self.FK_FACTURE_CLIENT" FromRole="CLIENT" ToRole="FACTURE" />
+          <NavigationProperty Name="RENDEZVOUS" Relationship="Self.FK_RENDEZVOUS_CLIENT" FromRole="CLIENT" ToRole="RENDEZVOUS" />
+        </EntityType>
+        <EntityType Name="CONGÉ">
+          <Key>
+            <PropertyRef Name="DATEDEBUT" />
+            <PropertyRef Name="DATEFIN" />
+          </Key>
+          <Property Name="DATEDEBUT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DATEFIN" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ESTREGULIER" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SALARIÉ" Relationship="Self.ESTENCONGÉ" FromRole="CONGÉ" ToRole="SALARIÉ" />
+        </EntityType>
+        <EntityType Name="FACTURE">
+          <Key>
+            <PropertyRef Name="IDFACTURE" />
+          </Key>
+          <Property Name="IDFACTURE" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCLIENT" Type="Int16" Nullable="false" />
+          <Property Name="NUMEROFACTURE" Type="Int16" Nullable="false" />
+          <Property Name="MONTANT" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DATEFACTURE" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CLIENT" Relationship="Self.FK_FACTURE_CLIENT" FromRole="FACTURE" ToRole="CLIENT" />
+          <NavigationProperty Name="PRODUIT_VENDU" Relationship="Self.FK_PRODUIT_VENDU_FACTURE" FromRole="FACTURE" ToRole="PRODUIT_VENDU" />
+        </EntityType>
+        <EntityType Name="HISTORIQUEMALADIE">
+          <Key>
+            <PropertyRef Name="DATEDEBUT" />
+          </Key>
+          <Property Name="DATEDEBUT" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DATEFIN" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="ANIMAL" Relationship="Self.A_CONTRACTÉ" FromRole="HISTORIQUEMALADIE" ToRole="ANIMAL" />
+          <NavigationProperty Name="MALADIE" Relationship="Self.A_ÉTÉ_CONTRACTÉ" FromRole="HISTORIQUEMALADIE" ToRole="MALADIE" />
+        </EntityType>
+        <EntityType Name="MALADIE">
+          <Key>
+            <PropertyRef Name="IDMALADIE" />
+          </Key>
+          <Property Name="IDMALADIE" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMMALADIE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HISTORIQUEMALADIE" Relationship="Self.A_ÉTÉ_CONTRACTÉ" FromRole="MALADIE" ToRole="HISTORIQUEMALADIE" />
+          <NavigationProperty Name="SOIN" Relationship="Self.EST_SOIGNÉ" FromRole="MALADIE" ToRole="SOIN" />
+        </EntityType>
+        <EntityType Name="ORDONNANCE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDANIMAL" Type="Int16" Nullable="false" />
+          <Property Name="ID_CONCERNE" Type="Int16" Nullable="false" />
+          <Property Name="DATEORDO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ANIMAL" Relationship="Self.FK_ORDONNANCE_ANIMAL" FromRole="ORDONNANCE" ToRole="ANIMAL" />
+          <NavigationProperty Name="SOIN" Relationship="Self.FK_ORDONNANCE_SOIN" FromRole="ORDONNANCE" ToRole="SOIN" />
+        </EntityType>
+        <EntityType Name="PRODUIT">
+          <Key>
+            <PropertyRef Name="IDPRODUIT" />
+          </Key>
+          <Property Name="IDPRODUIT" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QUANTITEENSTOCK" Type="Int16" Nullable="false" />
+          <Property Name="NOMPRODUIT" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRIXDEVENTE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PRIXACHAT" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="MEDICAMENT" Type="Boolean" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRODUIT_VENDU" Relationship="Self.FK_PRODUIT_VENDU_PRODUIT" FromRole="PRODUIT" ToRole="PRODUIT_VENDU" />
+          <NavigationProperty Name="SOIN" Relationship="Self.EST_DANS_LE_SOIN" FromRole="PRODUIT" ToRole="SOIN" />
+        </EntityType>
+        <EntityType Name="PRODUIT_VENDU">
+          <Key>
+            <PropertyRef Name="IDFACTURE" />
+            <PropertyRef Name="IDPRODUIT" />
+          </Key>
+          <Property Name="IDFACTURE" Type="Int16" Nullable="false" />
+          <Property Name="IDPRODUIT" Type="Int16" Nullable="false" />
+          <Property Name="QUANTITÉ" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="FACTURE" Relationship="Self.FK_PRODUIT_VENDU_FACTURE" FromRole="PRODUIT_VENDU" ToRole="FACTURE" />
+          <NavigationProperty Name="PRODUIT" Relationship="Self.FK_PRODUIT_VENDU_PRODUIT" FromRole="PRODUIT_VENDU" ToRole="PRODUIT" />
+        </EntityType>
+        <EntityType Name="RENDEZVOUS">
+          <Key>
+            <PropertyRef Name="IDRDV" />
+          </Key>
+          <Property Name="IDRDV" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCLIENT" Type="Int16" Nullable="false" />
+          <Property Name="CLIENT" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HEURE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RAISON" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENT1" Relationship="Self.FK_RENDEZVOUS_CLIENT" FromRole="RENDEZVOUS" ToRole="CLIENT" />
+        </EntityType>
+        <EntityType Name="SALARIÉ">
+          <Key>
+            <PropertyRef Name="IDCOMPTE" />
+          </Key>
+          <Property Name="IDCOMPTE" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOGIN" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MDP" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DONNEES_PERSONNELLES" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CONGÉ" Relationship="Self.ESTENCONGÉ" FromRole="SALARIÉ" ToRole="CONGÉ" />
+        </EntityType>
+        <EntityType Name="SOIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ORDONNANCE" Relationship="Self.FK_ORDONNANCE_SOIN" FromRole="SOIN" ToRole="ORDONNANCE" />
+          <NavigationProperty Name="PRODUIT" Relationship="Self.EST_DANS_LE_SOIN" FromRole="SOIN" ToRole="PRODUIT" />
+          <NavigationProperty Name="MALADIE" Relationship="Self.EST_SOIGNÉ" FromRole="SOIN" ToRole="MALADIE" />
+        </EntityType>
+        <Association Name="FK_ANIMAL_CLIENT">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" />
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="IDCLIENT" />
+            </Principal>
+            <Dependent Role="ANIMAL">
+              <PropertyRef Name="IDCLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDONNANCE_ANIMAL">
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="1" />
+          <End Role="ORDONNANCE" Type="Self.ORDONNANCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ANIMAL">
+              <PropertyRef Name="IDANIMAL" />
+            </Principal>
+            <Dependent Role="ORDONNANCE">
+              <PropertyRef Name="IDANIMAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FACTURE_CLIENT">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+          <End Role="FACTURE" Type="Self.FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="IDCLIENT" />
+            </Principal>
+            <Dependent Role="FACTURE">
+              <PropertyRef Name="IDCLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RENDEZVOUS_CLIENT">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+          <End Role="RENDEZVOUS" Type="Self.RENDEZVOUS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="IDCLIENT" />
+            </Principal>
+            <Dependent Role="RENDEZVOUS">
+              <PropertyRef Name="IDCLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUIT_VENDU_FACTURE">
+          <End Role="FACTURE" Type="Self.FACTURE" Multiplicity="1" />
+          <End Role="PRODUIT_VENDU" Type="Self.PRODUIT_VENDU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURE">
+              <PropertyRef Name="IDFACTURE" />
+            </Principal>
+            <Dependent Role="PRODUIT_VENDU">
+              <PropertyRef Name="IDFACTURE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDONNANCE_SOIN">
+          <End Role="SOIN" Type="Self.SOIN" Multiplicity="1" />
+          <End Role="ORDONNANCE" Type="Self.ORDONNANCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOIN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDONNANCE">
+              <PropertyRef Name="ID_CONCERNE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUIT_VENDU_PRODUIT">
+          <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="1" />
+          <End Role="PRODUIT_VENDU" Type="Self.PRODUIT_VENDU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUIT">
+              <PropertyRef Name="IDPRODUIT" />
+            </Principal>
+            <Dependent Role="PRODUIT_VENDU">
+              <PropertyRef Name="IDPRODUIT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="A_CONTRACTÉ">
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="*" />
+          <End Role="HISTORIQUEMALADIE" Type="Self.HISTORIQUEMALADIE" Multiplicity="*" />
+        </Association>
+        <Association Name="A_ÉTÉ_CONTRACTÉ">
+          <End Role="HISTORIQUEMALADIE" Type="Self.HISTORIQUEMALADIE" Multiplicity="*" />
+          <End Role="MALADIE" Type="Self.MALADIE" Multiplicity="*" />
+        </Association>
+        <Association Name="EST_DANS_LE_SOIN">
+          <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="*" />
+          <End Role="SOIN" Type="Self.SOIN" Multiplicity="*" />
+        </Association>
+        <Association Name="EST_SOIGNÉ">
+          <End Role="MALADIE" Type="Self.MALADIE" Multiplicity="*" />
+          <End Role="SOIN" Type="Self.SOIN" Multiplicity="*" />
+        </Association>
+        <Association Name="ESTENCONGÉ">
+          <End Role="CONGÉ" Type="Self.CONGÉ" Multiplicity="*" />
+          <End Role="SALARIÉ" Type="Self.SALARIÉ" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="PT4_PLANNIMAUX_S4p2B_JKVBLBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ANIMAL" EntityType="Self.ANIMAL" />
+          <EntitySet Name="CLIENT" EntityType="Self.CLIENT" />
+          <EntitySet Name="CONGÉ" EntityType="Self.CONGÉ" />
+          <EntitySet Name="FACTURE" EntityType="Self.FACTURE" />
+          <EntitySet Name="HISTORIQUEMALADIE" EntityType="Self.HISTORIQUEMALADIE" />
+          <EntitySet Name="MALADIE" EntityType="Self.MALADIE" />
+          <EntitySet Name="ORDONNANCE" EntityType="Self.ORDONNANCE" />
+          <EntitySet Name="PRODUIT" EntityType="Self.PRODUIT" />
+          <EntitySet Name="PRODUIT_VENDU" EntityType="Self.PRODUIT_VENDU" />
+          <EntitySet Name="RENDEZVOUS" EntityType="Self.RENDEZVOUS" />
+          <EntitySet Name="SALARIÉ" EntityType="Self.SALARIÉ" />
+          <EntitySet Name="SOIN" EntityType="Self.SOIN" />
+          <AssociationSet Name="FK_ANIMAL_CLIENT" Association="Self.FK_ANIMAL_CLIENT">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="ANIMAL" EntitySet="ANIMAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDONNANCE_ANIMAL" Association="Self.FK_ORDONNANCE_ANIMAL">
+            <End Role="ANIMAL" EntitySet="ANIMAL" />
+            <End Role="ORDONNANCE" EntitySet="ORDONNANCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FACTURE_CLIENT" Association="Self.FK_FACTURE_CLIENT">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="FACTURE" EntitySet="FACTURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RENDEZVOUS_CLIENT" Association="Self.FK_RENDEZVOUS_CLIENT">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="RENDEZVOUS" EntitySet="RENDEZVOUS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUIT_VENDU_FACTURE" Association="Self.FK_PRODUIT_VENDU_FACTURE">
+            <End Role="FACTURE" EntitySet="FACTURE" />
+            <End Role="PRODUIT_VENDU" EntitySet="PRODUIT_VENDU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDONNANCE_SOIN" Association="Self.FK_ORDONNANCE_SOIN">
+            <End Role="SOIN" EntitySet="SOIN" />
+            <End Role="ORDONNANCE" EntitySet="ORDONNANCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUIT_VENDU_PRODUIT" Association="Self.FK_PRODUIT_VENDU_PRODUIT">
+            <End Role="PRODUIT" EntitySet="PRODUIT" />
+            <End Role="PRODUIT_VENDU" EntitySet="PRODUIT_VENDU" />
+          </AssociationSet>
+          <AssociationSet Name="A_CONTRACTÉ" Association="Self.A_CONTRACTÉ">
+            <End Role="ANIMAL" EntitySet="ANIMAL" />
+            <End Role="HISTORIQUEMALADIE" EntitySet="HISTORIQUEMALADIE" />
+          </AssociationSet>
+          <AssociationSet Name="A_ÉTÉ_CONTRACTÉ" Association="Self.A_ÉTÉ_CONTRACTÉ">
+            <End Role="HISTORIQUEMALADIE" EntitySet="HISTORIQUEMALADIE" />
+            <End Role="MALADIE" EntitySet="MALADIE" />
+          </AssociationSet>
+          <AssociationSet Name="EST_DANS_LE_SOIN" Association="Self.EST_DANS_LE_SOIN">
+            <End Role="PRODUIT" EntitySet="PRODUIT" />
+            <End Role="SOIN" EntitySet="SOIN" />
+          </AssociationSet>
+          <AssociationSet Name="EST_SOIGNÉ" Association="Self.EST_SOIGNÉ">
+            <End Role="MALADIE" EntitySet="MALADIE" />
+            <End Role="SOIN" EntitySet="SOIN" />
+          </AssociationSet>
+          <AssociationSet Name="ESTENCONGÉ" Association="Self.ESTENCONGÉ">
+            <End Role="CONGÉ" EntitySet="CONGÉ" />
+            <End Role="SALARIÉ" EntitySet="SALARIÉ" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PT4_PLANNIMAUX_S4p2B_JKVBLBModelStoreContainer" CdmEntityContainer="PT4_PLANNIMAUX_S4p2B_JKVBLBEntities">
+          <EntitySetMapping Name="ANIMAL">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.ANIMAL">
+              <MappingFragment StoreEntitySet="ANIMAL">
+                <ScalarProperty Name="IDANIMAL" ColumnName="IDANIMAL" />
+                <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+                <ScalarProperty Name="NOMESPECE" ColumnName="NOMESPECE" />
+                <ScalarProperty Name="NOMRACE" ColumnName="NOMRACE" />
+                <ScalarProperty Name="NOMANIMAL" ColumnName="NOMANIMAL" />
+                <ScalarProperty Name="DATENAISSANCE" ColumnName="DATENAISSANCE" />
+                <ScalarProperty Name="TAILLE" ColumnName="TAILLE" />
+                <ScalarProperty Name="POIDS" ColumnName="POIDS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENT">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.CLIENT">
+              <MappingFragment StoreEntitySet="CLIENT">
+                <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+                <ScalarProperty Name="NOMCLIENT" ColumnName="NOMCLIENT" />
+                <ScalarProperty Name="PRENOMCLIENT" ColumnName="PRENOMCLIENT" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="ANIMAL" ColumnName="ANIMAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONGÉ">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.CONGÉ">
+              <MappingFragment StoreEntitySet="CONGÉ">
+                <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+                <ScalarProperty Name="DATEFIN" ColumnName="DATEFIN" />
+                <ScalarProperty Name="ESTREGULIER" ColumnName="ESTREGULIER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACTURE">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.FACTURE">
+              <MappingFragment StoreEntitySet="FACTURE">
+                <ScalarProperty Name="IDFACTURE" ColumnName="IDFACTURE" />
+                <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+                <ScalarProperty Name="NUMEROFACTURE" ColumnName="NUMEROFACTURE" />
+                <ScalarProperty Name="MONTANT" ColumnName="MONTANT" />
+                <ScalarProperty Name="DATEFACTURE" ColumnName="DATEFACTURE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORIQUEMALADIE">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.HISTORIQUEMALADIE">
+              <MappingFragment StoreEntitySet="HISTORIQUEMALADIE">
+                <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+                <ScalarProperty Name="DATEFIN" ColumnName="DATEFIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MALADIE">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.MALADIE">
+              <MappingFragment StoreEntitySet="MALADIE">
+                <ScalarProperty Name="IDMALADIE" ColumnName="IDMALADIE" />
+                <ScalarProperty Name="NOMMALADIE" ColumnName="NOMMALADIE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDONNANCE">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.ORDONNANCE">
+              <MappingFragment StoreEntitySet="ORDONNANCE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDANIMAL" ColumnName="IDANIMAL" />
+                <ScalarProperty Name="ID_CONCERNE" ColumnName="ID_CONCERNE" />
+                <ScalarProperty Name="DATEORDO" ColumnName="DATEORDO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUIT">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.PRODUIT">
+              <MappingFragment StoreEntitySet="PRODUIT">
+                <ScalarProperty Name="IDPRODUIT" ColumnName="IDPRODUIT" />
+                <ScalarProperty Name="QUANTITEENSTOCK" ColumnName="QUANTITEENSTOCK" />
+                <ScalarProperty Name="NOMPRODUIT" ColumnName="NOMPRODUIT" />
+                <ScalarProperty Name="PRIXDEVENTE" ColumnName="PRIXDEVENTE" />
+                <ScalarProperty Name="PRIXACHAT" ColumnName="PRIXACHAT" />
+                <ScalarProperty Name="MEDICAMENT" ColumnName="MEDICAMENT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUIT_VENDU">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.PRODUIT_VENDU">
+              <MappingFragment StoreEntitySet="PRODUIT_VENDU">
+                <ScalarProperty Name="IDFACTURE" ColumnName="IDFACTURE" />
+                <ScalarProperty Name="IDPRODUIT" ColumnName="IDPRODUIT" />
+                <ScalarProperty Name="QUANTITÉ" ColumnName="QUANTITÉ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RENDEZVOUS">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.RENDEZVOUS">
+              <MappingFragment StoreEntitySet="RENDEZVOUS">
+                <ScalarProperty Name="IDRDV" ColumnName="IDRDV" />
+                <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+                <ScalarProperty Name="CLIENT" ColumnName="CLIENT" />
+                <ScalarProperty Name="HEURE" ColumnName="HEURE" />
+                <ScalarProperty Name="RAISON" ColumnName="RAISON" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALARIÉ">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.SALARIÉ">
+              <MappingFragment StoreEntitySet="SALARIÉ">
+                <ScalarProperty Name="IDCOMPTE" ColumnName="IDCOMPTE" />
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="MDP" ColumnName="MDP" />
+                <ScalarProperty Name="DONNEES_PERSONNELLES" ColumnName="DONNEES_PERSONNELLES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SOIN">
+            <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.SOIN">
+              <MappingFragment StoreEntitySet="SOIN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="A_CONTRACTÉ" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.A_CONTRACTÉ" StoreEntitySet="A_CONTRACTÉ">
+            <EndProperty Name="ANIMAL">
+              <ScalarProperty Name="IDANIMAL" ColumnName="IDANIMAL" />
+            </EndProperty>
+            <EndProperty Name="HISTORIQUEMALADIE">
+              <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="A_ÉTÉ_CONTRACTÉ" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.A_ÉTÉ_CONTRACTÉ" StoreEntitySet="A_ÉTÉ_CONTRACTÉ">
+            <EndProperty Name="HISTORIQUEMALADIE">
+              <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+            </EndProperty>
+            <EndProperty Name="MALADIE">
+              <ScalarProperty Name="IDMALADIE" ColumnName="IDMALADIE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="EST_DANS_LE_SOIN" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_DANS_LE_SOIN" StoreEntitySet="EST_DANS_LE_SOIN">
+            <EndProperty Name="PRODUIT">
+              <ScalarProperty Name="IDPRODUIT" ColumnName="IDPRODUIT" />
+            </EndProperty>
+            <EndProperty Name="SOIN">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="EST_SOIGNÉ" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_SOIGNÉ" StoreEntitySet="EST_SOIGNÉ">
+            <EndProperty Name="MALADIE">
+              <ScalarProperty Name="IDMALADIE" ColumnName="IDMALADIE" />
+            </EndProperty>
+            <EndProperty Name="SOIN">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ESTENCONGÉ" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.ESTENCONGÉ" StoreEntitySet="ESTENCONGÉ">
+            <EndProperty Name="CONGÉ">
+              <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+              <ScalarProperty Name="DATEFIN" ColumnName="DATEFIN" />
+            </EndProperty>
+            <EndProperty Name="SALARIÉ">
+              <ScalarProperty Name="IDCOMPTE" ColumnName="IDCOMPTE" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
