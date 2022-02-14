@@ -9,3 +9,5 @@ C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.GenerateReso
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CoreCompileInputs.cache
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.exe
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.pdb
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.MenuAcceuil.resources
+C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.GestionPlanning.resources

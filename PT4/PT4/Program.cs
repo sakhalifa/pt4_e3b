@@ -16,7 +16,7 @@ namespace PT4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Connexion());
+            Application.Run(new MenuAccueil());
         }
     }
 }
