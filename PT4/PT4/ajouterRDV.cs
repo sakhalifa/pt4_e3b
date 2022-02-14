@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class AjouterStock : Form
+    public partial class ajouterRDV : Form
     {
-        public AjouterStock()
+        public ajouterRDV()
         {
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonConfirmer_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
