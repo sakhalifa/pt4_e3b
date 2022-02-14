@@ -14,14 +14,10 @@ namespace PT4
 {
     public partial class Form1 : Form
     {
-        private IAnimalRepository animalRepo;
-        private ServiceCollection services;
 
         
         public Form1(IAnimalRepository animalRepo, ServiceCollection services)
         {
-            this.animalRepo = animalRepo;
-            this.services = services;
             InitializeComponent();
         }
     }

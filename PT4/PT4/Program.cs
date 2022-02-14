@@ -35,15 +35,7 @@ namespace PT4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            var services = new ServiceCollection();
-            ConfigureServices(services);
-            services.AddScoped<Form1>();
-            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
-            {
-                var form1 = serviceProvider.GetRequiredService<Form1>();
-                Application.Run(form1);
-            }
+            Application.Run(new Form1());
             
         }
     }
