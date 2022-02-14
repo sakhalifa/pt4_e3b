@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="A_CONTRACTÉ">
           <Key>
             <PropertyRef Name="DATEDEBUT" />
@@ -151,6 +151,7 @@
           <Property Name="LOGIN" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="MDP" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="DONNEES_PERSONNELLES" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="estAdmin" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="SOIN">
           <Key>
@@ -452,8 +453,7 @@
             <End Role="RENDEZVOUS" EntitySet="RENDEZVOUS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -582,6 +582,7 @@
           <Property Name="MDP" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DONNEES_PERSONNELLES" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CONGÉ" Relationship="Self.ESTENCONGÉ" FromRole="SALARIÉ" ToRole="CONGÉ" />
+          <Property Name="estAdmin" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="SOIN">
           <Key>
@@ -872,6 +873,7 @@
           <EntitySetMapping Name="SALARIÉ">
             <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.SALARIÉ">
               <MappingFragment StoreEntitySet="SALARIÉ">
+                <ScalarProperty Name="estAdmin" ColumnName="estAdmin" />
                 <ScalarProperty Name="IDCOMPTE" ColumnName="IDCOMPTE" />
                 <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
                 <ScalarProperty Name="MDP" ColumnName="MDP" />
