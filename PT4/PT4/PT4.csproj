@@ -133,6 +133,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="AfficherStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,6 +361,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="menuCompte.resx">
       <DependentUpon>menuCompte.cs</DependentUpon>
+=======
+    <Compile Include="InterfaceJournalAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceJournalAction.Designer.cs">
+      <DependentUpon>InterfaceJournalAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="InterfaceJournalAction.resx">
+      <DependentUpon>InterfaceJournalAction.cs</DependentUpon>
+>>>>>>> 42815f9 (Interfaces Logs)
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
