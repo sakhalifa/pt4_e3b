@@ -29,7 +29,9 @@ namespace PT4.Controllers
             salarie = new SALARIÉ {
                 LOGIN = login,
                 MDP = SHA256.Create(clearPwd).ComputeHash(new UTF8Encoding().GetBytes(clearPwd)),
-                DONNEES_PERSONNELLES=donnees_perso
+                DONNEES_PERSONNELLES=donnees_perso,
+                estAdmin = false
+                
             };
 
             _salarieRepo.Insert(salarie);
@@ -47,6 +49,8 @@ namespace PT4.Controllers
 
             return _congeRepo.FindWhere(c => c.SALARIÉ.Contains(salarie));
         }
+
+
 
         public void positionnerConge(SALARIÉ s, DateTime dateDebut, DateTime dateFin, bool estRegulier = false)
         {
