@@ -19,7 +19,7 @@ namespace PT4.Controllers
             _congeRepo = congeRepo;
         }
 
-        public void creerSalarie(string login, string clearPwd, string donnees_perso)
+        public void CreerSalarie(string login, string clearPwd, string donnees_perso)
         {
             SALARIÉ salarie = _salarieRepo.FindWhere(s => s.LOGIN == login).FirstOrDefault();
             if (salarie != null)
@@ -31,7 +31,6 @@ namespace PT4.Controllers
                 MDP = SHA256.Create(clearPwd).ComputeHash(new UTF8Encoding().GetBytes(clearPwd)),
                 DONNEES_PERSONNELLES=donnees_perso,
                 estAdmin = false
-                
             };
 
             _salarieRepo.Insert(salarie);
@@ -39,7 +38,7 @@ namespace PT4.Controllers
         }
 
         
-        public IEnumerable<CONGÉ> recupCongesPourSalarie(string login)
+        public IEnumerable<CONGÉ> RecupCongesPourSalarie(string login)
         {
             SALARIÉ salarie = _salarieRepo.FindWhere(s => s.LOGIN == login).FirstOrDefault();
             if(salarie == null)
@@ -52,7 +51,7 @@ namespace PT4.Controllers
 
 
 
-        public void positionnerConge(SALARIÉ s, DateTime dateDebut, DateTime dateFin, bool estRegulier = false)
+        public void PositionnerConge(SALARIÉ s, DateTime dateDebut, DateTime dateFin, bool estRegulier = false)
         {
             CONGÉ conge = _congeRepo.FindWhere(c => c.DATEFIN == dateFin && c.DATEDEBUT == dateDebut).FirstOrDefault();
             if(conge == null)

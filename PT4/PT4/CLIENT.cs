@@ -25,8 +25,8 @@ namespace PT4
         public short IDCLIENT { get; set; }
         public string NOMCLIENT { get; set; }
         public string PRENOMCLIENT { get; set; }
-        public short NUMERO { get; set; }
-        public string ANIMAL { get; set; }
+        public string NUMERO { get; set; }
+        public string EMAIL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ANIMAL> ANIMAL1 { get; set; }
