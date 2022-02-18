@@ -78,8 +78,5 @@ namespace PT4
         {
             Rights.BackColor = Color.Transparent;
         }
-
-
-   
     }
 }
