@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -64,6 +65,11 @@ namespace PT4.Model.impl
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        public IEnumerable<SALARIÉ> FindWhere(Expression<Func<SALARIÉ, bool>> predicate)
+        {
+            return context.SALARIÉ.Where(predicate);
         }
     }
 }

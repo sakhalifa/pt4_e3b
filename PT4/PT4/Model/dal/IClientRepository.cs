@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,7 @@ namespace PT4.Model.dal
         /// </summary>
         /// <returns>every customer in the database</returns>
         IEnumerable<CLIENT> FindAll();
+        IEnumerable<CLIENT> FindWhere(Expression<Func<CLIENT, bool>> predicate);
         /// <summary>
         /// Finds the customer that has the specified id or null if not found
         /// </summary>

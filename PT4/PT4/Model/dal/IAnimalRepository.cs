@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,7 @@ namespace PT4.Model.dal
         /// </summary>
         /// <returns>every animal saved in the database</returns>
         IEnumerable<ANIMAL> FindAll();
+        IEnumerable<ANIMAL> FindWhere(Expression<Func<ANIMAL, bool>> predicate);
         /// <summary>
         /// Returns the animal that has the specified Id or null if not found
         /// </summary>

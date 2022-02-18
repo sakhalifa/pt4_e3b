@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,7 @@ namespace PT4.Model.dal
         /// </summary>
         /// <returns>Every appointment in the database</returns>
         IEnumerable<RENDEZVOUS> FindAll();
+        IEnumerable<RENDEZVOUS> FindWhere(Expression<Func<RENDEZVOUS, bool>> predicate);
         RENDEZVOUS FindById(int id);
         void Insert(RENDEZVOUS obj);
         void Delete(int id);

@@ -22,9 +22,9 @@ namespace PT4
     
         public short IDCOMPTE { get; set; }
         public string LOGIN { get; set; }
-        public string MDP { get; set; }
         public string DONNEES_PERSONNELLES { get; set; }
         public bool estAdmin { get; set; }
+        public byte[] MDP { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONGÉ> CONGÉ { get; set; }
