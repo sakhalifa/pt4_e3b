@@ -49,6 +49,7 @@ namespace PT4
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
             services.AddScoped<MenuHamberger>();
             using (ServiceProvider provider = services.BuildServiceProvider())
             {
@@ -56,6 +57,9 @@ namespace PT4
                 Application.Run(form);
             }
             
+=======
+            Application.Run(new InterfaceJournalAction());
+>>>>>>> 42815f9 (Interfaces Logs)
 =======
             Application.Run(new InterfaceJournalAction());
 >>>>>>> 42815f9 (Interfaces Logs)
