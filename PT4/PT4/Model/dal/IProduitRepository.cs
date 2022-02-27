@@ -15,31 +15,31 @@ namespace PT4.Model.dal
         /// <returns>Every product in the database</returns>
         IEnumerable<PRODUIT> FindAll();
         /// <summary>
-        /// Gets every customer saved in the database that validates the predicate given
+        /// Gets every product saved in the database that validates the predicate given
         /// </summary>
-        /// <param name="predicate">A function wich takes an customer and returns a boolean. 
-        /// It returns true if we want the customer to be included in the search, else false.</param>
+        /// <param name="predicate">A function wich takes an product and returns a boolean. 
+        /// It returns true if we want the product to be included in the search, else false.</param>
         IEnumerable<PRODUIT> FindWhere(Expression<Func<PRODUIT, bool>> predicate);
         /// <summary>
-        /// Finds the customer that has the specified id or null if not found
+        /// Finds the product that has the specified id or null if not found
         /// </summary>
-        /// <param name="id">The id of the customer</param>
-        /// <returns>The customer that has the specified id or null if not found</returns>
+        /// <param name="id">The id of the product</param>
+        /// <returns>The product that has the specified id or null if not found</returns>
         PRODUIT FindById(int id);
         /// <summary>
-        /// Inserts the specified customer object to the database
+        /// Inserts the specified product object to the database
         /// </summary>
-        /// <param name="obj">The customer object to insert</param>
+        /// <param name="obj">The product object to insert</param>
         void Insert(PRODUIT obj);
         /// <summary>
-        /// Deletes the customer that has the specified id
+        /// Deletes the product that has the specified id
         /// </summary>
-        /// <param name="id">The id of the customer we want to delete</param>
+        /// <param name="id">The id of the product we want to delete</param>
         void Delete(int id);
         /// <summary>
-        /// Tells the database that this customer object was updated
+        /// Tells the database that this product object was updated
         /// </summary>
-        /// <param name="obj">The customer object to update</param>
+        /// <param name="obj">The product object to update</param>
         void Update(PRODUIT obj);
         /// <summary>
         /// Saves all pending changes to the database
