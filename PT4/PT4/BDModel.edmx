@@ -42,7 +42,6 @@
           <Property Name="NOMCLIENT" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="PRENOMCLIENT" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="NUMERO" Type="varchar" MaxLength="12" />
-          <Property Name="ANIMAL" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="EMAIL" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="CONGÉ">
@@ -484,7 +483,7 @@
           <Property Name="PRENOMCLIENT" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NUMERO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="EMAIL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ANIMAL1" Relationship="Self.FK_ANIMAL_CLIENT" FromRole="CLIENT" ToRole="ANIMAL" />
+          <NavigationProperty Name="ANIMAL" Relationship="Self.FK_ANIMAL_CLIENT" FromRole="CLIENT" ToRole="ANIMAL" />
           <NavigationProperty Name="FACTURE" Relationship="Self.FK_FACTURE_CLIENT" FromRole="CLIENT" ToRole="FACTURE" />
           <NavigationProperty Name="RENDEZVOUS" Relationship="Self.FK_RENDEZVOUS_CLIENT" FromRole="CLIENT" ToRole="RENDEZVOUS" />
         </EntityType>

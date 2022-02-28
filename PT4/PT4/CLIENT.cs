@@ -17,7 +17,7 @@ namespace PT4
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CLIENT()
         {
-            this.ANIMAL1 = new HashSet<ANIMAL>();
+            this.ANIMAL = new HashSet<ANIMAL>();
             this.FACTURE = new HashSet<FACTURE>();
             this.RENDEZVOUS = new HashSet<RENDEZVOUS>();
         }
@@ -29,7 +29,7 @@ namespace PT4
         public string EMAIL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ANIMAL> ANIMAL1 { get; set; }
+        public virtual ICollection<ANIMAL> ANIMAL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FACTURE> FACTURE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

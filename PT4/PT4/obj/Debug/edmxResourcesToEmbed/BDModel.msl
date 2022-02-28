@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PT4_PLANNIMAUX_S4p2B_JKVBLBModelStoreContainer" CdmEntityContainer="PT4_PLANNIMAUX_S4p2B_JKVBLBEntities">
+    <EntitySetMapping Name="ANIMAL">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.ANIMAL">
+        <MappingFragment StoreEntitySet="ANIMAL">
+          <ScalarProperty Name="IDANIMAL" ColumnName="IDANIMAL" />
+          <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+          <ScalarProperty Name="NOMESPECE" ColumnName="NOMESPECE" />
+          <ScalarProperty Name="NOMRACE" ColumnName="NOMRACE" />
+          <ScalarProperty Name="NOMANIMAL" ColumnName="NOMANIMAL" />
+          <ScalarProperty Name="DATENAISSANCE" ColumnName="DATENAISSANCE" />
+          <ScalarProperty Name="TAILLE" ColumnName="TAILLE" />
+          <ScalarProperty Name="POIDS" ColumnName="POIDS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENT">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.CLIENT">
+        <MappingFragment StoreEntitySet="CLIENT">
+          <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+          <ScalarProperty Name="NOMCLIENT" ColumnName="NOMCLIENT" />
+          <ScalarProperty Name="PRENOMCLIENT" ColumnName="PRENOMCLIENT" />
+          <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONGÉ">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.CONGÉ">
+        <MappingFragment StoreEntitySet="CONGÉ">
+          <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+          <ScalarProperty Name="DATEFIN" ColumnName="DATEFIN" />
+          <ScalarProperty Name="ESTREGULIER" ColumnName="ESTREGULIER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURE">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.FACTURE">
+        <MappingFragment StoreEntitySet="FACTURE">
+          <ScalarProperty Name="IDFACTURE" ColumnName="IDFACTURE" />
+          <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+          <ScalarProperty Name="NUMEROFACTURE" ColumnName="NUMEROFACTURE" />
+          <ScalarProperty Name="MONTANT" ColumnName="MONTANT" />
+          <ScalarProperty Name="DATEFACTURE" ColumnName="DATEFACTURE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HISTORIQUEMALADIE">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.HISTORIQUEMALADIE">
+        <MappingFragment StoreEntitySet="HISTORIQUEMALADIE">
+          <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+          <ScalarProperty Name="DATEFIN" ColumnName="DATEFIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MALADIE">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.MALADIE">
+        <MappingFragment StoreEntitySet="MALADIE">
+          <ScalarProperty Name="IDMALADIE" ColumnName="IDMALADIE" />
+          <ScalarProperty Name="NOMMALADIE" ColumnName="NOMMALADIE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDONNANCE">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.ORDONNANCE">
+        <MappingFragment StoreEntitySet="ORDONNANCE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDANIMAL" ColumnName="IDANIMAL" />
+          <ScalarProperty Name="ID_CONCERNE" ColumnName="ID_CONCERNE" />
+          <ScalarProperty Name="DATEORDO" ColumnName="DATEORDO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUIT">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.PRODUIT">
+        <MappingFragment StoreEntitySet="PRODUIT">
+          <ScalarProperty Name="IDPRODUIT" ColumnName="IDPRODUIT" />
+          <ScalarProperty Name="QUANTITEENSTOCK" ColumnName="QUANTITEENSTOCK" />
+          <ScalarProperty Name="NOMPRODUIT" ColumnName="NOMPRODUIT" />
+          <ScalarProperty Name="PRIXDEVENTE" ColumnName="PRIXDEVENTE" />
+          <ScalarProperty Name="PRIXACHAT" ColumnName="PRIXACHAT" />
+          <ScalarProperty Name="MEDICAMENT" ColumnName="MEDICAMENT" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUIT_VENDU">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.PRODUIT_VENDU">
+        <MappingFragment StoreEntitySet="PRODUIT_VENDU">
+          <ScalarProperty Name="IDFACTURE" ColumnName="IDFACTURE" />
+          <ScalarProperty Name="IDPRODUIT" ColumnName="IDPRODUIT" />
+          <ScalarProperty Name="QUANTITÉ" ColumnName="QUANTITÉ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RENDEZVOUS">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.RENDEZVOUS">
+        <MappingFragment StoreEntitySet="RENDEZVOUS">
+          <ScalarProperty Name="IDRDV" ColumnName="IDRDV" />
+          <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
+          <ScalarProperty Name="CLIENT" ColumnName="CLIENT" />
+          <ScalarProperty Name="HEURE" ColumnName="HEURE" />
+          <ScalarProperty Name="RAISON" ColumnName="RAISON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALARIÉ">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.SALARIÉ">
+        <MappingFragment StoreEntitySet="SALARIÉ">
+          <ScalarProperty Name="IDCOMPTE" ColumnName="IDCOMPTE" />
+          <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+          <ScalarProperty Name="DONNEES_PERSONNELLES" ColumnName="DONNEES_PERSONNELLES" />
+          <ScalarProperty Name="estAdmin" ColumnName="estAdmin" />
+          <ScalarProperty Name="MDP" ColumnName="MDP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOIN">
+      <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.SOIN">
+        <MappingFragment StoreEntitySet="SOIN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="A_CONTRACTÉ" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.A_CONTRACTÉ" StoreEntitySet="A_CONTRACTÉ">
+      <EndProperty Name="ANIMAL">
+        <ScalarProperty Name="IDANIMAL" ColumnName="IDANIMAL" />
+      </EndProperty>
+      <EndProperty Name="HISTORIQUEMALADIE">
+        <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="A_ÉTÉ_CONTRACTÉ" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.A_ÉTÉ_CONTRACTÉ" StoreEntitySet="A_ÉTÉ_CONTRACTÉ">
+      <EndProperty Name="HISTORIQUEMALADIE">
+        <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+      </EndProperty>
+      <EndProperty Name="MALADIE">
+        <ScalarProperty Name="IDMALADIE" ColumnName="IDMALADIE" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EST_DANS_LE_SOIN" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_DANS_LE_SOIN" StoreEntitySet="EST_DANS_LE_SOIN">
+      <EndProperty Name="PRODUIT">
+        <ScalarProperty Name="IDPRODUIT" ColumnName="IDPRODUIT" />
+      </EndProperty>
+      <EndProperty Name="SOIN">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EST_SOIGNÉ" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_SOIGNÉ" StoreEntitySet="EST_SOIGNÉ">
+      <EndProperty Name="MALADIE">
+        <ScalarProperty Name="IDMALADIE" ColumnName="IDMALADIE" />
+      </EndProperty>
+      <EndProperty Name="SOIN">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ESTENCONGÉ" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.ESTENCONGÉ" StoreEntitySet="ESTENCONGÉ">
+      <EndProperty Name="CONGÉ">
+        <ScalarProperty Name="DATEDEBUT" ColumnName="DATEDEBUT" />
+        <ScalarProperty Name="DATEFIN" ColumnName="DATEFIN" />
+      </EndProperty>
+      <EndProperty Name="SALARIÉ">
+        <ScalarProperty Name="IDCOMPTE" ColumnName="IDCOMPTE" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

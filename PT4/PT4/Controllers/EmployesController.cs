@@ -49,6 +49,13 @@ namespace PT4.Controllers
             _salarieRepo.Save();
         }
 
+        public SALARIÉ Connexion(string login, string clearPwd)
+        {
+            byte[] hashedPwd = SHA256.Create(clearPwd).ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
+            SALARIÉ salarie = _salarieRepo.FindWhere(s => s.LOGIN == login && s.MDP.SequenceEqual(hashedPwd)).FirstOrDefault();
+            return salarie;
+        }
+
         /// <summary>
         /// Gets all the holidays of the worker with the specified login
         /// </summary>
