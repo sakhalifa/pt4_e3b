@@ -49,6 +49,13 @@ namespace PT4.Controllers
             _salarieRepo.Save();
         }
 
+        /// <summary>
+        /// Allows to get the [<see cref="SALARIÉ"/>] object that has the corresponding credentials.
+        /// Returns null if the credentials are not valid
+        /// </summary>
+        /// <param name="login">The worker's login</param>
+        /// <param name="clearPwd">The worker's password in clear text</param>
+        /// <returns></returns>
         public SALARIÉ Connexion(string login, string clearPwd)
         {
             byte[] hashedPwd = SHA256.Create(clearPwd).ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
