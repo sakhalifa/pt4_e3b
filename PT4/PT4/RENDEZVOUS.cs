@@ -16,10 +16,9 @@ namespace PT4
     {
         public short IDRDV { get; set; }
         public short IDCLIENT { get; set; }
-        public string CLIENT { get; set; }
-        public System.DateTime HEURE { get; set; }
         public string RAISON { get; set; }
+        public System.DateTime DATEHEURERDV { get; set; }
     
-        public virtual CLIENT CLIENT1 { get; set; }
+        public virtual CLIENT CLIENT { get; set; }
     }
 }

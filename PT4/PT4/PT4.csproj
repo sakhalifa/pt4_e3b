@@ -80,6 +80,7 @@
     <Compile Include="CONGÉ.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\MaladiesController.cs" />
     <Compile Include="Controllers\EmployesController.cs" />
     <Compile Include="DBModel.Context.cs">
       <AutoGen>True</AutoGen>

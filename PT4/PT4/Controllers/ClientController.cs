@@ -10,6 +10,7 @@ namespace PT4.Controllers
     internal class ClientController
     {
         private IClientRepository _clientRepository;
+        private IRendezVousRepository _rendezVousRepository;
 
         /// <summary>
         /// Constructor of the ClientController object
@@ -29,6 +30,12 @@ namespace PT4.Controllers
         /// <param name="email">Their email (can't be null)</param>
         public void CreerClient(string nom, string prenom, string numero, string email)
         {
+            CLIENT client = _clientRepository.FindWhere(c => c.EMAIL == email).FirstOrDefault();
+            if (client != null)
+            {
+                throw new Exception("Cette adresse mail est déjà utilisée");
+
+            }
             _clientRepository.Insert(new CLIENT
             {
                 EMAIL = email,
@@ -37,5 +44,23 @@ namespace PT4.Controllers
                 NOMCLIENT = nom
             });
         }
+
+
+
+        public void CreerRendezVous( CLIENT client, DateTime dateRdv, string raison)
+        {
+
+          /*  RENDEZVOUS rdv = _rendezVousRepository.FindWhere(rdv => rdv.DATEHEURERDV.Day == dateRdv.Day)*/
+            _rendezVousRepository.Insert(new RENDEZVOUS {
+                CLIENT = client,
+                DATEHEURERDV = dateRdv,
+                RAISON = raison
+            });
+        }
+
+        
+
+
+
     }
 }

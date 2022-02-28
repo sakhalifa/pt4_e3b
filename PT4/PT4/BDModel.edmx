@@ -42,7 +42,6 @@
           <Property Name="NOMCLIENT" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="PRENOMCLIENT" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="NUMERO" Type="varchar" MaxLength="12" />
-          <Property Name="ANIMAL" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="EMAIL" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="CONGÉ">
@@ -140,9 +139,8 @@
           </Key>
           <Property Name="IDRDV" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDCLIENT" Type="smallint" Nullable="false" />
-          <Property Name="CLIENT" Type="varchar" MaxLength="128" Nullable="false" />
-          <Property Name="HEURE" Type="datetime" Nullable="false" />
           <Property Name="RAISON" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="DATEHEURERDV" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="SALARIÉ">
           <Key>
@@ -484,7 +482,7 @@
           <Property Name="PRENOMCLIENT" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NUMERO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="EMAIL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ANIMAL1" Relationship="Self.FK_ANIMAL_CLIENT" FromRole="CLIENT" ToRole="ANIMAL" />
+          <NavigationProperty Name="ANIMAL" Relationship="Self.FK_ANIMAL_CLIENT" FromRole="CLIENT" ToRole="ANIMAL" />
           <NavigationProperty Name="FACTURE" Relationship="Self.FK_FACTURE_CLIENT" FromRole="CLIENT" ToRole="FACTURE" />
           <NavigationProperty Name="RENDEZVOUS" Relationship="Self.FK_RENDEZVOUS_CLIENT" FromRole="CLIENT" ToRole="RENDEZVOUS" />
         </EntityType>
@@ -570,10 +568,9 @@
           </Key>
           <Property Name="IDRDV" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDCLIENT" Type="Int16" Nullable="false" />
-          <Property Name="CLIENT" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="HEURE" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="RAISON" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CLIENT1" Relationship="Self.FK_RENDEZVOUS_CLIENT" FromRole="RENDEZVOUS" ToRole="CLIENT" />
+          <Property Name="DATEHEURERDV" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CLIENT" Relationship="Self.FK_RENDEZVOUS_CLIENT" FromRole="RENDEZVOUS" ToRole="CLIENT" />
         </EntityType>
         <EntityType Name="SALARIÉ">
           <Key>
@@ -866,9 +863,8 @@
               <MappingFragment StoreEntitySet="RENDEZVOUS">
                 <ScalarProperty Name="IDRDV" ColumnName="IDRDV" />
                 <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
-                <ScalarProperty Name="CLIENT" ColumnName="CLIENT" />
-                <ScalarProperty Name="HEURE" ColumnName="HEURE" />
                 <ScalarProperty Name="RAISON" ColumnName="RAISON" />
+                <ScalarProperty Name="DATEHEURERDV" ColumnName="DATEHEURERDV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

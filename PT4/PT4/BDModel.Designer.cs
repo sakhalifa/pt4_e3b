@@ -1,4 +1,4 @@
-﻿// La génération de code T4 est activée pour le modèle '\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\BDModel.edmx'. 
+﻿// La génération de code T4 est activée pour le modèle '\\iut.bx1\Etudiants\Home\dovidal\Desktop\PT4_14_Fevrier\pt4_e3b\PT4\PT4\BDModel.edmx'. 
 // Pour activer la génération de code héritée, définissez la valeur de la propriété
 // du concepteur 'Stratégie de génération de code' sur 'ObjectContext hérité'. Cette propriété est disponible dans la fenêtre Propriétés lorsque le modèle
 //  est ouvert dans le concepteur.
