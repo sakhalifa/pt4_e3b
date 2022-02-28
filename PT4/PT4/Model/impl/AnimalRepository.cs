@@ -67,7 +67,7 @@ namespace PT4.Model.impl
             GC.SuppressFinalize(this);
         }
 
-        public IEnumerable<CONGÉ> FindWhere(Expression<Func<ANIMAL, bool>> predicate)
+        public IEnumerable<ANIMAL> FindWhere(Expression<Func<ANIMAL, bool>> predicate)
         {
             return context.ANIMAL.Where(predicate);
         }

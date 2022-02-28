@@ -47,5 +47,19 @@ namespace PT4.Controllers
         {
             return _maladieRepo.FindAll();
         }
+
+        /// <summary>
+        /// Search a sickness according to certain criterias. If a criteria is null, it is ignored.
+        /// </summary>
+        /// <param name="nom">The name of the sickness</param>
+        /// <param name="estSoignable">Does it have at least 1 care assigned to it?</param>
+        /// <param name="aEteContracte">Has it been contracted at least once?</param>
+        /// <returns></returns>
+        public IEnumerable<MALADIE> RechercherMaladies(string nom = null, bool? estSoignable = null, bool? aEteContracte = null)
+        {
+            return _maladieRepo.FindWhere(m => (nom == null || m.NOMMALADIE == nom)
+            && (estSoignable == null || (estSoignable.Value ? m.SOIN.Count > 0 : m.SOIN.Count == 0))
+            && (aEteContracte == null || (aEteContracte.Value ? m.HISTORIQUEMALADIE.Count > 0 : m.HISTORIQUEMALADIE.Count == 0)));
+        }
     }
 }

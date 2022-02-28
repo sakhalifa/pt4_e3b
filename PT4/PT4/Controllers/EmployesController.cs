@@ -50,6 +50,20 @@ namespace PT4.Controllers
         }
 
         /// <summary>
+        /// Allows to get the [<see cref="SALARIÉ"/>] object that has the corresponding credentials.
+        /// Returns null if the credentials are not valid
+        /// </summary>
+        /// <param name="login">The worker's login</param>
+        /// <param name="clearPwd">The worker's password in clear text</param>
+        /// <returns></returns>
+        public SALARIÉ Connexion(string login, string clearPwd)
+        {
+            byte[] hashedPwd = SHA256.Create(clearPwd).ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
+            SALARIÉ salarie = _salarieRepo.FindWhere(s => s.LOGIN == login && s.MDP.SequenceEqual(hashedPwd)).FirstOrDefault();
+            return salarie;
+        }
+
+        /// <summary>
         /// Gets all the holidays of the worker with the specified login
         /// </summary>
         /// <param name="login">The login of the worker which we want their holidays</param>

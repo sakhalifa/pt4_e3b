@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fe431df892454729b29942438055cbba" Name="Diagram1">
+      <Diagram DiagramId="5a03b98eee4c49e0a4b7651bb55b656b" Name="Diagram1">
         <EntityTypeShape EntityType="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.ANIMAL" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.CLIENT" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.CLIENT" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.CONGÉ" Width="1.5" PointX="9.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.FACTURE" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.HISTORIQUEMALADIE" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
