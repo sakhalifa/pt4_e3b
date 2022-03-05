@@ -47,20 +47,28 @@ namespace PT4.Controllers
 
 
 
-        public void CreerRendezVous( CLIENT client, DateTime dateRdv, string raison)
+        public void CreerRendezVous(CLIENT client, DateTime dateRdv, string raison, DateTime finRdv)
         {
 
-          /*  RENDEZVOUS rdv = _rendezVousRepository.FindWhere(rdv => rdv.DATEHEURERDV.Day == dateRdv.Day)*/
-            _rendezVousRepository.Insert(new RENDEZVOUS {
+            IEnumerable<RENDEZVOUS> jourRdv = _rendezVousRepository.FindWhere(j => j.DATEHEURERDV.Day == dateRdv.Day);
+            foreach (RENDEZVOUS rdv in jourRdv)
+            {
+                TimeSpan durée = rdv.HEUREFINRDV - rdv.DATEHEURERDV;
+                if ((dateRdv >= rdv.DATEHEURERDV && dateRdv <= rdv.HEUREFINRDV)
+                  || (finRdv >= rdv.DATEHEURERDV && finRdv <= rdv.HEUREFINRDV))
+                {
+                    throw new Exception("Cet horaire n'est pas disponible.");
+                }
+            }
+            _rendezVousRepository.Insert(new RENDEZVOUS
+            {
                 CLIENT = client,
                 DATEHEURERDV = dateRdv,
-                RAISON = raison
+                RAISON = raison,
+                HEUREFINRDV = finRdv
             });
+
+            _rendezVousRepository.Save();
         }
-
-        
-
-
-
     }
 }

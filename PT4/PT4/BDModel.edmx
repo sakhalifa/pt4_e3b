@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="A_CONTRACTÉ">
           <Key>
             <PropertyRef Name="DATEDEBUT" />
@@ -32,7 +32,7 @@
           <Property Name="NOMANIMAL" Type="varchar" MaxLength="128" />
           <Property Name="DATENAISSANCE" Type="datetime" />
           <Property Name="TAILLE" Type="smallint" Nullable="false" />
-          <Property Name="POIDS" Type="smallint" Nullable="false" />
+          <Property Name="POIDS" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CLIENT">
           <Key>
@@ -141,6 +141,7 @@
           <Property Name="IDCLIENT" Type="smallint" Nullable="false" />
           <Property Name="RAISON" Type="varchar" MaxLength="128" Nullable="false" />
           <Property Name="DATEHEURERDV" Type="datetime" Nullable="false" />
+          <Property Name="HEUREFINRDV" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="SALARIÉ">
           <Key>
@@ -452,8 +453,7 @@
             <End Role="RENDEZVOUS" EntitySet="RENDEZVOUS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -468,7 +468,7 @@
           <Property Name="NOMANIMAL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="DATENAISSANCE" Type="DateTime" Precision="3" />
           <Property Name="TAILLE" Type="Int16" Nullable="false" />
-          <Property Name="POIDS" Type="Int16" Nullable="false" />
+          <Property Name="POIDS" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CLIENT" Relationship="Self.FK_ANIMAL_CLIENT" FromRole="ANIMAL" ToRole="CLIENT" />
           <NavigationProperty Name="ORDONNANCE" Relationship="Self.FK_ORDONNANCE_ANIMAL" FromRole="ANIMAL" ToRole="ORDONNANCE" />
           <NavigationProperty Name="HISTORIQUEMALADIE" Relationship="Self.A_CONTRACTÉ" FromRole="ANIMAL" ToRole="HISTORIQUEMALADIE" />
@@ -571,6 +571,7 @@
           <Property Name="RAISON" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DATEHEURERDV" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="CLIENT" Relationship="Self.FK_RENDEZVOUS_CLIENT" FromRole="RENDEZVOUS" ToRole="CLIENT" />
+          <Property Name="HEUREFINRDV" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="SALARIÉ">
           <Key>
@@ -861,6 +862,7 @@
           <EntitySetMapping Name="RENDEZVOUS">
             <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.RENDEZVOUS">
               <MappingFragment StoreEntitySet="RENDEZVOUS">
+                <ScalarProperty Name="HEUREFINRDV" ColumnName="HEUREFINRDV" />
                 <ScalarProperty Name="IDRDV" ColumnName="IDRDV" />
                 <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
                 <ScalarProperty Name="RAISON" ColumnName="RAISON" />

@@ -28,7 +28,7 @@ namespace PT4
         public string NOMANIMAL { get; set; }
         public Nullable<System.DateTime> DATENAISSANCE { get; set; }
         public short TAILLE { get; set; }
-        public short POIDS { get; set; }
+        public int POIDS { get; set; }
     
         public virtual CLIENT CLIENT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
