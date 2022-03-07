@@ -1,7 +1,7 @@
 ﻿
 namespace PT4
 {
-    partial class MenuAccueil
+    partial class MenuHamberger
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
