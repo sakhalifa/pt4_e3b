@@ -7,7 +7,7 @@ using PT4.Model.dal;
 
 namespace PT4.Controllers
 {
-    class AnimalController
+    public class AnimalController
     {
 
         private IAnimalRepository _animalRepository;
