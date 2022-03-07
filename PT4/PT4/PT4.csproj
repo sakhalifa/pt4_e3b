@@ -258,6 +258,8 @@
     <Compile Include="Controllers\EmployesController.cs" />
     <Compile Include="Controllers\FactureController.cs" />
     <Compile Include="Controllers\MaladiesController.cs" />
+	<Compile Include="Controllers\OrdonnanceController.cs" />
+	<Compile Include="Controllers\SoinController.cs" />
     <Compile Include="FACTURE.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>

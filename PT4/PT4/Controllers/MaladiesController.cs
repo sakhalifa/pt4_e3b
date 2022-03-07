@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
-    internal class MaladiesController
+    public class MaladiesController
     {
         private IMaladieRepository _maladieRepo;
         /// <summary>

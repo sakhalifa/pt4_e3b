@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
-    internal class OrdonnanceController
+    public class OrdonnanceController
     {
         private IOrdonnanceRepository _ordonnanceRepository;
 
