@@ -132,6 +132,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+	<Compile Include="GestionPlanning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionPlanning.Designer.cs">
+      <DependentUpon>GestionPlanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAcceuil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuAcceuil.Designer.cs">
+      <DependentUpon>MenuAcceuil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuHamberger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuHamberger.Designer.cs">
+      <DependentUpon>MenuHamberger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Connexion.Designer.cs">
+      <DependentUpon>Connexion.cs</DependentUpon>
+    </Compile>
     <Compile Include="ANIMAL.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
@@ -217,6 +241,18 @@
     <Compile Include="SOIN.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
+	<EmbeddedResource Include="GestionPlanning.resx">
+      <DependentUpon>GestionPlanning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAcceuil.resx">
+      <DependentUpon>MenuAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuHamberger.resx">
+      <DependentUpon>MenuHamberger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Connexion.resx">
+      <DependentUpon>Connexion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
