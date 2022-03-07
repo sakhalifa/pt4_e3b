@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class MenuAccueil : Form
+    public partial class MenuHamberger : Form
     {
-        public MenuAccueil()
+        public MenuHamberger()
         {
             InitializeComponent();
             customizeDesign();
