@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using PT4.Model.dal;
 using PT4.Model.impl;
 using System.Data.Entity;
+using PT4.Controllers;
 
 namespace PT4
 {
@@ -23,7 +24,16 @@ namespace PT4
                     .AddSingleton<IOrdonnanceRepository, OrdonnanceRepository>()
                     .AddSingleton<IProduitRepository, ProduitRepository>()
                     .AddSingleton<IRendezVousRepository, RendezVousRepository>()
-                    .AddSingleton<ISalarieRepository, SalarieRepository>();
+                    .AddSingleton<ISalarieRepository, SalarieRepository>()
+                    .AddSingleton<AnimalController>()
+                    .AddSingleton<ClientController>()
+                    .AddSingleton<EmployesController>()
+                    .AddSingleton<FactureController>()
+                    .AddSingleton<MaladieRepository>()
+                    .AddSingleton<OrdonnanceRepository>()
+                    .AddSingleton<ProduitController>()
+                    .AddSingleton<SoinController>()
+            ;
             services.AddSingleton(services);
         }
 

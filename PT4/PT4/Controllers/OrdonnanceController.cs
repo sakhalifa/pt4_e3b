@@ -13,7 +13,7 @@ namespace PT4.Controllers
 
         public OrdonnanceController(IOrdonnanceRepository ordonnanceRepository)
         {
-            ordonnanceRepository = _ordonnanceRepository;
+            _ordonnanceRepository = ordonnanceRepository;
         }
 
         public void CreerOrdonnance(DateTime dateOrdonnance)
