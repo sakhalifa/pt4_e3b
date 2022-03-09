@@ -16,5 +16,10 @@ namespace PT4
         {
             InitializeComponent();
         }
+
+        private void buttonAnnuler_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
