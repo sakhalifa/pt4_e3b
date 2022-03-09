@@ -82,21 +82,26 @@ namespace PT4
             // 
             // buttonAnnuler
             // 
+            this.buttonAnnuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
+            this.buttonAnnuler.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.buttonAnnuler.Location = new System.Drawing.Point(69, 255);
             this.buttonAnnuler.Name = "buttonAnnuler";
             this.buttonAnnuler.Size = new System.Drawing.Size(75, 23);
             this.buttonAnnuler.TabIndex = 5;
             this.buttonAnnuler.Text = "Annuler";
-            this.buttonAnnuler.UseVisualStyleBackColor = true;
+            this.buttonAnnuler.UseVisualStyleBackColor = false;
+            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
             // buttonConfirmer
             // 
+            this.buttonConfirmer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(110)))), ((int)(((byte)(73)))));
+            this.buttonConfirmer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonConfirmer.Location = new System.Drawing.Point(194, 255);
             this.buttonConfirmer.Name = "buttonConfirmer";
             this.buttonConfirmer.Size = new System.Drawing.Size(75, 23);
             this.buttonConfirmer.TabIndex = 6;
             this.buttonConfirmer.Text = "Confirmer";
-            this.buttonConfirmer.UseVisualStyleBackColor = true;
+            this.buttonConfirmer.UseVisualStyleBackColor = false;
             // 
             // ajouterConge
             // 

@@ -68,7 +68,7 @@ namespace PT4
             // 
             // buttonConnexion
             // 
-            this.buttonConnexion.BackColor = System.Drawing.Color.Transparent;
+            this.buttonConnexion.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonConnexion.Location = new System.Drawing.Point(353, 226);
             this.buttonConnexion.Name = "buttonConnexion";
             this.buttonConnexion.Size = new System.Drawing.Size(75, 23);
