@@ -68,23 +68,25 @@ namespace PT4
             // 
             // buttonConnexion
             // 
+            this.buttonConnexion.BackColor = System.Drawing.Color.Transparent;
             this.buttonConnexion.Location = new System.Drawing.Point(353, 226);
             this.buttonConnexion.Name = "buttonConnexion";
             this.buttonConnexion.Size = new System.Drawing.Size(75, 23);
             this.buttonConnexion.TabIndex = 3;
             this.buttonConnexion.Text = "Connexion";
-            this.buttonConnexion.UseVisualStyleBackColor = true;
+            this.buttonConnexion.UseVisualStyleBackColor = false;
             // 
-            // newCompte
+            // AjouterCompte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(210)))), ((int)(((byte)(189)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonConnexion);
             this.Controls.Add(this.textBoxCompte);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.titre);
-            this.Name = "newCompte";
+            this.Name = "AjouterCompte";
             this.Text = "newCompte";
             this.ResumeLayout(false);
             this.PerformLayout();
