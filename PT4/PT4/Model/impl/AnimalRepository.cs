@@ -10,41 +10,42 @@ namespace PT4.Model.impl
 {
     class AnimalRepository : IGenericRepository<ANIMAL>, IDisposable
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
+        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities _context;
 
         public AnimalRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
         {
-            this.context = context;
+            this._context = context;
         }
+
 
         public IEnumerable<ANIMAL> FindAll()
         {
-            return context.ANIMAL.ToList();
+            return _context.ANIMAL.ToList();
         }
 
         public ANIMAL FindById(int animalId)
         {
-            return context.ANIMAL.Find(animalId);
+            return _context.ANIMAL.Find(animalId);
         }
 
         public void Insert(ANIMAL animal)
         {
-            context.ANIMAL.Add(animal);
+            _context.ANIMAL.Add(animal);
         }
 
         public void Delete(int animalId)
         {
-            context.ANIMAL.Remove(context.ANIMAL.Find(animalId));
+            _context.ANIMAL.Remove(_context.ANIMAL.Find(animalId));
         }
 
         public void Update(ANIMAL animal)
         {
-            context.Entry(animal).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(animal).State = System.Data.Entity.EntityState.Modified;
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         private bool disposed = false;
@@ -55,7 +56,7 @@ namespace PT4.Model.impl
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    _context.Dispose();
                 }
             }
             this.disposed = true;
@@ -69,7 +70,7 @@ namespace PT4.Model.impl
 
         public IEnumerable<ANIMAL> FindWhere(Expression<Func<ANIMAL, bool>> predicate)
         {
-            return context.ANIMAL.Where(predicate);
+            return _context.ANIMAL.Where(predicate);
         }
     }
 }

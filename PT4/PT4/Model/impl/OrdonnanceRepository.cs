@@ -10,41 +10,41 @@ namespace PT4.Model.impl
 {
     class OrdonnanceRepository : IGenericRepository<ORDONNANCE>, IDisposable
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
+        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities _context;
 
         public OrdonnanceRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
         {
-            this.context = context;
+            this._context = context;
         }
 
         public IEnumerable<ORDONNANCE> FindAll()
         {
-            return context.ORDONNANCE.ToList();
+            return _context.ORDONNANCE.ToList();
         }
 
         public ORDONNANCE FindById(int id)
         {
-            return context.ORDONNANCE.Find(id);
+            return _context.ORDONNANCE.Find(id);
         }
 
         public void Insert(ORDONNANCE obj)
         {
-            context.ORDONNANCE.Add(obj);
+            _context.ORDONNANCE.Add(obj);
         }
 
         public void Delete(int id)
         {
-            context.ORDONNANCE.Remove(context.ORDONNANCE.Find(id));
+            _context.ORDONNANCE.Remove(_context.ORDONNANCE.Find(id));
         }
 
         public void Update(ORDONNANCE obj)
         {
-            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         private bool disposed = false;
@@ -55,7 +55,7 @@ namespace PT4.Model.impl
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    _context.Dispose();
                 }
             }
             this.disposed = true;
@@ -69,7 +69,7 @@ namespace PT4.Model.impl
 
         public IEnumerable<ORDONNANCE> FindWhere(Expression<Func<ORDONNANCE, bool>> predicate)
         {
-            return context.ORDONNANCE.Where(predicate);
+            return _context.ORDONNANCE.Where(predicate);
         }
     }
 }

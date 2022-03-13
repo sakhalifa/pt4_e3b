@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -9,6 +10,8 @@ namespace PT4.Model.dal
 {
     public interface IGenericRepository<T> : IDisposable
     {
+
+
         /// <summary>
         /// Gets every <typeparamref name="T"/> in the database
         /// </summary>

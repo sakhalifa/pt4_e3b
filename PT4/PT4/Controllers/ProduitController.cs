@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
+    public delegate void OnChangedProduct(IEnumerable<PRODUIT> prodsChanged);
     public class ProduitController
     {
+
+        public event OnChangedProduct ChangedProductHandler;
         private IGenericRepository<PRODUIT> _produitRepository;
 
         public ProduitController(IGenericRepository<PRODUIT> produitRepository)
@@ -28,6 +31,7 @@ namespace PT4.Controllers
         public void CreerOuMaJProduit(string nom, decimal prixVente, decimal prixAchat, int quantite, string description, bool estMedicament, bool add)
         {
             PRODUIT prod = _produitRepository.FindWhere(p => p.NOMPRODUIT == nom).FirstOrDefault();
+            List<PRODUIT> productsChanged = new List<PRODUIT>();
             if(prod == null)
             {
                 prod = new PRODUIT()
@@ -39,6 +43,7 @@ namespace PT4.Controllers
                     PRIXDEVENTE = prixVente,
                     QUANTITEENSTOCK = (short)quantite
                 };
+                productsChanged.Add(prod);
                 _produitRepository.Insert(prod);
             }
             else
@@ -47,16 +52,29 @@ namespace PT4.Controllers
                 {
                     quantite += prod.QUANTITEENSTOCK;
                 }
-
+                //Si on a rien changé alors on fait pas le reste
+                if (prod.PRIXACHAT == prixAchat
+                    && prod.DESCRIPTION == description
+                    && prod.MEDICAMENT == estMedicament
+                    && prod.PRIXDEVENTE == prixVente
+                    && prod.QUANTITEENSTOCK == (short)(quantite))
+                    return;
                 prod.PRIXACHAT = prixAchat;
                 prod.DESCRIPTION = description;
                 prod.MEDICAMENT = estMedicament;
                 prod.PRIXDEVENTE = prixVente;
                 prod.QUANTITEENSTOCK = (short)(quantite);
-                
+                productsChanged.Add(prod);
                 _produitRepository.Update(prod);
             }
             _produitRepository.Save();
+
+            ChangedProductHandler?.Invoke(productsChanged);
+        }
+
+        public PRODUIT FindByName(string name)
+        {
+            return _produitRepository.FindWhere(p => p.NOMPRODUIT == name).FirstOrDefault();
         }
     }
 }

@@ -10,41 +10,41 @@ namespace PT4.Model.impl
 {
     class FactureRepository : IGenericRepository<FACTURE>, IDisposable
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
+        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities _context;
 
         public FactureRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
         {
-            this.context = context;
+            this._context = context;
         }
 
         public IEnumerable<FACTURE> FindAll()
         {
-            return context.FACTURE.ToList();
+            return _context.FACTURE.ToList();
         }
 
         public FACTURE FindById(int id)
         {
-            return context.FACTURE.Find(id);
+            return _context.FACTURE.Find(id);
         }
 
         public void Insert(FACTURE obj)
         {
-            context.FACTURE.Add(obj);
+            _context.FACTURE.Add(obj);
         }
 
         public void Delete(int id)
         {
-            context.FACTURE.Remove(context.FACTURE.Find(id));
+            _context.FACTURE.Remove(_context.FACTURE.Find(id));
         }
 
         public void Update(FACTURE obj)
         {
-            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         private bool disposed = false;
@@ -55,7 +55,7 @@ namespace PT4.Model.impl
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    _context.Dispose();
                 }
             }
             this.disposed = true;
@@ -69,7 +69,7 @@ namespace PT4.Model.impl
 
         public IEnumerable<FACTURE> FindWhere(Expression<Func<FACTURE, bool>> predicate)
         {
-            return context.FACTURE.Where(predicate);
+            return _context.FACTURE.Where(predicate);
         }
     }
 }

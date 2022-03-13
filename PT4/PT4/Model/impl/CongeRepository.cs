@@ -10,41 +10,41 @@ namespace PT4.Model.impl
 {
     class CongeRepository : IGenericRepository<CONGÉ>, IDisposable
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
+        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities _context;
 
         public CongeRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
         {
-            this.context = context;
+            this._context = context;
         }
 
         public IEnumerable<CONGÉ> FindAll()
         {
-            return context.CONGÉ.ToList();
+            return _context.CONGÉ.ToList();
         }
 
         public CONGÉ FindById(int id)
         {
-            return context.CONGÉ.Find(id);
+            return _context.CONGÉ.Find(id);
         }
 
         public void Insert(CONGÉ obj)
         {
-            context.CONGÉ.Add(obj);
+            _context.CONGÉ.Add(obj);
         }
 
         public void Delete(int id)
         {
-            context.CONGÉ.Remove(context.CONGÉ.Find(id));
+            _context.CONGÉ.Remove(_context.CONGÉ.Find(id));
         }
 
         public void Update(CONGÉ obj)
         {
-            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         private bool disposed = false;
@@ -55,7 +55,7 @@ namespace PT4.Model.impl
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    _context.Dispose();
                 }
             }
             this.disposed = true;
@@ -69,7 +69,7 @@ namespace PT4.Model.impl
 
         public IEnumerable<CONGÉ> FindWhere(Expression<Func<CONGÉ, bool>> predicate)
         {
-            return context.CONGÉ.Where(predicate);
+            return _context.CONGÉ.Where(predicate);
         }
     }
 }

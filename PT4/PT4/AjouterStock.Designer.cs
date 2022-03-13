@@ -43,6 +43,7 @@ namespace PT4
             this.estMedic = new System.Windows.Forms.CheckBox();
             this.prixAchat = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
+            this.modifier = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.quantite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prixVente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prixAchat)).BeginInit();
@@ -60,7 +61,7 @@ namespace PT4
             // 
             // buttonAjouter
             // 
-            this.buttonAjouter.Location = new System.Drawing.Point(184, 417);
+            this.buttonAjouter.Location = new System.Drawing.Point(217, 417);
             this.buttonAjouter.Name = "buttonAjouter";
             this.buttonAjouter.Size = new System.Drawing.Size(75, 23);
             this.buttonAjouter.TabIndex = 22;
@@ -70,7 +71,7 @@ namespace PT4
             // 
             // buttonAnnuler
             // 
-            this.buttonAnnuler.Location = new System.Drawing.Point(48, 417);
+            this.buttonAnnuler.Location = new System.Drawing.Point(16, 417);
             this.buttonAnnuler.Name = "buttonAnnuler";
             this.buttonAnnuler.Size = new System.Drawing.Size(75, 23);
             this.buttonAnnuler.TabIndex = 20;
@@ -88,6 +89,11 @@ namespace PT4
             // quantite
             // 
             this.quantite.Location = new System.Drawing.Point(48, 167);
+            this.quantite.Maximum = new decimal(new int[] {
+            32767,
+            0,
+            0,
+            0});
             this.quantite.Name = "quantite";
             this.quantite.Size = new System.Drawing.Size(120, 20);
             this.quantite.TabIndex = 18;
@@ -95,6 +101,11 @@ namespace PT4
             // prixVente
             // 
             this.prixVente.Location = new System.Drawing.Point(48, 128);
+            this.prixVente.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
             this.prixVente.Name = "prixVente";
             this.prixVente.Size = new System.Drawing.Size(120, 20);
             this.prixVente.TabIndex = 17;
@@ -105,6 +116,8 @@ namespace PT4
             this.nom.Name = "nom";
             this.nom.Size = new System.Drawing.Size(100, 20);
             this.nom.TabIndex = 16;
+            this.nom.TextChanged += new System.EventHandler(this.nom_TextChanged);
+            this.nom.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nom_KeyDown);
             // 
             // label5
             // 
@@ -155,6 +168,11 @@ namespace PT4
             // prixAchat
             // 
             this.prixAchat.Location = new System.Drawing.Point(48, 89);
+            this.prixAchat.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
             this.prixAchat.Name = "prixAchat";
             this.prixAchat.Size = new System.Drawing.Size(120, 20);
             this.prixAchat.TabIndex = 25;
@@ -168,11 +186,22 @@ namespace PT4
             this.label6.TabIndex = 24;
             this.label6.Text = "Prix d\'achat";
             // 
+            // modifier
+            // 
+            this.modifier.Location = new System.Drawing.Point(115, 417);
+            this.modifier.Name = "modifier";
+            this.modifier.Size = new System.Drawing.Size(75, 23);
+            this.modifier.TabIndex = 26;
+            this.modifier.Text = "Modifier";
+            this.modifier.UseVisualStyleBackColor = true;
+            this.modifier.Click += new System.EventHandler(this.modifier_Click);
+            // 
             // AjouterStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 477);
+            this.Controls.Add(this.modifier);
             this.Controls.Add(this.prixAchat);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.estMedic);
@@ -213,5 +242,6 @@ namespace PT4
         private System.Windows.Forms.CheckBox estMedic;
         private System.Windows.Forms.NumericUpDown prixAchat;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button modifier;
     }
 }

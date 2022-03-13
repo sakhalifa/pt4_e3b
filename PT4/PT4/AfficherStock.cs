@@ -18,7 +18,17 @@ namespace PT4
         public AfficherStock(ProduitController produitController)
         {
             _produitController = produitController;
+            _produitController.ChangedProductHandler += OnChanged;
             InitializeComponent();
+        }
+
+        public void OnChanged(IEnumerable<PRODUIT> prods)
+        {
+            Console.WriteLine("Nom des produits changés :");
+            foreach(var prod in prods)
+            {
+                Console.WriteLine($"- {prod.NOMPRODUIT}");
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -46,5 +56,7 @@ namespace PT4
             AjouterStock ajouterStock = new AjouterStock(_produitController);
             ajouterStock.Show();
         }
+
+        
     }
 }

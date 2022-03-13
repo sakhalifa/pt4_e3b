@@ -10,41 +10,41 @@ namespace PT4.Model.impl
 {
     class ClientRepository : IGenericRepository<CLIENT>, IDisposable
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
+        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities _context;
 
         public ClientRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
         {
-            this.context = context;
+            this._context = context;
         }
 
         public IEnumerable<CLIENT> FindAll()
         {
-            return context.CLIENT.ToList();
+            return _context.CLIENT.ToList();
         }
 
         public CLIENT FindById(int id)
         {
-            return context.CLIENT.Find(id);
+            return _context.CLIENT.Find(id);
         }
 
         public void Insert(CLIENT obj)
         {
-            context.CLIENT.Add(obj);
+            _context.CLIENT.Add(obj);
         }
 
         public void Delete(int id)
         {
-            context.CLIENT.Remove(context.CLIENT.Find(id));
+            _context.CLIENT.Remove(_context.CLIENT.Find(id));
         }
 
         public void Update(CLIENT obj)
         {
-            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         private bool disposed = false;
@@ -55,7 +55,7 @@ namespace PT4.Model.impl
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    _context.Dispose();
                 }
             }
             this.disposed = true;
@@ -69,7 +69,7 @@ namespace PT4.Model.impl
 
         public IEnumerable<CLIENT> FindWhere(Expression<Func<CLIENT, bool>> predicate)
         {
-            return context.CLIENT.Where(predicate);
+            return _context.CLIENT.Where(predicate);
         }
     }
 }
