@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PT4.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,15 @@ namespace PT4
 {
     public partial class AfficherStock : Form
     {
-        public AfficherStock()
+        private ProduitController _produitController;
+
+        public AfficherStock(ProduitController produitController)
         {
+            _produitController = produitController;
             InitializeComponent();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -40,6 +39,12 @@ namespace PT4
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            AjouterStock ajouterStock = new AjouterStock(_produitController);
+            ajouterStock.Show();
         }
     }
 }

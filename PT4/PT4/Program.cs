@@ -16,15 +16,15 @@ namespace PT4
         private static void ConfigureServices(ServiceCollection services)
         {
             services.AddSingleton<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
-                    .AddSingleton<IAnimalRepository, AnimalRepository>()
-                    .AddSingleton<IClientRepository, ClientRepository>()
-                    .AddSingleton<ICongeRepository, CongeRepository>()
-                    .AddSingleton<IFactureRepository, FactureRepository>()
-                    .AddSingleton<IMaladieRepository, MaladieRepository>()
-                    .AddSingleton<IOrdonnanceRepository, OrdonnanceRepository>()
-                    .AddSingleton<IProduitRepository, ProduitRepository>()
-                    .AddSingleton<IRendezVousRepository, RendezVousRepository>()
-                    .AddSingleton<ISalarieRepository, SalarieRepository>()
+                    .AddSingleton<IGenericRepository<ANIMAL>, AnimalRepository>()
+                    .AddSingleton<IGenericRepository<CLIENT>, ClientRepository>()
+                    .AddSingleton<IGenericRepository<CONGÉ>, CongeRepository>()
+                    .AddSingleton<IGenericRepository<FACTURE>, FactureRepository>()
+                    .AddSingleton<IGenericRepository<MALADIE>, MaladieRepository>()
+                    .AddSingleton<IGenericRepository<ORDONNANCE>, OrdonnanceRepository>()
+                    .AddSingleton<IGenericRepository<PRODUIT>, ProduitRepository>()
+                    .AddSingleton<IGenericRepository<RENDEZVOUS>, RendezVousRepository>()
+                    .AddSingleton<IGenericRepository<SALARIÉ>, SalarieRepository>()
                     .AddSingleton<AnimalController>()
                     .AddSingleton<ClientController>()
                     .AddSingleton<EmployesController>()
@@ -43,9 +43,17 @@ namespace PT4
         [STAThread]
         static void Main()
         {
+            ServiceCollection services = new ServiceCollection();
+            ConfigureServices(services);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            services.AddScoped<MenuHamberger>();
+            using (ServiceProvider provider = services.BuildServiceProvider())
+            {
+                MenuHamberger form = provider.GetRequiredService<MenuHamberger>();
+                Application.Run(form);
+            }
             
         }
     }

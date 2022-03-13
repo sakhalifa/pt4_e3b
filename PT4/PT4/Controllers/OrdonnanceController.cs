@@ -9,9 +9,9 @@ namespace PT4.Controllers
 {
     public class OrdonnanceController
     {
-        private IOrdonnanceRepository _ordonnanceRepository;
+        private IGenericRepository<ORDONNANCE> _ordonnanceRepository;
 
-        public OrdonnanceController(IOrdonnanceRepository ordonnanceRepository)
+        public OrdonnanceController(IGenericRepository<ORDONNANCE> ordonnanceRepository)
         {
             _ordonnanceRepository = ordonnanceRepository;
         }

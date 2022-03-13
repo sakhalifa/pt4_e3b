@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class FactureRepository : IFactureRepository, IDisposable
+    class FactureRepository : IGenericRepository<FACTURE>, IDisposable
     {
         private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
 

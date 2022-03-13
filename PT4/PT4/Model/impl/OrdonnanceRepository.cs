@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class OrdonnanceRepository : IOrdonnanceRepository, IDisposable
+    class OrdonnanceRepository : IGenericRepository<ORDONNANCE>, IDisposable
     {
         private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
 

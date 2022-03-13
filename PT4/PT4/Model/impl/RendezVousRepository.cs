@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class RendezVousRepository : IRendezVousRepository, IDisposable
+    class RendezVousRepository : IGenericRepository<RENDEZVOUS>, IDisposable
     {
         private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
 

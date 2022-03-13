@@ -92,6 +92,7 @@ namespace PT4
             this.buttonAdd.TabIndex = 2;
             this.buttonAdd.Text = "+";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // textBoxRechercher
             // 

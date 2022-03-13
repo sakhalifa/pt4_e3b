@@ -29,7 +29,7 @@ namespace PT4
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAccueil));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAcceuil));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.buttonLog = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();

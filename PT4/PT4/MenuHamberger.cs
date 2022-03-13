@@ -71,8 +71,13 @@ namespace PT4
          */
         private void buttonStock_Click(object sender, EventArgs e)
         {
-            //Code
             hideSubMenu();
+            _services.AddScoped<AfficherStock>();
+            using(ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                AfficherStock form = provider.GetRequiredService<AfficherStock>();
+                form.ShowDialog();
+            }
         }
 
         /**

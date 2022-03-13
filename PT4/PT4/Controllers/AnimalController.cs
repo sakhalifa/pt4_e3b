@@ -10,9 +10,9 @@ namespace PT4.Controllers
     public class AnimalController
     {
 
-        private IAnimalRepository _animalRepository;
+        private IGenericRepository<ANIMAL> _animalRepository;
 
-        public AnimalController(IAnimalRepository animalRepository)
+        public AnimalController(IGenericRepository<ANIMAL> animalRepository)
         {
             _animalRepository = animalRepository;
         }

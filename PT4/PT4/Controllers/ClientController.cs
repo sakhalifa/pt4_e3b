@@ -9,16 +9,17 @@ namespace PT4.Controllers
 {
     internal class ClientController
     {
-        private IClientRepository _clientRepository;
-        private IRendezVousRepository _rendezVousRepository;
+        private IGenericRepository<CLIENT> _clientRepository;
+        private IGenericRepository<RENDEZVOUS> _rendezVousRepository;
 
         /// <summary>
         /// Constructor of the ClientController object
         /// </summary>
         /// <param name="clientRepository">The entity repository of the customers</param>
-        public ClientController(IClientRepository clientRepository)
+        public ClientController(IGenericRepository<CLIENT> clientRepository, IGenericRepository<RENDEZVOUS> rendezVousRepository)
         {
             _clientRepository = clientRepository;
+            _rendezVousRepository = rendezVousRepository;
         }
 
         /// <summary>

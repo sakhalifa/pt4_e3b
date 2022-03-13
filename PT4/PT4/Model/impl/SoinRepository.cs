@@ -8,43 +8,43 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class SoinRepository : ISoinRepository, IDisposable
+    class SoinRepository : IGenericRepository<SOIN>, IDisposable
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
+        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities _context;
 
         public SoinRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
         {
-            this.context = context;
+            this._context = context;
         }
 
         public IEnumerable<SOIN> FindAll()
         {
-            return context.SOIN.ToList();
+            return _context.SOIN.ToList();
         }
 
         public SOIN FindById(int id)
         {
-            return context.SOIN.Find(id);
+            return _context.SOIN.Find(id);
         }
 
         public void Insert(SOIN obj)
         {
-            context.SOIN.Add(obj);
+            _context.SOIN.Add(obj);
         }
 
         public void Delete(int id)
         {
-            context.SOIN.Remove(context.SOIN.Find(id));
+            _context.SOIN.Remove(_context.SOIN.Find(id));
         }
 
         public void Update(SOIN obj)
         {
-            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         private bool disposed = false;
@@ -55,7 +55,7 @@ namespace PT4.Model.impl
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    _context.Dispose();
                 }
             }
             this.disposed = true;
@@ -69,7 +69,7 @@ namespace PT4.Model.impl
 
         public IEnumerable<SOIN> FindWhere(Expression<Func<SOIN, bool>> predicate)
         {
-            return context.SOIN.Where(predicate);
+            return _context.SOIN.Where(predicate);
         }
     }
 }

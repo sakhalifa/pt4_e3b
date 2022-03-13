@@ -1,7 +1,7 @@
 ﻿
 namespace PT4
 {
-    partial class Form1
+    partial class MenuAcceuil
     {
         /// <summary>
         /// Required designer variable.

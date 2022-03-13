@@ -9,9 +9,9 @@ namespace PT4.Controllers
 {
     public class ProduitController
     {
-        private IProduitRepository _produitRepository;
+        private IGenericRepository<PRODUIT> _produitRepository;
 
-        public ProduitController(IProduitRepository produitRepository)
+        public ProduitController(IGenericRepository<PRODUIT> produitRepository)
         {
             _produitRepository = produitRepository;
         }

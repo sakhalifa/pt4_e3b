@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class CongeRepository : ICongeRepository, IDisposable
+    class CongeRepository : IGenericRepository<CONGÉ>, IDisposable
     {
         private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
 
