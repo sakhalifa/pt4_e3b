@@ -8,66 +8,38 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class SalarieRepository : IGenericRepository<SALARIÉ>, IDisposable
+    class SalarieRepository : AbstractRepository<SALARIÉ>
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities _context;
-
-        public SalarieRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
+        public SalarieRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
         {
-            this._context = context;
         }
 
-        public IEnumerable<SALARIÉ> FindAll()
+        public override IEnumerable<SALARIÉ> FindAll()
         {
             return _context.SALARIÉ.ToList();
         }
 
-        public SALARIÉ FindById(int id)
+        public override SALARIÉ FindById(int id)
         {
             return _context.SALARIÉ.Find(id);
         }
 
-        public void Insert(SALARIÉ obj)
+        public override void Insert(SALARIÉ obj)
         {
             _context.SALARIÉ.Add(obj);
         }
 
-        public void Delete(int id)
+        public override void Delete(int id)
         {
             _context.SALARIÉ.Remove(_context.SALARIÉ.Find(id));
         }
 
-        public void Update(SALARIÉ obj)
+        public override void Update(SALARIÉ obj)
         {
             _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    _context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public IEnumerable<SALARIÉ> FindWhere(Expression<Func<SALARIÉ, bool>> predicate)
+        public override IEnumerable<SALARIÉ> FindWhere(Expression<Func<SALARIÉ, bool>> predicate)
         {
             return _context.SALARIÉ.Where(predicate);
         }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.dal
 {
+    public delegate void OnChanged<TArgs>(IEnumerable<TArgs> args);
     public interface IGenericRepository<T> : IDisposable
     {
 
@@ -48,5 +49,9 @@ namespace PT4.Model.dal
         /// Saves all pending changes to the database
         /// </summary>
         void Save();
+
+        void Subscribe(OnChanged<T> onChanged);
+
+        void UnSubscribe(OnChanged<T> onChanged);
     }
 }

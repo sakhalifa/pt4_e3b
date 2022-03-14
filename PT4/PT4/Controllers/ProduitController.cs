@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
-    public delegate void OnChangedProduct(IEnumerable<PRODUIT> prodsChanged);
     public class ProduitController
     {
-
-        public event OnChangedProduct ChangedProductHandler;
         private IGenericRepository<PRODUIT> _produitRepository;
 
         public ProduitController(IGenericRepository<PRODUIT> produitRepository)
@@ -68,13 +65,16 @@ namespace PT4.Controllers
                 _produitRepository.Update(prod);
             }
             _produitRepository.Save();
-
-            ChangedProductHandler?.Invoke(productsChanged);
         }
 
         public PRODUIT FindByName(string name)
         {
             return _produitRepository.FindWhere(p => p.NOMPRODUIT == name).FirstOrDefault();
+        }
+
+        public void SubscribeProducts(OnChanged<PRODUIT> onChanged)
+        {
+            _produitRepository.Subscribe(onChanged);
         }
     }
 }

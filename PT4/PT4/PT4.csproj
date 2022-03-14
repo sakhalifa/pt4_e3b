@@ -188,6 +188,7 @@
       <DependentUpon>menuCompte.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\dal\IGenericRepository.cs" />
+    <Compile Include="Model\impl\AbstractRepository.cs" />
     <Compile Include="statsProduit.cs">
       <SubType>Form</SubType>
     </Compile>

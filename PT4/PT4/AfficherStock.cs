@@ -18,7 +18,7 @@ namespace PT4
         public AfficherStock(ProduitController produitController)
         {
             _produitController = produitController;
-            _produitController.ChangedProductHandler += OnChanged;
+            _produitController.SubscribeProducts(OnChanged);
             InitializeComponent();
         }
 
