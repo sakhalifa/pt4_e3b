@@ -1,6 +1,7 @@
 ﻿using PT4.Model.dal;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -8,30 +9,30 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class SoinRepository : AbstractRepository<SOIN>
+    public class SoinRepository : AbstractRepository<SOIN>
     {
-        public SoinRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
+        public SoinRepository(DbContext context) : base(context)
         {
         }
 
         public override IEnumerable<SOIN> FindAll()
         {
-            return _context.SOIN.ToList();
+            return _context.Set<SOIN>().ToList();
         }
 
         public override SOIN FindById(int id)
         {
-            return _context.SOIN.Find(id);
+            return _context.Set<SOIN>().Find(id);
         }
 
         public override void Insert(SOIN obj)
         {
-            _context.SOIN.Add(obj);
+            _context.Set<SOIN>().Add(obj);
         }
 
-        public override void Delete(int id)
+        public override void Delete(SOIN obj)
         {
-            _context.SOIN.Remove(_context.SOIN.Find(id));
+            _context.Set<SOIN>().Remove(obj);
         }
 
         public override void Update(SOIN obj)
@@ -41,7 +42,7 @@ namespace PT4.Model.impl
 
         public override IEnumerable<SOIN> FindWhere(Expression<Func<SOIN, bool>> predicate)
         {
-            return _context.SOIN.Where(predicate);
+            return _context.Set<SOIN>().Where(predicate);
         }
     }
 }

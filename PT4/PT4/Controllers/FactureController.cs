@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
-    class FactureController
+    public class FactureController
     {
         private IGenericRepository<FACTURE> _factureRepository;
 

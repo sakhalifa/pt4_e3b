@@ -1,6 +1,7 @@
 ﻿using PT4.Model.dal;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -8,30 +9,30 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class ProduitRepository : AbstractRepository<PRODUIT>
+    public class ProduitRepository : AbstractRepository<PRODUIT>
     {
-        public ProduitRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
+        public ProduitRepository(DbContext context) : base(context)
         {
         }
 
         public override IEnumerable<PRODUIT> FindAll()
         {
-            return _context.PRODUIT.ToList();
+            return _context.Set<PRODUIT>().ToList();
         }
 
         public override PRODUIT FindById(int id)
         {
-            return _context.PRODUIT.Find(id);
+            return _context.Set<PRODUIT>().Find(id);
         }
 
         public override void Insert(PRODUIT obj)
         {
-            _context.PRODUIT.Add(obj);
+            _context.Set<PRODUIT>().Add(obj);
         }
 
-        public override void Delete(int id)
+        public override void Delete(PRODUIT obj)
         {
-            _context.PRODUIT.Remove(_context.PRODUIT.Find(id));
+            _context.Set<PRODUIT>().Remove(obj);
         }
 
         public override void Update(PRODUIT obj)
@@ -41,7 +42,7 @@ namespace PT4.Model.impl
 
         public override IEnumerable<PRODUIT> FindWhere(Expression<Func<PRODUIT, bool>> predicate)
         {
-            return _context.PRODUIT.Where(predicate);
+            return _context.Set<PRODUIT>().Where(predicate);
         }
     }
 }

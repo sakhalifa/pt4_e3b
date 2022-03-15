@@ -38,8 +38,8 @@ namespace PT4.Model.dal
         /// <summary>
         /// Deletes the <typeparamref name="T"/> that has the specified id
         /// </summary>
-        /// <param name="id">The id of the <typeparamref name="T"/> we want to delete</param>
-        void Delete(int id);
+        /// <param name="obj">The  <typeparamref name="T"/> instance we want to delete</param>
+        void Delete(T obj);
         /// <summary>
         /// Tells the database that this <typeparamref name="T"/> object was updated
         /// </summary>
