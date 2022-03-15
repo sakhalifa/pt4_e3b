@@ -20,15 +20,58 @@ namespace PT4
             _produitController = produitController;
             _produitController.SubscribeProducts(OnChanged);
             InitializeComponent();
+            InitDataGridView();
+        }
+
+        private void InitDataGridView()
+        {
+            //TODO
         }
 
         public void OnChanged(IEnumerable<PRODUIT> prods)
         {
+            HashSet<PRODUIT> prodUnique = new HashSet<PRODUIT>(prods);
+            foreach(var obj in stocks.Rows)
+            {
+                DataGridViewRow row = (DataGridViewRow)obj;
+                foreach(var prod in prods)
+                {
+                    if(row.Cells["Nom"].Value == null)
+                    {
+                        row.Cells["Nom"].Value = prod.NOMPRODUIT;
+                        row.Cells["PrixVente"].Value = prod.PRIXDEVENTE;
+                        row.Cells["PrixAchat"].Value = prod.PRIXACHAT;
+                        row.Cells["Quantite"].Value = prod.QUANTITEENSTOCK;
+                        row.Cells["Description"].Value = prod.DESCRIPTION;
+                        prodUnique.Remove(prod);
+                        continue;
+                    }
+                    if (row.Cells["Nom"].Value.Equals(prod.NOMPRODUIT))
+                    {
+                        row.Cells["PrixVente"].Value = prod.PRIXDEVENTE;
+                        row.Cells["PrixAchat"].Value = prod.PRIXACHAT;
+                        row.Cells["Quantite"].Value = prod.QUANTITEENSTOCK;
+                        row.Cells["Description"].Value = prod.DESCRIPTION;
+                        prodUnique.Remove(prod);
+                    }
+                }
+            }
+
+            foreach(var prod in prodUnique)
+            {
+                AddProductToDataGrid(prod);
+            }
+            /*
             Console.WriteLine("Nom des produits changés :");
             foreach(var prod in prods)
             {
                 Console.WriteLine($"- {prod.NOMPRODUIT}");
-            }
+            }*/
+        }
+
+        private void AddProductToDataGrid(PRODUIT prod)
+        {
+            stocks.Rows.Add(prod.NOMPRODUIT, prod.PRIXDEVENTE, prod.PRIXACHAT, prod.QUANTITEENSTOCK, prod.DESCRIPTION);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
