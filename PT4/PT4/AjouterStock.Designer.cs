@@ -40,19 +40,23 @@ namespace PT4
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrix)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(89, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 20);
+            this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Ajouter";
+            this.label4.Text = "Ajouter Stock";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // buttonAjouter
@@ -76,7 +80,9 @@ namespace PT4
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(48, 233);
+            this.textBoxDescription.BackColor = System.Drawing.Color.White;
+            this.textBoxDescription.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxDescription.Location = new System.Drawing.Point(48, 238);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(211, 156);
@@ -84,21 +90,21 @@ namespace PT4
             // 
             // numericUpDownQuantite
             // 
-            this.numericUpDownQuantite.Location = new System.Drawing.Point(48, 167);
+            this.numericUpDownQuantite.Location = new System.Drawing.Point(48, 174);
             this.numericUpDownQuantite.Name = "numericUpDownQuantite";
             this.numericUpDownQuantite.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownQuantite.TabIndex = 18;
             // 
             // numericUpDownPrix
             // 
-            this.numericUpDownPrix.Location = new System.Drawing.Point(48, 106);
+            this.numericUpDownPrix.Location = new System.Drawing.Point(48, 113);
             this.numericUpDownPrix.Name = "numericUpDownPrix";
             this.numericUpDownPrix.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownPrix.TabIndex = 17;
             // 
             // textBoxNom
             // 
-            this.textBoxNom.Location = new System.Drawing.Point(48, 53);
+            this.textBoxNom.Location = new System.Drawing.Point(48, 58);
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(100, 20);
             this.textBoxNom.TabIndex = 16;
@@ -106,7 +112,8 @@ namespace PT4
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(45, 217);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label5.Location = new System.Drawing.Point(45, 220);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 15;
@@ -115,7 +122,8 @@ namespace PT4
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 151);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label3.Location = new System.Drawing.Point(45, 156);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 14;
@@ -124,7 +132,8 @@ namespace PT4
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 90);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(45, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 13;
@@ -133,16 +142,36 @@ namespace PT4
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 37);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(45, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 12;
             this.label1.Text = "Nom:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PT4.Properties.Resources.zebra_g8a6d9221f_1920;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(307, 479);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Location = new System.Drawing.Point(25, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(251, 456);
+            this.panel1.TabIndex = 24;
+            // 
             // AjouterStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(304, 477);
             this.Controls.Add(this.buttonAjouter);
             this.Controls.Add(this.buttonAnnuler);
@@ -155,10 +184,13 @@ namespace PT4
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "AjouterStock";
             this.Text = "AjouterStock";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrix)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +209,7 @@ namespace PT4
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
