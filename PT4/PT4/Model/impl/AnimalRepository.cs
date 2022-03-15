@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class AnimalRepository : AbstractRepository<ANIMAL>
+    public class AnimalRepository : AbstractRepository<ANIMAL>
     {
         public AnimalRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
         {

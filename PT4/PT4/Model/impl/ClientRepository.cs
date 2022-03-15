@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class ClientRepository : AbstractRepository<CLIENT>
+    public class ClientRepository : AbstractRepository<CLIENT>
     {
 
         public ClientRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
