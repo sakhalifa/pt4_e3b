@@ -7,7 +7,7 @@ using PT4.Model.dal;
 
 namespace PT4.Controllers
 {
-    internal class ClientController
+    public class ClientController
     {
         private IGenericRepository<CLIENT> _clientRepository;
         private IGenericRepository<RENDEZVOUS> _rendezVousRepository;

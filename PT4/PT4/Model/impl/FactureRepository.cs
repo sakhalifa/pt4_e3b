@@ -1,6 +1,7 @@
 ﻿using PT4.Model.dal;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -8,30 +9,30 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class FactureRepository : AbstractRepository<FACTURE>
+    public class FactureRepository : AbstractRepository<FACTURE>
     {
-        public FactureRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
+        public FactureRepository(DbContext context) : base(context)
         {
         }
 
         public override IEnumerable<FACTURE> FindAll()
         {
-            return _context.FACTURE.ToList();
+            return _context.Set<FACTURE>().ToList();
         }
 
         public override FACTURE FindById(int id)
         {
-            return _context.FACTURE.Find(id);
+            return _context.Set<FACTURE>().Find(id);
         }
 
         public override void Insert(FACTURE obj)
         {
-            _context.FACTURE.Add(obj);
+            _context.Set<FACTURE>().Add(obj);
         }
 
-        public override void Delete(int id)
+        public override void Delete(FACTURE obj)
         {
-            _context.FACTURE.Remove(_context.FACTURE.Find(id));
+            _context.Set<FACTURE>().Remove(obj);
         }
 
         public override void Update(FACTURE obj)
@@ -41,7 +42,7 @@ namespace PT4.Model.impl
 
         public override IEnumerable<FACTURE> FindWhere(Expression<Func<FACTURE, bool>> predicate)
         {
-            return _context.FACTURE.Where(predicate);
+            return _context.Set<FACTURE>().Where(predicate);
         }
     }
 }

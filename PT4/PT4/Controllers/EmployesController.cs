@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
-    internal class EmployesController
+    public class EmployesController
     {
         private IGenericRepository<SALARIÉ> _salarieRepo;
         private IGenericRepository<CONGÉ> _congeRepo;

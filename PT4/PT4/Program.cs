@@ -15,7 +15,7 @@ namespace PT4
     {
         private static void ConfigureServices(ServiceCollection services)
         {
-            services.AddSingleton<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
+            services.AddSingleton<DbContext, PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
                     .AddSingleton<IGenericRepository<ANIMAL>, AnimalRepository>()
                     .AddSingleton<IGenericRepository<CLIENT>, ClientRepository>()
                     .AddSingleton<IGenericRepository<CONGÉ>, CongeRepository>()

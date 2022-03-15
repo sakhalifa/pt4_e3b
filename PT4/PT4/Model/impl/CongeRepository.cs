@@ -1,6 +1,7 @@
 ﻿using PT4.Model.dal;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -8,30 +9,30 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class CongeRepository : AbstractRepository<CONGÉ>
+    public class CongeRepository : AbstractRepository<CONGÉ>
     {
-        public CongeRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
+        public CongeRepository(DbContext context) : base(context)
         {
         }
 
         public override IEnumerable<CONGÉ> FindAll()
         {
-            return _context.CONGÉ.ToList();
+            return _context.Set<CONGÉ>().ToList();
         }
 
         public override CONGÉ FindById(int id)
         {
-            return _context.CONGÉ.Find(id);
+            return _context.Set<CONGÉ>().Find(id);
         }
 
         public override void Insert(CONGÉ obj)
         {
-            _context.CONGÉ.Add(obj);
+            _context.Set<CONGÉ>().Add(obj);
         }
 
-        public override void Delete(int id)
+        public override void Delete(CONGÉ obj)
         {
-            _context.CONGÉ.Remove(_context.CONGÉ.Find(id));
+            _context.Set<CONGÉ>().Remove(obj);
         }
 
         public override void Update(CONGÉ obj)
@@ -41,7 +42,7 @@ namespace PT4.Model.impl
 
         public override IEnumerable<CONGÉ> FindWhere(Expression<Func<CONGÉ, bool>> predicate)
         {
-            return _context.CONGÉ.Where(predicate);
+            return _context.Set<CONGÉ>().Where(predicate);
         }
     }
 }

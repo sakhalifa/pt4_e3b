@@ -4,34 +4,51 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    public abstract class AbstractRepository<T> : IGenericRepository<T>
+    public class GenericRepository<T>
     {
         protected DbContext _context;
         private event OnChanged<T> OnChangedHandler;
         private bool disposed = false;
 
-        protected AbstractRepository(DbContext context)
+        protected GenericRepository(DbContext context)
         {
             _context = context;
         }
 
-        public abstract IEnumerable<T> FindAll();
+        public IEnumerable<T> FindAll()
+        {
+            return _context.Set(typeof(T)).ToList();
+        }
 
-        public abstract IEnumerable<T> FindWhere(Expression<Func<T, bool>> predicate);
+        public IEnumerable<T> FindWhere(Expression<Func<T, bool>> predicate)
+        {
 
-        public abstract T FindById(int id);
+        }
 
-        public abstract void Insert(T obj);
+        public T FindById(int id)
+        {
 
-        public abstract void Delete(T obj);
+        }
 
-        public abstract void Update(T obj);
+        public void Insert(T obj)
+        {
+
+        }
+
+        public void Delete(T obj)
+        {
+
+        }
+
+        public void Update(T obj)
+        {
+
+        }
 
         public void Save()
         {
@@ -43,15 +60,15 @@ namespace PT4.Model.impl
                 foreach (DbEntityEntry entry in entriesChanged)
                 {
                     //En gros, vu que c'est des proxies qui héritent des classes entités, j'dois récupérer le type dont l'entité hérite
-                    if(entry.Entity.GetType().BaseType == typeof(T))
+                    if (entry.Entity.GetType().BaseType == typeof(T))
                     {
                         entriesOfTypeChanged.Add((T)entry.Entity);
                     }
                 }
 
                 OnChangedHandler?.Invoke(entriesOfTypeChanged);
-                
-                
+
+
             }
             _context.SaveChanges();
 
@@ -66,7 +83,7 @@ namespace PT4.Model.impl
         {
             OnChangedHandler -= onChanged;
         }
-        
+
 
         protected virtual void Dispose(bool disposing)
         {

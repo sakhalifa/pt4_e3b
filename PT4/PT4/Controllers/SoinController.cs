@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
-    internal class SoinController
+    public class SoinController
     {
         private IGenericRepository<SOIN> _soinRepository;
 
