@@ -42,14 +42,18 @@ namespace PT4
             this.comboBoxProduit = new System.Windows.Forms.ComboBox();
             this.buttonConfirmer = new System.Windows.Forms.Button();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrix)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(297, 36);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(147)))), ((int)(((byte)(150)))));
+            this.label1.Location = new System.Drawing.Point(309, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 20);
             this.label1.TabIndex = 0;
@@ -59,6 +63,7 @@ namespace PT4
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(147)))), ((int)(((byte)(150)))));
             this.label2.Location = new System.Drawing.Point(199, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
@@ -68,6 +73,7 @@ namespace PT4
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(147)))), ((int)(((byte)(150)))));
             this.label3.Location = new System.Drawing.Point(471, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
@@ -77,6 +83,7 @@ namespace PT4
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(147)))), ((int)(((byte)(150)))));
             this.label4.Location = new System.Drawing.Point(199, 169);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
@@ -86,6 +93,7 @@ namespace PT4
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(147)))), ((int)(((byte)(150)))));
             this.label5.Location = new System.Drawing.Point(199, 318);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(24, 13);
@@ -95,6 +103,7 @@ namespace PT4
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(147)))), ((int)(((byte)(150)))));
             this.label6.Location = new System.Drawing.Point(471, 318);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
@@ -144,7 +153,7 @@ namespace PT4
             // 
             // buttonConfirmer
             // 
-            this.buttonConfirmer.Location = new System.Drawing.Point(347, 388);
+            this.buttonConfirmer.Location = new System.Drawing.Point(357, 388);
             this.buttonConfirmer.Name = "buttonConfirmer";
             this.buttonConfirmer.Size = new System.Drawing.Size(75, 23);
             this.buttonConfirmer.TabIndex = 12;
@@ -160,10 +169,29 @@ namespace PT4
             this.textBoxDescription.Size = new System.Drawing.Size(393, 130);
             this.textBoxDescription.TabIndex = 13;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PT4.Properties.Resources.zebra_g8a6d9221f_1920;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(800, 448);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(141, 22);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(520, 408);
+            this.flowLayoutPanel1.TabIndex = 15;
+            // 
             // CreerPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.buttonConfirmer);
@@ -178,9 +206,12 @@ namespace PT4
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "CreerPrescription";
             this.Text = "CreerPrescription";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrix)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +232,7 @@ namespace PT4
         private System.Windows.Forms.ComboBox comboBoxProduit;
         private System.Windows.Forms.Button buttonConfirmer;
         private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

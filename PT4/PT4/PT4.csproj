@@ -359,6 +359,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="BDModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -395,6 +396,9 @@
       <DependentUpon>BDModel.edmx</DependentUpon>
       <LastGenOutput>BDModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\zebra-g8a6d9221f_1920.jpg" />
+    <None Include="Resources\zebra-gbc147c51f_1920.jpg" />
+    <None Include="Resources\parrot-g3fd41130a_1920.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
