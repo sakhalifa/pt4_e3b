@@ -1,17 +1,26 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PT4;
 using PT4.Model.dal;
+using PT4.Controllers;
+using System.Linq;
 
 namespace TestProjetVeto
 {
     [TestClass]
-    public class UnitTest1
+    public class TestAnimal
     {
+
+        private IGenericRepository<ANIMAL> _animalRepo;
+        private IGenericRepository<CLIENT> _clientRepo;
+        private AnimalController _animalController;
+
         CLIENT clientTest = new CLIENT
         {
-            nom = "Test",
-            prenom = "Test",
-            numero = "Test",
-            email = "Test"
+            NOMCLIENT = "Test",
+            PRENOMCLIENT = "Test",
+            NUMERO = "Test",
+            EMAIL = "Test"
         };
 
         ANIMAL animalTest = new ANIMAL
@@ -33,28 +42,52 @@ namespace TestProjetVeto
             finRdv = 10/03/2050 10:30:00
         });
 
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            ServiceCollection services = new ServiceCollection();
+
+            services.AddSingleton<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
+                    .AddSingleton<IGenericRepository<ANIMAL>, AnimalRepository>()
+                    .AddSingleton<IGenericRepository<CLIENT>, ClientRepository>()
+                    .AddSingleton<AnimalController>()
+                    .AddSingleton<ClientController>()
+            ;
+            services.AddSingleton(services);
+
+            using(ServiceProvider provider = services.BuildServiceProvider())
+            {
+                _animalRepo = provider.GetRequiredService<IGenericRepository<ANIMAL>>();
+                _clientRepo = provider.GetRequiredService<IGenericRepository<CLIENT>>();
+                _animalController = provider.GetRequiredService<AnimalController>();
+            }
+        }
+
         [TestMethod]
         public void TestCreerAnimal()
         {
-            var req1 = from animal in IAnimalRepository
-                       where animal.nomAnimal == animalTest.nomAnimal
+            var req1 = from animal in _animalRepo.FindAll()
+                       where animal.NOMANIMAL == animalTest.NOMANIMAL
                        select animal;
+
+            var testFindWhere = _animalRepo.FindWhere((a) => a.NOMANIMAL == animalTest.NOMANIMAL);
 
             Assert.AreEqual(req1.Count(), 0); // Test si aucun animal de ce nom dans la base existe déjà
 
-            CreerAnimal(clientTest, animalTest.nomEspece, animalTest.nomRace, animalTest.nomAnimal, animalTest.dateNaissance, animalTest.taille, animalTest.poids);
+            _animalController.CreerAnimal(clientTest, animalTest.nomEspece, animalTest.nomRace, animalTest.nomAnimal, animalTest.dateNaissance, animalTest.taille, animalTest.poids);
             var req2 = from animal in IAnimalRepository
                        where animal.nomAnimal == animal1.nomAnimal
                        select animal;
 
             Assert.AreEqual(req2.Count(), 1); // Test l'insertion d'un animal dans la base
 
+            
+
             foreach (ANIMAL ani in req2)
             {
-                Requêtes.baseMusique.ABONNÉS.Remove(ani);
+                _animalRepo.Delete(ani.IDANIMAL);
             }
-            Requêtes.baseMusique.SaveChanges();
-            _animalRepository.Save();
+            _animalRepo.Save();
         }
 
         [TestMethod]
