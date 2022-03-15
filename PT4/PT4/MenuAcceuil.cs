@@ -12,11 +12,11 @@ using PT4.Model.dal;
 
 namespace PT4
 {
-    public partial class Form1 : Form
+    public partial class MenuAcceuil : Form
     {
 
         
-        public Form1()
+        public MenuAcceuil()
         {
             InitializeComponent();
         }

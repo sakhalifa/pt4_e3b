@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,13 @@ namespace PT4
 {
     public partial class MenuHamberger : Form
     {
-        public MenuHamberger()
+        private ServiceCollection _services;
+
+        public MenuHamberger(ServiceCollection services)
         {
             InitializeComponent();
             customizeDesign();
+            _services = services;
         }
 
         /**
@@ -67,8 +71,13 @@ namespace PT4
          */
         private void buttonStock_Click(object sender, EventArgs e)
         {
-            //Code
             hideSubMenu();
+            _services.AddScoped<AfficherStock>();
+            using(ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                AfficherStock form = provider.GetRequiredService<AfficherStock>();
+                form.ShowDialog();
+            }
         }
 
         /**

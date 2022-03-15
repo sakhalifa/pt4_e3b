@@ -9,11 +9,11 @@ namespace PT4.Controllers
 {
     internal class SoinController
     {
-        private ISoinRepository _soinRepository;
+        private IGenericRepository<SOIN> _soinRepository;
 
-        public SoinController(ISoinRepository soinRepo)
+        public SoinController(IGenericRepository<SOIN> soinRepo)
         {
-            soinRepo = _soinRepository;
+            _soinRepository = soinRepo;
         }
 
 

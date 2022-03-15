@@ -8,68 +8,40 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class RendezVousRepository : IRendezVousRepository, IDisposable
+    class RendezVousRepository : AbstractRepository<RENDEZVOUS>
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
-
-        public RendezVousRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
+        public RendezVousRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
         {
-            this.context = context;
         }
 
-        public IEnumerable<RENDEZVOUS> FindAll()
+        public override IEnumerable<RENDEZVOUS> FindAll()
         {
-            return context.RENDEZVOUS.ToList();
+            return _context.RENDEZVOUS.ToList();
         }
 
-        public RENDEZVOUS FindById(int id)
+        public override RENDEZVOUS FindById(int id)
         {
-            return context.RENDEZVOUS.Find(id);
+            return _context.RENDEZVOUS.Find(id);
         }
 
-        public void Insert(RENDEZVOUS obj)
+        public override void Insert(RENDEZVOUS obj)
         {
-            context.RENDEZVOUS.Add(obj);
+            _context.RENDEZVOUS.Add(obj);
         }
 
-        public void Delete(int id)
+        public override void Delete(int id)
         {
-            context.RENDEZVOUS.Remove(context.RENDEZVOUS.Find(id));
+            _context.RENDEZVOUS.Remove(_context.RENDEZVOUS.Find(id));
         }
 
-        public void Update(RENDEZVOUS obj)
+        public override void Update(RENDEZVOUS obj)
         {
-            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public void Save()
+        public override IEnumerable<RENDEZVOUS> FindWhere(Expression<Func<RENDEZVOUS, bool>> predicate)
         {
-            context.SaveChanges();
-        }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public IEnumerable<RENDEZVOUS> FindWhere(Expression<Func<RENDEZVOUS, bool>> predicate)
-        {
-            return context.RENDEZVOUS.Where(predicate);
+            return _context.RENDEZVOUS.Where(predicate);
         }
     }
 }

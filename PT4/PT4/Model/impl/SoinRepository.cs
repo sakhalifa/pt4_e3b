@@ -8,68 +8,40 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class SoinRepository : ISoinRepository, IDisposable
+    class SoinRepository : AbstractRepository<SOIN>
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
-
-        public SoinRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
+        public SoinRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
         {
-            this.context = context;
         }
 
-        public IEnumerable<SOIN> FindAll()
+        public override IEnumerable<SOIN> FindAll()
         {
-            return context.SOIN.ToList();
+            return _context.SOIN.ToList();
         }
 
-        public SOIN FindById(int id)
+        public override SOIN FindById(int id)
         {
-            return context.SOIN.Find(id);
+            return _context.SOIN.Find(id);
         }
 
-        public void Insert(SOIN obj)
+        public override void Insert(SOIN obj)
         {
-            context.SOIN.Add(obj);
+            _context.SOIN.Add(obj);
         }
 
-        public void Delete(int id)
+        public override void Delete(int id)
         {
-            context.SOIN.Remove(context.SOIN.Find(id));
+            _context.SOIN.Remove(_context.SOIN.Find(id));
         }
 
-        public void Update(SOIN obj)
+        public override void Update(SOIN obj)
         {
-            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public void Save()
+        public override IEnumerable<SOIN> FindWhere(Expression<Func<SOIN, bool>> predicate)
         {
-            context.SaveChanges();
-        }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public IEnumerable<SOIN> FindWhere(Expression<Func<SOIN, bool>> predicate)
-        {
-            return context.SOIN.Where(predicate);
+            return _context.SOIN.Where(predicate);
         }
     }
 }

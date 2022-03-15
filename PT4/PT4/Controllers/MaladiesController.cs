@@ -9,12 +9,12 @@ namespace PT4.Controllers
 {
     public class MaladiesController
     {
-        private IMaladieRepository _maladieRepo;
+        private IGenericRepository<MALADIE> _maladieRepo;
         /// <summary>
         /// Constructor of the MaladieController object
         /// </summary>
         /// <param name="maladieRepo">The entity repository of the workers</param>
-        public MaladiesController(IMaladieRepository maladieRepo)
+        public MaladiesController(IGenericRepository<MALADIE> maladieRepo)
         {
             _maladieRepo = maladieRepo;
         }

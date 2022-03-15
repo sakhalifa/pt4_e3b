@@ -9,9 +9,9 @@ namespace PT4.Controllers
 {
     class FactureController
     {
-        private IFactureRepository _factureRepository;
+        private IGenericRepository<FACTURE> _factureRepository;
 
-        public FactureController(IFactureRepository factureRepository)
+        public FactureController(IGenericRepository<FACTURE> factureRepository)
         {
             _factureRepository = factureRepository;
         }

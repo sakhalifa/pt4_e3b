@@ -8,68 +8,40 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class SalarieRepository : ISalarieRepository, IDisposable
+    class SalarieRepository : AbstractRepository<SALARIÉ>
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
-
-        public SalarieRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
+        public SalarieRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
         {
-            this.context = context;
         }
 
-        public IEnumerable<SALARIÉ> FindAll()
+        public override IEnumerable<SALARIÉ> FindAll()
         {
-            return context.SALARIÉ.ToList();
+            return _context.SALARIÉ.ToList();
         }
 
-        public SALARIÉ FindById(int id)
+        public override SALARIÉ FindById(int id)
         {
-            return context.SALARIÉ.Find(id);
+            return _context.SALARIÉ.Find(id);
         }
 
-        public void Insert(SALARIÉ obj)
+        public override void Insert(SALARIÉ obj)
         {
-            context.SALARIÉ.Add(obj);
+            _context.SALARIÉ.Add(obj);
         }
 
-        public void Delete(int id)
+        public override void Delete(int id)
         {
-            context.SALARIÉ.Remove(context.SALARIÉ.Find(id));
+            _context.SALARIÉ.Remove(_context.SALARIÉ.Find(id));
         }
 
-        public void Update(SALARIÉ obj)
+        public override void Update(SALARIÉ obj)
         {
-            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public void Save()
+        public override IEnumerable<SALARIÉ> FindWhere(Expression<Func<SALARIÉ, bool>> predicate)
         {
-            context.SaveChanges();
-        }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public IEnumerable<SALARIÉ> FindWhere(Expression<Func<SALARIÉ, bool>> predicate)
-        {
-            return context.SALARIÉ.Where(predicate);
+            return _context.SALARIÉ.Where(predicate);
         }
     }
 }

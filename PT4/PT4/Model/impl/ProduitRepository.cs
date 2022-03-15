@@ -8,78 +8,40 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class ProduitRepository : IProduitRepository, IDisposable
+    class ProduitRepository : AbstractRepository<PRODUIT>
     {
-        private PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context;
-
-        public ProduitRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context)
+        public ProduitRepository(PT4_PLANNIMAUX_S4p2B_JKVBLBEntities context) : base(context)
         {
-            this.context = context;
         }
 
-        public IEnumerable<PRODUIT> FindAll()
+        public override IEnumerable<PRODUIT> FindAll()
         {
-            return context.PRODUIT.ToList();
+            return _context.PRODUIT.ToList();
         }
 
-        public IEnumerable<PRODUIT> FindAllDrugs()
+        public override PRODUIT FindById(int id)
         {
-            return context.PRODUIT.Where(p => p.MEDICAMENT).ToList();
+            return _context.PRODUIT.Find(id);
         }
 
-        public IEnumerable<PRODUIT> FindAllCommercialProducts()
+        public override void Insert(PRODUIT obj)
         {
-            return context.PRODUIT.Where(p => !p.MEDICAMENT).ToList();
+            _context.PRODUIT.Add(obj);
         }
 
-        public PRODUIT FindById(int id)
+        public override void Delete(int id)
         {
-            return context.PRODUIT.Find(id);
+            _context.PRODUIT.Remove(_context.PRODUIT.Find(id));
         }
 
-        public void Insert(PRODUIT obj)
+        public override void Update(PRODUIT obj)
         {
-            context.PRODUIT.Add(obj);
+            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public void Delete(int id)
+        public override IEnumerable<PRODUIT> FindWhere(Expression<Func<PRODUIT, bool>> predicate)
         {
-            context.PRODUIT.Remove(context.PRODUIT.Find(id));
-        }
-
-        public void Update(PRODUIT obj)
-        {
-            context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
-        }
-
-        public void Save()
-        {
-            context.SaveChanges();
-        }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public IEnumerable<PRODUIT> FindWhere(Expression<Func<PRODUIT, bool>> predicate)
-        {
-            return context.PRODUIT.Where(predicate);
+            return _context.PRODUIT.Where(predicate);
         }
     }
 }

@@ -10,15 +10,15 @@ namespace PT4.Controllers
 {
     internal class EmployesController
     {
-        private ISalarieRepository _salarieRepo;
-        private ICongeRepository _congeRepo;
+        private IGenericRepository<SALARIÉ> _salarieRepo;
+        private IGenericRepository<CONGÉ> _congeRepo;
 
         /// <summary>
         /// Constructor of the EmployesController object
         /// </summary>
         /// <param name="salarieRepo">The entity repository of the workers</param>
         /// <param name="congeRepo">The entity repository of the holidays</param>
-        public EmployesController(ISalarieRepository salarieRepo, ICongeRepository congeRepo)
+        public EmployesController(IGenericRepository<SALARIÉ> salarieRepo, IGenericRepository<CONGÉ> congeRepo)
         {
             _salarieRepo = salarieRepo;
             _congeRepo = congeRepo;
