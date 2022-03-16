@@ -5,26 +5,43 @@ using PT4.Model.dal;
 using PT4.Controllers;
 using System.Linq;
 using System;
+<<<<<<< HEAD
 using PT4.Model.impl;
 using System.Data.Entity;
+=======
+>>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
 
 namespace TestProjetVeto
 {
     [TestClass]
     public class TestAnimal
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
         private IGenericRepository<ANIMAL> _animalRepo;
         private IGenericRepository<CLIENT> _clientRepo;
         private AnimalController _animalController;
         public CLIENT clientTest;
+<<<<<<< HEAD
         public ANIMAL animalTest;   
+=======
+        public ANIMAL animalTest;
+
+        
+>>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
 
         [TestInitialize]
         public void TestInitialize()
         {
             ServiceCollection services = new ServiceCollection();
 
+<<<<<<< HEAD
             services.AddSingleton<DbContext, PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
+=======
+            services.AddSingleton<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
+>>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
                     .AddSingleton<IGenericRepository<ANIMAL>, AnimalRepository>()
                     .AddSingleton<IGenericRepository<CLIENT>, ClientRepository>()
                     .AddSingleton<AnimalController>()
@@ -62,6 +79,7 @@ namespace TestProjetVeto
         [TestMethod]
         public void TestCreerAnimal()
         {
+<<<<<<< HEAD
             var req1 = _animalRepo.FindWhere((a) => a.NOMANIMAL == animalTest.NOMANIMAL);
 
             Assert.AreEqual(req1.Count(), 0); // Test si aucun animal de ce nom dans la base existe déjà
@@ -74,6 +92,28 @@ namespace TestProjetVeto
             foreach (ANIMAL ani in req2)
             {
                 _animalRepo.Delete(ani);
+=======
+            var req1 = from animal in _animalRepo.FindAll()
+                       where animal.NOMANIMAL == animalTest.NOMANIMAL
+                       select animal;
+
+            var testFindWhere = _animalRepo.FindWhere((a) => a.NOMANIMAL == animalTest.NOMANIMAL);
+
+            Assert.AreEqual(req1.Count(), 0); // Test si aucun animal de ce nom dans la base existe déjà
+
+            _animalController.CreerAnimal(clientTest, animalTest.NOMESPECE, animalTest.NOMRACE, animalTest.NOMANIMAL, animalTest.DATENAISSANCE, animalTest.TAILLE, animalTest.POIDS);
+            var req2 = from animal in _animalRepo.FindAll()
+                       where animal.NOMANIMAL == animalTest.NOMANIMAL
+                       select animal;
+
+            Assert.AreEqual(req2.Count(), 1); // Test l'insertion d'un animal dans la base
+
+            
+
+            foreach (ANIMAL ani in req2)
+            {
+                _animalRepo.Delete(ani.IDANIMAL);
+>>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
             }
             _animalRepo.Save();
         }

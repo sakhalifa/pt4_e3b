@@ -1,3 +1,7 @@
 is_global = true
 build_property.RootNamespace = TestProjetVeto
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Ejeul\OneDrive\Documents\DUT_S4\PT4\pt4_e3b\PT4\TestProjetVeto\
+=======
+build_property.ProjectDir = C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\TestProjetVeto\
+>>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
