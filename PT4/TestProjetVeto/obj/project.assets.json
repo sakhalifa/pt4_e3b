@@ -8,7 +8,6 @@
           "build/netstandard1.0/coverlet.collector.targets": {}
         }
       },
-<<<<<<< HEAD
       "EntityFramework/6.2.0": {
         "type": "package",
         "compile": {
@@ -20,8 +19,6 @@
           "lib/net45/EntityFramework.dll": {}
         }
       },
-=======
->>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
       "Microsoft.CodeCoverage/16.9.4": {
         "type": "package",
         "compile": {
@@ -1778,7 +1775,6 @@
         "coverlet.collector.nuspec"
       ]
     },
-<<<<<<< HEAD
     "EntityFramework/6.2.0": {
       "sha512": "ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
       "type": "package",
@@ -1809,8 +1805,6 @@
         "tools/migrate.exe"
       ]
     },
-=======
->>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
     "Microsoft.CodeCoverage/16.9.4": {
       "sha512": "N/RYB07gJkPZ1nJiq0QGxFIL+X5vVl4GI99PiTYXpbfI30NTZMRJgZ+4jYLFYLDQqj9o1Juhv+3iiymd7lozrA==",
       "type": "package",
@@ -6283,10 +6277,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-<<<<<<< HEAD
       "EntityFramework >= 6.2.0",
-=======
->>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
       "MSTest.TestAdapter >= 2.2.3",
       "MSTest.TestFramework >= 2.2.3",
       "Microsoft.Extensions.DependencyInjection >= 6.0.0",
@@ -6296,17 +6287,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Ejeul\\.nuget\\packages\\": {}
-=======
-    "Z:\\AppData\\Roaming\\Nuget": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
       "projectName": "TestProjetVeto",
       "projectPath": "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
@@ -6315,20 +6300,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ejeul\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
-      "projectName": "TestProjetVeto",
-      "projectPath": "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
-      "packagesPath": "Z:\\AppData\\Roaming\\Nuget",
-      "outputPath": "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\obj\\",
-      "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
-      "configFilePaths": [
-        "\\\\iut.bx1\\Etudiants\\Home\\ejeulin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6342,13 +6313,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj": {
               "projectPath": "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj"
-=======
-            "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj": {
-              "projectPath": "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj"
->>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
             }
           }
         }
@@ -6363,13 +6329,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
-<<<<<<< HEAD
           "EntityFramework": {
             "target": "Package",
             "version": "[6.2.0, )"
           },
-=======
->>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
           "MSTest.TestAdapter": {
             "target": "Package",
             "version": "[2.2.3, )"
@@ -6406,12 +6369,17 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problème de lecture du fichier cache C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",
@@ -6423,10 +6391,4 @@
       ]
     }
   ]
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
-      }
-    }
-  }
->>>>>>> 05b882c2ba90d78054d5707057e32b13f932d233
 }
