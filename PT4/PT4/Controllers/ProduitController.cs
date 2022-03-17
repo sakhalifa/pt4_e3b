@@ -16,6 +16,11 @@ namespace PT4.Controllers
             _produitRepository = produitRepository;
         }
 
+        public IEnumerable<PRODUIT> RecupererTousProduits()
+        {
+            return _produitRepository.FindAll();
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -67,6 +72,15 @@ namespace PT4.Controllers
             _produitRepository.Save();
         }
 
+        public void RemoveByName(string name)
+        {
+            PRODUIT prod = FindByName(name);
+            if(prod != null) { 
+                _produitRepository.Delete(prod);
+                _produitRepository.Save();
+            }
+        }
+
         public PRODUIT FindByName(string name)
         {
             return _produitRepository.FindWhere(p => p.NOMPRODUIT == name).FirstOrDefault();
@@ -75,6 +89,11 @@ namespace PT4.Controllers
         public void SubscribeProducts(OnChanged<PRODUIT> onChanged)
         {
             _produitRepository.Subscribe(onChanged);
+        }
+
+        public void SubscribeDeleteProducts(OnDelete<PRODUIT> onDelete)
+        {
+            _produitRepository.SubscribeDelete(onDelete);
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace PT4.Model.dal
 {
     public delegate void OnChanged<TArgs>(IEnumerable<TArgs> args);
+    public delegate void OnDelete<TArgs>(IEnumerable<TArgs> args);
     public interface IGenericRepository<T> : IDisposable
     {
 
@@ -53,5 +54,9 @@ namespace PT4.Model.dal
         void Subscribe(OnChanged<T> onChanged);
 
         void UnSubscribe(OnChanged<T> onChanged);
+
+        void SubscribeDelete(OnDelete<T> onChanged);
+
+        void UnSubscribeDelete(OnDelete<T> onChanged);
     }
 }

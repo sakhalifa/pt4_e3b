@@ -14,6 +14,7 @@ namespace PT4.Model.impl
     {
         protected DbContext _context;
         private event OnChanged<T> OnChangedHandler;
+        private event OnDelete<T> OnDeleteHandler;
         private bool disposed = false;
 
         protected AbstractRepository(DbContext context)
@@ -35,21 +36,31 @@ namespace PT4.Model.impl
 
         public void Save()
         {
+            _context.ChangeTracker.DetectChanges();
             if (_context.ChangeTracker.HasChanges())
             {
                 IEnumerable<DbEntityEntry> entriesChanged = _context.ChangeTracker.Entries();
                 List<T> entriesOfTypeChanged = new List<T>();
+                List<T> entriesOfTypeDeleted = new List<T>();
 
                 foreach (DbEntityEntry entry in entriesChanged)
                 {
                     //En gros, vu que c'est des proxies qui héritent des classes entités, j'dois récupérer le type dont l'entité hérite
-                    if(entry.Entity.GetType().BaseType == typeof(T))
+                    if(entry.Entity.GetType().BaseType == typeof(T) || entry.Entity.GetType() == typeof(T))
                     {
-                        entriesOfTypeChanged.Add((T)entry.Entity);
+                        if (entry.State == EntityState.Deleted)
+                        {
+                            entriesOfTypeDeleted.Add((T)entry.Entity);
+                        }
+                        else { 
+                            entriesOfTypeChanged.Add((T)entry.Entity);
+                        }
                     }
+                    
                 }
 
                 OnChangedHandler?.Invoke(entriesOfTypeChanged);
+                OnDeleteHandler?.Invoke(entriesOfTypeDeleted);
                 
                 
             }
@@ -62,9 +73,19 @@ namespace PT4.Model.impl
             OnChangedHandler += onChanged;
         }
 
+        public void SubscribeDelete(OnDelete<T> onDelete)
+        {
+            OnDeleteHandler += onDelete;
+        }
+
         public void UnSubscribe(OnChanged<T> onChanged)
         {
             OnChangedHandler -= onChanged;
+        }
+
+        public void UnSubscribeDelete(OnDelete<T> onDelete)
+        {
+            OnDeleteHandler -= onDelete;
         }
         
 

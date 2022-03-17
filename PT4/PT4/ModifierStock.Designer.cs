@@ -1,7 +1,7 @@
 ﻿
 namespace PT4
 {
-    partial class AjouterStock
+    partial class ModifierStock
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,21 +29,27 @@ namespace PT4
         /// </summary>
         private void InitializeComponent()
         {
+            ((System.ComponentModel.ISupportInitialize)(this.quantite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prixAchat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prixVente)).BeginInit();
             this.SuspendLayout();
             // 
             // titre
             // 
-            this.titre.Text = "Ajouter Stock";
+            this.titre.Text = "Modifier Stock";
             // 
             // buttonConfirmer
             // 
             this.buttonConfirmer.Click += new System.EventHandler(this.buttonConfirmer_Click);
             // 
-            // AjouterStock
+            // ModifierStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(304, 477);
-            this.Name = "AjouterStock";
+            this.Name = "ModifierStock";
+            ((System.ComponentModel.ISupportInitialize)(this.quantite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prixAchat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prixVente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

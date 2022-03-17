@@ -19,13 +19,19 @@ namespace PT4
         {
             _produitController = produitController;
             _produitController.SubscribeProducts(OnChanged);
+            _produitController.SubscribeDeleteProducts(OnDelete);
             InitializeComponent();
             InitDataGridView();
         }
 
         private void InitDataGridView()
         {
-            //TODO
+            IEnumerable<PRODUIT> produits = _produitController.RecupererTousProduits();
+
+            foreach(var prod in produits)
+            {
+                AddProductToDataGrid(prod);
+            }
         }
 
         public void OnChanged(IEnumerable<PRODUIT> prods)
@@ -61,12 +67,29 @@ namespace PT4
             {
                 AddProductToDataGrid(prod);
             }
-            /*
+            
             Console.WriteLine("Nom des produits changés :");
             foreach(var prod in prods)
             {
                 Console.WriteLine($"- {prod.NOMPRODUIT}");
-            }*/
+            }
+        }
+
+        public void OnDelete(IEnumerable<PRODUIT> prods)
+        {
+            List<DataGridViewRow> rowsToDelete = new List<DataGridViewRow>();
+            foreach (var obj in stocks.Rows)
+            {
+                DataGridViewRow row = (DataGridViewRow)obj;
+                foreach (var prod in prods)
+                {
+                    if (row.Cells["Nom"].Value.Equals(prod.NOMPRODUIT))
+                    {
+                        rowsToDelete.Add(row);
+                    }
+                }
+            }
+            rowsToDelete.ForEach((r) => stocks.Rows.Remove(r));
         }
 
         private void AddProductToDataGrid(PRODUIT prod)
@@ -97,7 +120,96 @@ namespace PT4
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             AjouterStock ajouterStock = new AjouterStock(_produitController);
-            ajouterStock.Show();
+            ajouterStock.ShowDialog();
+        }
+
+        private void ajouterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (stocks.SelectedRows.Count == 1)
+            {
+                DataGridViewRow row = stocks.SelectedRows[0];
+                PRODUIT p = _produitController.FindByName((string)row.Cells["Nom"].Value);
+                AjouterStock ajouterStock = new AjouterStock(_produitController);
+                ajouterStock.SetProduit(p);
+                ajouterStock.ShowDialog();
+            }
+            else if (stocks.SelectedCells.Count == 1)
+            {
+                DataGridViewCell cell = stocks.SelectedCells[0];
+                if (cell.ColumnIndex == 0)
+                {
+                    PRODUIT p = _produitController.FindByName((string)cell.Value);
+                    AjouterStock ajouterStock = new AjouterStock(_produitController);
+                    ajouterStock.SetProduit(p);
+                    ajouterStock.ShowDialog();
+                }
+            }
+            else
+            {
+                Utils.ShowError("ERREUR! Veuillez sélectionner un et un seul produit.");
+            }
+        }
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (stocks.SelectedRows.Count == 1)
+            {
+                    DataGridViewRow row = stocks.SelectedRows[0];
+                    PRODUIT p = _produitController.FindByName((string)row.Cells["Nom"].Value);
+                    ModifierStock modifStock = new ModifierStock(_produitController);
+                    modifStock.SetProduit(p);
+                    modifStock.ShowDialog();
+            }
+            else if (stocks.SelectedCells.Count == 1)
+            {
+                DataGridViewCell cell = stocks.SelectedCells[0];
+                if (cell.ColumnIndex == 0)
+                {
+                    PRODUIT p = _produitController.FindByName((string)cell.Value);
+                    ModifierStock modifStock = new ModifierStock(_produitController);
+                    modifStock.SetProduit(p);
+                    modifStock.ShowDialog();
+                }
+            }
+            else
+            {
+                Utils.ShowError("ERREUR! Veuillez sélectionner un et un seul produit.");
+            }
+        }
+
+        private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, "Etes-vous sur?", "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                if (stocks.SelectedRows.Count > 0)
+                {
+                    foreach(var obj in stocks.SelectedRows)
+                    {
+                        DataGridViewRow row = (DataGridViewRow)obj;
+                        _produitController.RemoveByName((string)row.Cells["Nom"].Value);
+                    }
+                }else if(stocks.SelectedCells.Count > 0)
+                {
+                    int cCells = 0;
+                    foreach(var obj in stocks.SelectedCells)
+                    {
+                        DataGridViewCell cell = (DataGridViewCell)obj;
+                        if(cell.ColumnIndex == 0)
+                        {
+                            _produitController.RemoveByName((string)cell.Value);
+                            cCells++;
+                        }
+                    }
+                    if(cCells == 0)
+                    {
+                        Utils.ShowError("ERREUR! Veuillez sélectionner uniquement les noms ou les lignes des produits.");
+                    }
+                }
+                else
+                {
+                    Utils.ShowError("ERREUR! Veuillez sélectionner au moins un produit.");
+                }
+            }
         }
 
         
