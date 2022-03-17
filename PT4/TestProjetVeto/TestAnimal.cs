@@ -3,13 +3,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PT4;
 using PT4.Model.dal;
 using PT4.Controllers;
+using Moq;
 using System.Linq;
 using System;
 using PT4.Model.impl;
 using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace TestProjetVeto
 {
+
+
     [TestClass]
     public class TestAnimal
     {
@@ -21,20 +25,6 @@ namespace TestProjetVeto
         [TestInitialize]
         public void TestInitialize()
         {
-            ServiceCollection services = new ServiceCollection();
-            services.AddSingleton<DbContext, PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
-                    .AddSingleton<IGenericRepository<ANIMAL>, AnimalRepository>()
-                    .AddSingleton<AnimalController>()
-                    .AddSingleton<ClientController>()
-            ;
-            services.AddSingleton(services);
-
-            using(ServiceProvider provider = services.BuildServiceProvider())
-            {
-                _animalRepo = provider.GetRequiredService<IGenericRepository<ANIMAL>>();
-                _animalController = provider.GetRequiredService<AnimalController>();
-            }
-
             clientTest = new CLIENT
             {
                 NOMCLIENT = "Test",
@@ -58,6 +48,36 @@ namespace TestProjetVeto
         [TestMethod]
         public void TestCreerAnimal()
         {
+            //CREATION DES DONNES MOCK
+            var data = new List<ANIMAL>
+            {
+                new ANIMAL
+            {
+                IDANIMAL = 1,
+                CLIENT = clientTest,
+                NOMESPECE = "chat",
+                NOMRACE = "tigre",
+                NOMANIMAL = "Test",
+                DATENAISSANCE = new DateTime(2009, 3, 10, 10, 0, 0),
+                TAILLE = 18,
+                POIDS = 7
+            }
+        }.AsQueryable();
+
+            var mockSet = Utils.CreateDbSet(data);
+
+            var mockContext = new Mock<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>();
+            mockContext.Setup(c => c.Set<ANIMAL>()).Returns(mockSet);
+
+            var anRepo = new AnimalRepository(mockContext.Object);
+
+            //FIN DES DONNEES MOCK
+            var animals = anRepo.FindAll();
+
+            Assert.AreEqual(1, animals.Count());
+            
+
+            /*
             var req = _animalRepo.FindWhere((a) => a.NOMANIMAL == animalTest.NOMANIMAL);
 
             Assert.AreEqual(req.Count(), 0); // Test si aucun animal de ce nom dans la base existe déjà
@@ -72,6 +92,7 @@ namespace TestProjetVeto
                 _animalRepo.Delete(ani);
             }
             _animalRepo.Save();
+            */
         }
     }
 }
