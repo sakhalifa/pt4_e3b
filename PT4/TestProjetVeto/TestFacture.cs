@@ -11,52 +11,36 @@ using System.Data.Entity;
 namespace TestProjetVeto
 {
     [TestClass]
-    public class TestAnimal
+    public class TestFacture
     {
-        private IGenericRepository<ANIMAL> _animalRepo;
-        private AnimalController _animalController;
-        public CLIENT clientTest;
-        public ANIMAL animalTest;
+        private IGenericRepository<FACTURE> _factureRepo;
+        private FactureController _factureController;
+        public FACTURE factureTest;
 
         [TestInitialize]
         public void TestInitialize()
         {
             ServiceCollection services = new ServiceCollection();
             services.AddSingleton<DbContext, PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
-                    .AddSingleton<IGenericRepository<ANIMAL>, AnimalRepository>()
-                    .AddSingleton<AnimalController>()
-                    .AddSingleton<ClientController>()
+                    .AddSingleton<IGenericRepository<FACTURE>, FactureRepository>()
+                    .AddSingleton<FactureController>()
             ;
             services.AddSingleton(services);
 
             using(ServiceProvider provider = services.BuildServiceProvider())
             {
-                _animalRepo = provider.GetRequiredService<IGenericRepository<ANIMAL>>();
-                _animalController = provider.GetRequiredService<AnimalController>();
+                _factureRepo = provider.GetRequiredService<IGenericRepository<FACTURE>>();
             }
 
-            clientTest = new CLIENT
+            factureTest = new FACTURE
             {
-                NOMCLIENT = "Test",
-                PRENOMCLIENT = "Test",
-                NUMERO = "Test",
-                EMAIL = "Test"
-            };
-
-            animalTest = new ANIMAL
-            {
-                CLIENT = clientTest,
-                NOMESPECE = "chat",
-                NOMRACE = "tigre",
-                NOMANIMAL = "Test",
-                DATENAISSANCE = new DateTime(2009, 3, 10, 10, 0, 0),
-                TAILLE = 18,
-                POIDS = 7
+                CLIENT = null,
+                
             };
         }
 
         [TestMethod]
-        public void TestCreerAnimal()
+        public void TestCreerFacture()
         {
             var req = _animalRepo.FindWhere((a) => a.NOMANIMAL == animalTest.NOMANIMAL);
 
