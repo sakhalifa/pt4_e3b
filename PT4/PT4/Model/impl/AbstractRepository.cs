@@ -22,9 +22,9 @@ namespace PT4.Model.impl
             _context = context;
         }
 
-        public abstract IEnumerable<T> FindAll();
+        public abstract IQueryable<T> FindAll();
 
-        public abstract IEnumerable<T> FindWhere(Expression<Func<T, bool>> predicate);
+        public abstract IQueryable<T> FindWhere(Expression<Func<T, bool>> predicate);
 
         public abstract T FindById(int id);
 

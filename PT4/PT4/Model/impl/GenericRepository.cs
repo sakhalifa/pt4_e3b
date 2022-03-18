@@ -20,12 +20,12 @@ namespace PT4.Model.impl
             _context = context;
         }
 
-        public IEnumerable<T> FindAll()
+        public IQueryable<T> FindAll()
         {
-            return _context.Set(typeof(T)).ToList();
+            return _context.Set(typeof(T)).AsQueryable();
         }
 
-        public IEnumerable<T> FindWhere(Expression<Func<T, bool>> predicate)
+        public IQueryable<T> FindWhere(Expression<Func<T, bool>> predicate)
         {
 
         }
@@ -54,7 +54,7 @@ namespace PT4.Model.impl
         {
             if (_context.ChangeTracker.HasChanges())
             {
-                IEnumerable<DbEntityEntry> entriesChanged = _context.ChangeTracker.Entries();
+                IQueryable<DbEntityEntry> entriesChanged = _context.ChangeTracker.Entries();
                 List<T> entriesOfTypeChanged = new List<T>();
 
                 foreach (DbEntityEntry entry in entriesChanged)
