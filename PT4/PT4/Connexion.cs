@@ -27,7 +27,12 @@ namespace PT4
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonConnexion_Click(object sender, EventArgs e)
         {
 
         }

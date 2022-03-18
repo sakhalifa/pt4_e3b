@@ -79,7 +79,7 @@ namespace TestProjetVeto
             Assert.AreEqual(1, animals.Count());
             Assert.AreEqual(clientTest, animals.First().CLIENT);
 
-            anController.CreerAnimal(animalTest.CLIENT, animalTest.NOMESPECE, animalTest.NOMRACE, animalTest.NOMANIMAL, animalTest.DATENAISSANCE, animalTest.TAILLE, animalTest.POIDS);
+            anController.CreerAnimal(animalTest.CLIENT, animalTest.NOMESPECE, animalTest.NOMRACE, animalTest.NOMANIMAL, animalTest.DATENAISSANCE.Value, animalTest.TAILLE, animalTest.POIDS);
 
             animals = anRepo.FindAll();
 

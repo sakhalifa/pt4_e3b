@@ -10,12 +10,7 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Fichiers divers",
       "ColorIndex": -1
-    },
-    "80dac5f9-c81f-4515-b9e3-88fcedee581b": {
-      "ProjectGuid": "80dac5f9-c81f-4515-b9e3-88fcedee581b",
-      "DisplayName": "TestProjetVeto",
-      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 1
 }
