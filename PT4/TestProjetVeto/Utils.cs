@@ -19,6 +19,8 @@ namespace TestProjetVeto
             stubDbSet.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(queryable.ElementType);
             stubDbSet.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(queryable.GetEnumerator());
             stubDbSet.Setup(d => d.Add(It.IsAny<T>())).Callback<T>((s) => collection.Add(s));
+            stubDbSet.Setup(d => d.Remove(It.IsAny<T>())).Callback<T>((s) => collection.Remove(s));
+            stubDbSet.Object.AsNoTracking();
             return stubDbSet.Object;
         }
     }
