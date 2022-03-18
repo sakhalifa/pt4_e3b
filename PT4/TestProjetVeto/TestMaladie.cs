@@ -25,7 +25,7 @@ namespace TestProjetVeto
         }
 
         [TestMethod]
-        public void TestCreerMaladieEtListerMaladie()
+        public void TestCreerMaladie()
         {
             //CREATION DES DONNES MOCK
             var data = new List<MALADIE> { };
@@ -51,12 +51,6 @@ namespace TestProjetVeto
             Assert.AreEqual(1, maladies.Count()); ; // Test si la fonction de création d'une facture dans la base marche 
 
             //Assert.ThrowsException<string>(malController.CreerMaladie(maladieTest.NOMMALADIE)); //Test si l'ajout d'une même maladie lève l'exception
-        }
-
-        [TestMethod]
-        public void TestRechercherMaladies()
-        {
-
         }
     }
 }
