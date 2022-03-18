@@ -78,14 +78,4 @@ namespace PT4
         {
             Rights.BackColor = Color.Transparent;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-
-   
->>>>>>> 42815f9 (Interfaces Logs)
-=======
->>>>>>> 9fec93e (Interface Logs)
-    }
 }
