@@ -33,7 +33,7 @@ namespace PT4.Model.impl
 
         public abstract void Update(T obj);
 
-        public void Save()
+        public virtual void Save()
         {
             if (_context.ChangeTracker.HasChanges())
             {
