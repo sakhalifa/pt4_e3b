@@ -85,6 +85,7 @@ namespace PT4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(62)))), ((int)(((byte)(3)))));
             this.ClientSize = new System.Drawing.Size(353, 450);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);

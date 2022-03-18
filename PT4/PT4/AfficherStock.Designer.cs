@@ -1,6 +1,6 @@
 ﻿
 namespace PT4
-{
+{   
     partial class AfficherStock
     {
         /// <summary>
@@ -29,17 +29,23 @@ namespace PT4
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.stocks = new System.Windows.Forms.DataGridView();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.textBoxRechercher = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonStats = new System.Windows.Forms.Button();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrixVente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrixAchat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.textBoxRechercher = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonStats = new System.Windows.Forms.Button();
+            this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.stocks)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // stocks
@@ -54,12 +60,68 @@ namespace PT4
             this.PrixAchat,
             this.Quantite,
             this.Description});
+            this.stocks.ContextMenuStrip = this.contextMenuStrip1;
             this.stocks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stocks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.stocks.Location = new System.Drawing.Point(0, 0);
             this.stocks.Name = "stocks";
+            this.stocks.ReadOnly = true;
             this.stocks.Size = new System.Drawing.Size(800, 450);
             this.stocks.TabIndex = 0;
             this.stocks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Nom
+            // 
+            this.Nom.HeaderText = "Nom";
+            this.Nom.Name = "Nom";
+            this.Nom.ReadOnly = true;
+            // 
+            // PrixVente
+            // 
+            this.PrixVente.HeaderText = "Prix de vente";
+            this.PrixVente.Name = "PrixVente";
+            this.PrixVente.ReadOnly = true;
+            // 
+            // PrixAchat
+            // 
+            this.PrixAchat.HeaderText = "Prix d\'achat";
+            this.PrixAchat.Name = "PrixAchat";
+            this.PrixAchat.ReadOnly = true;
+            // 
+            // Quantite
+            // 
+            this.Quantite.HeaderText = "Quantité en stock";
+            this.Quantite.Name = "Quantite";
+            this.Quantite.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ajouterToolStripMenuItem,
+            this.modifierToolStripMenuItem,
+            this.supprimerToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 70);
+            // 
+            // modifierToolStripMenuItem
+            // 
+            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifierToolStripMenuItem.Text = "Modifier";
+            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
+            // 
+            // supprimerToolStripMenuItem
+            // 
+            this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supprimerToolStripMenuItem.Text = "Supprimer";
+            this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
             // buttonAdd
             // 
@@ -97,30 +159,12 @@ namespace PT4
             this.buttonStats.Text = "Statistiques des stocks";
             this.buttonStats.UseVisualStyleBackColor = true;
             // 
-            // Nom
+            // ajouterToolStripMenuItem
             // 
-            this.Nom.HeaderText = "Nom";
-            this.Nom.Name = "Nom";
-            // 
-            // PrixVente
-            // 
-            this.PrixVente.HeaderText = "Prix de vente";
-            this.PrixVente.Name = "PrixVente";
-            // 
-            // PrixAchat
-            // 
-            this.PrixAchat.HeaderText = "Prix d\'achat";
-            this.PrixAchat.Name = "PrixAchat";
-            // 
-            // Quantite
-            // 
-            this.Quantite.HeaderText = "Quantité en stock";
-            this.Quantite.Name = "Quantite";
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
+            this.ajouterToolStripMenuItem.Name = "ajouterToolStripMenuItem";
+            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.ajouterToolStripMenuItem.Text = "Ajouter du stock";
+            this.ajouterToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
             // 
             // AfficherStock
             // 
@@ -135,6 +179,7 @@ namespace PT4
             this.Name = "AfficherStock";
             this.Text = "AfficherStock";
             ((System.ComponentModel.ISupportInitialize)(this.stocks)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,5 +197,9 @@ namespace PT4
         private System.Windows.Forms.DataGridViewTextBoxColumn PrixAchat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantite;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterToolStripMenuItem;
     }
 }
