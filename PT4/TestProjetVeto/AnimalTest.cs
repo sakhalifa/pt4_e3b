@@ -15,8 +15,13 @@ namespace TestProjetVeto
     [TestClass]
     public class AnimalTest
     {
+<<<<<<< HEAD:PT4/TestProjetVeto/AnimalTest.cs
         public CLIENT testCustomer;
         public ANIMAL testAnimal;
+=======
+        public CLIENT clientTest;
+        public ANIMAL animalTest;
+>>>>>>> 00f9771 (Moiti√© des TU qui passent):PT4/TestProjetVeto/TestAnimal.cs
 
         [TestInitialize]
         public void TestInitialize()
@@ -76,13 +81,19 @@ namespace TestProjetVeto
 
             var animals = anRepo.FindAll();
 
+<<<<<<< HEAD:PT4/TestProjetVeto/AnimalTest.cs
             Assert.AreEqual(1, animals.Count()); // Test if the database contains one element
             Assert.AreEqual(testCustomer, animals.First().CLIENT);
+=======
+            Assert.AreEqual(1, animals.Count()); //Test si l'animal de base a bien ÈtÈ ajoutÈ dans la base
+            Assert.AreEqual(clientTest, animals.First().CLIENT);
+>>>>>>> 00f9771 (Moiti√© des TU qui passent):PT4/TestProjetVeto/TestAnimal.cs
 
             anController.CreerAnimal(testAnimal.CLIENT, testAnimal.NOMESPECE, testAnimal.NOMRACE, testAnimal.NOMANIMAL, testAnimal.DATENAISSANCE.GetValueOrDefault(), testAnimal.TAILLE, testAnimal.POIDS);
 
             animals = anRepo.FindAll();
 
+<<<<<<< HEAD:PT4/TestProjetVeto/AnimalTest.cs
             Assert.AreEqual(2, animals.Count()); // Test if the animal creation function in the database works
 
             anRepo.Delete(animals.First());
@@ -90,6 +101,14 @@ namespace TestProjetVeto
             animals = anRepo.FindAll(); // Test if the animal deletion function in the database works
             Assert.AreEqual(1, animals.Count());
 
+=======
+            Assert.AreEqual(2, animals.Count()); // Test si la fonction de crÈation d'un animal dans la base marche 
+
+            anRepo.Delete(animals.First());
+
+            animals = anRepo.FindAll();
+            Assert.AreEqual(1, animals.Count()); // Test si la fonction Delete marche bien
+>>>>>>> 00f9771 (Moiti√© des TU qui passent):PT4/TestProjetVeto/TestAnimal.cs
         }
     }
 }
