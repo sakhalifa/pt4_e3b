@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PT4;
 using PT4.Model.dal;
@@ -6,7 +7,9 @@ using Moq;
 using System.Linq;
 using System;
 using PT4.Model.impl;
+using System.Data.Entity;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 
 namespace TestProjetVeto
 {
@@ -15,6 +18,8 @@ namespace TestProjetVeto
     [TestClass]
     public class TestAnimal
     {
+        private IGenericRepository<ANIMAL> _animalRepo;
+        private AnimalController _animalController;
         public CLIENT clientTest;
         public ANIMAL animalTest;
 
@@ -76,19 +81,37 @@ namespace TestProjetVeto
             //FIN DE CREATION DONNEES MOCK
             var animals = anRepo.FindAll();
 
-            Assert.AreEqual(1, animals.Count()); //Test si l'animal de base a bien été ajouté dans la base
+            Assert.AreEqual(1, animals.Count());
             Assert.AreEqual(clientTest, animals.First().CLIENT);
 
             anController.CreerAnimal(animalTest.CLIENT, animalTest.NOMESPECE, animalTest.NOMRACE, animalTest.NOMANIMAL, animalTest.DATENAISSANCE.GetValueOrDefault(), animalTest.TAILLE, animalTest.POIDS);
 
             animals = anRepo.FindAll();
 
-            Assert.AreEqual(2, animals.Count()); // Test si la fonction de création d'un animal dans la base marche 
+            Assert.AreEqual(2, animals.Count());
 
             anRepo.Delete(animals.First());
 
             animals = anRepo.FindAll();
-            Assert.AreEqual(1, animals.Count()); // Test si la fonction Delete marche bien
+            Assert.AreEqual(1, animals.Count());
+
+
+            /*
+            var req = _animalRepo.FindWhere((a) => a.NOMANIMAL == animalTest.NOMANIMAL);
+
+            Assert.AreEqual(req.Count(), 0); // Test si aucun animal de ce nom dans la base existe déjà
+
+            _animalController.CreerAnimal(clientTest, animalTest.NOMESPECE, animalTest.NOMRACE, animalTest.NOMANIMAL, (DateTime)animalTest.DATENAISSANCE, animalTest.TAILLE, animalTest.POIDS);
+            req = _animalRepo.FindWhere((a) => a.NOMANIMAL == animalTest.NOMANIMAL);
+
+            Assert.AreEqual(req.Count(), 1); // Test l'insertion d'un animal dans la base    
+
+            foreach (ANIMAL ani in req)
+            {
+                _animalRepo.Delete(ani);
+            }
+            _animalRepo.Save();
+            */
         }
     }
 }
