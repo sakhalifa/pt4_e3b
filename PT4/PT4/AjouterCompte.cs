@@ -17,12 +17,22 @@ namespace PT4
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void textBoxCompte_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void nomCompte_TextChanged(object sender, EventArgs e)
+        private void textBoxMdp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void confirmerMotDePasse_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonConnexion_Click(object sender, EventArgs e)
         {
 
         }

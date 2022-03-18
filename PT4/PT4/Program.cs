@@ -54,7 +54,6 @@ namespace PT4
                 MenuHamberger form = provider.GetRequiredService<MenuHamberger>();
                 Application.Run(form);
             }
-            
         }
     }
 }

@@ -157,6 +157,18 @@
     <Compile Include="AjouterStock.Designer.cs">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="DonneesPersonnelles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DonneesPersonnelles.Designer.cs">
+      <DependentUpon>DonneesPersonnelles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierMdp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierMdp.Designer.cs">
+      <DependentUpon>ModifierMdp.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifierStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +331,9 @@
     <EmbeddedResource Include="AjouterStock.resx">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DonneesPersonnelles.resx">
+      <DependentUpon>DonneesPersonnelles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionPlanning.resx">
       <DependentUpon>GestionPlanning.cs</DependentUpon>
     </EmbeddedResource>
@@ -342,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ajouterRDV.resx">
       <DependentUpon>ajouterRDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierMdp.resx">
+      <DependentUpon>ModifierMdp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifierStock.resx">
       <DependentUpon>ModifierStock.cs</DependentUpon>

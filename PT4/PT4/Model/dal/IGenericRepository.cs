@@ -18,13 +18,13 @@ namespace PT4.Model.dal
         /// Gets every <typeparamref name="T"/> in the database
         /// </summary>
         /// <returns>Every <typeparamref name="T"/> in the database</returns>
-        IEnumerable<T> FindAll();
+        IQueryable<T> FindAll();
         /// <summary>
         /// Gets every <typeparamref name="T"/> saved in the database that validates the predicate given
         /// </summary>
         /// <param name="predicate">A function wich takes an <typeparamref name="T"/> and returns a boolean. 
         /// It returns true if we want the <typeparamref name="T"/> to be included in the search, else false.</param>
-        IEnumerable<T> FindWhere(Expression<Func<T, bool>> predicate);
+        IQueryable<T> FindWhere(Expression<Func<T, bool>> predicate);
         /// <summary>
         /// Finds the <typeparamref name="T"/> that has the specified id or null if not found
         /// </summary>

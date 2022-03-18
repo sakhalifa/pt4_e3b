@@ -15,9 +15,9 @@ namespace PT4.Model.impl
         {
         }
 
-        public override IEnumerable<CONGÉ> FindAll()
+        public override IQueryable<CONGÉ> FindAll()
         {
-            return _context.Set<CONGÉ>().ToList();
+            return _context.Set<CONGÉ>().AsQueryable();
         }
 
         public override CONGÉ FindById(int id)
@@ -40,7 +40,7 @@ namespace PT4.Model.impl
             _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public override IEnumerable<CONGÉ> FindWhere(Expression<Func<CONGÉ, bool>> predicate)
+        public override IQueryable<CONGÉ> FindWhere(Expression<Func<CONGÉ, bool>> predicate)
         {
             return _context.Set<CONGÉ>().Where(predicate);
         }
