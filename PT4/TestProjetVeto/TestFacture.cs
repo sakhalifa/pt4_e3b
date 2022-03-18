@@ -1,63 +1,65 @@
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PT4;
 using PT4.Model.dal;
 using PT4.Controllers;
+using Moq;
 using System.Linq;
 using System;
 using PT4.Model.impl;
-using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace TestProjetVeto
 {
     [TestClass]
     public class TestFacture
     {
-        private IGenericRepository<FACTURE> _factureRepo;
-        private FactureController _factureController;
         public FACTURE factureTest;
+        public CLIENT clientTest;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            ServiceCollection services = new ServiceCollection();
-            services.AddSingleton<DbContext, PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
-                    .AddSingleton<IGenericRepository<FACTURE>, FactureRepository>()
-                    .AddSingleton<FactureController>()
-            ;
-            services.AddSingleton(services);
-
-            using(ServiceProvider provider = services.BuildServiceProvider())
+            clientTest = new CLIENT
             {
-                _factureRepo = provider.GetRequiredService<IGenericRepository<FACTURE>>();
-            }
+                NOMCLIENT = "Test",
+                PRENOMCLIENT = "Test",
+                NUMERO = "Test",
+                EMAIL = "Test"
+            };
 
             factureTest = new FACTURE
             {
-                CLIENT = null,
-                
+                CLIENT = clientTest,
+                MONTANT = 92,
+                PRODUIT_VENDU = null
             };
         }
 
         [TestMethod]
         public void TestCreerFacture()
         {
-            /*
-            var req = _animalRepo.FindWhere((a) => a.NOMANIMAL == animalTest.NOMANIMAL);
+            //CREATION DES DONNES MOCK
+            var data = new List<FACTURE> { };
+            var mockSet = Utils.CreateDbSet(data);
 
-            Assert.AreEqual(req.Count(), 0); // Test si aucun animal de ce nom dans la base existe déjà
+            var mockContext = new Mock<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>();
+            mockContext.Setup(c => c.Set<FACTURE>()).Returns(mockSet);
 
-            _animalController.CreerAnimal(clientTest, animalTest.NOMESPECE, animalTest.NOMRACE, animalTest.NOMANIMAL, (DateTime)animalTest.DATENAISSANCE, animalTest.TAILLE, animalTest.POIDS);
-            req = _animalRepo.FindWhere((a) => a.NOMANIMAL == animalTest.NOMANIMAL);
+            var mockRepo = Utils.CreateMockRepo<FactureRepository, FACTURE>(mockContext.Object);
+            var facRepo = mockRepo.Object;
 
-            Assert.AreEqual(req.Count(), 1); // Test l'insertion d'un animal dans la base    
+            var facController = new FactureController(facRepo);
+            //FIN DE CREATION DONNEES MOCK
 
-            foreach (ANIMAL ani in req)
-            {
-                _animalRepo.Delete(ani);
-            }
-            _animalRepo.Save();
-            */
+            var factures = facRepo.FindAll();
+
+            Assert.AreEqual(0, factures.Count()); //Test si la base est bien vide
+
+            facController.CreerFacture(factureTest.PRODUIT_VENDU, factureTest.CLIENT, (int) factureTest.MONTANT);
+
+            factures = facRepo.FindAll();
+
+            //Assert.AreEqual(1, factures.Count()); // Test si la fonction de création d'une facture dans la base marche 
         }
     }
 }
