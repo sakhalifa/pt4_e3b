@@ -157,11 +157,11 @@ namespace PT4
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PT4.Properties.Resources.zebra_g8a6d9221f_1920;
+            this.pictureBox1.Image = global::PT4.Properties.Resources.parrot_g3fd41130a_1920;
             this.pictureBox1.Location = new System.Drawing.Point(1, -2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(303, 481);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(1920, 1280);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
