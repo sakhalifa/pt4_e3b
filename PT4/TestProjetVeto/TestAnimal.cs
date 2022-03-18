@@ -35,6 +35,7 @@ namespace TestProjetVeto
 
             animalTest = new ANIMAL
             {
+                IDANIMAL = 2,
                 CLIENT = clientTest,
                 NOMESPECE = "chat",
                 NOMRACE = "tigre",
@@ -62,7 +63,7 @@ namespace TestProjetVeto
                 TAILLE = 18,
                 POIDS = 7
             }
-        }.AsQueryable();
+        };
 
             var mockSet = Utils.CreateDbSet(data);
 
@@ -70,12 +71,20 @@ namespace TestProjetVeto
             mockContext.Setup(c => c.Set<ANIMAL>()).Returns(mockSet);
 
             var anRepo = new AnimalRepository(mockContext.Object);
+            var anController = new AnimalController(anRepo);
 
             //FIN DE CREATION DONNEES MOCK
             var animals = anRepo.FindAll();
 
             Assert.AreEqual(1, animals.Count());
-            
+            Assert.AreEqual(clientTest, animals.First().CLIENT);
+
+            anController.CreerAnimal(animalTest.CLIENT, animalTest.NOMESPECE, animalTest.NOMRACE, animalTest.NOMANIMAL, animalTest.DATENAISSANCE, animalTest.TAILLE, animalTest.POIDS);
+
+            animals = anRepo.FindAll();
+
+            Assert.AreEqual(2, animals.Count());
+
 
             /*
             var req = _animalRepo.FindWhere((a) => a.NOMANIMAL == animalTest.NOMANIMAL);
