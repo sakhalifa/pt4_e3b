@@ -48,17 +48,12 @@ namespace PT4
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
             services.AddScoped<MenuHamberger>();
             using (ServiceProvider provider = services.BuildServiceProvider())
             {
                 MenuHamberger form = provider.GetRequiredService<MenuHamberger>();
                 Application.Run(form);
             }
-            
-=======
-            Application.Run(new InterfaceJournalAction());
->>>>>>> 42815f9 (Interfaces Logs)
         }
     }
 }
