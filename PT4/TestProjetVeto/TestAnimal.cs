@@ -9,6 +9,7 @@ using System;
 using PT4.Model.impl;
 using System.Data.Entity;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 
 namespace TestProjetVeto
 {
@@ -70,7 +71,11 @@ namespace TestProjetVeto
             var mockContext = new Mock<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>();
             mockContext.Setup(c => c.Set<ANIMAL>()).Returns(mockSet);
 
-            var anRepo = new AnimalRepository(mockContext.Object);
+            var mockRepo = new Mock<AnimalRepository>(mockContext.Object);
+            mockRepo.Setup(c => c.Save()).Callback(() => { return; });
+            mockRepo.CallBase = true;
+            var anRepo = mockRepo.Object;
+
             var anController = new AnimalController(anRepo);
 
             //FIN DE CREATION DONNEES MOCK
@@ -79,11 +84,16 @@ namespace TestProjetVeto
             Assert.AreEqual(1, animals.Count());
             Assert.AreEqual(clientTest, animals.First().CLIENT);
 
-            anController.CreerAnimal(animalTest.CLIENT, animalTest.NOMESPECE, animalTest.NOMRACE, animalTest.NOMANIMAL, animalTest.DATENAISSANCE.Value, animalTest.TAILLE, animalTest.POIDS);
+            anController.CreerAnimal(animalTest.CLIENT, animalTest.NOMESPECE, animalTest.NOMRACE, animalTest.NOMANIMAL, animalTest.DATENAISSANCE.GetValueOrDefault(), animalTest.TAILLE, animalTest.POIDS);
 
             animals = anRepo.FindAll();
 
             Assert.AreEqual(2, animals.Count());
+
+            anRepo.Delete(animals.First());
+
+            animals = anRepo.FindAll();
+            Assert.AreEqual(1, animals.Count());
 
 
             /*
