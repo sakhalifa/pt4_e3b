@@ -45,6 +45,7 @@ namespace PT4.Controllers
             {
                 throw new Exception("Il y a déjà un salarié avec ce login");
             }
+            var hash = SHA256.Create().ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
             salarie = new SALARIÉ {
                 LOGIN = login,
                 MDP = Utils.Hash(clearPwd),
