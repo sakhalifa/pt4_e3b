@@ -7,6 +7,7 @@ using System.Linq;
 using System;
 using PT4.Model.impl;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 
 namespace TestProjetVeto
 {
@@ -86,6 +87,10 @@ namespace TestProjetVeto
             Assert.AreEqual(2, animals.Count()); // Test si la fonction de création d'un animal dans la base marche 
 
             anRepo.Delete(animals.First());
+
+            animals = anRepo.FindAll();
+            Assert.AreEqual(1, animals.Count());
+
 
             animals = anRepo.FindAll();
             Assert.AreEqual(1, animals.Count()); // Test si la fonction Delete marche bien
