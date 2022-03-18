@@ -28,37 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxConfirmerMdp = new System.Windows.Forms.TextBox();
             this.textBoxNewMdp = new System.Windows.Forms.TextBox();
+            this.textBoxConfirmerMdp = new System.Windows.Forms.TextBox();
             this.titre = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonConfirmation = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.buttonConfirmation);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.titre);
-            this.panel1.Controls.Add(this.textBoxConfirmerMdp);
-            this.panel1.Controls.Add(this.textBoxNewMdp);
-            this.panel1.Location = new System.Drawing.Point(255, 32);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(295, 339);
-            this.panel1.TabIndex = 0;
-            // 
-            // textBoxConfirmerMdp
-            // 
-            this.textBoxConfirmerMdp.Location = new System.Drawing.Point(90, 185);
-            this.textBoxConfirmerMdp.Name = "textBoxConfirmerMdp";
-            this.textBoxConfirmerMdp.Size = new System.Drawing.Size(100, 20);
-            this.textBoxConfirmerMdp.TabIndex = 9;
-            this.textBoxConfirmerMdp.TextChanged += new System.EventHandler(this.textBoxConfirmerMdp_TextChanged);
             // 
             // textBoxNewMdp
             // 
@@ -67,6 +45,14 @@
             this.textBoxNewMdp.Size = new System.Drawing.Size(100, 20);
             this.textBoxNewMdp.TabIndex = 8;
             this.textBoxNewMdp.TextChanged += new System.EventHandler(this.textBoxNewMdp_TextChanged);
+            // 
+            // textBoxConfirmerMdp
+            // 
+            this.textBoxConfirmerMdp.Location = new System.Drawing.Point(90, 185);
+            this.textBoxConfirmerMdp.Name = "textBoxConfirmerMdp";
+            this.textBoxConfirmerMdp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxConfirmerMdp.TabIndex = 9;
+            this.textBoxConfirmerMdp.TextChanged += new System.EventHandler(this.textBoxConfirmerMdp_TextChanged);
             // 
             // titre
             // 
@@ -115,10 +101,25 @@
             this.buttonConfirmation.UseVisualStyleBackColor = false;
             this.buttonConfirmation.Click += new System.EventHandler(this.buttonConfirmation_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.buttonConfirmation);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.titre);
+            this.panel1.Controls.Add(this.textBoxConfirmerMdp);
+            this.panel1.Controls.Add(this.textBoxNewMdp);
+            this.panel1.Location = new System.Drawing.Point(255, 32);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(295, 339);
+            this.panel1.TabIndex = 0;
+            // 
             // ModifierMdp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::PT4.Properties.Resources.parrot_g3fd41130a_1920;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Name = "ModifierMdp";
@@ -131,12 +132,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBoxConfirmerMdp;
         private System.Windows.Forms.TextBox textBoxNewMdp;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxConfirmerMdp;
         private System.Windows.Forms.Label titre;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonConfirmation;
+        private System.Windows.Forms.Panel panel1;
     }
 }
