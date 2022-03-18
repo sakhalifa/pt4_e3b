@@ -1,43 +1,24 @@
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PT4;
 using PT4.Model.dal;
 using PT4.Controllers;
+using Moq;
 using System.Linq;
 using System;
 using PT4.Model.impl;
-using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace TestProjetVeto
 {
     [TestClass]
     public class TestClient
     {
-        private IGenericRepository<RENDEZVOUS> _rdvRepo;
-        private IGenericRepository<CLIENT> _clientRepo;
-        private ClientController _clientController;
         public CLIENT clientTest;
         public RENDEZVOUS rdvTest;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            ServiceCollection services = new ServiceCollection();
-
-            services.AddSingleton<DbContext, PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
-                    .AddSingleton<IGenericRepository<CLIENT>, ClientRepository>()
-                    .AddSingleton<IGenericRepository<RENDEZVOUS>, RendezVousRepository>()
-                    .AddSingleton<ClientController>()
-            ;
-            services.AddSingleton(services);
-
-            using (ServiceProvider provider = services.BuildServiceProvider())
-            {
-                _rdvRepo = provider.GetRequiredService<IGenericRepository<RENDEZVOUS>>();
-                _clientRepo = provider.GetRequiredService<IGenericRepository<CLIENT>>();
-                _clientController = provider.GetRequiredService<ClientController>();
-            }
-
             clientTest = new CLIENT
             {
                 NOMCLIENT = "Test",
@@ -58,39 +39,62 @@ namespace TestProjetVeto
         [TestMethod]
         public void TestCreerClient()
         {
-            var req = _clientRepo.FindWhere((c) => c.NUMERO == clientTest.NUMERO);
+            //CREATION DES DONNES MOCK
+            var data = new List<CLIENT> { };
+            var mockSet = Utils.CreateDbSet(data);
 
-            Assert.AreEqual(req.Count(), 0); // Test si aucun client dans la base de ce nom existe déjà
+            var mockContext = new Mock<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>();
+            mockContext.Setup(c => c.Set<CLIENT>()).Returns(mockSet);
 
-            _clientController.CreerClient(clientTest.NOMCLIENT, clientTest.PRENOMCLIENT, clientTest.NUMERO, clientTest.EMAIL);
-            req = _clientRepo.FindWhere((c) => c.NUMERO == clientTest.NUMERO);
+            var mockRepo = Utils.CreateMockRepo<ClientRepository, CLIENT>(mockContext.Object);
+            var cliRepo = mockRepo.Object;
 
-            Assert.AreEqual(req.Count(), 1); // Test l'insertion d'un client dans la base
+            var mockRepo2 = Utils.CreateMockRepo<RendezVousRepository, RENDEZVOUS>(mockContext.Object);
+            var rdvRepo = mockRepo2.Object;
 
-            foreach (CLIENT cli in req)
-            {
-                _clientRepo.Delete(cli);
-            }
-            _clientRepo.Save();
+
+            var cliController = new ClientController(cliRepo, rdvRepo);
+
+            //FIN DE CREATION DONNEES MOCK
+            var clients = cliRepo.FindAll();
+
+            Assert.AreEqual(0, clients.Count()); //Test si la base est bien vide
+
+            cliController.CreerClient(clientTest.NOMCLIENT, clientTest.PRENOMCLIENT, clientTest.NUMERO, clientTest.EMAIL);
+
+            clients = cliRepo.FindAll();
+
+            Assert.AreEqual(1, clients.Count()); // Test si la fonction de création d'un client dans la base marche 
         }
 
         [TestMethod]
         public void TestCreerRDV()
         {
-            var req = _rdvRepo.FindWhere((rdv) => rdv.HEUREFINRDV == rdvTest.HEUREFINRDV);
+            //CREATION DES DONNES MOCK
+            var data = new List<RENDEZVOUS> { };
+            var mockSet = Utils.CreateDbSet(data);
 
-            Assert.AreEqual(req.Count(), 0); // Test si aucun rdv dans la base de ce type existe déjà
+            var mockContext = new Mock<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>();
+            mockContext.Setup(c => c.Set<RENDEZVOUS>()).Returns(mockSet);
 
-            _clientController.CreerRendezVous(clientTest, rdvTest.DATEHEURERDV, rdvTest.RAISON, rdvTest.HEUREFINRDV);
-            req = _rdvRepo.FindWhere((rdv) => rdv.HEUREFINRDV == rdvTest.HEUREFINRDV);
+            var mockRepo = Utils.CreateMockRepo<ClientRepository, CLIENT>(mockContext.Object);
+            var cliRepo = mockRepo.Object;
 
-            Assert.AreEqual(req.Count(), 1); // Test l'insertion d'un rendez vous dans la base
+            var mockRepo2 = Utils.CreateMockRepo<RendezVousRepository, RENDEZVOUS>(mockContext.Object);
+            var rdvRepo = mockRepo2.Object;
 
-            foreach (RENDEZVOUS rdv in req)
-            {
-                _rdvRepo.Delete(rdv);
-            }
-            _rdvRepo.Save();
+            var cliController = new ClientController(cliRepo, rdvRepo);
+
+            //FIN DE CREATION DONNEES MOCK
+            var clients = rdvRepo.FindAll();
+
+            Assert.AreEqual(0, clients.Count()); //Test si la base est bien vide
+
+            cliController.CreerRendezVous(clientTest, rdvTest.DATEHEURERDV, rdvTest.RAISON, rdvTest.HEUREFINRDV);
+
+            clients = rdvRepo.FindAll();
+
+            Assert.AreEqual(1, clients.Count()); // Test si la fonction de création d'un rendez vous dans la base marche 
         }
     }
 }
