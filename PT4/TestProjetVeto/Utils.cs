@@ -30,7 +30,10 @@ namespace TestProjetVeto
         {
             var mockRepo = new Mock<T>(ctx);
             mockRepo.Setup(c => c.Save()).Callback(() => { return; });
+<<<<<<< HEAD
             mockRepo.Setup(d => d.Update(It.IsAny<V>())).Callback<V>((s) => { return; });
+=======
+>>>>>>> 00f9771 (Moitié des TU qui passent)
             mockRepo.CallBase = true;
 
             return mockRepo;
