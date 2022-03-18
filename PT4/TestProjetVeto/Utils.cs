@@ -1,4 +1,6 @@
 ﻿using Moq;
+using PT4.Model.dal;
+using PT4.Model.impl;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -22,6 +24,15 @@ namespace TestProjetVeto
             stubDbSet.Setup(d => d.Remove(It.IsAny<T>())).Callback<T>((s) => collection.Remove(s));
             stubDbSet.Object.AsNoTracking();
             return stubDbSet.Object;
+        }
+
+        public static Mock<T> CreateMockRepo<T, V>(DbContext ctx) where T : AbstractRepository<V>
+        {
+            var mockRepo = new Mock<T>(ctx);
+            mockRepo.Setup(c => c.Save()).Callback(() => { return; });
+            mockRepo.CallBase = true;
+
+            return mockRepo;
         }
     }
 }
