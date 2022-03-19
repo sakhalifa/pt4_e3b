@@ -201,6 +201,12 @@
     </Compile>
     <Compile Include="Model\dal\IGenericRepository.cs" />
     <Compile Include="Model\impl\AbstractRepository.cs" />
+	<Compile Include="RechercheStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+	<Compile Include="RechercheStock.Designer.cs">
+      <DependentUpon>RechercheStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="statsProduit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -345,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModifierStock.resx">
       <DependentUpon>ModifierStock.cs</DependentUpon>
+    </EmbeddedResource>
+	<EmbeddedResource Include="RechercheStock.resx">
+      <DependentUpon>RechercheStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TemplateModifierStock.resx">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
