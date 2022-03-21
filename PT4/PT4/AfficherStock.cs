@@ -212,6 +212,16 @@ namespace PT4
             }
         }
 
-        
+        private void rechercheButton_Click(object sender, EventArgs e)
+        {
+            RechercheStock rechercheStock = new RechercheStock();
+            rechercheStock.ShowDialog();
+
+            var generatedPredicate = _produitController.CreateCriteriasFromForm(rechercheStock);
+            foreach(PRODUIT p in _produitController.FindByPredicate(generatedPredicate))
+            {
+                Console.WriteLine(p.NOMPRODUIT);
+            }
+        }
     }
 }

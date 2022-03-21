@@ -37,13 +37,12 @@ namespace PT4
             this.Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.textBoxRechercher = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.buttonStats = new System.Windows.Forms.Button();
-            this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rechercheButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.stocks)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -109,17 +108,24 @@ namespace PT4
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(162, 70);
             // 
+            // ajouterToolStripMenuItem
+            // 
+            this.ajouterToolStripMenuItem.Name = "ajouterToolStripMenuItem";
+            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.ajouterToolStripMenuItem.Text = "Ajouter du stock";
+            this.ajouterToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
+            // 
             // modifierToolStripMenuItem
             // 
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.modifierToolStripMenuItem.Text = "Modifier";
             this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
@@ -133,23 +139,6 @@ namespace PT4
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // textBoxRechercher
-            // 
-            this.textBoxRechercher.Location = new System.Drawing.Point(123, 408);
-            this.textBoxRechercher.Name = "textBoxRechercher";
-            this.textBoxRechercher.Size = new System.Drawing.Size(100, 20);
-            this.textBoxRechercher.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(120, 392);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Rechercher:";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
-            // 
             // buttonStats
             // 
             this.buttonStats.Location = new System.Drawing.Point(634, 404);
@@ -159,21 +148,23 @@ namespace PT4
             this.buttonStats.Text = "Statistiques des stocks";
             this.buttonStats.UseVisualStyleBackColor = true;
             // 
-            // ajouterToolStripMenuItem
+            // rechercheButton
             // 
-            this.ajouterToolStripMenuItem.Name = "ajouterToolStripMenuItem";
-            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.ajouterToolStripMenuItem.Text = "Ajouter du stock";
-            this.ajouterToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
+            this.rechercheButton.Location = new System.Drawing.Point(142, 404);
+            this.rechercheButton.Name = "rechercheButton";
+            this.rechercheButton.Size = new System.Drawing.Size(75, 23);
+            this.rechercheButton.TabIndex = 6;
+            this.rechercheButton.Text = "Rechercher";
+            this.rechercheButton.UseVisualStyleBackColor = true;
+            this.rechercheButton.Click += new System.EventHandler(this.rechercheButton_Click);
             // 
             // AfficherStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rechercheButton);
             this.Controls.Add(this.buttonStats);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxRechercher);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.stocks);
             this.Name = "AfficherStock";
@@ -181,7 +172,6 @@ namespace PT4
             ((System.ComponentModel.ISupportInitialize)(this.stocks)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -189,8 +179,6 @@ namespace PT4
 
         private System.Windows.Forms.DataGridView stocks;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.TextBox textBoxRechercher;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonStats;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrixVente;
@@ -201,5 +189,6 @@ namespace PT4
         private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterToolStripMenuItem;
+        private System.Windows.Forms.Button rechercheButton;
     }
 }
