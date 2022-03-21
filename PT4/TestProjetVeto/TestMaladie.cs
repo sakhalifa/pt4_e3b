@@ -25,7 +25,7 @@ namespace TestProjetVeto
         }
 
         [TestMethod]
-        public void TestCreerMaladie()
+        public void TestCreerMaladieEtListerMaladie()
         {
             //CREATION DES DONNES MOCK
             var data = new List<MALADIE> { };
