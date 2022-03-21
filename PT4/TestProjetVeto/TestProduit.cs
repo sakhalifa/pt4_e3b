@@ -30,7 +30,7 @@ namespace TestProjetVeto
         }
 
         [TestMethod]
-        public void TestCreerOuMaJProduit()
+        public void TestCreerOuMaJProduitEtFindByName()
         {
             //CREATION DES DONNES MOCK
             var data = new List<PRODUIT> { };
@@ -49,11 +49,20 @@ namespace TestProjetVeto
 
             Assert.AreEqual(0, produits.Count()); //Test si la base est bien vide
 
-            produitController.CreerOuMaJProduit(produitTest.NOMPRODUIT, (decimal) produitTest.PRIXDEVENTE, produitTest.PRIXACHAT, produitTest.QUANTITEENSTOCK, produitTest.DESCRIPTION, produitTest.MEDICAMENT, true);
+            Assert.IsNull(produitController.FindByName(produitTest.NOMPRODUIT)); //Test si trouver un produit qui n'existe pas retourne bien null
+
+            produitController.CreerOuMaJProduit(produitTest.NOMPRODUIT, (decimal)produitTest.PRIXDEVENTE, produitTest.PRIXACHAT, produitTest.QUANTITEENSTOCK, produitTest.DESCRIPTION, produitTest.MEDICAMENT, true);
             Assert.AreEqual(1, produits.Count()); ; // Test si la fonction de création d'un produit dans la base marche 
+
+            Assert.IsNotNull(produitController.FindByName(produitTest.NOMPRODUIT)); //Test si maintenant que le produit est crée si la méthode ne retourne pas null
 
             produitController.CreerOuMaJProduit(produitTest.NOMPRODUIT, (decimal)produitTest.PRIXDEVENTE, produitTest.PRIXACHAT, produitTest.QUANTITEENSTOCK, produitTest.DESCRIPTION, produitTest.MEDICAMENT, true);
             Assert.AreEqual(240, produits.First().QUANTITEENSTOCK); // Test si la fonction de mise à jour marche bien
+        }
+
+        [TestMethod]
+        public void TestSuscribeProduct()
+        {
         }
     }
 }
