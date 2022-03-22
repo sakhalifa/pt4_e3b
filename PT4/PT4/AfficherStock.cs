@@ -1,4 +1,5 @@
-﻿using PT4.Controllers;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PT4.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +12,11 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class AfficherStock : Form
+    public partial class AfficherStock : MenuHamberger
     {
         private ProduitController _produitController;
 
-        public AfficherStock(ProduitController produitController)
+        public AfficherStock(ProduitController produitController, ServiceCollection services) : base(services)
         {
             _produitController = produitController;
             _produitController.SubscribeProducts(OnChanged);

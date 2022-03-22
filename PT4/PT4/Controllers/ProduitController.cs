@@ -76,6 +76,11 @@ namespace PT4.Controllers
             _produitRepository.Save();
         }
 
+        public IQueryable<PRODUIT> GetAlmostExpiredProducts()
+        {
+            return _produitRepository.FindWhere((p) => p.QUANTITEENSTOCK <= 10);
+        }
+
         public void RemoveByName(string name)
         {
             PRODUIT prod = FindByName(name);

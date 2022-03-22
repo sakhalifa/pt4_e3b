@@ -49,6 +49,7 @@ namespace PT4
             this.Name = "GestionPlanning";
             this.Text = "GestionPlanning";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

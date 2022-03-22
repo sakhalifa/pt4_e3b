@@ -29,7 +29,7 @@ namespace PT4
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAcceuil));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuHamberger));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.buttonLog = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -67,6 +67,7 @@ namespace PT4
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(250, 474);
             this.panelSideMenu.TabIndex = 0;
+            this.panelSideMenu.Visible = false;
             // 
             // buttonLog
             // 
@@ -96,6 +97,7 @@ namespace PT4
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(233, 168);
             this.panel2.TabIndex = 4;
+            this.panel2.Visible = false;
             // 
             // buttonNewCompte
             // 
@@ -188,6 +190,7 @@ namespace PT4
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(233, 120);
             this.panel1.TabIndex = 2;
+            this.panel1.Visible = false;
             // 
             // buttonWeekSale
             // 
@@ -285,14 +288,14 @@ namespace PT4
             this.buttonHamburger.UseVisualStyleBackColor = true;
             this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
             // 
-            // MenuAccueil
+            // MenuHamberger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 474);
             this.Controls.Add(this.buttonHamburger);
             this.Controls.Add(this.panelSideMenu);
-            this.Name = "MenuAccueil";
+            this.Name = "MenuHamberger";
             this.Text = "MenuHamberger";
             this.panelSideMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

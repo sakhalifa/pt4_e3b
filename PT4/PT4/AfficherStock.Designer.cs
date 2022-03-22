@@ -172,6 +172,7 @@ namespace PT4
             ((System.ComponentModel.ISupportInitialize)(this.stocks)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
