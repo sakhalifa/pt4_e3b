@@ -12,10 +12,15 @@ namespace PT4
 {
     public partial class RechercheStock : Form
     {
+        private bool hasSellable = false;
+
+        private static readonly object[] ITEM_LIST = new object[] { "Nom", "Prix d'achat", "Prix de vente", "Quantité", "Description", "Medicament" };
 
         public RechercheStock()
         {
             InitializeComponent();
+            criteriaCombo.SelectedIndex = 0;
+
         }
 
         private void remove_Click(object sender, EventArgs e)
@@ -28,6 +33,11 @@ namespace PT4
                     Control c = table.GetControlFromPosition(i, row);
                     if (!(c is null))
                     {
+                        if (c is ComboBox cb && cb.SelectedItem.Equals("Vendable"))
+                        {
+                            hasSellable = false;
+                            AddSellableToCriterias();
+                        }
                         table.Controls.Remove(c);
                         c.Dispose();
                     }
@@ -49,7 +59,7 @@ namespace PT4
 
                 if (!(firstColRow is Button))
                 {
-                    if(!(firstColRow is null))
+                    if (!(firstColRow is null))
                     {
                         table.Controls.Remove(firstColRow);
                     }
@@ -65,6 +75,33 @@ namespace PT4
                     table.AutoScroll = false;
                 }
 
+            }
+        }
+        private void RemoveEverySellableCriteria(int rowToIgnore)
+        {
+            for (int i = 0; i < tableLayoutPanel1.RowCount - 1; i++)
+            {
+                if (i != rowToIgnore)
+                {
+                    if (tableLayoutPanel1.GetControlFromPosition(1, i) is ComboBox cb)
+                    {
+                        cb.Items.Remove("Vendable");
+                    }
+                }
+            }
+        }
+
+        private void AddSellableToCriterias()
+        {
+            for (int i = 0; i < tableLayoutPanel1.RowCount - 1; i++)
+            {
+                if (tableLayoutPanel1.GetControlFromPosition(1, i) is ComboBox cb)
+                {
+                    if (!cb.Items.Contains("Vendable"))
+                    {
+                        cb.Items.Add("Vendable");
+                    }
+                }
             }
         }
 
@@ -124,6 +161,24 @@ namespace PT4
                         table.SetRow(checkbox, row);
                         table.SetColumn(checkbox, 3);
                         break;
+                    case 6:
+                        RemoveEverySellableCriteria(table.GetCellPosition(comboBox).Row);
+                        this.hasSellable = true;
+                        CheckBox sellableCb = new CheckBox()
+                        {
+                            Anchor = AnchorStyles.None
+                        };
+                        table.Controls.Add(sellableCb);
+                        table.SetRow(sellableCb, row);
+                        table.SetColumn(sellableCb, 3);
+                        break;
+                }
+                if (comboBox.SelectedIndex != 6)
+                {
+                    hasSellable = hasSellable || false;
+                    if (!hasSellable) { 
+                        AddSellableToCriterias();
+                    }
                 }
             }
         }
@@ -158,9 +213,11 @@ namespace PT4
                     DropDownStyle = ComboBoxStyle.DropDownList,
                     Width = criteriaCombo.Width
                 };
-                foreach (var elem in criteriaCombo.Items)
+
+                criteria.Items.AddRange(ITEM_LIST);
+                if (!hasSellable)
                 {
-                    criteria.Items.Add(elem);
+                    criteria.Items.Add("Vendable");
                 }
                 criteria.SelectedIndexChanged += critere_SelectedIndexChanged;
 
@@ -182,54 +239,53 @@ namespace PT4
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
+            bool sellable = false;
+            if (hasSellable)
+            {
+                for (int i = 0; i < tableLayoutPanel1.RowCount - 1; i++)
+                {
+                    if (tableLayoutPanel1.GetControlFromPosition(1, i) is ComboBox critere && critere.SelectedItem.Equals("Vendable"))
+                    {
+                        sellable = ((CheckBox)tableLayoutPanel1.GetControlFromPosition(3, i)).Checked;
+                    }
+                }
+            }
             for (int i = 0; i < tableLayoutPanel1.RowCount - 1; i++)
             {
-                if (i == 0 && tableLayoutPanel1.GetControlFromPosition(0, i) is Button)
+
+                if (tableLayoutPanel1.GetControlFromPosition(0, i) is ComboBox combinType)
                 {
-                    Utils.ShowError("ERREUR! Veuillez avoir au moins un critère!");
-                    return;
-                }
-                //Pour la 4e colonne (la valeur à comparer) techniquement tout est valable donc pas besoin de vérifier
-                for (int j = 0; j < tableLayoutPanel1.ColumnCount - 1; j++)
-                {
-                    switch (j)
+                    if (combinType.SelectedItem is null)
                     {
-                        case 0:
-                            if (tableLayoutPanel1.GetControlFromPosition(j, i) is ComboBox combinType)
-                            {
-                                if (combinType.SelectedItem is null)
-                                {
-                                    Utils.ShowError("ERREUR! Veuillez choisir une combinaison valide!");
-                                    return;
-                                }
-                            }
-                            break;
-                        case 1:
-                            ComboBox critere = (ComboBox)tableLayoutPanel1.GetControlFromPosition(j, i);
-                            if (!(critere is null))
-                            {
-                                if (critere.SelectedItem is null)
-                                {
-                                    Utils.ShowError("ERREUR! Veuillez choisir un critère!");
-                                    return;
-                                }
-                            }
-                            break;
-                        case 2:
-                            if (tableLayoutPanel1.GetControlFromPosition(j, i) is ComboBox checkType)
-                            {
-                                if (checkType.SelectedItem is null)
-                                {
-                                    Utils.ShowError("ERREUR! Veuillez choisir une comparaison valide!");
-                                    return;
-                                }
-                            }
-                            break;
+                        Utils.ShowError("ERREUR! Veuillez choisir une combinaison valide!");
+                        return;
+                    }
+                }
+                if (tableLayoutPanel1.GetControlFromPosition(1, i) is ComboBox critere)
+                {
+                    if (critere.SelectedItem is null)
+                    {
+                        Utils.ShowError("ERREUR! Veuillez choisir un critère!");
+                        return;
+                    }
+                    else if (critere.SelectedItem.Equals(ITEM_LIST[2]) && hasSellable && !sellable)
+                    {
+                        Utils.ShowError("ERREUR! Il est incohérent d'avoir un critère sur le prix de vente alors qu'on autorise les produits non vendable!");
+                        return;
+                    }
+                }
+                if (tableLayoutPanel1.GetControlFromPosition(2, i) is ComboBox checkType)
+                {
+                    if (checkType.SelectedItem is null)
+                    {
+                        Utils.ShowError("ERREUR! Veuillez choisir une comparaison valide!");
+                        return;
                     }
                 }
             }
             this.DialogResult = DialogResult.OK;
             this.Close();
+
         }
     }
 }

@@ -24,6 +24,7 @@ namespace PT4
         {
             InitializeComponent();
             _services = services;
+            buttonHamburger.BringToFront();
         }
 
         /**
@@ -161,6 +162,7 @@ namespace PT4
         {
             panelSideMenu.Visible = true;
             buttonHamburger.Visible = false;
+            panelSideMenu.BringToFront();
         }
     }
 }

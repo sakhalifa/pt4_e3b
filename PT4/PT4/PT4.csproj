@@ -162,6 +162,9 @@
     <Compile Include="Model\CriteriaCheckType.cs" />
     <Compile Include="Model\CriteriaCombinationType.cs" />
     <Compile Include="Model\DecimalCriteria.cs" />
+    <Compile Include="Model\IsNullCriteria.cs" />
+    <Compile Include="Model\NullableDecimalCriteria.cs" />
+    <Compile Include="Model\ShortCriteria.cs" />
     <Compile Include="Model\StringCriteria.cs" />
     <Compile Include="ModifierStock.cs">
       <SubType>Form</SubType>

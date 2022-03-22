@@ -25,6 +25,9 @@ namespace PT4.Controllers
                 DATEFACTURE = new DateTime(),
                 MONTANT = montant
             };
+
+            _factureRepository.Insert(f);
+            _factureRepository.Save();
         }
     }
 }

@@ -42,6 +42,7 @@ namespace PT4
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.vendable = new System.Windows.Forms.CheckBox();
             this.estMedic = new System.Windows.Forms.CheckBox();
             this.prixVente = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@ namespace PT4
             // 
             // buttonConfirmer
             // 
-            this.buttonConfirmer.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonConfirmer.Location = new System.Drawing.Point(202, 408);
             this.buttonConfirmer.Name = "buttonConfirmer";
             this.buttonConfirmer.Size = new System.Drawing.Size(75, 23);
@@ -99,6 +99,11 @@ namespace PT4
             // quantite
             // 
             this.quantite.Location = new System.Drawing.Point(48, 243);
+            this.quantite.Maximum = new decimal(new int[] {
+            32767,
+            0,
+            0,
+            0});
             this.quantite.Name = "quantite";
             this.quantite.Size = new System.Drawing.Size(120, 20);
             this.quantite.TabIndex = 18;
@@ -106,6 +111,11 @@ namespace PT4
             // prixAchat
             // 
             this.prixAchat.Location = new System.Drawing.Point(48, 113);
+            this.prixAchat.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.prixAchat.Name = "prixAchat";
             this.prixAchat.Size = new System.Drawing.Size(120, 20);
             this.prixAchat.TabIndex = 17;
@@ -170,6 +180,7 @@ namespace PT4
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Controls.Add(this.vendable);
             this.panel1.Controls.Add(this.estMedic);
             this.panel1.Controls.Add(this.prixVente);
             this.panel1.Controls.Add(this.label6);
@@ -181,11 +192,23 @@ namespace PT4
             this.panel1.Size = new System.Drawing.Size(280, 456);
             this.panel1.TabIndex = 24;
             // 
+            // vendable
+            // 
+            this.vendable.AutoSize = true;
+            this.vendable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.vendable.Location = new System.Drawing.Point(167, 160);
+            this.vendable.Name = "vendable";
+            this.vendable.Size = new System.Drawing.Size(77, 17);
+            this.vendable.TabIndex = 28;
+            this.vendable.Text = "Vendable?";
+            this.vendable.UseVisualStyleBackColor = true;
+            this.vendable.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // estMedic
             // 
             this.estMedic.AutoSize = true;
             this.estMedic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
-            this.estMedic.Location = new System.Drawing.Point(167, 151);
+            this.estMedic.Location = new System.Drawing.Point(167, 123);
             this.estMedic.Name = "estMedic";
             this.estMedic.Size = new System.Drawing.Size(90, 17);
             this.estMedic.TabIndex = 27;
@@ -194,7 +217,14 @@ namespace PT4
             // 
             // prixVente
             // 
+            this.prixVente.BackColor = System.Drawing.Color.LightGray;
+            this.prixVente.Enabled = false;
             this.prixVente.Location = new System.Drawing.Point(36, 168);
+            this.prixVente.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.prixVente.Name = "prixVente";
             this.prixVente.Size = new System.Drawing.Size(120, 20);
             this.prixVente.TabIndex = 26;
@@ -258,6 +288,6 @@ namespace PT4
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
-        
+        protected System.Windows.Forms.CheckBox vendable;
     }
 }

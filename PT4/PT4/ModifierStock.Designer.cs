@@ -38,10 +38,6 @@ namespace PT4
             // 
             this.titre.Text = "Modifier Stock";
             // 
-            // buttonConfirmer
-            // 
-            this.buttonConfirmer.Click += new System.EventHandler(this.buttonConfirmer_Click);
-            // 
             // ModifierStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

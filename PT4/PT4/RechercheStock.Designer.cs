@@ -30,11 +30,11 @@ namespace PT4
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.addRow = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.criteriaCombo = new System.Windows.Forms.ComboBox();
+            this.addRow = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonConfirm = new System.Windows.Forms.Button();
+            this.minusButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -48,9 +48,9 @@ namespace PT4
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36364F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel1.Controls.Add(this.addRow, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.criteriaCombo, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.addRow, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.minusButton, 4, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -66,28 +66,6 @@ namespace PT4
             this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 415);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // addRow
-            // 
-            this.addRow.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addRow.Location = new System.Drawing.Point(3, 66);
-            this.addRow.Name = "addRow";
-            this.addRow.Size = new System.Drawing.Size(65, 23);
-            this.addRow.TabIndex = 1;
-            this.addRow.Text = "+";
-            this.addRow.UseVisualStyleBackColor = true;
-            this.addRow.Click += new System.EventHandler(this.addRow_click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(723, 14);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "-";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.remove_Click);
-            // 
             // criteriaCombo
             // 
             this.criteriaCombo.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -99,12 +77,24 @@ namespace PT4
             "Prix de vente",
             "Quantité",
             "Description",
-            "Medicament"});
+            "Medicament",
+            "Vendable"});
             this.criteriaCombo.Location = new System.Drawing.Point(135, 15);
             this.criteriaCombo.Name = "criteriaCombo";
             this.criteriaCombo.Size = new System.Drawing.Size(161, 21);
             this.criteriaCombo.TabIndex = 0;
             this.criteriaCombo.SelectedIndexChanged += new System.EventHandler(this.critere_SelectedIndexChanged);
+            // 
+            // addRow
+            // 
+            this.addRow.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addRow.Location = new System.Drawing.Point(3, 66);
+            this.addRow.Name = "addRow";
+            this.addRow.Size = new System.Drawing.Size(65, 23);
+            this.addRow.TabIndex = 1;
+            this.addRow.Text = "+";
+            this.addRow.UseVisualStyleBackColor = true;
+            this.addRow.Click += new System.EventHandler(this.addRow_click);
             // 
             // tableLayoutPanel2
             // 
@@ -132,6 +122,17 @@ namespace PT4
             this.buttonConfirm.UseVisualStyleBackColor = true;
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
+            // minusButton
+            // 
+            this.minusButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.minusButton.Location = new System.Drawing.Point(724, 14);
+            this.minusButton.Name = "minusButton";
+            this.minusButton.Size = new System.Drawing.Size(65, 23);
+            this.minusButton.TabIndex = 2;
+            this.minusButton.Text = "-";
+            this.minusButton.UseVisualStyleBackColor = true;
+            this.minusButton.Click += new System.EventHandler(this.remove_Click);
+            // 
             // RechercheStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,11 +150,11 @@ namespace PT4
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox criteriaCombo;
         private System.Windows.Forms.Button addRow;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonConfirm;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ComboBox criteriaCombo;
+        private System.Windows.Forms.Button minusButton;
     }
 }

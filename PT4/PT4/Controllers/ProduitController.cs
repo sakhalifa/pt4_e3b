@@ -34,7 +34,7 @@ namespace PT4.Controllers
         /// <param name="description"></param>
         /// <param name="estMedicament"></param>
         /// <param name="add">true iif we want to add the quantities. Else false</param>
-        public void CreerOuMaJProduit(string nom, decimal prixVente, decimal prixAchat, int quantite, string description, bool estMedicament, bool add)
+        public void CreerOuMaJProduit(string nom, decimal? prixVente, decimal prixAchat, int quantite, string description, bool estMedicament, bool add)
         {
             PRODUIT prod = _produitRepository.FindWhere(p => p.NOMPRODUIT == nom).FirstOrDefault();
             List<PRODUIT> productsChanged = new List<PRODUIT>();
@@ -115,6 +115,10 @@ namespace PT4.Controllers
         {
             Expression<Func<PRODUIT, bool>> finalExpr = (p) => true;
             TableLayoutPanel table = rS.tableLayoutPanel1;
+
+
+
+            //To ensure the order of combinations, I have to first go through all the rows
             for (int i = 0; i < table.RowCount; i++)
             {
                 //If we are not at the line where we can insert a new criteria
@@ -152,42 +156,67 @@ namespace PT4.Controllers
                     switch (criteria)
                     {
                         case "Nom":
-                            CreateNameCriteriaFunc(ref finalExpr, (string)checkObj, combinationType);
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "NOMPRODUIT", () => new StringCriteria((string)checkObj));
                             break;
                         case "Prix d'achat":
-                            CreateBuyCriteriaFunc(ref finalExpr, (decimal)checkObj, combinationType, checkType.Value);
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "PRIXACHAT", () => new DecimalCriteria((decimal)checkObj, checkType.Value));
                             break;
                         case "Prix de vente":
-                            CreateSellCriteriaFunc(ref finalExpr, (decimal)checkObj, combinationType, checkType.Value);
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "PRIXDEVENTE", () => new NullableDecimalCriteria((decimal)checkObj, checkType.Value, false));
                             break;
                         case "Quantité":
-                            CreateQuantityCriteriaFunc(ref finalExpr, (decimal)checkObj, combinationType, checkType.Value);
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "QUANTITEENSTOCK", () => new ShortCriteria(Convert.ToInt16(checkObj), checkType.Value));
                             break;
                         case "Description":
-                            CreateDescCriteriaFunc(ref finalExpr, (string)checkObj, combinationType);
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "DESCRIPTION", () => new StringCriteria((string)checkObj));
                             break;
                         case "Medicament":
-                            CreateIsDrugCriteriaFunc(ref finalExpr, (bool)checkObj, combinationType);
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "MEDICAMENT", () => new BoolCriteria((bool)checkObj));
+                            break;
+                        case "Vendable":
+                            if ((bool)checkObj)
+                            {
+                                CreateCriteriaCheckFunc(ref finalExpr, combinationType, "PRIXDEVENTE", () => new IsNullCriteria(CriteriaCheckType.NE));
+                            }
+                            else
+                            {
+                                CreateCriteriaCheckFunc(ref finalExpr, combinationType, "PRIXDEVENTE", () => new IsNullCriteria(CriteriaCheckType.EQ));
+                            }
                             break;
                     }
-
                 }
             }
             return finalExpr;
         }
 
-        private void CreateIsDrugCriteriaFunc(ref Expression<Func<PRODUIT, bool>> expr, bool checkBool, CriteriaCombinationType? combinationType)
+        private void CreateCriteriaCheckFunc<T>(ref Expression<Func<PRODUIT, bool>> expr, CriteriaCombinationType? combinationType, string fieldName, Func<Criteria<T>> provider)
         {
-            BoolCriteria criteria = new BoolCriteria(checkBool);
+            Criteria<T> criteria = provider();
             var pParameter = expr.Parameters[0];
-            Expression accessProperty = Expression.Property(pParameter, typeof(PRODUIT).GetProperty("MEDICAMENT"));
-            LambdaExpression exprProd = Expression.Lambda(accessProperty, pParameter);
+            //We access the property that has the name {fieldName}
+            Expression accessProperty = Expression.Property(pParameter, typeof(PRODUIT).GetProperty(fieldName));
+            //We force convert it to the type of T. This is to ensure no crash from operator override ensures.
+            //Because yes, using expressions disables the operator overriding feature :). fml.
+            Expression castExpr = Expression.Convert(accessProperty, typeof(T));
+            //We create a lambda that returns the property of the p passed in parameter
+            LambdaExpression exprProd = Expression.Lambda(castExpr, pParameter);
 
-            //We get the expression that checks if a bool = checkedBool
+            //We get the expression that checks the criteria
             var func = criteria.CreateFunctionFromCriteria();
+
+            /*We replace the value we check with the property of p.
+                (Conversion from Func<T, bool> to Func<PRODUIT, bool> basically).
+                i.e: we convert for example (b) => b == true to (p) => p.property == true
+                b is a boolean, p is a Product and p.property is a boolean
+                IT IS NOT TYPESAFE. It WILL crash if the property we get isn't the EXACT same type as T!!!!
+                (There are no ways to check the type though.)
+            */
             var newExpr = ReplacingExpressionVisitor.Replace(func.Parameters[0], exprProd.Body, func.Body);
 
+            //Then we create the lambda that is basically the function (p) => func(p.property)
             var lambdaNew = Expression.Lambda<Func<PRODUIT, bool>>(newExpr, pParameter);
+
+            //If we don't have to combine it then we just return it.
             if (combinationType is null)
             {
                 expr = lambdaNew;
@@ -196,186 +225,22 @@ namespace PT4.Controllers
             {
                 if (combinationType == CriteriaCombinationType.AND)
                 {
+                    //We create an AND operation between the already established expression in {expr} and our criteria check function.
                     var andExpr = Expression.AndAlso(expr.Body, lambdaNew.Body);
+
+                    //Then we create the lambda which is basically (p) => expr(p.property) && func(p.property)
                     expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
                 }
                 else
                 {
-                    var andExpr = Expression.OrElse(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
+                    //We create an OR operation between the already established expression in {expr} and our criteria check function.
+                    var orExpr = Expression.OrElse(expr.Body, lambdaNew.Body);
+
+                    //Then we create the lambda which is basically (p) => expr(p.property) || func(p.property)
+                    expr = Expression.Lambda<Func<PRODUIT, bool>>(orExpr, pParameter);
                 }
             }
         }
 
-        private void CreateDescCriteriaFunc(ref Expression<Func<PRODUIT, bool>> expr, string checkStr, CriteriaCombinationType? combinationType)
-        {
-            StringCriteria criteria = new StringCriteria(checkStr);
-
-            var pParameter = expr.Parameters[0];
-            Expression accessProperty = Expression.Property(pParameter, typeof(PRODUIT).GetProperty("DESCRIPTION"));
-            LambdaExpression exprProd = Expression.Lambda(accessProperty, pParameter);
-
-            //We get the expression that checks if a bool = checkedBool
-            var func = criteria.CreateFunctionFromCriteria();
-            var newExpr = ReplacingExpressionVisitor.Replace(func.Parameters[0], exprProd.Body, func.Body);
-
-            var lambdaNew = Expression.Lambda<Func<PRODUIT, bool>>(newExpr, pParameter);
-            if (combinationType is null)
-            {
-
-                expr = lambdaNew;
-            }
-            else
-            {
-                if (combinationType == CriteriaCombinationType.AND)
-                {
-                    var andExpr = Expression.AndAlso(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
-                }
-                else
-                {
-                    var andExpr = Expression.OrElse(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
-                }
-
-            }
-        }
-
-        private void CreateQuantityCriteriaFunc(ref Expression<Func<PRODUIT, bool>> expr, decimal checkDec, CriteriaCombinationType? combinationType, CriteriaCheckType checkType)
-        {
-            DecimalCriteria criteria = new DecimalCriteria(checkDec, checkType);
-
-            var pParameter = expr.Parameters[0];
-            Expression accessProperty = Expression.Property(pParameter, typeof(PRODUIT).GetProperty("QUANTITEENSTOCK"));
-            LambdaExpression exprProd = Expression.Lambda(accessProperty, pParameter);
-
-            //We get the expression that checks if a bool = checkedBool
-            var func = criteria.CreateFunctionFromCriteria();
-            var newExpr = ReplacingExpressionVisitor.Replace(func.Parameters[0], exprProd.Body, func.Body);
-
-            var lambdaNew = Expression.Lambda<Func<PRODUIT, bool>>(newExpr, pParameter);
-            if (combinationType is null)
-            {
-
-                expr = lambdaNew;
-            }
-            else
-            {
-                if (combinationType == CriteriaCombinationType.AND)
-                {
-                    var andExpr = Expression.AndAlso(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
-                }
-                else
-                {
-                    var andExpr = Expression.OrElse(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
-                }
-
-            }
-        }
-
-        private void CreateSellCriteriaFunc(ref Expression<Func<PRODUIT, bool>> expr, decimal checkDec, CriteriaCombinationType? combinationType, CriteriaCheckType checkType)
-        {
-            //TODO : Take into account unsellable products fuck this
-            DecimalCriteria criteria = new DecimalCriteria(checkDec, checkType);
-
-            var pParameter = expr.Parameters[0];
-            Expression accessProperty = Expression.Property(pParameter, typeof(PRODUIT).GetProperty("PRIXDEVENTE"));
-            Expression Value = Expression.Property(accessProperty, typeof(decimal?).GetProperty("Value"));
-            LambdaExpression exprProd = Expression.Lambda(Value, pParameter);
-
-            //We get the expression that checks if a bool = checkedBool
-            var func = criteria.CreateFunctionFromCriteria();
-            var newExpr = ReplacingExpressionVisitor.Replace(func.Parameters[0], exprProd.Body, func.Body);
-
-            var lambdaNew = Expression.Lambda<Func<PRODUIT, bool>>(newExpr, pParameter);
-            if (combinationType is null)
-            {
-
-                expr = lambdaNew;
-            }
-            else
-            {
-                if (combinationType == CriteriaCombinationType.AND)
-                {
-                    var andExpr = Expression.AndAlso(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
-                }
-                else
-                {
-                    var andExpr = Expression.OrElse(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
-                }
-
-            }
-        }
-
-        private void CreateBuyCriteriaFunc(ref Expression<Func<PRODUIT, bool>> expr, decimal checkDec, CriteriaCombinationType? combinationType, CriteriaCheckType checkType)
-        {
-            DecimalCriteria criteria = new DecimalCriteria(checkDec, checkType);
-
-            var pParameter = expr.Parameters[0];
-            Expression accessProperty = Expression.Property(pParameter, typeof(PRODUIT).GetProperty("PRIXACHAT"));
-            LambdaExpression exprProd = Expression.Lambda(accessProperty, pParameter);
-
-            //We get the expression that checks if a bool = checkedBool
-            var func = criteria.CreateFunctionFromCriteria();
-            var newExpr = ReplacingExpressionVisitor.Replace(func.Parameters[0], exprProd.Body, func.Body);
-
-            var lambdaNew = Expression.Lambda<Func<PRODUIT, bool>>(newExpr, pParameter);
-            if (combinationType is null)
-            {
-
-                expr = lambdaNew;
-            }
-            else
-            {
-                if (combinationType == CriteriaCombinationType.AND)
-                {
-                    var andExpr = Expression.AndAlso(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
-                }
-                else
-                {
-                    var andExpr = Expression.OrElse(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
-                }
-
-            }
-        }
-
-        private void CreateNameCriteriaFunc(ref Expression<Func<PRODUIT, bool>> expr, string checkStr, CriteriaCombinationType? combinationType)
-        {
-            StringCriteria criteria = new StringCriteria(checkStr);
-
-            var pParameter = expr.Parameters[0];
-            Expression accessProperty = Expression.Property(pParameter, typeof(PRODUIT).GetProperty("NOMPRODUIT"));
-            LambdaExpression exprProd = Expression.Lambda(accessProperty, pParameter);
-            
-            //We get the expression that checks if a bool = checkedBool
-            var func = criteria.CreateFunctionFromCriteria();
-            var newExpr = ReplacingExpressionVisitor.Replace(func.Parameters[0], exprProd.Body, func.Body);
-
-            var lambdaNew = Expression.Lambda<Func<PRODUIT, bool>>(newExpr, pParameter);
-            if (combinationType is null)
-            {
-                
-                expr = lambdaNew;
-            }
-            else
-            {
-                if(combinationType == CriteriaCombinationType.AND) { 
-                    var andExpr = Expression.AndAlso(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
-                }
-                else
-                {
-                    var andExpr = Expression.OrElse(expr.Body, lambdaNew.Body);
-                    expr = Expression.Lambda<Func<PRODUIT, bool>>(andExpr, pParameter);
-                }
-
-            }
-        }
     }
 }
