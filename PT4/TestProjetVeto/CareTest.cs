@@ -11,23 +11,23 @@ using System.Collections.Generic;
 namespace TestProjetVeto
 {
     [TestClass]
-    public class TestSoin
+    public class CareTest
     {
-        public SOIN soinTest;
+        public SOIN careTest;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            soinTest = new SOIN
+            careTest = new SOIN
             {
                 DESCRIPTION = "Test"
             };
         }
 
         [TestMethod]
-        public void TestCreerOrdonnance()
+        public void TestCreateCare()
         {
-            //CREATION DES DONNES MOCK
+            //DATA MOCK CREATION
             var data = new List<SOIN> { };
             var mockSet = Utils.CreateDbSet(data);
 
@@ -35,18 +35,18 @@ namespace TestProjetVeto
             mockContext.Setup(c => c.Set<SOIN>()).Returns(mockSet);
 
             var mockRepo = Utils.CreateMockRepo<SoinRepository, SOIN>(mockContext.Object);
-            var soinRepo = mockRepo.Object;
+            var careRepo = mockRepo.Object;
 
-            var soinController = new SoinController(soinRepo);
-            //FIN DE CREATION DONNEES MOCK
+            var careController = new SoinController(careRepo);
+            //END OF DATA MOCK CREATION
 
-            var soins = soinRepo.FindAll();
+            var care = careRepo.FindAll();
 
-            Assert.AreEqual(0, soins.Count()); //Test si la base est bien vide
+            Assert.AreEqual(0, care.Count()); // Test if the database is empty
 
-            soinController.CreerSoin(soinTest.DESCRIPTION);
+            careController.CreerSoin(careTest.DESCRIPTION);
 
-            //Assert.AreEqual(1, maladies.Count()); ; // Test si la fonction de création d'une ordonnance dans la base marche 
+            //Assert.AreEqual(1, maladies.Count()); ; // Test if the order creation function in the database works
         }
     }
 }

@@ -13,15 +13,15 @@ namespace TestProjetVeto
 
 
     [TestClass]
-    public class TestAnimal
+    public class AnimalTest
     {
-        public CLIENT clientTest;
-        public ANIMAL animalTest;
+        public CLIENT testCustomer;
+        public ANIMAL testAnimal;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            clientTest = new CLIENT
+            testCustomer = new CLIENT
             {
                 NOMCLIENT = "Test",
                 PRENOMCLIENT = "Test",
@@ -29,10 +29,10 @@ namespace TestProjetVeto
                 EMAIL = "Test"
             };
 
-            animalTest = new ANIMAL
+            testAnimal = new ANIMAL
             {
                 IDANIMAL = 2,
-                CLIENT = clientTest,
+                CLIENT = testCustomer,
                 NOMESPECE = "chat",
                 NOMRACE = "tigre",
                 NOMANIMAL = "Test",
@@ -43,15 +43,15 @@ namespace TestProjetVeto
         }
 
         [TestMethod]
-        public void TestCreerAnimal()
+        public void CreateAnimalTest()
         {
-            //CREATION DES DONNES MOCK
+            //DATA MOCK CREATION
             var data = new List<ANIMAL>
             {
                 new ANIMAL
             {
                 IDANIMAL = 1,
-                CLIENT = clientTest,
+                CLIENT = testCustomer,
                 NOMESPECE = "chat",
                 NOMRACE = "tigre",
                 NOMANIMAL = "Test",
@@ -72,23 +72,22 @@ namespace TestProjetVeto
             var anRepo = mockRepo.Object;
 
             var anController = new AnimalController(anRepo);
+            //END OF DATA MOCK CREATION
 
-            //FIN DE CREATION DONNEES MOCK
             var animals = anRepo.FindAll();
 
-            Assert.AreEqual(1, animals.Count()); //Test si l'animal de base a bien été ajouté dans la base
-            Assert.AreEqual(clientTest, animals.First().CLIENT);
+            Assert.AreEqual(1, animals.Count()); // Test if the test animal has been added to the base
+            Assert.AreEqual(testCustomer, animals.First().CLIENT);
 
-            anController.CreerAnimal(animalTest.CLIENT, animalTest.NOMESPECE, animalTest.NOMRACE, animalTest.NOMANIMAL, animalTest.DATENAISSANCE.GetValueOrDefault(), animalTest.TAILLE, animalTest.POIDS);
+            anController.CreerAnimal(testAnimal.CLIENT, testAnimal.NOMESPECE, testAnimal.NOMRACE, testAnimal.NOMANIMAL, testAnimal.DATENAISSANCE.GetValueOrDefault(), testAnimal.TAILLE, testAnimal.POIDS);
 
             animals = anRepo.FindAll();
-
-            Assert.AreEqual(2, animals.Count()); // Test si la fonction de création d'un animal dans la base marche 
+            Assert.AreEqual(2, animals.Count()); // Test if the animal creation function in the database works
 
             anRepo.Delete(animals.First());
 
             animals = anRepo.FindAll();
-            Assert.AreEqual(1, animals.Count()); // Test si la fonction Delete marche bien
+            Assert.AreEqual(1, animals.Count()); // Test if the Delete function works well
         }
     }
 }

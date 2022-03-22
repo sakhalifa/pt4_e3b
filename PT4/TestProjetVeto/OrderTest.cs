@@ -1,17 +1,16 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PT4;
-using PT4.Model.dal;
-using PT4.Controllers;
 using Moq;
-using System.Linq;
-using System;
+using PT4;
+using PT4.Controllers;
 using PT4.Model.impl;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TestProjetVeto
 {
     [TestClass]
-    public class TestOrdonnance
+    public class OrderTest
     {
         public ORDONNANCE ordonnanceTest;
 
@@ -25,9 +24,9 @@ namespace TestProjetVeto
         }
 
         [TestMethod]
-        public void TestCreerOrdonnance()
+        public void TestCreateOrder()
         {
-            //CREATION DES DONNES MOCK
+            //DATA MOCK CREATION
             var data = new List<ORDONNANCE> { };
             var mockSet = Utils.CreateDbSet(data);
 
@@ -35,18 +34,18 @@ namespace TestProjetVeto
             mockContext.Setup(c => c.Set<ORDONNANCE>()).Returns(mockSet);
 
             var mockRepo = Utils.CreateMockRepo<OrdonnanceRepository, ORDONNANCE>(mockContext.Object);
-            var ordoRepo = mockRepo.Object;
+            var orderRepo = mockRepo.Object;
 
-            var ordoController = new OrdonnanceController(ordoRepo);
-            //FIN DE CREATION DONNEES MOCK
+            var orderController = new OrdonnanceController(orderRepo);
+            //END OF DATA MOCK CREATION
 
-            var ordonnances = ordoRepo.FindAll();
+            var orders = orderRepo.FindAll();
 
-            Assert.AreEqual(0, ordonnances.Count()); //Test si la base est bien vide
+            Assert.AreEqual(0, orders.Count()); // Test if the database is empty
 
-            ordoController.CreerOrdonnance(ordonnanceTest.DATEORDO);
+            orderController.CreerOrdonnance(ordonnanceTest.DATEORDO);
 
-            //Assert.AreEqual(1, maladies.Count()); ; // Test si la fonction de création d'une ordonnance dans la base marche 
+            //Assert.AreEqual(1, maladies.Count()); ; // Test if the order creation function in the database works
         }
     }
 }
