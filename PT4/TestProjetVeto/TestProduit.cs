@@ -59,10 +59,5 @@ namespace TestProjetVeto
             produitController.CreerOuMaJProduit(produitTest.NOMPRODUIT, (decimal)produitTest.PRIXDEVENTE, produitTest.PRIXACHAT, produitTest.QUANTITEENSTOCK, produitTest.DESCRIPTION, produitTest.MEDICAMENT, true);
             Assert.AreEqual(240, produits.First().QUANTITEENSTOCK); // Test si la fonction de mise à jour marche bien
         }
-
-        [TestMethod]
-        public void TestSuscribeProduct()
-        {
-        }
     }
 }
