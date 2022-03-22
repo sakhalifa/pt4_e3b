@@ -13,13 +13,17 @@ namespace TestProjetVeto
     public class OrderTest
     {
         public ORDONNANCE ordonnanceTest;
+<<<<<<< HEAD
         public SOIN careTest;
         public ANIMAL animalTest;
         public CLIENT customerTest;
+=======
+>>>>>>> b58a6ef (TU fini)
 
         [TestInitialize]
         public void TestInitialize()
         {
+<<<<<<< HEAD
             customerTest = new CLIENT
             {
                 NOMCLIENT = "Test",
@@ -50,6 +54,11 @@ namespace TestProjetVeto
                 DATEORDO = new DateTime(2009, 3, 10, 10, 0, 0),
                 ANIMAL = animalTest,
                 SOIN = careTest
+=======
+            ordonnanceTest = new ORDONNANCE
+            {
+                DATEORDO = new DateTime(2009, 3, 10, 10, 0, 0)
+>>>>>>> b58a6ef (TU fini)
             };
         }
 
@@ -73,7 +82,11 @@ namespace TestProjetVeto
 
             Assert.AreEqual(0, orders.Count()); // Test if the database is empty
 
+<<<<<<< HEAD
             orderController.CreerOrdonnance(ordonnanceTest.DATEORDO, ordonnanceTest.ANIMAL, ordonnanceTest.SOIN);
+=======
+            orderController.CreerOrdonnance(ordonnanceTest.DATEORDO);
+>>>>>>> b58a6ef (TU fini)
 
             Assert.AreEqual(1, orders.Count()); ; // Test if the order creation function in the database works
         }
