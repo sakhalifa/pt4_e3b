@@ -157,6 +157,12 @@
     <Compile Include="AjouterStock.Designer.cs">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModifierStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierStock.Designer.cs">
+      <DependentUpon>ModifierStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="TemplateModifierStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,12 @@
     </Compile>
     <Compile Include="Model\dal\IGenericRepository.cs" />
     <Compile Include="Model\impl\AbstractRepository.cs" />
+	<Compile Include="RechercheStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+	<Compile Include="RechercheStock.Designer.cs">
+      <DependentUpon>RechercheStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="statsProduit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +219,7 @@
     <Compile Include="TopVente.Designer.cs">
       <DependentUpon>TopVente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="Vente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +322,9 @@
     <Compile Include="SOIN.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AjouterStock.resx">
+      <DependentUpon>AjouterStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionPlanning.resx">
       <DependentUpon>GestionPlanning.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ajouterRDV.resx">
       <DependentUpon>ajouterRDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierStock.resx">
+      <DependentUpon>ModifierStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TemplateModifierStock.resx">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>

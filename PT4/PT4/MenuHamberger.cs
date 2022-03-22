@@ -16,21 +16,16 @@ namespace PT4
     {
         private ServiceCollection _services;
 
+        private MenuHamberger()
+        {
+            InitializeComponent();
+        }
+
         public MenuHamberger(ServiceCollection services)
         {
             InitializeComponent();
-            customizeDesign();
             _services = services;
-        }
-
-        /**
-         * Permits to initialize the design of the hamburger menu
-         */
-        private void customizeDesign()
-        {
-            panel1.Visible = false;
-            panel2.Visible = false;
-            buttonHamburger.Visible = false;
+            buttonHamburger.BringToFront();
         }
 
         /**
@@ -172,6 +167,7 @@ namespace PT4
         {
             panelSideMenu.Visible = true;
             buttonHamburger.Visible = false;
+            panelSideMenu.BringToFront();
         }
     }
 }

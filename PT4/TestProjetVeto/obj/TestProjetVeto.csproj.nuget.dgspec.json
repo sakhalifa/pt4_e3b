@@ -1,14 +1,14 @@
 {
   "format": 1,
   "restore": {
-    "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\Documents\\S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj": {}
+    "\\\\iut.bx1\\Etudiants\\Home\\skhalifa\\Documents\\Iut INFO\\S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj": {}
   },
   "projects": {
-    "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\Documents\\S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj": {
+    "\\\\iut.bx1\\Etudiants\\Home\\skhalifa\\Documents\\Iut INFO\\S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj": {
       "restore": {
-        "projectUniqueName": "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\Documents\\S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj",
+        "projectUniqueName": "\\\\iut.bx1\\Etudiants\\Home\\skhalifa\\Documents\\Iut INFO\\S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj",
         "projectName": "PT4",
-        "projectPath": "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\Documents\\S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj",
+        "projectPath": "\\\\iut.bx1\\Etudiants\\Home\\skhalifa\\Documents\\Iut INFO\\S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
@@ -19,20 +19,20 @@
         "net472": {}
       }
     },
-    "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\Documents\\S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj": {
+    "\\\\iut.bx1\\Etudiants\\Home\\skhalifa\\Documents\\Iut INFO\\S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\Documents\\S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
+        "projectUniqueName": "\\\\iut.bx1\\Etudiants\\Home\\skhalifa\\Documents\\Iut INFO\\S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
         "projectName": "TestProjetVeto",
-        "projectPath": "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\Documents\\S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
-        "packagesPath": "Z:\\AppData\\Roaming\\Nuget",
-        "outputPath": "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\Documents\\S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\obj\\",
+        "projectPath": "\\\\iut.bx1\\Etudiants\\Home\\skhalifa\\Documents\\Iut INFO\\S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
+        "packagesPath": "c:\\users\\skhalifa.upm.temp\\.nuget\\packages\\",
+        "outputPath": "\\\\iut.bx1\\Etudiants\\Home\\skhalifa\\Documents\\Iut INFO\\S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "c:\\users\\skhalifa.upm.temp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -47,8 +47,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\Documents\\S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj": {
-                "projectPath": "\\\\iut.bx1\\Etudiants\\Home\\manboisson\\Documents\\S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj"
+              "\\\\iut.bx1\\Etudiants\\Home\\skhalifa\\Documents\\Iut INFO\\S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj": {
+                "projectPath": "\\\\iut.bx1\\Etudiants\\Home\\skhalifa\\Documents\\Iut INFO\\S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj"
               }
             }
           }

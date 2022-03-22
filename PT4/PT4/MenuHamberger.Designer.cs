@@ -68,6 +68,7 @@ namespace PT4
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(250, 474);
             this.panelSideMenu.TabIndex = 0;
+            this.panelSideMenu.Visible = false;
             // 
             // buttonLog
             // 
@@ -97,6 +98,7 @@ namespace PT4
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(233, 168);
             this.panel2.TabIndex = 4;
+            this.panel2.Visible = false;
             // 
             // buttonNewCompte
             // 
@@ -189,6 +191,7 @@ namespace PT4
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(233, 120);
             this.panel1.TabIndex = 2;
+            this.panel1.Visible = false;
             // 
             // buttonWeekSale
             // 

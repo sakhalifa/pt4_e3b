@@ -38,6 +38,10 @@ namespace PT4
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.titre = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.vendable = new System.Windows.Forms.CheckBox();
+            this.estMedic = new System.Windows.Forms.CheckBox();
             this.prixVente = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.estMedic = new System.Windows.Forms.CheckBox();
@@ -61,6 +65,11 @@ namespace PT4
             // quantite
             // 
             this.quantite.Location = new System.Drawing.Point(48, 243);
+            this.quantite.Maximum = new decimal(new int[] {
+            32767,
+            0,
+            0,
+            0});
             this.quantite.Name = "quantite";
             this.quantite.Size = new System.Drawing.Size(120, 20);
             this.quantite.TabIndex = 18;
@@ -68,6 +77,11 @@ namespace PT4
             // prixAchat
             // 
             this.prixAchat.Location = new System.Drawing.Point(48, 113);
+            this.prixAchat.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.prixAchat.Name = "prixAchat";
             this.prixAchat.Size = new System.Drawing.Size(120, 20);
             this.prixAchat.TabIndex = 17;
@@ -136,6 +150,18 @@ namespace PT4
             // 
             // prixVente
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Controls.Add(this.vendable);
+            this.panel1.Controls.Add(this.estMedic);
+            this.panel1.Controls.Add(this.prixVente);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.buttonConfirmer);
+            this.panel1.Controls.Add(this.buttonAnnuler);
+            this.panel1.Controls.Add(this.titre);
+            this.panel1.Location = new System.Drawing.Point(12, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(280, 456);
+            this.panel1.TabIndex = 24;
             this.prixVente.Location = new System.Drawing.Point(48, 181);
             this.prixVente.Name = "prixVente";
             this.prixVente.Size = new System.Drawing.Size(120, 20);
@@ -151,6 +177,18 @@ namespace PT4
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "Prix de vente:";
+            // 
+            // vendable
+            // 
+            this.vendable.AutoSize = true;
+            this.vendable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.vendable.Location = new System.Drawing.Point(167, 160);
+            this.vendable.Name = "vendable";
+            this.vendable.Size = new System.Drawing.Size(77, 17);
+            this.vendable.TabIndex = 28;
+            this.vendable.Text = "Vendable?";
+            this.vendable.UseVisualStyleBackColor = true;
+            this.vendable.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // estMedic
             // 

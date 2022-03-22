@@ -15,13 +15,5 @@ namespace PT4
         {
             InitializeComponent();
         }
-
-        private void buttonConfirmer_Click(object sender, EventArgs e)
-        {
-            if (CheckRemplissage())
-            {
-                _prodController.CreerOuMaJProduit(nom.Text, prixVente.Value, prixAchat.Value, (int)quantite.Value, description.Text, estMedic.Checked, true);
-            }
-        }
     }
 }
