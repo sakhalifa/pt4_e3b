@@ -31,9 +31,13 @@ namespace TestProjetVeto
             var mockRepo = new Mock<T>(ctx);
             mockRepo.Setup(c => c.Save()).Callback(() => { return; });
 <<<<<<< HEAD
+<<<<<<< HEAD
             mockRepo.Setup(d => d.Update(It.IsAny<V>())).Callback<V>((s) => { return; });
 =======
 >>>>>>> 00f9771 (Moitié des TU qui passent)
+=======
+            mockRepo.Setup(d => d.Update(It.IsAny<V>())).Callback<V>((s) => { return; });
+>>>>>>> ee4c827 (Debug de la fonction createMockRepo)
             mockRepo.CallBase = true;
 
             return mockRepo;
