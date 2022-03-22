@@ -180,6 +180,7 @@ namespace PT4
                     {
                         DataGridViewRow row = (DataGridViewRow)obj;
                         _produitController.RemoveByName((string)row.Cells["Nom"].Value);
+                        MessageBox.Show($"Vous avez bien supprimé le produit '{row.Cells["Nom"].Value}'");
                     }
                 }
                 else if (stocks.SelectedCells.Count > 0)

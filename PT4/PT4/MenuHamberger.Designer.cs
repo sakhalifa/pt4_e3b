@@ -306,6 +306,7 @@ namespace PT4
             this.ClientSize = new System.Drawing.Size(800, 474);
             this.Controls.Add(this.buttonHamburger);
             this.Controls.Add(this.panelSideMenu);
+            this.DoubleBuffered = true;
             this.Name = "MenuHamberger";
             this.Text = "MenuHamberger";
             this.panelSideMenu.ResumeLayout(false);

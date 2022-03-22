@@ -64,7 +64,7 @@ namespace PT4
             this.stocks.AllowUserToAddRows = false;
             this.stocks.AllowUserToDeleteRows = false;
             this.stocks.AllowUserToOrderColumns = true;
-            this.stocks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.stocks.BackgroundColor = System.Drawing.Color.DarkGray;
             this.stocks.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.stocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.stocks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -81,7 +81,7 @@ namespace PT4
             this.stocks.Location = new System.Drawing.Point(3, 3);
             this.stocks.Name = "stocks";
             this.stocks.ReadOnly = true;
-            this.stocks.Size = new System.Drawing.Size(794, 374);
+            this.stocks.Size = new System.Drawing.Size(544, 374);
             this.stocks.TabIndex = 0;
             this.stocks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -160,7 +160,7 @@ namespace PT4
             // buttonAdd
             // 
             this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAdd.Location = new System.Drawing.Point(94, 20);
+            this.buttonAdd.Location = new System.Drawing.Point(53, 20);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 2;
@@ -196,12 +196,12 @@ namespace PT4
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.stocks, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(250, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(550, 450);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // tableLayoutPanel2
@@ -220,7 +220,7 @@ namespace PT4
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(794, 64);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(544, 64);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -229,7 +229,7 @@ namespace PT4
             this.flowLayoutPanel2.AutoSize = true;
             this.flowLayoutPanel2.Controls.Add(this.backwards);
             this.flowLayoutPanel2.Controls.Add(this.forward);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(580, 17);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(372, 17);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(162, 29);
             this.flowLayoutPanel2.TabIndex = 4;
@@ -261,7 +261,7 @@ namespace PT4
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.rechercheButton);
             this.flowLayoutPanel1.Controls.Add(this.reset);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(315, 17);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(190, 17);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(162, 29);
             this.flowLayoutPanel1.TabIndex = 3;

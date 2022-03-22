@@ -203,12 +203,6 @@
     <Compile Include="EditerClient.Designer.cs">
       <DependentUpon>EditerClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditerStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditerStock.Designer.cs">
-      <DependentUpon>EditerStock.cs</DependentUpon>
-    </Compile>
     <Compile Include="AjouterCompte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,9 +385,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditerClient.resx">
       <DependentUpon>EditerClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EditerStock.resx">
-      <DependentUpon>EditerStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuCompte.resx">
       <DependentUpon>menuCompte.cs</DependentUpon>

@@ -38,13 +38,10 @@ namespace PT4
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.titre = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.vendable = new System.Windows.Forms.CheckBox();
             this.estMedic = new System.Windows.Forms.CheckBox();
             this.prixVente = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.estMedic = new System.Windows.Forms.CheckBox();
             this.annuler = new System.Windows.Forms.Button();
             this.buttonConfirmer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.quantite)).BeginInit();
@@ -139,29 +136,43 @@ namespace PT4
             // 
             // titre
             // 
-            this.titre.AutoSize = true;
             this.titre.BackColor = System.Drawing.Color.Transparent;
+            this.titre.Dock = System.Windows.Forms.DockStyle.Top;
             this.titre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
-            this.titre.Location = new System.Drawing.Point(118, 19);
+            this.titre.Location = new System.Drawing.Point(0, 0);
             this.titre.Name = "titre";
-            this.titre.Size = new System.Drawing.Size(106, 13);
+            this.titre.Size = new System.Drawing.Size(304, 13);
             this.titre.TabIndex = 20;
             this.titre.Text = "TITRE GENERIQUE";
+            this.titre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // vendable
+            // 
+            this.vendable.AutoSize = true;
+            this.vendable.BackColor = System.Drawing.Color.Transparent;
+            this.vendable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.vendable.Location = new System.Drawing.Point(177, 195);
+            this.vendable.Name = "vendable";
+            this.vendable.Size = new System.Drawing.Size(77, 17);
+            this.vendable.TabIndex = 28;
+            this.vendable.Text = "Vendable?";
+            this.vendable.UseVisualStyleBackColor = false;
+            this.vendable.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // estMedic
+            // 
+            this.estMedic.AutoSize = true;
+            this.estMedic.BackColor = System.Drawing.Color.Transparent;
+            this.estMedic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.estMedic.Location = new System.Drawing.Point(177, 225);
+            this.estMedic.Name = "estMedic";
+            this.estMedic.Size = new System.Drawing.Size(90, 17);
+            this.estMedic.TabIndex = 23;
+            this.estMedic.Text = "Medicament?";
+            this.estMedic.UseVisualStyleBackColor = false;
             // 
             // prixVente
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Controls.Add(this.vendable);
-            this.panel1.Controls.Add(this.estMedic);
-            this.panel1.Controls.Add(this.prixVente);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.buttonConfirmer);
-            this.panel1.Controls.Add(this.buttonAnnuler);
-            this.panel1.Controls.Add(this.titre);
-            this.panel1.Location = new System.Drawing.Point(12, 9);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(280, 456);
-            this.panel1.TabIndex = 24;
             this.prixVente.Location = new System.Drawing.Point(48, 181);
             this.prixVente.Name = "prixVente";
             this.prixVente.Size = new System.Drawing.Size(120, 20);
@@ -177,30 +188,6 @@ namespace PT4
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "Prix de vente:";
-            // 
-            // vendable
-            // 
-            this.vendable.AutoSize = true;
-            this.vendable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
-            this.vendable.Location = new System.Drawing.Point(167, 160);
-            this.vendable.Name = "vendable";
-            this.vendable.Size = new System.Drawing.Size(77, 17);
-            this.vendable.TabIndex = 28;
-            this.vendable.Text = "Vendable?";
-            this.vendable.UseVisualStyleBackColor = true;
-            this.vendable.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // estMedic
-            // 
-            this.estMedic.AutoSize = true;
-            this.estMedic.BackColor = System.Drawing.Color.Transparent;
-            this.estMedic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
-            this.estMedic.Location = new System.Drawing.Point(179, 201);
-            this.estMedic.Name = "estMedic";
-            this.estMedic.Size = new System.Drawing.Size(90, 17);
-            this.estMedic.TabIndex = 23;
-            this.estMedic.Text = "Medicament?";
-            this.estMedic.UseVisualStyleBackColor = false;
             // 
             // annuler
             // 
@@ -232,6 +219,7 @@ namespace PT4
             this.Controls.Add(this.buttonConfirmer);
             this.Controls.Add(this.annuler);
             this.Controls.Add(this.estMedic);
+            this.Controls.Add(this.vendable);
             this.Controls.Add(this.prixVente);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.titre);
@@ -258,6 +246,7 @@ namespace PT4
         protected System.Windows.Forms.NumericUpDown quantite;
         protected System.Windows.Forms.NumericUpDown prixAchat;
         protected System.Windows.Forms.TextBox nom;
+        protected System.Windows.Forms.CheckBox vendable;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
