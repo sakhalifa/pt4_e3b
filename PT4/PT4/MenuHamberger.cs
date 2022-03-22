@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using PT4.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -130,8 +131,12 @@ namespace PT4
          */
         private void buttonNewAccount_Click(object sender, EventArgs e)
         {
-            //Code
-            hideSubMenu();
+            _services.AddScoped<AjouterCompte>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                AjouterCompte form = provider.GetRequiredService<AjouterCompte>();
+                form.ShowDialog();
+            }
         }
 
         /**

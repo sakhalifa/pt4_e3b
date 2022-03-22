@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace PT4
 {
     public partial class Connexion : Form
     {
-        public Connexion()
+
+        private ServiceCollection _service;
+        public Connexion(ServiceCollection service)
         {
             InitializeComponent();
+            _service = service;
         }
 
         private void Connexion_Load(object sender, EventArgs e)

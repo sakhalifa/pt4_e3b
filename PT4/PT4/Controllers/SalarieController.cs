@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
-    public class EmployesController
+    public class SalarieController
     {
         private IGenericRepository<SALARIÉ> _salarieRepo;
         private IGenericRepository<CONGÉ> _congeRepo;
@@ -18,7 +18,7 @@ namespace PT4.Controllers
         /// </summary>
         /// <param name="salarieRepo">The entity repository of the workers</param>
         /// <param name="congeRepo">The entity repository of the holidays</param>
-        public EmployesController(IGenericRepository<SALARIÉ> salarieRepo, IGenericRepository<CONGÉ> congeRepo)
+        public SalarieController(IGenericRepository<SALARIÉ> salarieRepo, IGenericRepository<CONGÉ> congeRepo)
         {
             _salarieRepo = salarieRepo;
             _congeRepo = congeRepo;
@@ -31,7 +31,7 @@ namespace PT4.Controllers
         /// <param name="login">The login of the worker we want to create</param>
         /// <param name="clearPwd">The password in clear text of the worker we want to creatre</param>
         /// <param name="donnees_perso">The personal data of the worker</param>
-        public void CreerSalarie(string login, string clearPwd, string donnees_perso)
+        public SALARIÉ CreerSalarie(string login, string clearPwd)
         {
             SALARIÉ salarie = _salarieRepo.FindWhere(s => s.LOGIN == login).FirstOrDefault();
             if (salarie != null)
@@ -40,12 +40,19 @@ namespace PT4.Controllers
             }
             salarie = new SALARIÉ {
                 LOGIN = login,
-                MDP = SHA256.Create(clearPwd).ComputeHash(new UTF8Encoding().GetBytes(clearPwd)),
-                DONNEES_PERSONNELLES=donnees_perso,
+                MDP = SHA256.Create().ComputeHash(new UTF8Encoding().GetBytes(clearPwd)),
                 estAdmin = false
             };
 
             _salarieRepo.Insert(salarie);
+            _salarieRepo.Save();
+            return salarie;
+        }
+
+        public void DonneesPersoSalarie(SALARIÉ s, string donnees_perso)
+        {
+            s.DONNEES_PERSONNELLES = donnees_perso;
+            _salarieRepo.Update(s);
             _salarieRepo.Save();
         }
 

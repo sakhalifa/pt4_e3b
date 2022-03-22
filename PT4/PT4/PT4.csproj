@@ -282,7 +282,7 @@
     </Compile>
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
-    <Compile Include="Controllers\EmployesController.cs" />
+    <Compile Include="Controllers\SalarieController.cs" />
     <Compile Include="Controllers\FactureController.cs" />
     <Compile Include="Controllers\MaladiesController.cs" />
     <Compile Include="Controllers\OrdonnanceController.cs" />

@@ -93,3 +93,6 @@
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\bin\Debug\fr\EntityFramework.resources.dll
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CopyComplete
+\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.AssemblyReference.cache
+\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.donneesPersonnelles.resources
+\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierMdp.resources

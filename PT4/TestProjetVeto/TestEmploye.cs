@@ -15,7 +15,7 @@ namespace TestProjetVeto
     {
         private IGenericRepository<SALARIÉ> _salarieRepo;
         private IGenericRepository<CONGÉ> _congeRepo;
-        private EmployesController _employeController;
+        private SalarieController _employeController;
         public CONGÉ congeTest;
         public SALARIÉ salaireTest;
 
@@ -27,7 +27,7 @@ namespace TestProjetVeto
             services.AddSingleton<DbContext, PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>()
                     .AddSingleton<IGenericRepository<SALARIÉ>, SalarieRepository>()
                     .AddSingleton<IGenericRepository<CONGÉ>, CongeRepository>()
-                    .AddSingleton<EmployesController>()
+                    .AddSingleton<SalarieController>()
             ;
             services.AddSingleton(services);
 
@@ -35,7 +35,7 @@ namespace TestProjetVeto
             {
                 _salarieRepo = provider.GetRequiredService<IGenericRepository<SALARIÉ>>();
                 _congeRepo = provider.GetRequiredService<IGenericRepository<CONGÉ>>();
-                _employeController = provider.GetRequiredService<EmployesController>();
+                _employeController = provider.GetRequiredService<SalarieController>();
             }
 
             salaireTest = new SALARIÉ

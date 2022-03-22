@@ -27,7 +27,7 @@ namespace PT4
                     .AddSingleton<IGenericRepository<SALARIÉ>, SalarieRepository>()
                     .AddSingleton<AnimalController>()
                     .AddSingleton<ClientController>()
-                    .AddSingleton<EmployesController>()
+                    .AddSingleton<SalarieController>()
                     .AddSingleton<FactureController>()
                     .AddSingleton<MaladieRepository>()
                     .AddSingleton<OrdonnanceRepository>()
@@ -43,14 +43,17 @@ namespace PT4
         [STAThread]
         static void Main()
         {
+
             ServiceCollection services = new ServiceCollection();
             ConfigureServices(services);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             services.AddScoped<MenuHamberger>();
+            
             using (ServiceProvider provider = services.BuildServiceProvider())
             {
+                
                 MenuHamberger form = provider.GetRequiredService<MenuHamberger>();
                 Application.Run(form);
             }
