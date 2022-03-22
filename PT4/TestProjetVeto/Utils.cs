@@ -30,6 +30,7 @@ namespace TestProjetVeto
         {
             var mockRepo = new Mock<T>(ctx);
             mockRepo.Setup(c => c.Save()).Callback(() => { return; });
+            mockRepo.Setup(d => d.Update(It.IsAny<V>())).Callback<V>((s) => { return; });
             mockRepo.CallBase = true;
 
             return mockRepo;
