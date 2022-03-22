@@ -11,15 +11,15 @@ using System.Collections.Generic;
 namespace TestProjetVeto
 {
     [TestClass]
-    public class TestFacture
+    public class InvoiceTest
     {
-        public FACTURE factureTest;
-        public CLIENT clientTest;
+        public FACTURE invoiceTest;
+        public CLIENT customerTest;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            clientTest = new CLIENT
+            customerTest = new CLIENT
             {
                 NOMCLIENT = "Test",
                 PRENOMCLIENT = "Test",
@@ -27,18 +27,18 @@ namespace TestProjetVeto
                 EMAIL = "Test"
             };
 
-            factureTest = new FACTURE
+            invoiceTest = new FACTURE
             {
-                CLIENT = clientTest,
+                CLIENT = customerTest,
                 MONTANT = 92,
                 PRODUIT_VENDU = null
             };
         }
 
         [TestMethod]
-        public void TestCreerFacture()
+        public void TestCreateInvoice()
         {
-            //CREATION DES DONNES MOCK
+            //DATA MOCK CREATION
             var data = new List<FACTURE> { };
             var mockSet = Utils.CreateDbSet(data);
 
@@ -46,20 +46,20 @@ namespace TestProjetVeto
             mockContext.Setup(c => c.Set<FACTURE>()).Returns(mockSet);
 
             var mockRepo = Utils.CreateMockRepo<FactureRepository, FACTURE>(mockContext.Object);
-            var facRepo = mockRepo.Object;
+            var invRepo = mockRepo.Object;
 
-            var facController = new FactureController(facRepo);
-            //FIN DE CREATION DONNEES MOCK
+            var invController = new FactureController(invRepo);
+            //END OF DATA MOCK CREATION
 
-            var factures = facRepo.FindAll();
+            var invoices = invRepo.FindAll();
 
-            Assert.AreEqual(0, factures.Count()); //Test si la base est bien vide
+            Assert.AreEqual(0, invoices.Count()); // Test if the database is empty
 
-            facController.CreerFacture(factureTest.PRODUIT_VENDU, factureTest.CLIENT, (int) factureTest.MONTANT);
+            invController.CreerFacture(invoiceTest.PRODUIT_VENDU, invoiceTest.CLIENT, (int) invoiceTest.MONTANT);
 
-            factures = facRepo.FindAll();
+            invoices = invRepo.FindAll();
 
-            //Assert.AreEqual(1, factures.Count()); // Test si la fonction de création d'une facture dans la base marche 
+            //Assert.AreEqual(1, factures.Count()); // Test if the invoice creation function in the database works
         }
     }
 }
