@@ -36,6 +36,7 @@ namespace PT4
             // 
             // monthCalendar1
             // 
+            this.monthCalendar1.BackColor = System.Drawing.Color.White;
             this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(2, 2);
             this.monthCalendar1.Location = new System.Drawing.Point(159, 54);
             this.monthCalendar1.Name = "monthCalendar1";

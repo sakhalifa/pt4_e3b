@@ -47,7 +47,9 @@ namespace PT4
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 20);
@@ -57,7 +59,9 @@ namespace PT4
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(85, 95);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(40, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 1;
@@ -66,7 +70,9 @@ namespace PT4
             // labelNom
             // 
             this.labelNom.AutoSize = true;
-            this.labelNom.Location = new System.Drawing.Point(164, 95);
+            this.labelNom.BackColor = System.Drawing.Color.Transparent;
+            this.labelNom.ForeColor = System.Drawing.Color.White;
+            this.labelNom.Location = new System.Drawing.Point(139, 95);
             this.labelNom.Name = "labelNom";
             this.labelNom.Size = new System.Drawing.Size(13, 13);
             this.labelNom.TabIndex = 2;
@@ -76,7 +82,9 @@ namespace PT4
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(85, 298);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(40, 298);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 3;
@@ -86,7 +94,9 @@ namespace PT4
             // labelTelephone
             // 
             this.labelTelephone.AutoSize = true;
-            this.labelTelephone.Location = new System.Drawing.Point(164, 298);
+            this.labelTelephone.BackColor = System.Drawing.Color.Transparent;
+            this.labelTelephone.ForeColor = System.Drawing.Color.White;
+            this.labelTelephone.Location = new System.Drawing.Point(139, 298);
             this.labelTelephone.Name = "labelTelephone";
             this.labelTelephone.Size = new System.Drawing.Size(13, 13);
             this.labelTelephone.TabIndex = 4;
@@ -96,7 +106,9 @@ namespace PT4
             // labelAdresse
             // 
             this.labelAdresse.AutoSize = true;
-            this.labelAdresse.Location = new System.Drawing.Point(164, 199);
+            this.labelAdresse.BackColor = System.Drawing.Color.Transparent;
+            this.labelAdresse.ForeColor = System.Drawing.Color.White;
+            this.labelAdresse.Location = new System.Drawing.Point(139, 199);
             this.labelAdresse.Name = "labelAdresse";
             this.labelAdresse.Size = new System.Drawing.Size(13, 13);
             this.labelAdresse.TabIndex = 5;
@@ -105,7 +117,9 @@ namespace PT4
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(85, 199);
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(40, 199);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 6;
@@ -114,6 +128,8 @@ namespace PT4
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(392, 199);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 13);
@@ -123,6 +139,8 @@ namespace PT4
             // labelMail
             // 
             this.labelMail.AutoSize = true;
+            this.labelMail.BackColor = System.Drawing.Color.Transparent;
+            this.labelMail.ForeColor = System.Drawing.Color.White;
             this.labelMail.Location = new System.Drawing.Point(502, 199);
             this.labelMail.Name = "labelMail";
             this.labelMail.Size = new System.Drawing.Size(13, 13);
@@ -132,6 +150,8 @@ namespace PT4
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(392, 95);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 13);
@@ -142,6 +162,8 @@ namespace PT4
             // labelPrenom
             // 
             this.labelPrenom.AutoSize = true;
+            this.labelPrenom.BackColor = System.Drawing.Color.Transparent;
+            this.labelPrenom.ForeColor = System.Drawing.Color.White;
             this.labelPrenom.Location = new System.Drawing.Point(496, 95);
             this.labelPrenom.Name = "labelPrenom";
             this.labelPrenom.Size = new System.Drawing.Size(13, 13);
@@ -152,6 +174,8 @@ namespace PT4
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(392, 298);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 13);
@@ -162,6 +186,8 @@ namespace PT4
             // labelNumSecu
             // 
             this.labelNumSecu.AutoSize = true;
+            this.labelNumSecu.BackColor = System.Drawing.Color.Transparent;
+            this.labelNumSecu.ForeColor = System.Drawing.Color.White;
             this.labelNumSecu.Location = new System.Drawing.Point(502, 298);
             this.labelNumSecu.Name = "labelNumSecu";
             this.labelNumSecu.Size = new System.Drawing.Size(13, 13);
@@ -172,6 +198,7 @@ namespace PT4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::PT4.Properties.Resources.parrot_g3fd41130a_1920;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelNumSecu);
             this.Controls.Add(this.label12);
