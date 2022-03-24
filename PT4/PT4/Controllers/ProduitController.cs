@@ -156,31 +156,31 @@ namespace PT4.Controllers
                     switch (criteria)
                     {
                         case "Nom":
-                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "NOMPRODUIT", () => new StringCriteria((string)checkObj));
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new StringCriteria((string)checkObj), (p) => p.NOMPRODUIT);
                             break;
                         case "Prix d'achat":
-                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "PRIXACHAT", () => new DecimalCriteria((decimal)checkObj, checkType.Value));
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new DecimalCriteria((decimal)checkObj, checkType.Value), (p) => p.PRIXACHAT);
                             break;
                         case "Prix de vente":
-                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "PRIXDEVENTE", () => new NullableDecimalCriteria((decimal)checkObj, checkType.Value, false));
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new NullableDecimalCriteria((decimal)checkObj, checkType.Value, false), (p) => p.PRIXDEVENTE);
                             break;
                         case "Quantité":
-                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "QUANTITEENSTOCK", () => new ShortCriteria(Convert.ToInt16(checkObj), checkType.Value));
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new ShortCriteria(Convert.ToInt16(checkObj), checkType.Value), (p) => p.QUANTITEENSTOCK);
                             break;
                         case "Description":
-                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "DESCRIPTION", () => new StringCriteria((string)checkObj));
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new StringCriteria((string)checkObj), (p) => p.DESCRIPTION);
                             break;
                         case "Medicament":
-                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, "MEDICAMENT", () => new BoolCriteria((bool)checkObj));
+                            CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new BoolCriteria((bool)checkObj), (p) => p.MEDICAMENT);
                             break;
                         case "Vendable":
                             if ((bool)checkObj)
                             {
-                                CreateCriteriaCheckFunc(ref finalExpr, combinationType, "PRIXDEVENTE", () => new IsNullCriteria(CriteriaCheckType.NE));
+                                CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new IsNullCriteria(CriteriaCheckType.NE), (p) => p.PRIXDEVENTE);
                             }
                             else
                             {
-                                CreateCriteriaCheckFunc(ref finalExpr, combinationType, "PRIXDEVENTE", () => new IsNullCriteria(CriteriaCheckType.EQ));
+                                CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new IsNullCriteria(CriteriaCheckType.EQ), (p) => p.PRIXDEVENTE);
                             }
                             break;
                     }
@@ -189,17 +189,16 @@ namespace PT4.Controllers
             return finalExpr;
         }
 
-        private void CreateCriteriaCheckFunc<T>(ref Expression<Func<PRODUIT, bool>> expr, CriteriaCombinationType? combinationType, string fieldName, Func<Criteria<T>> provider)
+        private void CreateCriteriaCheckFunc<T>(ref Expression<Func<PRODUIT, bool>> expr, CriteriaCombinationType? combinationType, Func<Criteria<T>> provider, Expression<Func<PRODUIT, T>> productToTExpr)
         {
             Criteria<T> criteria = provider();
             var pParameter = expr.Parameters[0];
-            //We access the property that has the name {fieldName}
-            Expression accessProperty = Expression.Property(pParameter, typeof(PRODUIT).GetProperty(fieldName));
-            //We force convert it to the type of T. This is to ensure no crash from operator override ensures.
-            //Because yes, using expressions disables the operator overriding feature :). fml.
-            Expression castExpr = Expression.Convert(accessProperty, typeof(T));
-            //We create a lambda that returns the property of the p passed in parameter
-            LambdaExpression exprProd = Expression.Lambda(castExpr, pParameter);
+
+            //We replace the parameter of the lambda with pParameter
+            Expression prodToT = ReplacingExpressionVisitor.Replace(productToTExpr.Parameters[0], pParameter, productToTExpr.Body);
+
+            //We have to re-lambda the converted expression :(
+            var exprProd = Expression.Lambda(prodToT, pParameter);
 
             //We get the expression that checks the criteria
             var func = criteria.CreateFunctionFromCriteria();
@@ -208,8 +207,6 @@ namespace PT4.Controllers
                 (Conversion from Func<T, bool> to Func<PRODUIT, bool> basically).
                 i.e: we convert for example (b) => b == true to (p) => p.property == true
                 b is a boolean, p is a Product and p.property is a boolean
-                IT IS NOT TYPESAFE. It WILL crash if the property we get isn't the EXACT same type as T!!!!
-                (There are no ways to check the type though.)
             */
             var newExpr = ReplacingExpressionVisitor.Replace(func.Parameters[0], exprProd.Body, func.Body);
 
