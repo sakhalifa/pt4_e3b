@@ -16,9 +16,9 @@ namespace PT4.Model.impl
             
         }
 
-        public override IEnumerable<ORDONNANCE> FindAll()
+        public override IQueryable<ORDONNANCE> FindAll()
         {
-            return _context.Set<ORDONNANCE>().ToList();
+            return _context.Set<ORDONNANCE>().AsQueryable();
         }
 
         public override ORDONNANCE FindById(int id)
@@ -41,7 +41,7 @@ namespace PT4.Model.impl
             _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public override IEnumerable<ORDONNANCE> FindWhere(Expression<Func<ORDONNANCE, bool>> predicate)
+        public override IQueryable<ORDONNANCE> FindWhere(Expression<Func<ORDONNANCE, bool>> predicate)
         {
             return _context.Set<ORDONNANCE>().Where(predicate);
         }

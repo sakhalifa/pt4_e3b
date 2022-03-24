@@ -157,6 +157,40 @@
     <Compile Include="AjouterStock.Designer.cs">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\BoolCriteria.cs" />
+    <Compile Include="Model\Criteria.cs" />
+    <Compile Include="Model\CriteriaCheckType.cs" />
+    <Compile Include="Model\CriteriaCombinationType.cs" />
+    <Compile Include="Model\DecimalCriteria.cs" />
+    <Compile Include="Model\IsNullCriteria.cs" />
+    <Compile Include="Model\NullableDecimalCriteria.cs" />
+    <Compile Include="Model\ShortCriteria.cs" />
+    <Compile Include="Model\StringCriteria.cs" />
+    <Compile Include="DonneesPersonnelles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DonneesPersonnelles.Designer.cs">
+      <DependentUpon>DonneesPersonnelles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierMdp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierMdp.Designer.cs">
+      <DependentUpon>ModifierMdp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierStock.Designer.cs">
+      <DependentUpon>ModifierStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReplacingExpressionVisitor.cs" />
+    <Compile Include="TemplateModifierStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TemplateModifierStock.Designer.cs">
+      <DependentUpon>TemplateModifierStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreerPrescription.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,12 +202,6 @@
     </Compile>
     <Compile Include="EditerClient.Designer.cs">
       <DependentUpon>EditerClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EditerStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditerStock.Designer.cs">
-      <DependentUpon>EditerStock.cs</DependentUpon>
     </Compile>
     <Compile Include="AjouterCompte.cs">
       <SubType>Form</SubType>
@@ -189,6 +217,12 @@
     </Compile>
     <Compile Include="Model\dal\IGenericRepository.cs" />
     <Compile Include="Model\impl\AbstractRepository.cs" />
+    <Compile Include="RechercheStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RechercheStock.Designer.cs">
+      <DependentUpon>RechercheStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="statsProduit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +235,7 @@
     <Compile Include="TopVente.Designer.cs">
       <DependentUpon>TopVente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="Vente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,7 +292,7 @@
     </Compile>
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
-    <Compile Include="Controllers\EmployesController.cs" />
+    <Compile Include="Controllers\SalarieController.cs" />
     <Compile Include="Controllers\FactureController.cs" />
     <Compile Include="Controllers\MaladiesController.cs" />
     <Compile Include="Controllers\OrdonnanceController.cs" />
@@ -303,6 +338,12 @@
     <Compile Include="SOIN.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AjouterStock.resx">
+      <DependentUpon>AjouterStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DonneesPersonnelles.resx">
+      <DependentUpon>DonneesPersonnelles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionPlanning.resx">
       <DependentUpon>GestionPlanning.cs</DependentUpon>
     </EmbeddedResource>
@@ -327,17 +368,23 @@
     <EmbeddedResource Include="ajouterRDV.resx">
       <DependentUpon>ajouterRDV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterStock.resx">
-      <DependentUpon>AjouterStock.cs</DependentUpon>
+    <EmbeddedResource Include="ModifierMdp.resx">
+      <DependentUpon>ModifierMdp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierStock.resx">
+      <DependentUpon>ModifierStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RechercheStock.resx">
+      <DependentUpon>RechercheStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemplateModifierStock.resx">
+      <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreerPrescription.resx">
       <DependentUpon>CreerPrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditerClient.resx">
       <DependentUpon>EditerClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EditerStock.resx">
-      <DependentUpon>EditerStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuCompte.resx">
       <DependentUpon>menuCompte.cs</DependentUpon>
@@ -359,6 +406,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="BDModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -395,6 +443,9 @@
       <DependentUpon>BDModel.edmx</DependentUpon>
       <LastGenOutput>BDModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\zebra-g8a6d9221f_1920.jpg" />
+    <None Include="Resources\zebra-gbc147c51f_1920.jpg" />
+    <None Include="Resources\parrot-g3fd41130a_1920.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

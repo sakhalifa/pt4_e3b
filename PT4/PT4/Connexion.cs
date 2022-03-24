@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace PT4
 {
     public partial class Connexion : Form
     {
-        public Connexion()
+
+        private ServiceCollection _service;
+        public Connexion(ServiceCollection service)
         {
             InitializeComponent();
+            _service = service;
         }
 
         private void Connexion_Load(object sender, EventArgs e)
@@ -23,6 +27,16 @@ namespace PT4
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonConnexion_Click(object sender, EventArgs e)
         {
 
         }

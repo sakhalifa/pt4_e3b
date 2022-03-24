@@ -23,16 +23,17 @@ namespace PT4
                     .AddSingleton<IGenericRepository<MALADIE>, MaladieRepository>()
                     .AddSingleton<IGenericRepository<ORDONNANCE>, OrdonnanceRepository>()
                     .AddSingleton<IGenericRepository<PRODUIT>, ProduitRepository>()
+                    .AddSingleton<IGenericRepository<PRODUIT_VENDU>, ProduitVenduRepository>()
                     .AddSingleton<IGenericRepository<RENDEZVOUS>, RendezVousRepository>()
                     .AddSingleton<IGenericRepository<SALARIÉ>, SalarieRepository>()
-                    .AddSingleton<AnimalController>()
-                    .AddSingleton<ClientController>()
-                    .AddSingleton<EmployesController>()
-                    .AddSingleton<FactureController>()
-                    .AddSingleton<MaladieRepository>()
-                    .AddSingleton<OrdonnanceRepository>()
-                    .AddSingleton<ProduitController>()
-                    .AddSingleton<SoinController>()
+                    .AddTransient<AnimalController>()
+                    .AddTransient<ClientController>()
+                    .AddTransient<SalarieController>()
+                    .AddTransient<FactureController>()
+                    .AddTransient<MaladieRepository>()
+                    .AddTransient<OrdonnanceRepository>()
+                    .AddTransient<ProduitController>()
+                    .AddTransient<SoinController>()
             ;
             services.AddSingleton(services);
         }
@@ -43,18 +44,18 @@ namespace PT4
         [STAThread]
         static void Main()
         {
+
             ServiceCollection services = new ServiceCollection();
             ConfigureServices(services);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            services.AddScoped<MenuHamberger>();
+            services.AddScoped<MenuAcceuil>();
             using (ServiceProvider provider = services.BuildServiceProvider())
             {
-                MenuHamberger form = provider.GetRequiredService<MenuHamberger>();
+                MenuAcceuil form = provider.GetRequiredService<MenuAcceuil>();
                 Application.Run(form);
             }
-            
         }
     }
 }

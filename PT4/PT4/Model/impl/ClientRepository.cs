@@ -16,9 +16,9 @@ namespace PT4.Model.impl
         {
         }
 
-        public override IEnumerable<CLIENT> FindAll()
+        public override IQueryable<CLIENT> FindAll()
         {
-            return _context.Set<CLIENT>().ToList();
+            return _context.Set<CLIENT>().AsQueryable();
         }
 
         public override CLIENT FindById(int id)
@@ -41,7 +41,7 @@ namespace PT4.Model.impl
             _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
         }
 
-        public override IEnumerable<CLIENT> FindWhere(Expression<Func<CLIENT, bool>> predicate)
+        public override IQueryable<CLIENT> FindWhere(Expression<Func<CLIENT, bool>> predicate)
         {
             return _context.Set<CLIENT>().Where(predicate);
         }

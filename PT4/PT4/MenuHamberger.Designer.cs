@@ -29,7 +29,7 @@ namespace PT4
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAcceuil));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuHamberger));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.buttonLog = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -44,6 +44,7 @@ namespace PT4
             this.buttonStock = new System.Windows.Forms.Button();
             this.buttonManagement = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonX = new System.Windows.Forms.Button();
             this.buttonHamburger = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
@@ -67,6 +68,7 @@ namespace PT4
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(250, 474);
             this.panelSideMenu.TabIndex = 0;
+            this.panelSideMenu.Visible = false;
             // 
             // buttonLog
             // 
@@ -96,6 +98,7 @@ namespace PT4
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(233, 168);
             this.panel2.TabIndex = 4;
+            this.panel2.Visible = false;
             // 
             // buttonNewCompte
             // 
@@ -188,6 +191,7 @@ namespace PT4
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(233, 120);
             this.panel1.TabIndex = 2;
+            this.panel1.Visible = false;
             // 
             // buttonWeekSale
             // 
@@ -257,6 +261,7 @@ namespace PT4
             // 
             this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
             this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelLogo.Controls.Add(this.label1);
             this.panelLogo.Controls.Add(this.buttonX);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
@@ -264,6 +269,15 @@ namespace PT4
             this.panelLogo.Padding = new System.Windows.Forms.Padding(30);
             this.panelLogo.Size = new System.Drawing.Size(233, 150);
             this.panelLogo.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(202, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
             // 
             // buttonX
             // 
@@ -285,19 +299,21 @@ namespace PT4
             this.buttonHamburger.UseVisualStyleBackColor = true;
             this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
             // 
-            // MenuAccueil
+            // MenuHamberger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 474);
             this.Controls.Add(this.buttonHamburger);
             this.Controls.Add(this.panelSideMenu);
-            this.Name = "MenuAccueil";
+            this.DoubleBuffered = true;
+            this.Name = "MenuHamberger";
             this.Text = "MenuHamberger";
             this.panelSideMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            this.panelLogo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -320,6 +336,7 @@ namespace PT4
         private System.Windows.Forms.Button buttonLog;
         private System.Windows.Forms.Button buttonX;
         private System.Windows.Forms.Button buttonHamburger;
+        private System.Windows.Forms.Label label1;
     }
 }
 

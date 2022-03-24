@@ -41,8 +41,10 @@ namespace PT4
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(61, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 20);
             this.label1.TabIndex = 1;
@@ -58,11 +60,14 @@ namespace PT4
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
             this.label2.Location = new System.Drawing.Point(57, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(151, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Date et heure du rendez-vous:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // buttonAnnuler
             // 
@@ -85,6 +90,8 @@ namespace PT4
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(57, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 13);
@@ -103,6 +110,8 @@ namespace PT4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackgroundImage = global::PT4.Properties.Resources.parrot_g3fd41130a_1920;
             this.ClientSize = new System.Drawing.Size(320, 274);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);

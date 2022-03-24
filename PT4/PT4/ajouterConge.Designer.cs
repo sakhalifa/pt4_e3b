@@ -29,7 +29,6 @@ namespace PT4
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePickerDebut = new System.Windows.Forms.DateTimePicker();
@@ -38,28 +37,23 @@ namespace PT4
             this.buttonConfirmer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ajouter un congé:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
             this.label2.Location = new System.Drawing.Point(66, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Date début:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(66, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
@@ -68,6 +62,8 @@ namespace PT4
             // 
             // dateTimePickerDebut
             // 
+            this.dateTimePickerDebut.CalendarForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dateTimePickerDebut.CalendarMonthBackground = System.Drawing.SystemColors.InactiveCaptionText;
             this.dateTimePickerDebut.Location = new System.Drawing.Point(69, 84);
             this.dateTimePickerDebut.Name = "dateTimePickerDebut";
             this.dateTimePickerDebut.Size = new System.Drawing.Size(200, 20);
@@ -82,26 +78,33 @@ namespace PT4
             // 
             // buttonAnnuler
             // 
+            this.buttonAnnuler.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAnnuler.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonAnnuler.Location = new System.Drawing.Point(69, 255);
             this.buttonAnnuler.Name = "buttonAnnuler";
             this.buttonAnnuler.Size = new System.Drawing.Size(75, 23);
             this.buttonAnnuler.TabIndex = 5;
             this.buttonAnnuler.Text = "Annuler";
-            this.buttonAnnuler.UseVisualStyleBackColor = true;
+            this.buttonAnnuler.UseVisualStyleBackColor = false;
+            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
             // buttonConfirmer
             // 
+            this.buttonConfirmer.BackColor = System.Drawing.Color.Transparent;
+            this.buttonConfirmer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonConfirmer.Location = new System.Drawing.Point(194, 255);
             this.buttonConfirmer.Name = "buttonConfirmer";
             this.buttonConfirmer.Size = new System.Drawing.Size(75, 23);
             this.buttonConfirmer.TabIndex = 6;
             this.buttonConfirmer.Text = "Confirmer";
-            this.buttonConfirmer.UseVisualStyleBackColor = true;
+            this.buttonConfirmer.UseVisualStyleBackColor = false;
             // 
             // ajouterConge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::PT4.Properties.Resources.parrot_g3fd41130a_1920;
             this.ClientSize = new System.Drawing.Size(347, 332);
             this.Controls.Add(this.buttonConfirmer);
             this.Controls.Add(this.buttonAnnuler);
@@ -109,7 +112,6 @@ namespace PT4
             this.Controls.Add(this.dateTimePickerDebut);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "ajouterConge";
             this.Text = "ajouterConge";
             this.ResumeLayout(false);
@@ -118,8 +120,6 @@ namespace PT4
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePickerDebut;

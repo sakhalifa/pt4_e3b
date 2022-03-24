@@ -149,9 +149,9 @@
           </Key>
           <Property Name="IDCOMPTE" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LOGIN" Type="varchar" MaxLength="128" Nullable="false" />
-          <Property Name="DONNEES_PERSONNELLES" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="DONNEES_PERSONNELLES" Type="varchar" MaxLength="128" />
           <Property Name="estAdmin" Type="bit" Nullable="false" />
-          <Property Name="MDP" Type="binary" MaxLength="32" Nullable="false" />
+          <Property Name="MDP" Type="binary" MaxLength="256" Nullable="false" />
         </EntityType>
         <EntityType Name="SOIN">
           <Key>
@@ -579,9 +579,9 @@
           </Key>
           <Property Name="IDCOMPTE" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LOGIN" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DONNEES_PERSONNELLES" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DONNEES_PERSONNELLES" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="estAdmin" Type="Boolean" Nullable="false" />
-          <Property Name="MDP" Type="Binary" MaxLength="32" FixedLength="true" Nullable="false" />
+          <Property Name="MDP" Type="Binary" MaxLength="256" FixedLength="true" Nullable="false" />
           <NavigationProperty Name="CONGÉ" Relationship="Self.ESTENCONGÉ" FromRole="SALARIÉ" ToRole="CONGÉ" />
         </EntityType>
         <EntityType Name="SOIN">
