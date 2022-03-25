@@ -113,7 +113,7 @@ namespace PT4
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            AjouterStock ajouterStock = new AjouterStock(_produitController);
+            AjouterStock ajouterStock = new AjouterStock(_produitController, estAdmin);
             ajouterStock.ShowDialog();
         }
 
@@ -123,7 +123,7 @@ namespace PT4
             {
                 DataGridViewRow row = stocks.SelectedRows[0];
                 PRODUIT p = _produitController.FindByName((string)row.Cells["Nom"].Value);
-                AjouterStock ajouterStock = new AjouterStock(_produitController);
+                AjouterStock ajouterStock = new AjouterStock(_produitController, estAdmin);
                 ajouterStock.SetProduit(p);
                 ajouterStock.ShowDialog();
             }
@@ -133,7 +133,7 @@ namespace PT4
                 DataGridViewCell cell = stocks.Rows[selectedCell.RowIndex].Cells["Nom"];
 
                 PRODUIT p = _produitController.FindByName((string)cell.Value);
-                AjouterStock ajouterStock = new AjouterStock(_produitController);
+                AjouterStock ajouterStock = new AjouterStock(_produitController, estAdmin);
                 ajouterStock.SetProduit(p);
                 ajouterStock.ShowDialog();
             }
@@ -150,7 +150,7 @@ namespace PT4
             {
                 DataGridViewRow row = stocks.SelectedRows[0];
                 PRODUIT p = _produitController.FindByName((string)row.Cells["Nom"].Value);
-                ModifierStock modifStock = new ModifierStock(_produitController);
+                ModifierStock modifStock = new ModifierStock(_produitController, estAdmin);
                 modifStock.SetProduit(p);
                 modifStock.ShowDialog();
             }
@@ -160,7 +160,7 @@ namespace PT4
                 DataGridViewCell cell = stocks.Rows[selectedCell.RowIndex].Cells["Nom"];
 
                 PRODUIT p = _produitController.FindByName((string)cell.Value);
-                ModifierStock modifierStock = new ModifierStock(_produitController);
+                ModifierStock modifierStock = new ModifierStock(_produitController, estAdmin);
                 modifierStock.SetProduit(p);
                 modifierStock.ShowDialog();
             }

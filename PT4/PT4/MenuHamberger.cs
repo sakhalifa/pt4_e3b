@@ -122,6 +122,15 @@ namespace PT4
         {
             //Code
             hideSubMenu();
+            _services.AddScoped((p) =>
+            {
+                return new AfficherStock(p.GetRequiredService<ProduitController>(), _services, salarieId, estAdmin);
+            });
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                AfficherStock form = provider.GetRequiredService<AfficherStock>();
+                form.ShowDialog();
+            }
         }
 
         /**
@@ -131,6 +140,7 @@ namespace PT4
         {
             //Code
             hideSubMenu();
+
         }
 
         /**

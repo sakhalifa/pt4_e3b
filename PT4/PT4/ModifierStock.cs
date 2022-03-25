@@ -12,7 +12,7 @@ namespace PT4
     public partial class ModifierStock : PT4.TemplateModifierStock
     {
 
-        public ModifierStock(ProduitController produitController) : base(produitController)
+        public ModifierStock(ProduitController produitController, bool estAdmin) : base(produitController, estAdmin)
         {
             InitializeComponent();
             this.IsAdd = false;
