@@ -32,6 +32,7 @@ namespace PT4
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuHamberger));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.buttonLog = new System.Windows.Forms.Button();
+            this.mdpChange = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonNewCompte = new System.Windows.Forms.Button();
             this.buttonNewPrescription = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@ namespace PT4
             this.label1 = new System.Windows.Forms.Label();
             this.buttonX = new System.Windows.Forms.Button();
             this.buttonHamburger = new System.Windows.Forms.Button();
+            this.deconnexion = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -57,7 +59,9 @@ namespace PT4
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.Black;
+            this.panelSideMenu.Controls.Add(this.deconnexion);
             this.panelSideMenu.Controls.Add(this.buttonLog);
+            this.panelSideMenu.Controls.Add(this.mdpChange);
             this.panelSideMenu.Controls.Add(this.panel2);
             this.panelSideMenu.Controls.Add(this.panelAdd);
             this.panelSideMenu.Controls.Add(this.panel1);
@@ -76,7 +80,7 @@ namespace PT4
             this.buttonLog.FlatAppearance.BorderSize = 0;
             this.buttonLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLog.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonLog.Location = new System.Drawing.Point(0, 528);
+            this.buttonLog.Location = new System.Drawing.Point(0, 573);
             this.buttonLog.Name = "buttonLog";
             this.buttonLog.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonLog.Size = new System.Drawing.Size(233, 45);
@@ -85,6 +89,22 @@ namespace PT4
             this.buttonLog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLog.UseVisualStyleBackColor = true;
             this.buttonLog.Click += new System.EventHandler(this.buttonLog_Click);
+            // 
+            // mdpChange
+            // 
+            this.mdpChange.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mdpChange.FlatAppearance.BorderSize = 0;
+            this.mdpChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mdpChange.ForeColor = System.Drawing.Color.Gainsboro;
+            this.mdpChange.Location = new System.Drawing.Point(0, 528);
+            this.mdpChange.Name = "mdpChange";
+            this.mdpChange.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.mdpChange.Size = new System.Drawing.Size(233, 45);
+            this.mdpChange.TabIndex = 6;
+            this.mdpChange.Text = "Changer de mdp";
+            this.mdpChange.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mdpChange.UseVisualStyleBackColor = true;
+            this.mdpChange.Click += new System.EventHandler(this.mdpChange_Click);
             // 
             // panel2
             // 
@@ -299,6 +319,22 @@ namespace PT4
             this.buttonHamburger.UseVisualStyleBackColor = true;
             this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
             // 
+            // deconnexion
+            // 
+            this.deconnexion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.deconnexion.FlatAppearance.BorderSize = 0;
+            this.deconnexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deconnexion.ForeColor = System.Drawing.Color.Gainsboro;
+            this.deconnexion.Location = new System.Drawing.Point(0, 618);
+            this.deconnexion.Name = "deconnexion";
+            this.deconnexion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.deconnexion.Size = new System.Drawing.Size(233, 45);
+            this.deconnexion.TabIndex = 7;
+            this.deconnexion.Text = "Deconnexion";
+            this.deconnexion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deconnexion.UseVisualStyleBackColor = true;
+            this.deconnexion.Click += new System.EventHandler(this.deconnexion_Click);
+            // 
             // MenuHamberger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -337,6 +373,8 @@ namespace PT4
         private System.Windows.Forms.Button buttonX;
         private System.Windows.Forms.Button buttonHamburger;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button mdpChange;
+        private System.Windows.Forms.Button deconnexion;
     }
 }
 

@@ -50,10 +50,10 @@ namespace PT4
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            services.AddScoped<MenuAcceuil>();
+            services.AddScoped<Connexion>();
             using (ServiceProvider provider = services.BuildServiceProvider())
             {
-                MenuAcceuil form = provider.GetRequiredService<MenuAcceuil>();
+                Connexion form = provider.GetService<Connexion>();
                 Application.Run(form);
             }
         }

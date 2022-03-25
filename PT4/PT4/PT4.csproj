@@ -315,6 +315,7 @@
     <Compile Include="Model\impl\MaladieRepository.cs" />
     <Compile Include="Model\impl\OrdonnanceRepository.cs" />
     <Compile Include="Model\impl\ProduitRepository.cs" />
+	<Compile Include="Model\impl\ProduitVenduRepository.cs" />
     <Compile Include="Model\impl\RendezVousRepository.cs" />
     <Compile Include="Model\impl\SalarieRepository.cs" />
     <Compile Include="Model\impl\SoinRepository.cs" />

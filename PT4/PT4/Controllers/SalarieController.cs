@@ -13,6 +13,8 @@ namespace PT4.Controllers
         private IGenericRepository<SALARIÉ> _salarieRepo;
         private IGenericRepository<CONGÉ> _congeRepo;
 
+        
+
         /// <summary>
         /// Constructor of the EmployesController object
         /// </summary>
@@ -22,6 +24,11 @@ namespace PT4.Controllers
         {
             _salarieRepo = salarieRepo;
             _congeRepo = congeRepo;
+        }
+
+        public SALARIÉ GetSalarieFromId(int id)
+        {
+            return _salarieRepo.FindById(id);
         }
 
         /// <summary>
@@ -40,13 +47,25 @@ namespace PT4.Controllers
             }
             salarie = new SALARIÉ {
                 LOGIN = login,
-                MDP = SHA256.Create().ComputeHash(new UTF8Encoding().GetBytes(clearPwd)),
+                MDP = Utils.Hash(clearPwd),
                 estAdmin = false
             };
 
             _salarieRepo.Insert(salarie);
             _salarieRepo.Save();
             return salarie;
+        }
+
+        public void ChangerMotDePasse(SALARIÉ s, string clearPwd)
+        {
+            var hashed = Utils.Hash(clearPwd);
+            if (s.MDP.SequenceEqual(hashed))
+            {
+                throw new ArgumentException("ERREUR! Vous ne pouvez pas avoir le même mot de passe que celui que vous avez actuellement!");
+            }
+            s.MDP = Utils.Hash(clearPwd);
+            _salarieRepo.Update(s);
+            _salarieRepo.Save();
         }
 
         public void DonneesPersoSalarie(SALARIÉ s, string donnees_perso)
@@ -65,8 +84,8 @@ namespace PT4.Controllers
         /// <returns></returns>
         public SALARIÉ Connexion(string login, string clearPwd)
         {
-            byte[] hashedPwd = SHA256.Create(clearPwd).ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
-            SALARIÉ salarie = _salarieRepo.FindWhere(s => s.LOGIN == login && s.MDP.SequenceEqual(hashedPwd)).FirstOrDefault();
+            byte[] hashedPwd = SHA256.Create().ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
+            SALARIÉ salarie = _salarieRepo.FindWhere(s => s.LOGIN == login && s.MDP == hashedPwd).FirstOrDefault();
             return salarie;
         }
 

@@ -15,16 +15,24 @@ namespace PT4
     public partial class MenuHamberger : Form
     {
         private ServiceCollection _services;
+        private int salarieId;
+        private bool estAdmin;
 
         private MenuHamberger()
         {
             InitializeComponent();
         }
 
-        public MenuHamberger(ServiceCollection services)
+        public MenuHamberger(ServiceCollection services, int salarieId, bool estAdmin)
         {
             InitializeComponent();
             _services = services;
+            this.salarieId = salarieId;
+            if (!estAdmin)
+            {
+                buttonNewCompte.Visible = false;
+                buttonNewPrescription.Visible = false;
+            }
             buttonHamburger.BringToFront();
         }
 
@@ -168,6 +176,26 @@ namespace PT4
             panelSideMenu.Visible = true;
             buttonHamburger.Visible = false;
             panelSideMenu.BringToFront();
+        }
+
+        private void mdpChange_Click(object sender, EventArgs e)
+        {
+            _services.AddScoped((p) =>
+            {
+                var contr = p.GetRequiredService<SalarieController>();
+                return new ModifierMdp(contr, salarieId);
+            });
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                provider.GetService<ModifierMdp>().ShowDialog();
+            }
+            
+        }
+
+        private void deconnexion_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Retry;
+            this.Close();
         }
     }
 }

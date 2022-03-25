@@ -24,7 +24,7 @@ namespace PT4
 
         private int ElementCount { get => cachedProducts.Count; }
 
-        public AfficherStock(ProduitController produitController, ServiceCollection services) : base(services)
+        public AfficherStock(ProduitController produitController, ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
         {
             _produitController = produitController;
             _produitController.SubscribeProducts(OnChanged);

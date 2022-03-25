@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +25,11 @@ namespace PT4
             }
 
             return list.GetRange(offset, realCount);
+        }
+
+        public static byte[] Hash(string clearPwd)
+        {
+            return SHA256.Create().ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
         }
     }
 }
