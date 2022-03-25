@@ -16,7 +16,7 @@ namespace PT4
     {
         private ServiceCollection _services;
         private int salarieId;
-        private bool estAdmin;
+        protected bool estAdmin;
 
         private MenuHamberger()
         {
@@ -27,8 +27,9 @@ namespace PT4
         {
             InitializeComponent();
             _services = services;
+            this.estAdmin = estAdmin;
             this.salarieId = salarieId;
-            if (!estAdmin)
+            if (!this.estAdmin)
             {
                 buttonNewCompte.Visible = false;
                 buttonNewPrescription.Visible = false;
@@ -76,7 +77,10 @@ namespace PT4
         private void buttonStock_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            _services.AddScoped<AfficherStock>();
+            _services.AddScoped((p) =>
+            {
+                return new AfficherStock(p.GetRequiredService<ProduitController>(), _services, salarieId, estAdmin);
+            });
             using(ServiceProvider provider = _services.BuildServiceProvider())
             {
                 AfficherStock form = provider.GetRequiredService<AfficherStock>();

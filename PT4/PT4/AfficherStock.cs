@@ -86,8 +86,9 @@ namespace PT4
             {
                 prixVente = prod.PRIXDEVENTE.ToString();
             }
-
-            stocks.Rows.Add(prod.NOMPRODUIT, prixVente, prod.PRIXACHAT, prod.QUANTITEENSTOCK, prod.DESCRIPTION, prod.PRIXDEVENTE.HasValue, prod.MEDICAMENT);
+            if (estAdmin || !prod.MEDICAMENT) { 
+                stocks.Rows.Add(prod.NOMPRODUIT, prixVente, prod.PRIXACHAT, prod.QUANTITEENSTOCK, prod.DESCRIPTION, prod.PRIXDEVENTE.HasValue, prod.MEDICAMENT);
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
