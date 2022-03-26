@@ -34,7 +34,7 @@ namespace PT4.Controllers
             CLIENT client = _clientRepository.FindWhere(c => c.EMAIL == email).FirstOrDefault();
             if (client != null)
             {
-                throw new Exception("Cette adresse mail est déjà utilisée");
+                throw new ArgumentException("ERREUR! Cette adresse mail est déjà utilisée!");
 
             }
             _clientRepository.Insert(new CLIENT
@@ -44,6 +44,9 @@ namespace PT4.Controllers
                 PRENOMCLIENT = prenom,
                 NOMCLIENT = nom
             });
+
+            _clientRepository.Save();
+
         }
 
 

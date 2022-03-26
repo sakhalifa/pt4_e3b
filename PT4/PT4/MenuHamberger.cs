@@ -122,14 +122,11 @@ namespace PT4
         {
             //Code
             hideSubMenu();
-            _services.AddScoped((p) =>
+            _services.AddScoped<AjouterClient>();
+            using(ServiceProvider provider = _services.BuildServiceProvider())
             {
-                return new AfficherStock(p.GetRequiredService<ProduitController>(), _services, salarieId, estAdmin);
-            });
-            using (ServiceProvider provider = _services.BuildServiceProvider())
-            {
-                AfficherStock form = provider.GetRequiredService<AfficherStock>();
-                form.ShowDialog();
+                var dlg = provider.GetService<AjouterClient>();
+                dlg.ShowDialog();
             }
         }
 
