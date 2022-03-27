@@ -29,6 +29,7 @@ namespace PT4
             _produitController = produitController;
             _produitController.SubscribeProducts(OnChanged);
             _produitController.SubscribeDeleteProducts(OnDelete);
+            this.Closed += (_, __) => { _produitController.UnSubscribeProducts(OnChanged); _produitController.UnSubscribeDeleteProducts(OnDelete); };
             cachedProducts = new List<PRODUIT>();
             InitializeComponent();
             InitDataGridView();
@@ -87,7 +88,8 @@ namespace PT4
             {
                 prixVente = prod.PRIXDEVENTE.ToString();
             }
-            if (estAdmin || !prod.MEDICAMENT) { 
+            if (estAdmin || !prod.MEDICAMENT)
+            {
                 stocks.Rows.Add(prod.NOMPRODUIT, prixVente, prod.PRIXACHAT, prod.QUANTITEENSTOCK, prod.DESCRIPTION, prod.PRIXDEVENTE.HasValue, prod.MEDICAMENT);
             }
         }
@@ -187,20 +189,10 @@ namespace PT4
                 }
                 else if (stocks.SelectedCells.Count > 0)
                 {
-                    int cCells = 0;
-                    foreach (var obj in stocks.SelectedCells)
-                    {
-                        DataGridViewCell cell = (DataGridViewCell)obj;
-                        if (cell.ColumnIndex == 0)
-                        {
-                            _produitController.RemoveByName((string)cell.Value);
-                            cCells++;
-                        }
-                    }
-                    if (cCells == 0)
-                    {
-                        Utils.ShowError("ERREUR! Veuillez sélectionner uniquement les noms ou les lignes des produits.");
-                    }
+                    DataGridViewCell selectedCell = stocks.SelectedCells[0];
+                    DataGridViewCell cell = stocks.Rows[selectedCell.RowIndex].Cells["Nom"];
+
+                    _produitController.RemoveByName((string)cell.Value);
                 }
                 else
                 {

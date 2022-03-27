@@ -133,6 +133,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AfficherClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherClient.Designer.cs">
+      <DependentUpon>AfficherClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="AfficherStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,11 +169,18 @@
     <Compile Include="AjouterStock.Designer.cs">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="RechercheClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RechercheClient.Designer.cs">
+      <DependentUpon>RechercheClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\BoolCriteria.cs" />
     <Compile Include="Model\Criteria.cs" />
     <Compile Include="Model\CriteriaCheckType.cs" />
     <Compile Include="Model\CriteriaCombinationType.cs" />
     <Compile Include="Model\DecimalCriteria.cs" />
+    <Compile Include="Model\Entities\MyClient.cs" />
     <Compile Include="Model\IsNullCriteria.cs" />
     <Compile Include="Model\NullableDecimalCriteria.cs" />
     <Compile Include="Model\ShortCriteria.cs" />
@@ -313,7 +326,6 @@
     <Compile Include="MALADIE.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Entities\MyFacture.cs" />
     <Compile Include="Model\impl\AnimalRepository.cs" />
     <Compile Include="Model\impl\ClientRepository.cs" />
     <Compile Include="Model\impl\CongeRepository.cs" />
@@ -345,6 +357,9 @@
     <Compile Include="SOIN.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AfficherClient.resx">
+      <DependentUpon>AfficherClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterClient.resx">
       <DependentUpon>AjouterClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -383,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModifierStock.resx">
       <DependentUpon>ModifierStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RechercheClient.resx">
+      <DependentUpon>RechercheClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RechercheStock.resx">
       <DependentUpon>RechercheStock.cs</DependentUpon>

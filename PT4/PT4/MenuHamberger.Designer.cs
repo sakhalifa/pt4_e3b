@@ -37,7 +37,6 @@ namespace PT4
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonNewCompte = new System.Windows.Forms.Button();
             this.buttonNewPrescription = new System.Windows.Forms.Button();
-            this.buttonNewCustomer = new System.Windows.Forms.Button();
             this.buttonNewSale = new System.Windows.Forms.Button();
             this.panelAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -46,10 +45,10 @@ namespace PT4
             this.buttonPlanning = new System.Windows.Forms.Button();
             this.buttonStock = new System.Windows.Forms.Button();
             this.buttonManagement = new System.Windows.Forms.Button();
+            this.buttonHamburger = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonX = new System.Windows.Forms.Button();
-            this.buttonHamburger = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,7 +80,7 @@ namespace PT4
             this.deconnexion.FlatAppearance.BorderSize = 0;
             this.deconnexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deconnexion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.deconnexion.Location = new System.Drawing.Point(0, 650);
+            this.deconnexion.Location = new System.Drawing.Point(0, 610);
             this.deconnexion.Name = "deconnexion";
             this.deconnexion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.deconnexion.Size = new System.Drawing.Size(233, 45);
@@ -97,7 +96,7 @@ namespace PT4
             this.buttonLog.FlatAppearance.BorderSize = 0;
             this.buttonLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLog.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonLog.Location = new System.Drawing.Point(0, 605);
+            this.buttonLog.Location = new System.Drawing.Point(0, 565);
             this.buttonLog.Name = "buttonLog";
             this.buttonLog.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonLog.Size = new System.Drawing.Size(233, 45);
@@ -113,7 +112,7 @@ namespace PT4
             this.mdpChange.FlatAppearance.BorderSize = 0;
             this.mdpChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mdpChange.ForeColor = System.Drawing.Color.Gainsboro;
-            this.mdpChange.Location = new System.Drawing.Point(0, 560);
+            this.mdpChange.Location = new System.Drawing.Point(0, 520);
             this.mdpChange.Name = "mdpChange";
             this.mdpChange.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.mdpChange.Size = new System.Drawing.Size(233, 45);
@@ -129,12 +128,11 @@ namespace PT4
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.buttonNewCompte);
             this.panel2.Controls.Add(this.buttonNewPrescription);
-            this.panel2.Controls.Add(this.buttonNewCustomer);
             this.panel2.Controls.Add(this.buttonNewSale);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 400);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 160);
+            this.panel2.Size = new System.Drawing.Size(233, 120);
             this.panel2.TabIndex = 4;
             this.panel2.Visible = false;
             // 
@@ -144,7 +142,7 @@ namespace PT4
             this.buttonNewCompte.FlatAppearance.BorderSize = 0;
             this.buttonNewCompte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewCompte.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonNewCompte.Location = new System.Drawing.Point(0, 120);
+            this.buttonNewCompte.Location = new System.Drawing.Point(0, 80);
             this.buttonNewCompte.Name = "buttonNewCompte";
             this.buttonNewCompte.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.buttonNewCompte.Size = new System.Drawing.Size(233, 40);
@@ -160,7 +158,7 @@ namespace PT4
             this.buttonNewPrescription.FlatAppearance.BorderSize = 0;
             this.buttonNewPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewPrescription.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonNewPrescription.Location = new System.Drawing.Point(0, 80);
+            this.buttonNewPrescription.Location = new System.Drawing.Point(0, 40);
             this.buttonNewPrescription.Name = "buttonNewPrescription";
             this.buttonNewPrescription.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.buttonNewPrescription.Size = new System.Drawing.Size(233, 40);
@@ -169,22 +167,6 @@ namespace PT4
             this.buttonNewPrescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNewPrescription.UseVisualStyleBackColor = true;
             this.buttonNewPrescription.Click += new System.EventHandler(this.buttonNewPrescription_Click);
-            // 
-            // buttonNewCustomer
-            // 
-            this.buttonNewCustomer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonNewCustomer.FlatAppearance.BorderSize = 0;
-            this.buttonNewCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNewCustomer.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonNewCustomer.Location = new System.Drawing.Point(0, 40);
-            this.buttonNewCustomer.Name = "buttonNewCustomer";
-            this.buttonNewCustomer.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonNewCustomer.Size = new System.Drawing.Size(233, 40);
-            this.buttonNewCustomer.TabIndex = 6;
-            this.buttonNewCustomer.Text = "Nouveau client";
-            this.buttonNewCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNewCustomer.UseVisualStyleBackColor = true;
-            this.buttonNewCustomer.Click += new System.EventHandler(this.buttonNewCustomer_Click);
             // 
             // buttonNewSale
             // 
@@ -247,6 +229,7 @@ namespace PT4
             this.clientsGestion.Text = "Gestion des clients";
             this.clientsGestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.clientsGestion.UseVisualStyleBackColor = true;
+            this.clientsGestion.Click += new System.EventHandler(this.clientsGestion_Click);
             // 
             // buttonWeekSale
             // 
@@ -312,6 +295,16 @@ namespace PT4
             this.buttonManagement.UseVisualStyleBackColor = true;
             this.buttonManagement.Click += new System.EventHandler(this.buttonManagement_Click);
             // 
+            // buttonHamburger
+            // 
+            this.buttonHamburger.Location = new System.Drawing.Point(763, 12);
+            this.buttonHamburger.Name = "buttonHamburger";
+            this.buttonHamburger.Size = new System.Drawing.Size(25, 25);
+            this.buttonHamburger.TabIndex = 1;
+            this.buttonHamburger.Text = "O";
+            this.buttonHamburger.UseVisualStyleBackColor = true;
+            this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
+            // 
             // panelLogo
             // 
             this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
@@ -343,16 +336,6 @@ namespace PT4
             this.buttonX.Text = "X";
             this.buttonX.UseVisualStyleBackColor = true;
             this.buttonX.Click += new System.EventHandler(this.buttonX_Click);
-            // 
-            // buttonHamburger
-            // 
-            this.buttonHamburger.Location = new System.Drawing.Point(763, 12);
-            this.buttonHamburger.Name = "buttonHamburger";
-            this.buttonHamburger.Size = new System.Drawing.Size(25, 25);
-            this.buttonHamburger.TabIndex = 1;
-            this.buttonHamburger.Text = "O";
-            this.buttonHamburger.UseVisualStyleBackColor = true;
-            this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
             // 
             // MenuHamberger
             // 
@@ -387,7 +370,6 @@ namespace PT4
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonNewCompte;
         private System.Windows.Forms.Button buttonNewPrescription;
-        private System.Windows.Forms.Button buttonNewCustomer;
         private System.Windows.Forms.Button buttonNewSale;
         private System.Windows.Forms.Button buttonLog;
         private System.Windows.Forms.Button buttonX;
