@@ -93,7 +93,7 @@
             // 
             this.numeroTel.AsciiOnly = true;
             this.numeroTel.Location = new System.Drawing.Point(134, 257);
-            this.numeroTel.Mask = "00 00 00 00 00 00";
+            this.numeroTel.Mask = "00 00 00 00 00";
             this.numeroTel.Name = "numeroTel";
             this.numeroTel.Size = new System.Drawing.Size(100, 20);
             this.numeroTel.TabIndex = 8;

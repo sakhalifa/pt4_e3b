@@ -138,7 +138,7 @@ namespace PT4
         {
             //Code
             hideSubMenu();
-
+            
         }
 
         /**
@@ -147,6 +147,12 @@ namespace PT4
         private void buttonNewAccount_Click(object sender, EventArgs e)
         {
             hideSubMenu();
+            _services.AddScoped<AjouterCompte>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var dlg = provider.GetService<AjouterCompte>();
+                dlg.ShowDialog();
+            }
         }
 
         /**
