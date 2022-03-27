@@ -41,6 +41,7 @@ namespace PT4
             this.buttonNewSale = new System.Windows.Forms.Button();
             this.panelAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.clientsGestion = new System.Windows.Forms.Button();
             this.buttonWeekSale = new System.Windows.Forms.Button();
             this.buttonPlanning = new System.Windows.Forms.Button();
             this.buttonStock = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@ namespace PT4
             this.label1 = new System.Windows.Forms.Label();
             this.buttonX = new System.Windows.Forms.Button();
             this.buttonHamburger = new System.Windows.Forms.Button();
-            this.clientsGestion = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -233,6 +233,21 @@ namespace PT4
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
             // 
+            // clientsGestion
+            // 
+            this.clientsGestion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.clientsGestion.FlatAppearance.BorderSize = 0;
+            this.clientsGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clientsGestion.ForeColor = System.Drawing.Color.LightGray;
+            this.clientsGestion.Location = new System.Drawing.Point(0, 120);
+            this.clientsGestion.Name = "clientsGestion";
+            this.clientsGestion.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.clientsGestion.Size = new System.Drawing.Size(233, 40);
+            this.clientsGestion.TabIndex = 3;
+            this.clientsGestion.Text = "Gestion des clients";
+            this.clientsGestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clientsGestion.UseVisualStyleBackColor = true;
+            // 
             // buttonWeekSale
             // 
             this.buttonWeekSale.Dock = System.Windows.Forms.DockStyle.Top;
@@ -339,21 +354,6 @@ namespace PT4
             this.buttonHamburger.UseVisualStyleBackColor = true;
             this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
             // 
-            // clientsGestion
-            // 
-            this.clientsGestion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.clientsGestion.FlatAppearance.BorderSize = 0;
-            this.clientsGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clientsGestion.ForeColor = System.Drawing.Color.LightGray;
-            this.clientsGestion.Location = new System.Drawing.Point(0, 120);
-            this.clientsGestion.Name = "clientsGestion";
-            this.clientsGestion.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.clientsGestion.Size = new System.Drawing.Size(233, 40);
-            this.clientsGestion.TabIndex = 3;
-            this.clientsGestion.Text = "Gestion des clients";
-            this.clientsGestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clientsGestion.UseVisualStyleBackColor = true;
-            // 
             // MenuHamberger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,11 +391,11 @@ namespace PT4
         private System.Windows.Forms.Button buttonNewSale;
         private System.Windows.Forms.Button buttonLog;
         private System.Windows.Forms.Button buttonX;
-        private System.Windows.Forms.Button buttonHamburger;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button mdpChange;
         private System.Windows.Forms.Button deconnexion;
         private System.Windows.Forms.Button clientsGestion;
+        protected System.Windows.Forms.Button buttonHamburger;
     }
 }
 

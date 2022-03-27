@@ -57,7 +57,7 @@ namespace PT4
 
                     mh.Closed += (send, __) =>
                     {
-                        if (send is MenuAcceuil a)
+                        if (send is MenuHamberger a)
                         {
                             if (a.DialogResult == DialogResult.Retry)
                             {

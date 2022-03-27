@@ -33,6 +33,7 @@ namespace PT4
             InitializeComponent();
             InitDataGridView();
             stocks.SendToBack();
+            buttonHamburger.BringToFront();
 
             backwards.Visible = false;
             forward.Visible = ElementCount > (CurrentPage + 1) * ELEMENTS_PER_PAGE;

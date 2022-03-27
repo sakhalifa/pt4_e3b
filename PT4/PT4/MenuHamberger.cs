@@ -53,11 +53,12 @@ namespace PT4
          */
         private void showSubMenu(Panel subMenu)
         {
-            if(subMenu.Visible == false)
+            if (subMenu.Visible == false)
             {
                 hideSubMenu();
                 subMenu.Visible = true;
-            } else
+            }
+            else
             {
                 subMenu.Visible = false;
             }
@@ -81,10 +82,10 @@ namespace PT4
             {
                 return new AfficherStock(p.GetRequiredService<ProduitController>(), _services, salarieId, estAdmin);
             });
-            using(ServiceProvider provider = _services.BuildServiceProvider())
+            using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 AfficherStock form = provider.GetRequiredService<AfficherStock>();
-                form.ShowDialog();
+                ShowDialogLinked(form);
             }
         }
 
@@ -123,7 +124,7 @@ namespace PT4
             //Code
             hideSubMenu();
             _services.AddScoped<AjouterClient>();
-            using(ServiceProvider provider = _services.BuildServiceProvider())
+            using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 var dlg = provider.GetService<AjouterClient>();
                 dlg.ShowDialog();
@@ -145,12 +146,7 @@ namespace PT4
          */
         private void buttonNewAccount_Click(object sender, EventArgs e)
         {
-            _services.AddScoped<AjouterCompte>();
-            using (ServiceProvider provider = _services.BuildServiceProvider())
-            {
-                AjouterCompte form = provider.GetRequiredService<AjouterCompte>();
-                form.ShowDialog();
-            }
+            hideSubMenu();
         }
 
         /**
@@ -200,13 +196,28 @@ namespace PT4
             {
                 provider.GetService<ModifierMdp>().ShowDialog();
             }
-            
+
         }
 
         private void deconnexion_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Retry;
             this.Close();
+        }
+
+        private void ShowDialogLinked(MenuHamberger toShow)
+        {
+            toShow.Closed += (send, __) =>
+            {
+                if (send is MenuHamberger a)
+                {
+                    if(a.DialogResult == DialogResult.Retry) {
+                        this.DialogResult = DialogResult.Retry;
+                        this.Close();
+                    }
+                }
+            };
+            toShow.ShowDialog();
         }
     }
 }
