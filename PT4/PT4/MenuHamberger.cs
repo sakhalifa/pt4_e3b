@@ -89,6 +89,20 @@ namespace PT4
             }
         }
 
+        private void clientsGestion_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped((p) =>
+            {
+                return new AfficherClient(p.GetRequiredService<ClientController>(), _services, salarieId, estAdmin);
+            });
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                AfficherClient form = provider.GetService<AfficherClient>();
+                ShowDialogLinked(form);
+            }
+        }
+
         /**
          * Manage the click of the button Planning
          */
@@ -114,21 +128,6 @@ namespace PT4
         {
             //Code
             hideSubMenu();
-        }
-
-        /**
-         * Manage the click of the button new customer
-         */
-        private void buttonNewCustomer_Click(object sender, EventArgs e)
-        {
-            //Code
-            hideSubMenu();
-            _services.AddScoped<AjouterClient>();
-            using (ServiceProvider provider = _services.BuildServiceProvider())
-            {
-                var dlg = provider.GetService<AjouterClient>();
-                dlg.ShowDialog();
-            }
         }
 
         /**
@@ -225,5 +224,7 @@ namespace PT4
             };
             toShow.ShowDialog();
         }
+
+        
     }
 }
