@@ -139,6 +139,12 @@
     <Compile Include="AfficherStock.Designer.cs">
       <DependentUpon>AfficherStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjouterClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterClient.Designer.cs">
+      <DependentUpon>AjouterClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="ajouterConge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +321,7 @@
     <Compile Include="Model\impl\MaladieRepository.cs" />
     <Compile Include="Model\impl\OrdonnanceRepository.cs" />
     <Compile Include="Model\impl\ProduitRepository.cs" />
+    <Compile Include="Model\impl\ProduitVenduRepository.cs" />
     <Compile Include="Model\impl\RendezVousRepository.cs" />
     <Compile Include="Model\impl\SalarieRepository.cs" />
     <Compile Include="Model\impl\SoinRepository.cs" />
@@ -338,6 +345,9 @@
     <Compile Include="SOIN.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AjouterClient.resx">
+      <DependentUpon>AjouterClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterStock.resx">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </EmbeddedResource>

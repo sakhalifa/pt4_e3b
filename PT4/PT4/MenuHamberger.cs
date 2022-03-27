@@ -15,16 +15,25 @@ namespace PT4
     public partial class MenuHamberger : Form
     {
         private ServiceCollection _services;
+        private int salarieId;
+        protected bool estAdmin;
 
         private MenuHamberger()
         {
             InitializeComponent();
         }
 
-        public MenuHamberger(ServiceCollection services)
+        public MenuHamberger(ServiceCollection services, int salarieId, bool estAdmin)
         {
             InitializeComponent();
             _services = services;
+            this.estAdmin = estAdmin;
+            this.salarieId = salarieId;
+            if (!this.estAdmin)
+            {
+                buttonNewCompte.Visible = false;
+                buttonNewPrescription.Visible = false;
+            }
             buttonHamburger.BringToFront();
         }
 
@@ -44,11 +53,12 @@ namespace PT4
          */
         private void showSubMenu(Panel subMenu)
         {
-            if(subMenu.Visible == false)
+            if (subMenu.Visible == false)
             {
                 hideSubMenu();
                 subMenu.Visible = true;
-            } else
+            }
+            else
             {
                 subMenu.Visible = false;
             }
@@ -68,11 +78,14 @@ namespace PT4
         private void buttonStock_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            _services.AddScoped<AfficherStock>();
-            using(ServiceProvider provider = _services.BuildServiceProvider())
+            _services.AddScoped((p) =>
+            {
+                return new AfficherStock(p.GetRequiredService<ProduitController>(), _services, salarieId, estAdmin);
+            });
+            using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 AfficherStock form = provider.GetRequiredService<AfficherStock>();
-                form.ShowDialog();
+                ShowDialogLinked(form);
             }
         }
 
@@ -110,6 +123,12 @@ namespace PT4
         {
             //Code
             hideSubMenu();
+            _services.AddScoped<AjouterClient>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var dlg = provider.GetService<AjouterClient>();
+                dlg.ShowDialog();
+            }
         }
 
         /**
@@ -119,6 +138,7 @@ namespace PT4
         {
             //Code
             hideSubMenu();
+
         }
 
         /**
@@ -126,12 +146,7 @@ namespace PT4
          */
         private void buttonNewAccount_Click(object sender, EventArgs e)
         {
-            _services.AddScoped<AjouterCompte>();
-            using (ServiceProvider provider = _services.BuildServiceProvider())
-            {
-                AjouterCompte form = provider.GetRequiredService<AjouterCompte>();
-                form.ShowDialog();
-            }
+            hideSubMenu();
         }
 
         /**
@@ -168,6 +183,41 @@ namespace PT4
             panelSideMenu.Visible = true;
             buttonHamburger.Visible = false;
             panelSideMenu.BringToFront();
+        }
+
+        private void mdpChange_Click(object sender, EventArgs e)
+        {
+            _services.AddScoped((p) =>
+            {
+                var contr = p.GetRequiredService<SalarieController>();
+                return new ModifierMdp(contr, salarieId);
+            });
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                provider.GetService<ModifierMdp>().ShowDialog();
+            }
+
+        }
+
+        private void deconnexion_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Retry;
+            this.Close();
+        }
+
+        private void ShowDialogLinked(MenuHamberger toShow)
+        {
+            toShow.Closed += (send, __) =>
+            {
+                if (send is MenuHamberger a)
+                {
+                    if(a.DialogResult == DialogResult.Retry) {
+                        this.DialogResult = DialogResult.Retry;
+                        this.Close();
+                    }
+                }
+            };
+            toShow.ShowDialog();
         }
     }
 }

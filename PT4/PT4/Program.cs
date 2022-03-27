@@ -23,16 +23,17 @@ namespace PT4
                     .AddSingleton<IGenericRepository<MALADIE>, MaladieRepository>()
                     .AddSingleton<IGenericRepository<ORDONNANCE>, OrdonnanceRepository>()
                     .AddSingleton<IGenericRepository<PRODUIT>, ProduitRepository>()
+                    .AddSingleton<IGenericRepository<PRODUIT_VENDU>, ProduitVenduRepository>()
                     .AddSingleton<IGenericRepository<RENDEZVOUS>, RendezVousRepository>()
                     .AddSingleton<IGenericRepository<SALARIÉ>, SalarieRepository>()
-                    .AddSingleton<AnimalController>()
-                    .AddSingleton<ClientController>()
-                    .AddSingleton<SalarieController>()
-                    .AddSingleton<FactureController>()
-                    .AddSingleton<MaladieRepository>()
-                    .AddSingleton<OrdonnanceRepository>()
-                    .AddSingleton<ProduitController>()
-                    .AddSingleton<SoinController>()
+                    .AddTransient<AnimalController>()
+                    .AddTransient<ClientController>()
+                    .AddTransient<SalarieController>()
+                    .AddTransient<FactureController>()
+                    .AddTransient<MaladieRepository>()
+                    .AddTransient<OrdonnanceRepository>()
+                    .AddTransient<ProduitController>()
+                    .AddTransient<SoinController>()
             ;
             services.AddSingleton(services);
         }
@@ -49,10 +50,10 @@ namespace PT4
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            services.AddScoped<MenuAcceuil>();
+            services.AddScoped<Connexion>();
             using (ServiceProvider provider = services.BuildServiceProvider())
             {
-                MenuAcceuil form = provider.GetRequiredService<MenuAcceuil>();
+                Connexion form = provider.GetService<Connexion>();
                 Application.Run(form);
             }
         }

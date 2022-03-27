@@ -182,3 +182,4 @@
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CopyComplete
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.exe
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.pdb
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterClient.resources

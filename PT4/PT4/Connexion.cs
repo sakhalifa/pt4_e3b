@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using PT4.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,12 @@ namespace PT4
     {
 
         private ServiceCollection _service;
-        public Connexion(ServiceCollection service)
+        private SalarieController _salarieController;
+        public Connexion(ServiceCollection service, SalarieController salarieController)
         {
             InitializeComponent();
             _service = service;
+            _salarieController = salarieController;
         }
 
         private void Connexion_Load(object sender, EventArgs e)
@@ -38,7 +41,55 @@ namespace PT4
 
         private void buttonConnexion_Click(object sender, EventArgs e)
         {
+            if (CheckRemplissage())
+            {
+                SALARIÉ s = _salarieController.Connexion(textBoxLogin.Text, textBoxPassword.Text);
+                if (s is null)
+                {
+                    Utils.ShowError("ERREUR! Mot de passe ou login incorrect!");
+                }
+                else
+                {
+                    MessageBox.Show($"Connecté avec succès en tant que {s.LOGIN}");
+                    this.Hide();
+                    MenuAcceuil mh = new MenuAcceuil(_service, s.IDCOMPTE, s.estAdmin);
 
+
+                    mh.Closed += (send, __) =>
+                    {
+                        if (send is MenuHamberger a)
+                        {
+                            if (a.DialogResult == DialogResult.Retry)
+                            {
+                                this.Show();
+                            }
+                            else
+                            {
+                                this.Close();
+                            }
+                        }
+                    };
+                    mh.ShowDialog();
+
+
+                }
+            }
+        }
+
+        private bool CheckRemplissage()
+        {
+            if (textBoxLogin.TextLength == 0)
+            {
+                Utils.ShowError("ERREUR! Vous devez rentrer un login!");
+                return false;
+            }
+            if (textBoxPassword.TextLength == 0)
+            {
+                Utils.ShowError("ERREUR! Vous devez rentrer un mot de passe!");
+                return false;
+            }
+
+            return true;
         }
     }
 }

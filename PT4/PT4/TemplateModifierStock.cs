@@ -24,10 +24,14 @@ namespace PT4
             InitializeComponent();
         }
 
-        public TemplateModifierStock(ProduitController prodController)
+        public TemplateModifierStock(ProduitController prodController, bool estAdmin)
         {
             InitializeComponent();
             _prodController = prodController;
+            if (estAdmin)
+            {
+                estMedic.Visible = false;
+            }
         }
 
         private void buttonConfirmer_Click(object sender, EventArgs e)

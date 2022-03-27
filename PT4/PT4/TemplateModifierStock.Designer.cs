@@ -173,6 +173,8 @@ namespace PT4
             // 
             // prixVente
             // 
+            this.prixVente.BackColor = System.Drawing.Color.LightGray;
+            this.prixVente.Enabled = false;
             this.prixVente.Location = new System.Drawing.Point(48, 181);
             this.prixVente.Name = "prixVente";
             this.prixVente.Size = new System.Drawing.Size(120, 20);
@@ -208,6 +210,7 @@ namespace PT4
             this.buttonConfirmer.TabIndex = 25;
             this.buttonConfirmer.Text = "Confirmer";
             this.buttonConfirmer.UseVisualStyleBackColor = true;
+            this.buttonConfirmer.Click += new System.EventHandler(this.buttonConfirmer_Click);
             // 
             // TemplateModifierStock
             // 
