@@ -66,10 +66,10 @@ namespace PT4
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            services.AddScoped<Connexion>();
+            services.AddScoped<MenuHamberger>();
             using (ServiceProvider provider = services.BuildServiceProvider())
             {
-                Connexion form = provider.GetService<Connexion>();
+                MenuHamberger form = provider.GetRequiredService<MenuHamberger>();
                 Application.Run(form);
             }
         }
