@@ -122,7 +122,6 @@ namespace PT4
             this.numericUpDownPrix.Name = "numericUpDownPrix";
             this.numericUpDownPrix.Size = new System.Drawing.Size(180, 26);
             this.numericUpDownPrix.TabIndex = 8;
-            this.numericUpDownPrix.ValueChanged += new System.EventHandler(this.numericUpDownPrix_ValueChanged);
             // 
             // label7
             // 
@@ -142,7 +141,6 @@ namespace PT4
             this.comboBoxAnimal.Name = "comboBoxAnimal";
             this.comboBoxAnimal.Size = new System.Drawing.Size(180, 28);
             this.comboBoxAnimal.TabIndex = 10;
-            this.comboBoxAnimal.SelectedIndexChanged += new System.EventHandler(this.comboBoxAnimal_SelectedIndexChanged);
             // 
             // comboBoxProduit
             // 
