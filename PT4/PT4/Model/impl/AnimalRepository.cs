@@ -37,7 +37,7 @@ namespace PT4.Model.impl
 
         public override void Update(ANIMAL animal)
         {
-            _context.Entry(animal).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(animal).State = EntityState.Modified;
         }
 
         public override IQueryable<ANIMAL> FindWhere(Expression<Func<ANIMAL, bool>> predicate)

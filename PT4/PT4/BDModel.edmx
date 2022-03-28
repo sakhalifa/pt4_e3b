@@ -10,7 +10,7 @@
             <PropertyRef Name="DATEDEBUT" />
             <PropertyRef Name="IDANIMAL" />
           </Key>
-          <Property Name="DATEDEBUT" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="DATEDEBUT" Type="datetime" Nullable="false" />
           <Property Name="IDANIMAL" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="A_ÉTÉ_CONTRACTÉ">
@@ -19,7 +19,7 @@
             <PropertyRef Name="DATEDEBUT" />
           </Key>
           <Property Name="IDMALADIE" Type="smallint" Nullable="false" />
-          <Property Name="DATEDEBUT" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="DATEDEBUT" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ANIMAL">
           <Key>
@@ -32,7 +32,7 @@
           <Property Name="NOMANIMAL" Type="varchar" MaxLength="128" />
           <Property Name="DATENAISSANCE" Type="datetime" />
           <Property Name="TAILLE" Type="smallint" Nullable="false" />
-          <Property Name="POIDS" Type="int" Nullable="false" />
+          <Property Name="POIDS" Type="decimal" Precision="7" Scale="3" Nullable="false" />
         </EntityType>
         <EntityType Name="CLIENT">
           <Key>
@@ -93,8 +93,8 @@
           <Key>
             <PropertyRef Name="DATEDEBUT" />
           </Key>
-          <Property Name="DATEDEBUT" Type="char" MaxLength="32" Nullable="false" />
-          <Property Name="DATEFIN" Type="char" MaxLength="32" />
+          <Property Name="DATEDEBUT" Type="datetime" Nullable="false" />
+          <Property Name="DATEFIN" Type="datetime" />
         </EntityType>
         <EntityType Name="MALADIE">
           <Key>
@@ -468,7 +468,7 @@
           <Property Name="NOMANIMAL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="DATENAISSANCE" Type="DateTime" Precision="3" />
           <Property Name="TAILLE" Type="Int16" Nullable="false" />
-          <Property Name="POIDS" Type="Int32" Nullable="false" />
+          <Property Name="POIDS" Type="Decimal" Nullable="false" />
           <NavigationProperty Name="CLIENT" Relationship="Self.FK_ANIMAL_CLIENT" FromRole="ANIMAL" ToRole="CLIENT" />
           <NavigationProperty Name="ORDONNANCE" Relationship="Self.FK_ORDONNANCE_ANIMAL" FromRole="ANIMAL" ToRole="ORDONNANCE" />
           <NavigationProperty Name="HISTORIQUEMALADIE" Relationship="Self.A_CONTRACTÉ" FromRole="ANIMAL" ToRole="HISTORIQUEMALADIE" />
@@ -512,8 +512,8 @@
           <Key>
             <PropertyRef Name="DATEDEBUT" />
           </Key>
-          <Property Name="DATEDEBUT" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="DATEFIN" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+          <Property Name="DATEDEBUT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DATEFIN" Type="DateTime" Precision="3" />
           <NavigationProperty Name="ANIMAL" Relationship="Self.A_CONTRACTÉ" FromRole="HISTORIQUEMALADIE" ToRole="ANIMAL" />
           <NavigationProperty Name="MALADIE" Relationship="Self.A_ÉTÉ_CONTRACTÉ" FromRole="HISTORIQUEMALADIE" ToRole="MALADIE" />
         </EntityType>

@@ -145,6 +145,12 @@
     <Compile Include="AfficherStock.Designer.cs">
       <DependentUpon>AfficherStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjouterAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterAnimal.Designer.cs">
+      <DependentUpon>AjouterAnimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjouterClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,13 @@
     </Compile>
     <Compile Include="AjouterStock.Designer.cs">
       <DependentUpon>AjouterStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\MyAnimal.cs" />
+    <Compile Include="ModifierClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierClient.Designer.cs">
+      <DependentUpon>ModifierClient.cs</DependentUpon>
     </Compile>
     <Compile Include="RechercheClient.cs">
       <SubType>Form</SubType>
@@ -360,6 +373,9 @@
     <EmbeddedResource Include="AfficherClient.resx">
       <DependentUpon>AfficherClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AjouterAnimal.resx">
+      <DependentUpon>AjouterAnimal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterClient.resx">
       <DependentUpon>AjouterClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -392,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ajouterRDV.resx">
       <DependentUpon>ajouterRDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierClient.resx">
+      <DependentUpon>ModifierClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifierMdp.resx">
       <DependentUpon>ModifierMdp.cs</DependentUpon>

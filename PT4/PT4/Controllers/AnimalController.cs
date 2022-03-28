@@ -10,7 +10,6 @@ namespace PT4.Controllers
     
     public class AnimalController
     {
-        public delegate void OnChangedAnimal(IEnumerable<ANIMAL> animals);
         private IGenericRepository<ANIMAL> _animalRepository;
 
         
@@ -20,7 +19,27 @@ namespace PT4.Controllers
             _animalRepository = animalRepository;
         }
 
-        public void CreerAnimal(CLIENT client, string nomEspece, string nomRace, string nomAnimal, DateTime dateNaissance, short taille, int poids) 
+        public void SubscribeAnimal(OnChanged<ANIMAL> onChanged)
+        {
+            _animalRepository.Subscribe(onChanged);
+        }
+
+        public void SubscribeDeleteAnimal(OnDelete<ANIMAL> onDelete)
+        {
+            _animalRepository.SubscribeDelete(onDelete);
+        }
+
+        public void UnSubscribeAnimal(OnChanged<ANIMAL> onChanged)
+        {
+            _animalRepository.UnSubscribe(onChanged);
+        }
+
+        public void UnSubscribeDeleteAnimal(OnDelete<ANIMAL> onDelete)
+        {
+            _animalRepository.UnSubscribeDelete(onDelete);
+        }
+
+        public void CreerAnimal(CLIENT client, string nomEspece, string nomRace, string nomAnimal, DateTime dateNaissance, short taille, decimal poids) 
         {
             ANIMAL newAnimal = new ANIMAL
             {
@@ -37,7 +56,22 @@ namespace PT4.Controllers
             _animalRepository.Save();
             List<ANIMAL> animalsChanged = new List<ANIMAL>();
             animalsChanged.Add(newAnimal);
-            //OnChangedAnimal.Invoke(animalsChanged);
+        }
+
+        public IQueryable<ANIMAL> AllAnimalsOfCustomer(CLIENT c)
+        {
+            return _animalRepository.FindWhere((a) => a.CLIENT.IDCLIENT == c.IDCLIENT);
+        }
+
+        public ANIMAL AnimalByID(int id)
+        {
+            return _animalRepository.FindById(id);
+        }
+
+        public void DeleteAnimal(ANIMAL a)
+        {
+            _animalRepository.Delete(a);
+            _animalRepository.Save();
         }
 
     }

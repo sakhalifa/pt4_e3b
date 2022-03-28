@@ -59,7 +59,7 @@ namespace PT4
             if (CheckRemplissage())
             {
                 string num = null;
-                if(numeroTel.TextLength > 0)
+                if(numeroTel.Text.Trim().Length > 0)
                 {
                     num = numeroTel.Text.Replace(" ", "");
                 }

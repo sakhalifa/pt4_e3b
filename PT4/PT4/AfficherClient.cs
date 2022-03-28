@@ -29,6 +29,7 @@ namespace PT4
             _clientController = clientController;
             _clientController.SubscribeCustomers(OnChanged);
             _clientController.SubscribeDeleteCustomers(OnDelete);
+            this.Closed += UnSubscribe;
             cachedCustomers = new List<CLIENT>();
             InitializeComponent();
             InitDataGridView();
@@ -37,6 +38,12 @@ namespace PT4
             backwards.Visible = false;
             forward.Visible = ElementCount > (CurrentPage + 1) * ELEMENTS_PER_PAGE;
 
+        }
+
+        private void UnSubscribe(object sender, EventArgs e)
+        {
+            _clientController.UnSubscribeCustomers(OnChanged); 
+            _clientController.UnSubscribeDeleteCustomers(OnDelete);
         }
 
         private void InitDataGridView()
@@ -86,7 +93,31 @@ namespace PT4
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO
+            CLIENT c;
+            if (clients.SelectedRows.Count == 1)
+            {
+                DataGridViewRow row = clients.SelectedRows[0];
+                c = _clientController.FindByEmail((string)row.Cells["Email"].Value);
+                
+            }
+            else if (clients.SelectedCells.Count == 1)
+            {
+                DataGridViewCell selectedCell = clients.SelectedCells[0];
+                DataGridViewCell cell = clients.Rows[selectedCell.RowIndex].Cells["Email"];
+                c = _clientController.FindByEmail((string)cell.Value);
+            }
+            else
+            {
+                Utils.ShowError("ERREUR! Veuillez sélectionner une seule cellule ou une seule ligne!");
+                return;
+            }
+            _services.AddScoped<ModifierClient>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var modifierClient = provider.GetService<ModifierClient>();
+                modifierClient.SetClient(c);
+                modifierClient.ShowDialog();
+            }
         }
 
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,9 +135,17 @@ namespace PT4
                 }
                 else if (clients.SelectedCells.Count > 0)
                 {
-                    DataGridViewCell selectedCell = clients.SelectedCells[0];
-                    DataGridViewCell cell = clients.Rows[selectedCell.RowIndex].Cells["Email"];
-                    _clientController.RemoveByEmail((string)cell.Value);
+                    HashSet<int> visitedRows = new HashSet<int>();
+                    foreach (DataGridViewCell selectedCell in clients.SelectedCells)
+                    {
+                        if (!visitedRows.Contains(selectedCell.RowIndex))
+                        {
+                            DataGridViewCell cell = clients.Rows[selectedCell.RowIndex].Cells["Email"];
+                            _clientController.RemoveByEmail((string)cell.Value);
+                            visitedRows.Add(selectedCell.RowIndex);
+                        }
+                    }
+
                 }
                 else
                 {
