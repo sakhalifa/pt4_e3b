@@ -169,7 +169,6 @@
             // buttonConfirmer
             // 
             this.buttonConfirmer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonConfirmer.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonConfirmer.ForeColor = System.Drawing.Color.Black;
             this.buttonConfirmer.Location = new System.Drawing.Point(116, 299);
             this.buttonConfirmer.Name = "buttonConfirmer";

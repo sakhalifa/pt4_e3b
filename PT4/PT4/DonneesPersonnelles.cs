@@ -33,11 +33,19 @@ namespace PT4
             {
                 Utils.ShowError("Veuillez entrer une adresse mail");
             }
-            else if (!textBoxMailDonnees.Text.Contains("@"))
+            try
             {
-                Utils.ShowError("Veuillez entrer une adresse mail valide");
+                var _ = new System.Net.Mail.MailAddress(textBoxMailDonnees.Text);
             }
-            else if (!Regex.IsMatch(textBoxNumero.Text, @"^[+]\d+$") || !Regex.IsMatch(textBoxNumero.Text, @"^\d +$"))
+            catch
+            {
+                Utils.ShowError("ERREUR! Veuillez rentrer un email correctement formaté!");
+                return;
+            }
+
+            if ((Regex.IsMatch(textBoxNumero.Text, @"^[+]\d+$") && textBoxNumero.Text.Length != 12) 
+                || (Regex.IsMatch(textBoxNumero.Text, @"^\d+$") && textBoxNumero.Text.Length != 10)
+                || (!Regex.IsMatch(textBoxNumero.Text, @"^\d+$") && !Regex.IsMatch(textBoxNumero.Text, @"^[+]\d+$")))
             {
                     Utils.ShowError("Ce numéro est invalide");
             }
@@ -47,29 +55,28 @@ namespace PT4
 
             }
 
-            else if (numericUpDownAge.Value <0)
+            else if (numericUpDownAge.Value < 14)
             {
                 Utils.ShowError("Sélectionnez un âge valide");
             }
-
             else if (comboBoxSexe.SelectedItem == null)
             {
                 Utils.ShowError("Sélectionnez un sexe valide");
             }
-
             else
             {
 
                 try
                 {
-                    _salarieController.DonneesPersoSalarie(_salarie, "Sexe : "+comboBoxSexe.SelectedItem+" Age : "+numericUpDownAge.Value+" Telephone : "+textBoxNumero.Text+" Email : "+textBoxMailDonnees.Text);
+                    _salarieController.DonneesPersoSalarie(_salarie, $"Sexe : {comboBoxSexe.SelectedItem} ; Age : {numericUpDownAge.Value} ; Telephone : {textBoxNumero.Text} ; Email : {textBoxMailDonnees.Text}");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     Utils.ShowError(ex.Message);
                 }
             }
-
         }
 
  

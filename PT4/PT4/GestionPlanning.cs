@@ -13,7 +13,7 @@ namespace PT4
 {
     public partial class GestionPlanning : MenuHamberger
     {
-        public GestionPlanning(ServiceCollection services) : base(services)
+        public GestionPlanning(ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
         {
             InitializeComponent();
         }

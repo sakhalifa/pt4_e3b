@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PT4.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,57 @@ namespace PT4
 {
     public partial class ajouterRDV : Form
     {
-        public ajouterRDV()
+        // New ClientController
+        private ClientController _clientController;
+
+        // Constructor
+        public ajouterRDV(ClientController clientController)
         {
             InitializeComponent();
-        }
+            _clientController = clientController;
+            // It insert the customers of the database in the combobox
+            foreach (var c in clientController.ListCustomers())
+            {
+                comboBoxClient.Items.Add(c);
+            }
+        } 
 
-        private void label3_Click(object sender, EventArgs e)
+        private void buttonConfirmer_Click(object sender, EventArgs e)
         {
+            // If there is no reason written
+            if(textBoxRaison.Text == null)
+            {
+                Utils.ShowError("Veuillez insérer une raison au rendez-vous");
+            }
+            // If there is no customer chosen
+            if(comboBoxClient.SelectedItem == null)
+            {
+                Utils.ShowError("Veuillez sélectionner un client");
+            }
+            // If the date / hour chosen for the appointment are already passed
+            else if (dateTimePicker1.Value < DateTime.Now)
+            {
+                Utils.ShowError("Veuillez insérer une date valide");
+            }
 
-        }
+            else
+            {
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+                // If everything's ok, it creates the new appointment
+                try
+                {
+                  _clientController.CreerRendezVous((CLIENT)comboBoxClient.SelectedItem, dateTimePicker1.Value, textBoxRaison.Text, dateTimePicker1.Value.AddHours(1));
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                // if not, it shows the error
+                catch (Exception ex)
+                {
+                    Utils.ShowError(ex.Message);
+                    return;
+                }
+            }
+            
         }
     }
 }

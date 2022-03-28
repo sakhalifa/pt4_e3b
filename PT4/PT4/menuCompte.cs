@@ -13,7 +13,7 @@ namespace PT4
 {
     public partial class menuCompte : MenuHamberger
     {
-        public menuCompte(ServiceCollection services) : base(services)
+        public menuCompte(ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
         {
             InitializeComponent();
         }

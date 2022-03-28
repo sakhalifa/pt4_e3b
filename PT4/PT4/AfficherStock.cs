@@ -24,15 +24,17 @@ namespace PT4
 
         private int ElementCount { get => cachedProducts.Count; }
 
-        public AfficherStock(ProduitController produitController, ServiceCollection services) : base(services)
+        public AfficherStock(ProduitController produitController, ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
         {
             _produitController = produitController;
             _produitController.SubscribeProducts(OnChanged);
             _produitController.SubscribeDeleteProducts(OnDelete);
+            this.Closed += (_, __) => { _produitController.UnSubscribeProducts(OnChanged); _produitController.UnSubscribeDeleteProducts(OnDelete); };
             cachedProducts = new List<PRODUIT>();
             InitializeComponent();
             InitDataGridView();
             stocks.SendToBack();
+            buttonHamburger.BringToFront();
 
             backwards.Visible = false;
             forward.Visible = ElementCount > (CurrentPage + 1) * ELEMENTS_PER_PAGE;
@@ -86,8 +88,10 @@ namespace PT4
             {
                 prixVente = prod.PRIXDEVENTE.ToString();
             }
-
-            stocks.Rows.Add(prod.NOMPRODUIT, prixVente, prod.PRIXACHAT, prod.QUANTITEENSTOCK, prod.DESCRIPTION, prod.PRIXDEVENTE.HasValue, prod.MEDICAMENT);
+            if (estAdmin || !prod.MEDICAMENT)
+            {
+                stocks.Rows.Add(prod.NOMPRODUIT, prixVente, prod.PRIXACHAT, prod.QUANTITEENSTOCK, prod.DESCRIPTION, prod.PRIXDEVENTE.HasValue, prod.MEDICAMENT);
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -112,7 +116,7 @@ namespace PT4
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            AjouterStock ajouterStock = new AjouterStock(_produitController);
+            AjouterStock ajouterStock = new AjouterStock(_produitController, estAdmin);
             ajouterStock.ShowDialog();
         }
 
@@ -122,7 +126,7 @@ namespace PT4
             {
                 DataGridViewRow row = stocks.SelectedRows[0];
                 PRODUIT p = _produitController.FindByName((string)row.Cells["Nom"].Value);
-                AjouterStock ajouterStock = new AjouterStock(_produitController);
+                AjouterStock ajouterStock = new AjouterStock(_produitController, estAdmin);
                 ajouterStock.SetProduit(p);
                 ajouterStock.ShowDialog();
             }
@@ -132,7 +136,7 @@ namespace PT4
                 DataGridViewCell cell = stocks.Rows[selectedCell.RowIndex].Cells["Nom"];
 
                 PRODUIT p = _produitController.FindByName((string)cell.Value);
-                AjouterStock ajouterStock = new AjouterStock(_produitController);
+                AjouterStock ajouterStock = new AjouterStock(_produitController, estAdmin);
                 ajouterStock.SetProduit(p);
                 ajouterStock.ShowDialog();
             }
@@ -149,7 +153,7 @@ namespace PT4
             {
                 DataGridViewRow row = stocks.SelectedRows[0];
                 PRODUIT p = _produitController.FindByName((string)row.Cells["Nom"].Value);
-                ModifierStock modifStock = new ModifierStock(_produitController);
+                ModifierStock modifStock = new ModifierStock(_produitController, estAdmin);
                 modifStock.SetProduit(p);
                 modifStock.ShowDialog();
             }
@@ -159,7 +163,7 @@ namespace PT4
                 DataGridViewCell cell = stocks.Rows[selectedCell.RowIndex].Cells["Nom"];
 
                 PRODUIT p = _produitController.FindByName((string)cell.Value);
-                ModifierStock modifierStock = new ModifierStock(_produitController);
+                ModifierStock modifierStock = new ModifierStock(_produitController, estAdmin);
                 modifierStock.SetProduit(p);
                 modifierStock.ShowDialog();
             }
@@ -185,20 +189,10 @@ namespace PT4
                 }
                 else if (stocks.SelectedCells.Count > 0)
                 {
-                    int cCells = 0;
-                    foreach (var obj in stocks.SelectedCells)
-                    {
-                        DataGridViewCell cell = (DataGridViewCell)obj;
-                        if (cell.ColumnIndex == 0)
-                        {
-                            _produitController.RemoveByName((string)cell.Value);
-                            cCells++;
-                        }
-                    }
-                    if (cCells == 0)
-                    {
-                        Utils.ShowError("ERREUR! Veuillez sélectionner uniquement les noms ou les lignes des produits.");
-                    }
+                    DataGridViewCell selectedCell = stocks.SelectedCells[0];
+                    DataGridViewCell cell = stocks.Rows[selectedCell.RowIndex].Cells["Nom"];
+
+                    _produitController.RemoveByName((string)cell.Value);
                 }
                 else
                 {

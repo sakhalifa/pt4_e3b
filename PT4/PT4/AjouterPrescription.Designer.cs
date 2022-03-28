@@ -1,7 +1,7 @@
 ﻿
 namespace PT4
 {
-    partial class CreerPrescription
+    partial class AjouterPrescription
     {
         /// <summary>
         /// Required designer variable.
@@ -176,7 +176,7 @@ namespace PT4
             this.textBoxDescription.Size = new System.Drawing.Size(393, 130);
             this.textBoxDescription.TabIndex = 13;
             // 
-            // CreerPrescription
+            // AjouterPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -196,7 +196,7 @@ namespace PT4
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "CreerPrescription";
+            this.Name = "AjouterPrescription";
             this.Text = "CreerPrescription";
             this.Load += new System.EventHandler(this.CreerPrescription_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrix)).EndInit();

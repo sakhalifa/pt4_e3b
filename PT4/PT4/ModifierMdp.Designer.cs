@@ -42,6 +42,7 @@
             // 
             this.textBoxNewMdp.Location = new System.Drawing.Point(90, 109);
             this.textBoxNewMdp.Name = "textBoxNewMdp";
+            this.textBoxNewMdp.PasswordChar = '*';
             this.textBoxNewMdp.Size = new System.Drawing.Size(100, 20);
             this.textBoxNewMdp.TabIndex = 8;
             this.textBoxNewMdp.TextChanged += new System.EventHandler(this.textBoxNewMdp_TextChanged);
@@ -50,6 +51,7 @@
             // 
             this.textBoxConfirmerMdp.Location = new System.Drawing.Point(90, 185);
             this.textBoxConfirmerMdp.Name = "textBoxConfirmerMdp";
+            this.textBoxConfirmerMdp.PasswordChar = '*';
             this.textBoxConfirmerMdp.Size = new System.Drawing.Size(100, 20);
             this.textBoxConfirmerMdp.TabIndex = 9;
             this.textBoxConfirmerMdp.TextChanged += new System.EventHandler(this.textBoxConfirmerMdp_TextChanged);

@@ -16,7 +16,7 @@ namespace PT4
     {
 
         
-        public MenuAcceuil(ServiceCollection services) : base(services)
+        public MenuAcceuil(ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
         {
             InitializeComponent();
         }

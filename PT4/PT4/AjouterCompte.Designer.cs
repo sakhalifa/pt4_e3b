@@ -108,6 +108,7 @@ namespace PT4
             // 
             this.confirmerMotDePasse.Location = new System.Drawing.Point(45, 179);
             this.confirmerMotDePasse.Name = "confirmerMotDePasse";
+            this.confirmerMotDePasse.PasswordChar = '*';
             this.confirmerMotDePasse.Size = new System.Drawing.Size(100, 20);
             this.confirmerMotDePasse.TabIndex = 9;
             // 
@@ -125,6 +126,7 @@ namespace PT4
             // 
             this.textBoxMdp.Location = new System.Drawing.Point(45, 121);
             this.textBoxMdp.Name = "textBoxMdp";
+            this.textBoxMdp.PasswordChar = '*';
             this.textBoxMdp.Size = new System.Drawing.Size(100, 20);
             this.textBoxMdp.TabIndex = 7;
             // 

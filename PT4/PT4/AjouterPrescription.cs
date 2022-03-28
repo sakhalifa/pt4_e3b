@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class CreerPrescription : Form
+    public partial class AjouterPrescription : Form
     {
-        public CreerPrescription()
+        public AjouterPrescription()
         {
             InitializeComponent();
         }
