@@ -33,13 +33,6 @@ namespace PT4.Controllers
                 DATEORDO = orderDate,
                 ANIMAL = animal,
                 SOIN = care,
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                
->>>>>>> 02c2c72 (Creation ordonnance)
-=======
->>>>>>> ab736e5 (fix la fenetre de prescription)
             };
 
             _ordonnanceRepository.Insert(order);
