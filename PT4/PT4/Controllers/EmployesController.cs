@@ -38,9 +38,10 @@ namespace PT4.Controllers
             {
                 throw new Exception("Il y a déjà un salarié avec ce login");
             }
+            var hash = SHA256.Create().ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
             salarie = new SALARIÉ {
                 LOGIN = login,
-                MDP = SHA256.Create(clearPwd).ComputeHash(new UTF8Encoding().GetBytes(clearPwd)),
+                MDP = hash,
                 DONNEES_PERSONNELLES=donnees_perso,
                 estAdmin = false
             };
@@ -58,7 +59,7 @@ namespace PT4.Controllers
         /// <returns></returns>
         public SALARIÉ Connexion(string login, string clearPwd)
         {
-            byte[] hashedPwd = SHA256.Create(clearPwd).ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
+            byte[] hashedPwd = SHA256.Create().ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
             SALARIÉ salarie = _salarieRepo.FindWhere(s => s.LOGIN == login && s.MDP.SequenceEqual(hashedPwd)).FirstOrDefault();
             return salarie;
         }
