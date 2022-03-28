@@ -20,7 +20,9 @@ namespace TestProjetVeto
         {
             ordonnanceTest = new ORDONNANCE
             {
-                DATEORDO = new DateTime(2009, 3, 10, 10, 0, 0)
+                DATEORDO = new DateTime(2009, 3, 10, 10, 0, 0),
+                ANIMAL = null,
+                SOIN = null
             };
         }
 
