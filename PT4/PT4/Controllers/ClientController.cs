@@ -71,5 +71,13 @@ namespace PT4.Controllers
 
             _rendezVousRepository.Save();
         }
+
+        /// <summary>
+        /// Find all customers in the database
+        /// </summary>
+        public IQueryable<CLIENT> FindAll()
+        {
+            return _clientRepository.FindAll();
+        }
     }
 }
