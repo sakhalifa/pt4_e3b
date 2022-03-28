@@ -225,6 +225,15 @@ namespace PT4
             toShow.ShowDialog();
         }
 
-        
+        private void buttonRdv_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<ajouterRDV>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var dlg = provider.GetService<ajouterRDV>();
+                dlg.ShowDialog();
+            }
+        }
     }
 }
