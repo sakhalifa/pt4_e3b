@@ -88,5 +88,12 @@ namespace PT4.Controllers
             _animalRepository.Save();
         }
 
+        /// <summary>
+        /// Find all animals in the database
+        /// </summary>
+        public IQueryable<ANIMAL> FindAll()
+        {
+            return _animalRepository.FindAll();
+        }
     }
 }

@@ -28,12 +28,12 @@ namespace PT4.Controllers
             });
         }
 
-
-
-
-
-
-
-
+        /// <summary>
+        /// Find all cares in the database
+        /// </summary>
+        public IQueryable<SOIN> FindAll()
+        {
+            return _soinRepository.FindAll();
+        }
     }
 }
