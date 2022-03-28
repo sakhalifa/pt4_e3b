@@ -28,8 +28,6 @@ namespace PT4
             }
         } 
 
-
-
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
             // If there is no reason written
@@ -65,6 +63,7 @@ namespace PT4
                     return;
                 }
             }
+            
         }
     }
 }

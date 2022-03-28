@@ -20,13 +20,11 @@
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.ajouterRDV.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierStock.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.TemplateModifierStock.resources
-\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.CreerPrescription.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.EditerClient.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.menuCompte.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.Properties.Resources.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.statsProduit.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.TopVente.resources
-\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.Vente.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.GenerateResource.cache
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CoreCompileInputs.cache
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.exe
@@ -181,9 +179,16 @@
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.exe
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.pdb
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterClient.resources
+<<<<<<< HEAD
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherClient.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Controllers.RechercheClient.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherClient.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterClient.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.Controllers.RechercheClient.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.RechercheStock.resources
+=======
+\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterClient.resources
+\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.RechercheStock.resources
+\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterPrescription.resources
+\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterVente.resources
+>>>>>>> 92051c66e75e9f1276ba3fc05e4171ce4394af9b

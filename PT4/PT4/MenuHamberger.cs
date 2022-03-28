@@ -128,6 +128,12 @@ namespace PT4
         {
             //Code
             hideSubMenu();
+            _services.AddScoped<AjouterVente>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var dlg = provider.GetService<AjouterVente>();
+                dlg.ShowDialog();
+            }
         }
 
         /**
@@ -135,9 +141,13 @@ namespace PT4
          */
         private void buttonNewPrescription_Click(object sender, EventArgs e)
         {
-            //Code
             hideSubMenu();
-            
+            _services.AddScoped<AjouterPrescription>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var dlg = provider.GetService<AjouterPrescription>();
+                dlg.ShowDialog();
+            }
         }
 
         /**
@@ -167,7 +177,6 @@ namespace PT4
          */
         private void buttonLog_Click(object sender, EventArgs e)
         {
-            //Code
             hideSubMenu();
         }
 

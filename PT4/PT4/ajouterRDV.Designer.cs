@@ -37,7 +37,15 @@ namespace PT4
             this.textBoxRaison = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
+=======
+            this.textBoxNomClient = new System.Windows.Forms.TextBox();
+            this.textBoxRaison = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxPrénomClient = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+>>>>>>> 92051c66e75e9f1276ba3fc05e4171ce4394af9b
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +62,10 @@ namespace PT4
             // 
             // dateTimePicker1
             // 
+<<<<<<< HEAD
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+=======
+>>>>>>> 92051c66e75e9f1276ba3fc05e4171ce4394af9b
             this.dateTimePicker1.Location = new System.Drawing.Point(37, 76);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
@@ -73,7 +84,10 @@ namespace PT4
             // 
             // buttonAnnuler
             // 
+<<<<<<< HEAD
             this.buttonAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+=======
+>>>>>>> 92051c66e75e9f1276ba3fc05e4171ce4394af9b
             this.buttonAnnuler.Location = new System.Drawing.Point(85, 265);
             this.buttonAnnuler.Name = "buttonAnnuler";
             this.buttonAnnuler.Size = new System.Drawing.Size(75, 23);
@@ -90,6 +104,57 @@ namespace PT4
             this.buttonConfirmer.Text = "Confirmer";
             this.buttonConfirmer.UseVisualStyleBackColor = true;
             this.buttonConfirmer.Click += new System.EventHandler(this.buttonConfirmer_Click);
+<<<<<<< HEAD
+            // 
+            // textBoxRaison
+            // 
+            this.textBoxRaison.Location = new System.Drawing.Point(60, 221);
+            this.textBoxRaison.Name = "textBoxRaison";
+            this.textBoxRaison.Size = new System.Drawing.Size(227, 20);
+            this.textBoxRaison.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(57, 205);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Raison : ";
+=======
+>>>>>>> 92051c66e75e9f1276ba3fc05e4171ce4394af9b
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label3.Location = new System.Drawing.Point(57, 126);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 6;
+<<<<<<< HEAD
+            this.label3.Text = "Client :";
+            // 
+            // comboBoxClient
+            // 
+            this.comboBoxClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxClient.FormattingEnabled = true;
+            this.comboBoxClient.Location = new System.Drawing.Point(60, 157);
+            this.comboBoxClient.Name = "comboBoxClient";
+            this.comboBoxClient.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxClient.TabIndex = 10;
+=======
+            this.label3.Text = "Nom du client:";
+            // 
+            // textBoxNomClient
+            // 
+            this.textBoxNomClient.Location = new System.Drawing.Point(60, 142);
+            this.textBoxNomClient.Name = "textBoxNomClient";
+            this.textBoxNomClient.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNomClient.TabIndex = 7;
             // 
             // textBoxRaison
             // 
@@ -109,25 +174,24 @@ namespace PT4
             this.label4.TabIndex = 9;
             this.label4.Text = "Raison : ";
             // 
-            // label3
+            // textBoxPrénomClient
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(57, 126);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Client :";
+            this.textBoxPrénomClient.Location = new System.Drawing.Point(187, 142);
+            this.textBoxPrénomClient.Name = "textBoxPrénomClient";
+            this.textBoxPrénomClient.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPrénomClient.TabIndex = 10;
             // 
-            // comboBoxClient
+            // label5
             // 
-            this.comboBoxClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxClient.FormattingEnabled = true;
-            this.comboBoxClient.Location = new System.Drawing.Point(60, 157);
-            this.comboBoxClient.Name = "comboBoxClient";
-            this.comboBoxClient.Size = new System.Drawing.Size(167, 21);
-            this.comboBoxClient.TabIndex = 10;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label5.Location = new System.Drawing.Point(184, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Prénom du client:";
+>>>>>>> 92051c66e75e9f1276ba3fc05e4171ce4394af9b
             // 
             // ajouterRDV
             // 
@@ -136,9 +200,17 @@ namespace PT4
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::PT4.Properties.Resources.parrot_g3fd41130a_1920;
             this.ClientSize = new System.Drawing.Size(388, 322);
+<<<<<<< HEAD
             this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxRaison);
+=======
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBoxPrénomClient);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxRaison);
+            this.Controls.Add(this.textBoxNomClient);
+>>>>>>> 92051c66e75e9f1276ba3fc05e4171ce4394af9b
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonConfirmer);
             this.Controls.Add(this.buttonAnnuler);
@@ -162,6 +234,14 @@ namespace PT4
         private System.Windows.Forms.TextBox textBoxRaison;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+<<<<<<< HEAD
         private System.Windows.Forms.ComboBox comboBoxClient;
+=======
+        private System.Windows.Forms.TextBox textBoxNomClient;
+        private System.Windows.Forms.TextBox textBoxRaison;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxPrénomClient;
+        private System.Windows.Forms.Label label5;
+>>>>>>> 92051c66e75e9f1276ba3fc05e4171ce4394af9b
     }
 }
