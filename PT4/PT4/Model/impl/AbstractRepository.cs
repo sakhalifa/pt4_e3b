@@ -75,22 +75,22 @@ namespace PT4.Model.impl
 
         public void Subscribe(OnChanged<T> onChanged)
         {
-            OnChangedHandler += onChanged;
+            this.OnChangedHandler += onChanged;
         }
 
         public void SubscribeDelete(OnDelete<T> onDelete)
         {
-            OnDeleteHandler += onDelete;
+            this.OnDeleteHandler += onDelete;
         }
 
         public void UnSubscribe(OnChanged<T> onChanged)
         {
-            OnChangedHandler -= onChanged;
+            this.OnChangedHandler -= onChanged;
         }
 
         public void UnSubscribeDelete(OnDelete<T> onDelete)
         {
-            OnDeleteHandler -= onDelete;
+            this.OnDeleteHandler -= onDelete;
         }
 
 

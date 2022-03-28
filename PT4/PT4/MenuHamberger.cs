@@ -94,7 +94,7 @@ namespace PT4
             hideSubMenu();
             _services.AddScoped((p) =>
             {
-                return new AfficherClient(p.GetRequiredService<ClientController>(), _services, salarieId, estAdmin);
+                return new AfficherClient(p.GetRequiredService<ClientController>(), p.GetRequiredService<ServiceCollection>(), salarieId, estAdmin);
             });
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {

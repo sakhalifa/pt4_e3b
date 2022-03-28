@@ -29,40 +29,47 @@ namespace PT4
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.topLayout = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxesLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.masterLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.confirmButton = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.numeroTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.prenomTextBox = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nomTextBox = new System.Windows.Forms.TextBox();
             this.gridViewLayout = new System.Windows.Forms.TableLayoutPanel();
             this.addAnimal = new System.Windows.Forms.Button();
             this.animalGridView = new System.Windows.Forms.DataGridView();
+            this.masterLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.confirmButton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rajouterUneMaladieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimermortXdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Espece = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Race = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Taille = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Poids = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NbreMaladies = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.nomTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.prenomTextBox = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.numeroTextBox = new System.Windows.Forms.MaskedTextBox();
             this.topLayout.SuspendLayout();
             this.textBoxesLayout.SuspendLayout();
-            this.masterLayout.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.gridViewLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animalGridView)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.masterLayout.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // topLayout
@@ -100,6 +107,165 @@ namespace PT4
             this.textBoxesLayout.Size = new System.Drawing.Size(232, 395);
             this.textBoxesLayout.TabIndex = 0;
             // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.Controls.Add(this.numeroTextBox);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 297);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(226, 95);
+            this.panel4.TabIndex = 3;
+            // 
+            // numeroTextBox
+            // 
+            this.numeroTextBox.Location = new System.Drawing.Point(61, 43);
+            this.numeroTextBox.Mask = "0000000000";
+            this.numeroTextBox.Name = "numeroTextBox";
+            this.numeroTextBox.Size = new System.Drawing.Size(100, 20);
+            this.numeroTextBox.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(61, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Numéro";
+            // 
+            // panel3
+            // 
+            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.emailTextBox);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 199);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(226, 92);
+            this.panel3.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(61, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Email";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(61, 45);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.emailTextBox.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.prenomTextBox);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 101);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(226, 92);
+            this.panel2.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(61, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Prenom";
+            // 
+            // prenomTextBox
+            // 
+            this.prenomTextBox.Location = new System.Drawing.Point(61, 45);
+            this.prenomTextBox.Name = "prenomTextBox";
+            this.prenomTextBox.Size = new System.Drawing.Size(100, 20);
+            this.prenomTextBox.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.nomTextBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(226, 92);
+            this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(61, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nom";
+            // 
+            // nomTextBox
+            // 
+            this.nomTextBox.Location = new System.Drawing.Point(61, 45);
+            this.nomTextBox.Name = "nomTextBox";
+            this.nomTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nomTextBox.TabIndex = 0;
+            // 
+            // gridViewLayout
+            // 
+            this.gridViewLayout.ColumnCount = 1;
+            this.gridViewLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.gridViewLayout.Controls.Add(this.addAnimal, 0, 1);
+            this.gridViewLayout.Controls.Add(this.animalGridView, 0, 0);
+            this.gridViewLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridViewLayout.Location = new System.Drawing.Point(241, 3);
+            this.gridViewLayout.Name = "gridViewLayout";
+            this.gridViewLayout.RowCount = 2;
+            this.gridViewLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.gridViewLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.gridViewLayout.Size = new System.Drawing.Size(550, 395);
+            this.gridViewLayout.TabIndex = 1;
+            // 
+            // addAnimal
+            // 
+            this.addAnimal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addAnimal.Location = new System.Drawing.Point(0, 372);
+            this.addAnimal.Margin = new System.Windows.Forms.Padding(0);
+            this.addAnimal.Name = "addAnimal";
+            this.addAnimal.Size = new System.Drawing.Size(550, 23);
+            this.addAnimal.TabIndex = 1;
+            this.addAnimal.Text = "+";
+            this.addAnimal.UseVisualStyleBackColor = true;
+            this.addAnimal.Click += new System.EventHandler(this.addAnimal_Click);
+            // 
+            // animalGridView
+            // 
+            this.animalGridView.AllowUserToAddRows = false;
+            this.animalGridView.AllowUserToDeleteRows = false;
+            this.animalGridView.AllowUserToOrderColumns = true;
+            this.animalGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.animalGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Nom,
+            this.Espece,
+            this.Race,
+            this.Taille,
+            this.Poids,
+            this.NbreMaladies});
+            this.animalGridView.ContextMenuStrip = this.contextMenuStrip1;
+            this.animalGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.animalGridView.Location = new System.Drawing.Point(0, 0);
+            this.animalGridView.Margin = new System.Windows.Forms.Padding(0);
+            this.animalGridView.Name = "animalGridView";
+            this.animalGridView.ReadOnly = true;
+            this.animalGridView.Size = new System.Drawing.Size(550, 372);
+            this.animalGridView.TabIndex = 2;
+            // 
             // masterLayout
             // 
             this.masterLayout.ColumnCount = 1;
@@ -127,52 +293,42 @@ namespace PT4
             this.confirmButton.UseVisualStyleBackColor = true;
             this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
-            // gridViewLayout
+            // contextMenuStrip1
             // 
-            this.gridViewLayout.ColumnCount = 1;
-            this.gridViewLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.gridViewLayout.Controls.Add(this.addAnimal, 0, 1);
-            this.gridViewLayout.Controls.Add(this.animalGridView, 0, 0);
-            this.gridViewLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridViewLayout.Location = new System.Drawing.Point(241, 3);
-            this.gridViewLayout.Name = "gridViewLayout";
-            this.gridViewLayout.RowCount = 2;
-            this.gridViewLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.gridViewLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.gridViewLayout.Size = new System.Drawing.Size(550, 395);
-            this.gridViewLayout.TabIndex = 1;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifierToolStripMenuItem,
+            this.rajouterUneMaladieToolStripMenuItem,
+            this.supprimermortXdToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(186, 70);
             // 
-            // addAnimal
+            // modifierToolStripMenuItem
             // 
-            this.addAnimal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addAnimal.Location = new System.Drawing.Point(0, 372);
-            this.addAnimal.Margin = new System.Windows.Forms.Padding(0);
-            this.addAnimal.Name = "addAnimal";
-            this.addAnimal.Size = new System.Drawing.Size(550, 23);
-            this.addAnimal.TabIndex = 1;
-            this.addAnimal.Text = "+";
-            this.addAnimal.UseVisualStyleBackColor = true;
+            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.modifierToolStripMenuItem.Text = "Modifier";
+            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
-            // animalGridView
+            // rajouterUneMaladieToolStripMenuItem
             // 
-            this.animalGridView.AllowUserToAddRows = false;
-            this.animalGridView.AllowUserToDeleteRows = false;
-            this.animalGridView.AllowUserToOrderColumns = true;
-            this.animalGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.animalGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nom,
-            this.Espece,
-            this.Race,
-            this.Taille,
-            this.Poids,
-            this.NbreMaladies});
-            this.animalGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.animalGridView.Location = new System.Drawing.Point(0, 0);
-            this.animalGridView.Margin = new System.Windows.Forms.Padding(0);
-            this.animalGridView.Name = "animalGridView";
-            this.animalGridView.ReadOnly = true;
-            this.animalGridView.Size = new System.Drawing.Size(550, 372);
-            this.animalGridView.TabIndex = 2;
+            this.rajouterUneMaladieToolStripMenuItem.Name = "rajouterUneMaladieToolStripMenuItem";
+            this.rajouterUneMaladieToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.rajouterUneMaladieToolStripMenuItem.Text = "Déclarer une maladie";
+            this.rajouterUneMaladieToolStripMenuItem.Click += new System.EventHandler(this.rajouterUneMaladieToolStripMenuItem_Click);
+            // 
+            // supprimermortXdToolStripMenuItem
+            // 
+            this.supprimermortXdToolStripMenuItem.Name = "supprimermortXdToolStripMenuItem";
+            this.supprimermortXdToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.supprimermortXdToolStripMenuItem.Text = "Supprimer";
+            this.supprimermortXdToolStripMenuItem.Click += new System.EventHandler(this.supprimermortXdToolStripMenuItem_Click);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // Nom
             // 
@@ -210,115 +366,6 @@ namespace PT4
             this.NbreMaladies.Name = "NbreMaladies";
             this.NbreMaladies.ReadOnly = true;
             // 
-            // panel1
-            // 
-            this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.nomTextBox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(226, 92);
-            this.panel1.TabIndex = 0;
-            // 
-            // nomTextBox
-            // 
-            this.nomTextBox.Location = new System.Drawing.Point(61, 45);
-            this.nomTextBox.Name = "nomTextBox";
-            this.nomTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nomTextBox.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nom";
-            // 
-            // panel2
-            // 
-            this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.prenomTextBox);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 101);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(226, 92);
-            this.panel2.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Prenom";
-            // 
-            // prenomTextBox
-            // 
-            this.prenomTextBox.Location = new System.Drawing.Point(61, 45);
-            this.prenomTextBox.Name = "prenomTextBox";
-            this.prenomTextBox.Size = new System.Drawing.Size(100, 20);
-            this.prenomTextBox.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.AutoSize = true;
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.emailTextBox);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 199);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(226, 92);
-            this.panel3.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Email";
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Location = new System.Drawing.Point(61, 45);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(100, 20);
-            this.emailTextBox.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.AutoSize = true;
-            this.panel4.Controls.Add(this.numeroTextBox);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 297);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(226, 95);
-            this.panel4.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Numéro";
-            // 
-            // numeroTextBox
-            // 
-            this.numeroTextBox.Location = new System.Drawing.Point(61, 43);
-            this.numeroTextBox.Mask = "00 00 00 00 00";
-            this.numeroTextBox.Name = "numeroTextBox";
-            this.numeroTextBox.Size = new System.Drawing.Size(100, 20);
-            this.numeroTextBox.TabIndex = 2;
-            // 
             // ModifierClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,17 +377,18 @@ namespace PT4
             this.topLayout.ResumeLayout(false);
             this.textBoxesLayout.ResumeLayout(false);
             this.textBoxesLayout.PerformLayout();
-            this.masterLayout.ResumeLayout(false);
-            this.gridViewLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.animalGridView)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.gridViewLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.animalGridView)).EndInit();
+            this.masterLayout.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -354,12 +402,6 @@ namespace PT4
         private System.Windows.Forms.TableLayoutPanel gridViewLayout;
         private System.Windows.Forms.Button addAnimal;
         private System.Windows.Forms.DataGridView animalGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Espece;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Race;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Taille;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Poids;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NbreMaladies;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
@@ -372,5 +414,16 @@ namespace PT4
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nomTextBox;
         private System.Windows.Forms.MaskedTextBox numeroTextBox;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rajouterUneMaladieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem supprimermortXdToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Espece;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Race;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Taille;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Poids;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NbreMaladies;
     }
 }

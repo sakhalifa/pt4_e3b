@@ -29,6 +29,7 @@ namespace PT4
             _clientController = clientController;
             _clientController.SubscribeCustomers(OnChanged);
             _clientController.SubscribeDeleteCustomers(OnDelete);
+            this.Closed += UnSubscribe;
             cachedCustomers = new List<CLIENT>();
             InitializeComponent();
             InitDataGridView();
@@ -37,6 +38,12 @@ namespace PT4
             backwards.Visible = false;
             forward.Visible = ElementCount > (CurrentPage + 1) * ELEMENTS_PER_PAGE;
 
+        }
+
+        private void UnSubscribe(object sender, EventArgs e)
+        {
+            _clientController.UnSubscribeCustomers(OnChanged); 
+            _clientController.UnSubscribeDeleteCustomers(OnDelete);
         }
 
         private void InitDataGridView()
@@ -109,6 +116,7 @@ namespace PT4
             {
                 var modifierClient = provider.GetService<ModifierClient>();
                 modifierClient.SetClient(c);
+                modifierClient.ShowDialog();
             }
         }
 
