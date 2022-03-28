@@ -76,18 +76,20 @@ namespace TestProjetVeto
 
             var animals = anRepo.FindAll();
 
-            Assert.AreEqual(1, animals.Count()); // Test if the test animal has been added to the base
+            Assert.AreEqual(1, animals.Count()); // Test if the database contains one element
             Assert.AreEqual(testCustomer, animals.First().CLIENT);
 
             anController.CreerAnimal(testAnimal.CLIENT, testAnimal.NOMESPECE, testAnimal.NOMRACE, testAnimal.NOMANIMAL, testAnimal.DATENAISSANCE.GetValueOrDefault(), testAnimal.TAILLE, testAnimal.POIDS);
 
             animals = anRepo.FindAll();
+
             Assert.AreEqual(2, animals.Count()); // Test if the animal creation function in the database works
 
             anRepo.Delete(animals.First());
 
-            animals = anRepo.FindAll();
-            Assert.AreEqual(1, animals.Count()); // Test if the Delete function works well
+            animals = anRepo.FindAll(); // Test if the animal deletion function in the database works
+            Assert.AreEqual(1, animals.Count());
+
         }
     }
 }

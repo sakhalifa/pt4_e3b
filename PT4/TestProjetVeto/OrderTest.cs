@@ -13,13 +13,43 @@ namespace TestProjetVeto
     public class OrderTest
     {
         public ORDONNANCE ordonnanceTest;
+        public SOIN careTest;
+        public ANIMAL animalTest;
+        public CLIENT customerTest;
 
         [TestInitialize]
         public void TestInitialize()
         {
+            customerTest = new CLIENT
+            {
+                NOMCLIENT = "Test",
+                PRENOMCLIENT = "Test",
+                NUMERO = "Test",
+                EMAIL = "Test"
+            };
+
+            careTest = new SOIN
+            {
+                DESCRIPTION = "Test"
+            };
+
+            animalTest = new ANIMAL
+            {
+                IDANIMAL = 2,
+                CLIENT = customerTest,
+                NOMESPECE = "chat",
+                NOMRACE = "tigre",
+                NOMANIMAL = "Test",
+                DATENAISSANCE = new DateTime(2009, 3, 10, 10, 0, 0),
+                TAILLE = 18,
+                POIDS = 7
+            };
+
             ordonnanceTest = new ORDONNANCE
             {
-                DATEORDO = new DateTime(2009, 3, 10, 10, 0, 0)
+                DATEORDO = new DateTime(2009, 3, 10, 10, 0, 0),
+                ANIMAL = animalTest,
+                SOIN = careTest
             };
         }
 
@@ -43,7 +73,7 @@ namespace TestProjetVeto
 
             Assert.AreEqual(0, orders.Count()); // Test if the database is empty
 
-            orderController.CreerOrdonnance(ordonnanceTest.DATEORDO);
+            orderController.CreerOrdonnance(ordonnanceTest.DATEORDO, ordonnanceTest.ANIMAL, ordonnanceTest.SOIN);
 
             //Assert.AreEqual(1, maladies.Count()); ; // Test if the order creation function in the database works
         }

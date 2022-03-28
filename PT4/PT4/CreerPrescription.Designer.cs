@@ -150,6 +150,7 @@ namespace PT4
             this.comboBoxProduit.Name = "comboBoxProduit";
             this.comboBoxProduit.Size = new System.Drawing.Size(180, 28);
             this.comboBoxProduit.TabIndex = 11;
+            this.comboBoxProduit.SelectedIndexChanged += new System.EventHandler(this.comboBoxProduit_SelectedIndexChanged);
             // 
             // buttonConfirmer
             // 
