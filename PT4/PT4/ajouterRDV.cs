@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PT4.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,44 @@ namespace PT4
 {
     public partial class ajouterRDV : Form
     {
-        public ajouterRDV()
+
+        private ClientController _clientController;
+        private CLIENT _client;
+        public ajouterRDV(CLIENT client, ClientController clientController)
         {
             InitializeComponent();
+            _client = client;
+            _clientController = clientController;
         }
 
-        private void label3_Click(object sender, EventArgs e)
+
+        private void buttonConfirmer_Click(object sender, EventArgs e)
         {
+            if(textBoxRaison.Text == null)
+            {
+                Utils.ShowError("Veuillez insérer une raison au rendez-vous");
+            }
+            else if (textBoxNomClient == null)
+            {
+                Utils.ShowError("Veuillez insérer un nom valide");
+            }
+            else if (dateTimePicker1.Value.Date < DateTime.Today)
+            {
+                Utils.ShowError("Veuillez insérer une date valide");
+            }
 
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            else
+            {
+                try
+                {
+                  //  _clientController.CreerRendezVous(dateTimePicker1.Value.Date, textBoxRaison.Text, dateTimePicker1.Value.Date.AddHours(1));
+                }
+                catch (Exception ex)
+                {
+                    Utils.ShowError(ex.Message);
+                    return;
+                }
+            }
         }
     }
 }
