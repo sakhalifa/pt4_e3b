@@ -14,7 +14,7 @@ namespace PT4
 {
     public partial class MenuHamberger : Form
     {
-        private ServiceCollection _services;
+        protected ServiceCollection _services;
         private int salarieId;
         protected bool estAdmin;
 
