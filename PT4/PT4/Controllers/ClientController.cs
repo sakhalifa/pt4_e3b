@@ -40,7 +40,7 @@ namespace PT4.Controllers
             _clientRepository.UnSubscribe(onChanged);
         }
 
-        public void UnSubscribeCustomers(OnDelete<CLIENT> onDelete)
+        public void UnSubscribeDeleteCustomers(OnDelete<CLIENT> onDelete)
         {
             _clientRepository.UnSubscribeDelete(onDelete);
         }
@@ -72,9 +72,29 @@ namespace PT4.Controllers
 
         }
 
+        public void ModifierClient(CLIENT client, string nom, string prenom, string numero, string email)
+        {
+            CLIENT _ = _clientRepository.FindWhere(c => c.IDCLIENT != client.IDCLIENT && c.EMAIL == email).FirstOrDefault();
+            if (_ != null)
+            {
+                throw new ArgumentException("ERREUR! Cette adresse mail est déjà utilisée pour un autre compte!");
+            }
+            client.NOMCLIENT = nom;
+            client.PRENOMCLIENT = prenom;
+            client.NUMERO = numero;
+            client.EMAIL = email;
+            _clientRepository.Update(client);
+            _clientRepository.Save();
+        }
+
         public IQueryable<CLIENT> ListCustomers()
         {
             return _clientRepository.FindAll();
+        }
+
+        public CLIENT ClientById(int id)
+        {
+            return _clientRepository.FindById(id);
         }
 
 
