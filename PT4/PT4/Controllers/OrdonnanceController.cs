@@ -11,18 +11,33 @@ namespace PT4.Controllers
     {
         private IGenericRepository<ORDONNANCE> _ordonnanceRepository;
 
+        /// <summary>
+        /// Constructor of the OrdonnanceController object
+        /// </summary>
+        /// <param name="ordonnanceRepository">The entity repository of the orders</param>
         public OrdonnanceController(IGenericRepository<ORDONNANCE> ordonnanceRepository)
         {
             _ordonnanceRepository = ordonnanceRepository;
         }
 
-        public void CreerOrdonnance(DateTime dateOrdonnance)
-        {
-            _ordonnanceRepository.Insert(new ORDONNANCE
+        /// <summary>
+        /// Creates a new order 
+        /// </summary>
+        /// <param name="orderDate">The date when the order is created</param>
+        /// <param name="animal">The animal for whom is intended the order</param>
+        /// <param name="care">The care that need the animal</param>
+        public void CreerOrdonnance(DateTime orderDate, ANIMAL animal, SOIN care)
+        {   
+            ORDONNANCE order = new ORDONNANCE
             {
-                DATEORDO = dateOrdonnance
-            });
-        }
+                DATEORDO = orderDate,
+                ANIMAL = animal,
+                SOIN = care,
+                
+            };
 
+            _ordonnanceRepository.Insert(order);
+            _ordonnanceRepository.Save();
+        }
     }
 }
