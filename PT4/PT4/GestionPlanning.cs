@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class GestionPlanning : Form
+    public partial class GestionPlanning : MenuHamberger
     {
-        public GestionPlanning()
+        public GestionPlanning(ServiceCollection services) : base(services)
         {
             InitializeComponent();
         }

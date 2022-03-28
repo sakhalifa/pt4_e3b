@@ -46,23 +46,28 @@ namespace PT4.Model.impl
                 foreach (DbEntityEntry entry in entriesChanged)
                 {
                     //En gros, vu que c'est des proxies qui héritent des classes entités, j'dois récupérer le type dont l'entité hérite
-                    if(entry.Entity.GetType().BaseType == typeof(T) || entry.Entity.GetType() == typeof(T))
+                    if (entry.Entity.GetType().BaseType == typeof(T) || entry.Entity.GetType() == typeof(T))
                     {
                         if (entry.State == EntityState.Deleted)
                         {
                             entriesOfTypeDeleted.Add((T)entry.Entity);
                         }
-                        else { 
+                        else
+                        {
                             entriesOfTypeChanged.Add((T)entry.Entity);
                         }
                     }
-                    
+
+                }
+                if (entriesOfTypeChanged.Count() > 0)
+                {
+                    OnChangedHandler?.Invoke(entriesOfTypeChanged);
+                }
+                if(entriesOfTypeDeleted.Count() > 0) { 
+                    OnDeleteHandler?.Invoke(entriesOfTypeDeleted);
                 }
 
-                OnChangedHandler?.Invoke(entriesOfTypeChanged);
-                OnDeleteHandler?.Invoke(entriesOfTypeDeleted);
-                
-                
+
             }
             _context.SaveChanges();
 
@@ -87,7 +92,7 @@ namespace PT4.Model.impl
         {
             OnDeleteHandler -= onDelete;
         }
-        
+
 
         protected virtual void Dispose(bool disposing)
         {

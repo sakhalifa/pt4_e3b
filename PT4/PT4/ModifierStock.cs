@@ -15,6 +15,7 @@ namespace PT4
         public ModifierStock(ProduitController produitController) : base(produitController)
         {
             InitializeComponent();
+            this.IsAdd = false;
         }
 
         
@@ -22,14 +23,6 @@ namespace PT4
         {
             base.SetProduit(p);
             quantite.Value = p.QUANTITEENSTOCK;
-        }
-
-        private void buttonConfirmer_Click(object sender, EventArgs e)
-        {
-            if (CheckRemplissage())
-            {
-                _prodController.CreerOuMaJProduit(nom.Text, prixVente.Value, prixAchat.Value, (int)quantite.Value, description.Text, estMedic.Checked, false);
-            }
         }
     }
 }

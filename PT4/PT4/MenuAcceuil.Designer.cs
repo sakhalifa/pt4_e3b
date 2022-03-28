@@ -38,7 +38,9 @@ namespace PT4
             // News
             // 
             this.News.AutoSize = true;
+            this.News.BackColor = System.Drawing.Color.Transparent;
             this.News.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.News.ForeColor = System.Drawing.Color.White;
             this.News.Location = new System.Drawing.Point(23, 61);
             this.News.Name = "News";
             this.News.Size = new System.Drawing.Size(46, 17);
@@ -48,8 +50,10 @@ namespace PT4
             // PlanningJournée
             // 
             this.PlanningJournée.AutoSize = true;
+            this.PlanningJournée.BackColor = System.Drawing.Color.Transparent;
             this.PlanningJournée.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlanningJournée.Location = new System.Drawing.Point(519, 96);
+            this.PlanningJournée.ForeColor = System.Drawing.Color.White;
+            this.PlanningJournée.Location = new System.Drawing.Point(559, 96);
             this.PlanningJournée.Name = "PlanningJournée";
             this.PlanningJournée.Size = new System.Drawing.Size(154, 17);
             this.PlanningJournée.TabIndex = 1;
@@ -58,7 +62,9 @@ namespace PT4
             // Notes
             // 
             this.Notes.AutoSize = true;
+            this.Notes.BackColor = System.Drawing.Color.Transparent;
             this.Notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Notes.ForeColor = System.Drawing.Color.White;
             this.Notes.Location = new System.Drawing.Point(20, 260);
             this.Notes.Name = "Notes";
             this.Notes.Size = new System.Drawing.Size(49, 17);
@@ -75,11 +81,13 @@ namespace PT4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::PT4.Properties.Resources.parrot_g3fd41130a_1920;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.Notes);
             this.Controls.Add(this.PlanningJournée);
             this.Controls.Add(this.News);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "MenuAcceuil";
             this.Text = "MenuAcceuil";
             this.ResumeLayout(false);
