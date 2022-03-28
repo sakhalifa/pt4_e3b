@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class Vente : Form
+    public partial class AjouterVente : Form
     {
-        public Vente()
+        public AjouterVente()
         {
             InitializeComponent();
         }

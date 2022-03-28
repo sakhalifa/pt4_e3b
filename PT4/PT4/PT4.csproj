@@ -255,11 +255,11 @@
     <Compile Include="Templates\TemplateModifierStock.Designer.cs">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreerPrescription.cs">
+    <Compile Include="AjouterPrescription.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreerPrescription.Designer.cs">
-      <DependentUpon>CreerPrescription.cs</DependentUpon>
+    <Compile Include="AjouterPrescription.Designer.cs">
+      <DependentUpon>AjouterPrescription.cs</DependentUpon>
     </Compile>
     <Compile Include="EditerClient.cs">
       <SubType>Form</SubType>
@@ -306,11 +306,11 @@
       <DependentUpon>TopVente.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
-    <Compile Include="Vente.cs">
+    <Compile Include="AjouterVente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vente.Designer.cs">
-      <DependentUpon>Vente.cs</DependentUpon>
+    <Compile Include="AjouterVente.Designer.cs">
+      <DependentUpon>AjouterVente.cs</DependentUpon>
     </Compile>
     <Compile Include="GestionPlanning.cs">
       <SubType>Form</SubType>
@@ -474,8 +474,8 @@
     <EmbeddedResource Include="Templates\TemplateModifierStock.resx">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreerPrescription.resx">
-      <DependentUpon>CreerPrescription.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterPrescription.resx">
+      <DependentUpon>AjouterPrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditerClient.resx">
       <DependentUpon>EditerClient.cs</DependentUpon>
@@ -494,8 +494,8 @@
     <EmbeddedResource Include="TopVente.resx">
       <DependentUpon>TopVente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vente.resx">
-      <DependentUpon>Vente.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterVente.resx">
+      <DependentUpon>AjouterVente.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

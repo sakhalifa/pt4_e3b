@@ -1,7 +1,7 @@
 ﻿
 namespace PT4
 {
-    partial class Vente
+    partial class AjouterVente
     {
         /// <summary>
         /// Required designer variable.
