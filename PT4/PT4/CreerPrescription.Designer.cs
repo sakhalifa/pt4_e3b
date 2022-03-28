@@ -59,7 +59,6 @@ namespace PT4
             this.label1.Size = new System.Drawing.Size(281, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Création de prescription";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -115,7 +114,6 @@ namespace PT4
             this.label6.Size = new System.Drawing.Size(59, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Produit";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // numericUpDownPrix
             // 
@@ -124,7 +122,6 @@ namespace PT4
             this.numericUpDownPrix.Name = "numericUpDownPrix";
             this.numericUpDownPrix.Size = new System.Drawing.Size(180, 26);
             this.numericUpDownPrix.TabIndex = 8;
-            this.numericUpDownPrix.ValueChanged += new System.EventHandler(this.numericUpDownPrix_ValueChanged);
             // 
             // label7
             // 
@@ -144,7 +141,6 @@ namespace PT4
             this.comboBoxAnimal.Name = "comboBoxAnimal";
             this.comboBoxAnimal.Size = new System.Drawing.Size(180, 28);
             this.comboBoxAnimal.TabIndex = 10;
-            this.comboBoxAnimal.SelectedIndexChanged += new System.EventHandler(this.comboBoxAnimal_SelectedIndexChanged);
             // 
             // comboBoxProduit
             // 
@@ -154,7 +150,6 @@ namespace PT4
             this.comboBoxProduit.Name = "comboBoxProduit";
             this.comboBoxProduit.Size = new System.Drawing.Size(180, 28);
             this.comboBoxProduit.TabIndex = 11;
-            this.comboBoxProduit.SelectedIndexChanged += new System.EventHandler(this.comboBoxProduit_SelectedIndexChanged);
             // 
             // buttonConfirmer
             // 
@@ -204,7 +199,6 @@ namespace PT4
             this.comboBoxClient.Name = "comboBoxClient";
             this.comboBoxClient.Size = new System.Drawing.Size(180, 28);
             this.comboBoxClient.TabIndex = 6;
-            this.comboBoxClient.SelectedIndexChanged += new System.EventHandler(this.comboBoxClient_SelectedIndexChanged);
             // 
             // CreerPrescription
             // 

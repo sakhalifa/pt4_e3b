@@ -33,7 +33,6 @@ namespace PT4.Controllers
                 DATEORDO = orderDate,
                 ANIMAL = animal,
                 SOIN = care,
-                
             };
 
             _ordonnanceRepository.Insert(order);
