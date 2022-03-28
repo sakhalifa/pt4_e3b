@@ -116,9 +116,12 @@ namespace PT4
             this.label6.TabIndex = 5;
             this.label6.Text = "Produit";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             this.label6.Click += new System.EventHandler(this.label6_Click);
 >>>>>>> 02c2c72 (Creation ordonnance)
+=======
+>>>>>>> ab736e5 (fix la fenetre de prescription)
             // 
             // numericUpDownPrix
             // 
@@ -127,7 +130,6 @@ namespace PT4
             this.numericUpDownPrix.Name = "numericUpDownPrix";
             this.numericUpDownPrix.Size = new System.Drawing.Size(180, 26);
             this.numericUpDownPrix.TabIndex = 8;
-            this.numericUpDownPrix.ValueChanged += new System.EventHandler(this.numericUpDownPrix_ValueChanged);
             // 
             // label7
             // 
@@ -147,7 +149,6 @@ namespace PT4
             this.comboBoxAnimal.Name = "comboBoxAnimal";
             this.comboBoxAnimal.Size = new System.Drawing.Size(180, 28);
             this.comboBoxAnimal.TabIndex = 10;
-            this.comboBoxAnimal.SelectedIndexChanged += new System.EventHandler(this.comboBoxAnimal_SelectedIndexChanged);
             // 
             // comboBoxProduit
             // 
@@ -157,7 +158,6 @@ namespace PT4
             this.comboBoxProduit.Name = "comboBoxProduit";
             this.comboBoxProduit.Size = new System.Drawing.Size(180, 28);
             this.comboBoxProduit.TabIndex = 11;
-            this.comboBoxProduit.SelectedIndexChanged += new System.EventHandler(this.comboBoxProduit_SelectedIndexChanged);
             // 
             // buttonConfirmer
             // 
@@ -208,9 +208,12 @@ namespace PT4
             this.comboBoxClient.Size = new System.Drawing.Size(180, 28);
             this.comboBoxClient.TabIndex = 6;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             this.comboBoxClient.SelectedIndexChanged += new System.EventHandler(this.comboBoxClient_SelectedIndexChanged);
 >>>>>>> 02c2c72 (Creation ordonnance)
+=======
+>>>>>>> ab736e5 (fix la fenetre de prescription)
             // 
             // CreerPrescription
             // 
