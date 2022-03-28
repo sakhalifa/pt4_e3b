@@ -74,14 +74,11 @@ namespace PT4
             {
                 comboBoxProduit.Items.Add(care);
             }
-<<<<<<< HEAD
         }
 
         private void comboBoxProduit_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBoxDescription.Text += comboBoxProduit.SelectedItem.ToString();
-=======
->>>>>>> 02c2c72 (Creation ordonnance)
         }
     }
 }
