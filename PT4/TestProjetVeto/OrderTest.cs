@@ -75,7 +75,7 @@ namespace TestProjetVeto
 
             orderController.CreerOrdonnance(ordonnanceTest.DATEORDO, ordonnanceTest.ANIMAL, ordonnanceTest.SOIN);
 
-            //Assert.AreEqual(1, maladies.Count()); ; // Test if the order creation function in the database works
+            Assert.AreEqual(1, orders.Count()); ; // Test if the order creation function in the database works
         }
     }
 }
