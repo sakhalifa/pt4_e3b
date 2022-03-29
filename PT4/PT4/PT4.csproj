@@ -261,13 +261,7 @@
     <Compile Include="statsProduit.Designer.cs">
       <DependentUpon>statsProduit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\TestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\TestForm.Designer.cs">
-      <DependentUpon>TestForm.cs</DependentUpon>
-    </Compile>
-	<Compile Include="Templates\MenuHamberger.cs">
+    <Compile Include="Templates\MenuHamberger.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Templates\MenuHamberger.Designer.cs">
@@ -298,7 +292,6 @@
     <Compile Include="MenuAcceuil.Designer.cs">
       <DependentUpon>MenuAcceuil.cs</DependentUpon>
     </Compile>
-    
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
     </Compile>
