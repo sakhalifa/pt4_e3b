@@ -126,8 +126,13 @@ namespace PT4
          */
         private void buttonNewSale_Click(object sender, EventArgs e)
         {
-            //Code
             hideSubMenu();
+            _services.AddScoped<AjouterFacture>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var ajouterFac = provider.GetService<AjouterFacture>();
+                ajouterFac.ShowDialog();
+            }
         }
 
         /**

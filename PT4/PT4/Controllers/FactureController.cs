@@ -22,17 +22,36 @@ namespace PT4.Controllers
             _factureRepository = factureRepository;
             _produitVendusRepository = produitVendusRepository;
             _produitRepository = produitRepo;
+            this.Reset();
+        }
+
+        public void Reset()
+        {
             produitsVenduToInsert = new HashSet<PRODUIT_VENDU>();
             produitsVenduToUpdate = new HashSet<PRODUIT_VENDU>();
             produitsToUpdate = new HashSet<PRODUIT>();
         }
 
-        public FACTURE CreerFacture(CLIENT client, int montant)
+        public void UpdateMontant(FACTURE f)
+        {
+            decimal sum = 0;
+            foreach (PRODUIT_VENDU p in produitsVenduToInsert)
+            {
+                sum += p.Montant;
+            }
+            foreach (PRODUIT_VENDU p in produitsVenduToUpdate)
+            {
+                sum += p.Montant;
+            }
+
+            f.MONTANT = sum;
+        }
+
+        public FACTURE CreerFacture(CLIENT client)
         {
             FACTURE f = new FACTURE
             {
-                CLIENT = client,
-                MONTANT = montant
+                CLIENT = client
             };
 
             return f;
@@ -43,6 +62,10 @@ namespace PT4.Controllers
             if (p.QUANTITEENSTOCK < quantite)
             {
                 throw new ArgumentException($"ERREUR! Vous voulez vendre {quantite} de '{p.NOMPRODUIT}' alors qu'il n'y en a que {p.QUANTITEENSTOCK} en stock!");
+            }
+            if (!p.PRIXDEVENTE.HasValue)
+            {
+                throw new ArgumentException($"ERREUR! Le produit '{p.NOMPRODUIT}' n'est pas vendable!");
             }
             PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.IDPRODUIT == p.IDPRODUIT);
             if(pv is null)
