@@ -58,6 +58,20 @@ namespace PT4.Controllers
             animalsChanged.Add(newAnimal);
         }
 
+        public void ModifierAnimal(ANIMAL animal, CLIENT client, string nomEspece, string nomRace, string nomAnimal, DateTime dateNaissance, short taille, decimal poids)
+        {
+            animal.CLIENT = client;
+            animal.NOMESPECE = nomEspece;
+            animal.NOMRACE = nomRace;
+            animal.NOMANIMAL = nomAnimal;
+            animal.DATENAISSANCE = dateNaissance;
+            animal.TAILLE = taille;
+            animal.POIDS = poids;
+
+            _animalRepository.Update(animal);
+            _animalRepository.Save();
+        }
+
         public IQueryable<ANIMAL> AllAnimalsOfCustomer(CLIENT c)
         {
             return _animalRepository.FindWhere((a) => a.CLIENT.IDCLIENT == c.IDCLIENT);

@@ -20,9 +20,9 @@ namespace PT4.Model.impl
             return _context.Set<ANIMAL>().AsQueryable();
         }
 
-        public override ANIMAL FindById(int animalId)
+        public override ANIMAL FindById(params object[] id)
         {
-            return _context.Set<ANIMAL>().Find(animalId);
+            return _context.Set<ANIMAL>().Find(id);
         }
 
         public override void Insert(ANIMAL animal)

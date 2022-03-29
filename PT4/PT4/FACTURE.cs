@@ -22,7 +22,6 @@ namespace PT4
     
         public short IDFACTURE { get; set; }
         public short IDCLIENT { get; set; }
-        public short NUMEROFACTURE { get; set; }
         public decimal MONTANT { get; set; }
         public System.DateTime DATEFACTURE { get; set; }
     

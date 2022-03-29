@@ -85,7 +85,6 @@
           </Key>
           <Property Name="IDFACTURE" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDCLIENT" Type="smallint" Nullable="false" />
-          <Property Name="NUMEROFACTURE" Type="smallint" Nullable="false" />
           <Property Name="MONTANT" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="DATEFACTURE" Type="datetime" Nullable="false" />
         </EntityType>
@@ -468,7 +467,7 @@
           <Property Name="NOMANIMAL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="DATENAISSANCE" Type="DateTime" Precision="3" />
           <Property Name="TAILLE" Type="Int16" Nullable="false" />
-          <Property Name="POIDS" Type="Decimal" Nullable="false" />
+          <Property Name="POIDS" Type="Decimal" Nullable="false" Precision="7" Scale="3" />
           <NavigationProperty Name="CLIENT" Relationship="Self.FK_ANIMAL_CLIENT" FromRole="ANIMAL" ToRole="CLIENT" />
           <NavigationProperty Name="ORDONNANCE" Relationship="Self.FK_ORDONNANCE_ANIMAL" FromRole="ANIMAL" ToRole="ORDONNANCE" />
           <NavigationProperty Name="HISTORIQUEMALADIE" Relationship="Self.A_CONTRACTÉ" FromRole="ANIMAL" ToRole="HISTORIQUEMALADIE" />
@@ -502,7 +501,6 @@
           </Key>
           <Property Name="IDFACTURE" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDCLIENT" Type="Int16" Nullable="false" />
-          <Property Name="NUMEROFACTURE" Type="Int16" Nullable="false" />
           <Property Name="MONTANT" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="DATEFACTURE" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="CLIENT" Relationship="Self.FK_FACTURE_CLIENT" FromRole="FACTURE" ToRole="CLIENT" />
@@ -805,7 +803,6 @@
               <MappingFragment StoreEntitySet="FACTURE">
                 <ScalarProperty Name="IDFACTURE" ColumnName="IDFACTURE" />
                 <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
-                <ScalarProperty Name="NUMEROFACTURE" ColumnName="NUMEROFACTURE" />
                 <ScalarProperty Name="MONTANT" ColumnName="MONTANT" />
                 <ScalarProperty Name="DATEFACTURE" ColumnName="DATEFACTURE" />
               </MappingFragment>

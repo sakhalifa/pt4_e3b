@@ -163,6 +163,18 @@
     <Compile Include="ajouterConge.Designer.cs">
       <DependentUpon>ajouterConge.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjouterFacture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterFacture.Designer.cs">
+      <DependentUpon>AjouterFacture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterProduitFacture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterProduitFacture.Designer.cs">
+      <DependentUpon>AjouterProduitFacture.cs</DependentUpon>
+    </Compile>
     <Compile Include="ajouterRDV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +188,14 @@
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Entities\MyAnimal.cs" />
+    <Compile Include="Model\Entities\MyProduit.cs" />
+    <Compile Include="Model\Entities\MyProduitVendu.cs" />
+    <Compile Include="ModifierAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierAnimal.Designer.cs">
+      <DependentUpon>ModifierAnimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifierClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,10 +237,22 @@
       <DependentUpon>ModifierStock.cs</DependentUpon>
     </Compile>
     <Compile Include="ReplacingExpressionVisitor.cs" />
-    <Compile Include="TemplateModifierStock.cs">
+    <Compile Include="SingleNumericUpDown.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TemplateModifierStock.Designer.cs">
+    <Compile Include="SingleNumericUpDown.Designer.cs">
+      <DependentUpon>SingleNumericUpDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TemplateAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\TemplateAnimal.Designer.cs">
+      <DependentUpon>TemplateAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TemplateModifierStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\TemplateModifierStock.Designer.cs">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </Compile>
     <Compile Include="CreerPrescription.cs">
@@ -261,6 +293,12 @@
     <Compile Include="statsProduit.Designer.cs">
       <DependentUpon>statsProduit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Templates\MenuHamberger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\MenuHamberger.Designer.cs">
+      <DependentUpon>MenuHamberger.cs</DependentUpon>
+    </Compile>
     <Compile Include="TopVente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,12 +323,6 @@
     </Compile>
     <Compile Include="MenuAcceuil.Designer.cs">
       <DependentUpon>MenuAcceuil.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MenuHamberger.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuHamberger.Designer.cs">
-      <DependentUpon>MenuHamberger.cs</DependentUpon>
     </Compile>
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
@@ -379,6 +411,12 @@
     <EmbeddedResource Include="AjouterClient.resx">
       <DependentUpon>AjouterClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AjouterFacture.resx">
+      <DependentUpon>AjouterFacture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterProduitFacture.resx">
+      <DependentUpon>AjouterProduitFacture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterStock.resx">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -391,7 +429,13 @@
     <EmbeddedResource Include="MenuAcceuil.resx">
       <DependentUpon>MenuAcceuil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuHamberger.resx">
+    <EmbeddedResource Include="ModifierAnimal.resx">
+      <DependentUpon>ModifierAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SingleNumericUpDown.resx">
+      <DependentUpon>SingleNumericUpDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates\MenuHamberger.resx">
       <DependentUpon>MenuHamberger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
@@ -424,7 +468,10 @@
     <EmbeddedResource Include="RechercheStock.resx">
       <DependentUpon>RechercheStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TemplateModifierStock.resx">
+    <EmbeddedResource Include="Templates\TemplateAnimal.resx">
+      <DependentUpon>TemplateAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates\TemplateModifierStock.resx">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreerPrescription.resx">

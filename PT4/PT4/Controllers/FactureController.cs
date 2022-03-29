@@ -22,18 +22,36 @@ namespace PT4.Controllers
             _factureRepository = factureRepository;
             _produitVendusRepository = produitVendusRepository;
             _produitRepository = produitRepo;
+            this.Reset();
+        }
+
+        public void Reset()
+        {
             produitsVenduToInsert = new HashSet<PRODUIT_VENDU>();
             produitsVenduToUpdate = new HashSet<PRODUIT_VENDU>();
             produitsToUpdate = new HashSet<PRODUIT>();
         }
 
-        public FACTURE CreerFacture(CLIENT client, int montant)
+        public void UpdateMontant(FACTURE f)
+        {
+            decimal sum = 0;
+            foreach (PRODUIT_VENDU p in produitsVenduToInsert)
+            {
+                sum += p.Montant;
+            }
+            foreach (PRODUIT_VENDU p in produitsVenduToUpdate)
+            {
+                sum += p.Montant;
+            }
+
+            f.MONTANT = sum;
+        }
+
+        public FACTURE CreerFacture(CLIENT client)
         {
             FACTURE f = new FACTURE
             {
-                CLIENT = client,
-                DATEFACTURE = new DateTime(),
-                MONTANT = montant
+                CLIENT = client
             };
 
             return f;
@@ -43,7 +61,11 @@ namespace PT4.Controllers
         {
             if (p.QUANTITEENSTOCK < quantite)
             {
-                throw new Exception($"ERREUR! Vous voulez vendre {quantite} de '{p.NOMPRODUIT}' alors qu'il n'y en a que {p.QUANTITEENSTOCK} en stock!");
+                throw new ArgumentException($"ERREUR! Vous voulez vendre {quantite} de '{p.NOMPRODUIT}' alors qu'il n'y en a que {p.QUANTITEENSTOCK} en stock!");
+            }
+            if (!p.PRIXDEVENTE.HasValue)
+            {
+                throw new ArgumentException($"ERREUR! Le produit '{p.NOMPRODUIT}' n'est pas vendable!");
             }
             PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.IDPRODUIT == p.IDPRODUIT);
             if(pv is null)
@@ -71,16 +93,18 @@ namespace PT4.Controllers
 
         public FACTURE RemoveProductFromReceipt(FACTURE f, PRODUIT p, short quantite)
         {
-            PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.IDPRODUIT == p.IDPRODUIT);
+            //We can do that because we will always have the same references because all of the receipt and the sold products are
+            //pushed to the database at the last moment, so no proxies magic yay
+            PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.PRODUIT == p);
             if(pv is null)
             {
-                throw new Exception("ERREUR! Le produit n'est pas vendu dans cette facture!");
+                throw new ArgumentException("ERREUR! Le produit n'est pas vendu dans cette facture!");
             }
             else
             {
                 if(quantite > pv.QUANTITÉ)
                 {
-                    throw new Exception($"ERREUR! Vous ne pouvez pas retirer plus de {quantite} '{p.NOMPRODUIT}' sur cette facture!");
+                    throw new ArgumentException($"ERREUR! Vous ne pouvez pas retirer plus de {quantite} '{p.NOMPRODUIT}' sur cette facture!");
                 }else if(quantite == pv.QUANTITÉ)
                 {
                     f.PRODUIT_VENDU.Remove(pv);
@@ -103,6 +127,7 @@ namespace PT4.Controllers
 
         public void SaveReceipt(FACTURE f)
         {
+            f.DATEFACTURE = DateTime.Now;
             _factureRepository.Insert(f);
             foreach(PRODUIT_VENDU p in produitsVenduToInsert)
             {

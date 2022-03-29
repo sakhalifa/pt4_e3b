@@ -30,7 +30,7 @@ namespace PT4.Model.impl
 
         }
 
-        public T FindById(int id)
+        public T FindById(params object[] id)
         {
 
         }

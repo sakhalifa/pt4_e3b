@@ -96,11 +96,6 @@ namespace PT4.Controllers
             return _produitRepository.FindWhere(p => p.NOMPRODUIT == name).FirstOrDefault();
         }
 
-        public IQueryable<PRODUIT> FindByPredicate(Expression<Func<PRODUIT, bool>> expr)
-        {
-            return _produitRepository.FindWhere(expr);
-        }
-
         public void SubscribeProducts(OnChanged<PRODUIT> onChanged)
         {
             _produitRepository.Subscribe(onChanged);
@@ -119,6 +114,11 @@ namespace PT4.Controllers
         public void UnSubscribeDeleteProducts(OnDelete<PRODUIT> onDelete)
         {
             _produitRepository.UnSubscribeDelete(onDelete);
+        }
+
+        public IQueryable<PRODUIT> GetAllSellableProducts()
+        {
+            return _produitRepository.FindWhere((p) => p.PRIXDEVENTE.HasValue);
         }
 
         public Expression<Func<PRODUIT, bool>> CreateCriteriasFromForm(RechercheStock rS)

@@ -30,7 +30,7 @@ namespace PT4.Model.dal
         /// </summary>
         /// <param name="id">The id of the <typeparamref name="T"/></param>
         /// <returns>The <typeparamref name="T"/> that has the specified id or null if not found</returns>
-        T FindById(int id);
+        T FindById(params object[] id);
         /// <summary>
         /// Inserts the specified <typeparamref name="T"/> object to the database
         /// </summary>
