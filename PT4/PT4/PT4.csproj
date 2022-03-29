@@ -237,6 +237,12 @@
       <DependentUpon>ModifierStock.cs</DependentUpon>
     </Compile>
     <Compile Include="ReplacingExpressionVisitor.cs" />
+    <Compile Include="SingleNumericUpDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SingleNumericUpDown.Designer.cs">
+      <DependentUpon>SingleNumericUpDown.cs</DependentUpon>
+    </Compile>
     <Compile Include="Templates\TemplateAnimal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -408,6 +414,9 @@
     <EmbeddedResource Include="AjouterFacture.resx">
       <DependentUpon>AjouterFacture.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AjouterProduitFacture.resx">
+      <DependentUpon>AjouterProduitFacture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterStock.resx">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -422,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModifierAnimal.resx">
       <DependentUpon>ModifierAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SingleNumericUpDown.resx">
+      <DependentUpon>SingleNumericUpDown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Templates\MenuHamberger.resx">
       <DependentUpon>MenuHamberger.cs</DependentUpon>

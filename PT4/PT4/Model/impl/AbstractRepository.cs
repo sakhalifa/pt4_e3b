@@ -26,7 +26,7 @@ namespace PT4.Model.impl
 
         public abstract IQueryable<T> FindWhere(Expression<Func<T, bool>> predicate);
 
-        public abstract T FindById(int id);
+        public abstract T FindById(params object[] id);
 
         public abstract void Insert(T obj);
 

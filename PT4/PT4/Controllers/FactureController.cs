@@ -93,7 +93,9 @@ namespace PT4.Controllers
 
         public FACTURE RemoveProductFromReceipt(FACTURE f, PRODUIT p, short quantite)
         {
-            PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.IDPRODUIT == p.IDPRODUIT);
+            //We can do that because we will always have the same references because all of the receipt and the sold products are
+            //pushed to the database at the last moment, so no proxies magic yay
+            PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.PRODUIT == p);
             if(pv is null)
             {
                 throw new ArgumentException("ERREUR! Le produit n'est pas vendu dans cette facture!");

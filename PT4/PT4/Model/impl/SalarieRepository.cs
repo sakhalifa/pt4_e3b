@@ -20,7 +20,7 @@ namespace PT4.Model.impl
             return _context.Set<SALARIÉ>().AsQueryable();
         }
 
-        public override SALARIÉ FindById(int id)
+        public override SALARIÉ FindById(params object[] id)
         {
             return _context.Set<SALARIÉ>().Find(id);
         }

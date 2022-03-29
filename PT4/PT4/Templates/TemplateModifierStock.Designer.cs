@@ -73,6 +73,7 @@ namespace PT4
             // 
             // prixAchat
             // 
+            this.prixAchat.DecimalPlaces = 2;
             this.prixAchat.Location = new System.Drawing.Point(48, 113);
             this.prixAchat.Maximum = new decimal(new int[] {
             2147483647,
@@ -174,8 +175,14 @@ namespace PT4
             // prixVente
             // 
             this.prixVente.BackColor = System.Drawing.Color.LightGray;
+            this.prixVente.DecimalPlaces = 2;
             this.prixVente.Enabled = false;
             this.prixVente.Location = new System.Drawing.Point(48, 181);
+            this.prixVente.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.prixVente.Name = "prixVente";
             this.prixVente.Size = new System.Drawing.Size(120, 20);
             this.prixVente.TabIndex = 22;

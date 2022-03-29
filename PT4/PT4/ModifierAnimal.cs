@@ -15,6 +15,7 @@ namespace PT4
 
         public ModifierAnimal(AnimalController animalController, ClientController clientController, ANIMAL animal) : base(animalController, clientController, animal.CLIENT, true)
         {
+            InitializeComponent();
             if (animal.DATENAISSANCE.HasValue)
             {
                 this.dateNaissance.Value = animal.DATENAISSANCE.Value;
@@ -39,6 +40,7 @@ namespace PT4
                 }
                 _animalController.ModifierAnimal(_animal, (CLIENT)clients.SelectedItem, espece.Text, race.Text, strNom, dateNaissance.Value, (short)taille.Value, poids.Value);
                 MessageBox.Show($"Vous avez bien modifié l'animal!");
+                this.Close();
             }
         }
     }

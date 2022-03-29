@@ -175,16 +175,21 @@ namespace PT4
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void rajouterUneMaladieToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             ANIMAL a = GetAnimalFromSelection();
             if (!(a is null))
             {
                 _services.AddScoped((p) => new ModifierAnimal(p.GetRequiredService<AnimalController>(), p.GetRequiredService<ClientController>(), a));
+                using(ServiceProvider provider = _services.BuildServiceProvider())
+                {
+                    var dlg = provider.GetService<ModifierAnimal>();
+                    dlg.ShowDialog();
+                }
             }
+        }
+
+        private void rajouterUneMaladieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void supprimermortXdToolStripMenuItem_Click(object sender, EventArgs e)
