@@ -1,4 +1,5 @@
-﻿using PT4.Controllers;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PT4.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,9 +21,12 @@ namespace PT4
         private int idClient;
         private CLIENT client { get => _clientController.ClientById(idClient); }
 
-        public ModifierClient(ClientController clientController, AnimalController animalController)
+        private ServiceCollection _services;
+
+        public ModifierClient(ServiceCollection services, ClientController clientController, AnimalController animalController)
         {
             InitializeComponent();
+            _services = services;
             _clientController = clientController;
             _animalController = animalController;
             _animalController.SubscribeAnimal(OnChanged);
@@ -171,12 +175,16 @@ namespace PT4
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void rajouterUneMaladieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ANIMAL a = GetAnimalFromSelection();
+            if (!(a is null))
+            {
+                _services.AddScoped((p) => new ModifierAnimal(p.GetRequiredService<AnimalController>(), p.GetRequiredService<ClientController>(), a));
+            }
         }
 
         private void supprimermortXdToolStripMenuItem_Click(object sender, EventArgs e)

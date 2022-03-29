@@ -32,7 +32,6 @@ namespace PT4.Controllers
             FACTURE f = new FACTURE
             {
                 CLIENT = client,
-                DATEFACTURE = new DateTime(),
                 MONTANT = montant
             };
 
@@ -43,7 +42,7 @@ namespace PT4.Controllers
         {
             if (p.QUANTITEENSTOCK < quantite)
             {
-                throw new Exception($"ERREUR! Vous voulez vendre {quantite} de '{p.NOMPRODUIT}' alors qu'il n'y en a que {p.QUANTITEENSTOCK} en stock!");
+                throw new ArgumentException($"ERREUR! Vous voulez vendre {quantite} de '{p.NOMPRODUIT}' alors qu'il n'y en a que {p.QUANTITEENSTOCK} en stock!");
             }
             PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.IDPRODUIT == p.IDPRODUIT);
             if(pv is null)
@@ -74,13 +73,13 @@ namespace PT4.Controllers
             PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.IDPRODUIT == p.IDPRODUIT);
             if(pv is null)
             {
-                throw new Exception("ERREUR! Le produit n'est pas vendu dans cette facture!");
+                throw new ArgumentException("ERREUR! Le produit n'est pas vendu dans cette facture!");
             }
             else
             {
                 if(quantite > pv.QUANTITÉ)
                 {
-                    throw new Exception($"ERREUR! Vous ne pouvez pas retirer plus de {quantite} '{p.NOMPRODUIT}' sur cette facture!");
+                    throw new ArgumentException($"ERREUR! Vous ne pouvez pas retirer plus de {quantite} '{p.NOMPRODUIT}' sur cette facture!");
                 }else if(quantite == pv.QUANTITÉ)
                 {
                     f.PRODUIT_VENDU.Remove(pv);
@@ -103,6 +102,7 @@ namespace PT4.Controllers
 
         public void SaveReceipt(FACTURE f)
         {
+            f.DATEFACTURE = DateTime.Now;
             _factureRepository.Insert(f);
             foreach(PRODUIT_VENDU p in produitsVenduToInsert)
             {

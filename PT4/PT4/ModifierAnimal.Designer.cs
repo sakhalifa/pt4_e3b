@@ -1,39 +1,53 @@
 ﻿namespace PT4
 {
-    partial class ModifierAnimal
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class ModifierAnimal
+	{
+	        /// <summary>
+	        /// Variable nécessaire au concepteur.
+	        /// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Nettoyage des ressources utilisées.
+		/// </summary>
+	        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if(disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Code généré par le Concepteur Windows Form
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ModifierAnimal";
-        }
+		/// <summary>
+		/// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
+		/// le contenu de cette méthode avec l'éditeur de code.
+		/// </summary>
+		private void InitializeComponent()
+		{
+            ((System.ComponentModel.ISupportInitialize)(this.poids)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taille)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // buttonConfirm
+            // 
+            this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
+            // 
+            // ModifierAnimal
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(698, 257);
+            this.Name = "ModifierAnimal";
+            ((System.ComponentModel.ISupportInitialize)(this.poids)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taille)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
-        #endregion
-    }
+		}
+
+		#endregion
+	}
 }

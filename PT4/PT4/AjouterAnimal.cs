@@ -1,4 +1,5 @@
 ﻿using PT4.Controllers;
+using PT4.Templates;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,31 +12,17 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class AjouterAnimal : Form
+    public partial class AjouterAnimal : TemplateAnimal
     {
-        private AnimalController _animalController;
-        private ClientController _clientController;
 
-        public AjouterAnimal(AnimalController animalController, ClientController clientController)
+        public AjouterAnimal(AnimalController animalController, ClientController clientController) : base(animalController, clientController)
         {
-            _animalController = animalController;
-            _clientController = clientController;
-            InitializeComponent();
-            foreach(CLIENT c in _clientController.ListCustomers())
-            {
-                clients.Items.Add(c);
-            }
         }
 
-        public AjouterAnimal(AnimalController animalController, ClientController clientController,CLIENT c)
+        public AjouterAnimal(AnimalController animalController, ClientController clientController,CLIENT c) : base(animalController, clientController, c, false)
         {
-            _animalController = animalController;
-            _clientController = clientController;
-            InitializeComponent();
-            clients.Items.Add(c);
-            clients.SelectedIndex = 0;
         }
-
+        
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
             if (CheckRemplissage())
@@ -50,37 +37,6 @@ namespace PT4
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-        }
-
-        private bool CheckRemplissage()
-        {
-            if(espece.TextLength == 0)
-            {
-                Utils.ShowError("ERREUR! Vous devez spécifier une espèce!");
-                return false;
-            }
-            if(race.TextLength == 0)
-            {
-                Utils.ShowError("ERREUR! Vous devez spécifier une race!");
-                return false;
-            }
-            if(dateNaissance.Value > DateTime.Now)
-            {
-                Utils.ShowError("ERREUR! Vous ne pouvez pas prédire la date de naissance!");
-                return false;
-            }
-            if(taille.Value == 0)
-            {
-                Utils.ShowError("ERREUR! Il est très peu probable qu'un animal fasse 0cm...");
-                return false;
-            }
-            if(poids.Value == 0)
-            {
-                Utils.ShowError("ERREUR! Il est très peu probable qu'un animal fasse 0kg...");
-                return false;
-            }
-
-            return true;
         }
     }
 }

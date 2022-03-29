@@ -155,7 +155,6 @@
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\bin\Debug\System.ValueTuple.xml
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\bin\Debug\fr\EntityFramework.resources.dll
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
-\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.AssemblyReference.cache
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterStock.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.DonneesPersonnelles.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.GestionPlanning.resources
@@ -276,3 +275,9 @@ Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\bin\Debug\fr\EntityFramework.SqlSer
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CopyComplete
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.pdb
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterAnimal.resources
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.SuggestedBindingRedirects.cache
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterAnimal.resources
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierClient.resources
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Templates.TemplateAnimal.resources
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.AssemblyReference.cache
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierAnimal.resources
