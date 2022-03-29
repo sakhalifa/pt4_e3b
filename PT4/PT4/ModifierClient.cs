@@ -122,8 +122,9 @@ namespace PT4
         //I just reset the grid because nobody has like 25 animals or something. So it won't lag that much
         private void OnChanged(IEnumerable<ANIMAL> animals)
         {
-            HashSet<ANIMAL> animalsToAdd = new HashSet<ANIMAL>(animals);
-            foreach(ANIMAL a in animals)
+            IEnumerable<ANIMAL> animalsOfClient = animals.Where((a) => a.CLIENT.IDCLIENT == idClient);
+            HashSet<ANIMAL> animalsToAdd = new HashSet<ANIMAL>(animalsOfClient);
+            foreach(ANIMAL a in animalsOfClient)
             {
                 string nom = "N/A";
                 if (!(a.NOMANIMAL is null))

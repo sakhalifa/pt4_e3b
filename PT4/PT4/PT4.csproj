@@ -217,10 +217,10 @@
       <DependentUpon>ModifierStock.cs</DependentUpon>
     </Compile>
     <Compile Include="ReplacingExpressionVisitor.cs" />
-    <Compile Include="TemplateModifierStock.cs">
+    <Compile Include="Templates\TemplateModifierStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TemplateModifierStock.Designer.cs">
+    <Compile Include="Templates\TemplateModifierStock.Designer.cs">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </Compile>
     <Compile Include="CreerPrescription.cs">
@@ -261,6 +261,18 @@
     <Compile Include="statsProduit.Designer.cs">
       <DependentUpon>statsProduit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Templates\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+	<Compile Include="Templates\MenuHamberger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\MenuHamberger.Designer.cs">
+      <DependentUpon>MenuHamberger.cs</DependentUpon>
+    </Compile>
     <Compile Include="TopVente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,12 +298,7 @@
     <Compile Include="MenuAcceuil.Designer.cs">
       <DependentUpon>MenuAcceuil.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuHamberger.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuHamberger.Designer.cs">
-      <DependentUpon>MenuHamberger.cs</DependentUpon>
-    </Compile>
+    
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,7 +398,7 @@
     <EmbeddedResource Include="MenuAcceuil.resx">
       <DependentUpon>MenuAcceuil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuHamberger.resx">
+    <EmbeddedResource Include="Templates\MenuHamberger.resx">
       <DependentUpon>MenuHamberger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
@@ -424,7 +431,7 @@
     <EmbeddedResource Include="RechercheStock.resx">
       <DependentUpon>RechercheStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TemplateModifierStock.resx">
+    <EmbeddedResource Include="Templates\TemplateModifierStock.resx">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreerPrescription.resx">
