@@ -20,22 +20,14 @@ namespace PT4.Controllers
             _ordonnanceRepository = ordonnanceRepository;
         }
 
-        /// <summary>
-        /// Creates a new order 
-        /// </summary>
-        /// <param name="orderDate">The date when the order is created</param>
-        /// <param name="animal">The animal for whom is intended the order</param>
-        /// <param name="care">The care that need the animal</param>
-        public void CreerOrdonnance(DateTime orderDate, ANIMAL animal, SOIN care)
-        {   
-            ORDONNANCE order = new ORDONNANCE
-            {
-                DATEORDO = orderDate,
-                ANIMAL = animal,
-                SOIN = care,
-            };
+        public void CreerOrdonnance(ANIMAL animal, IEnumerable<SOIN> soins)
+        {
 
-            _ordonnanceRepository.Insert(order);
+            _ordonnanceRepository.Insert(new ORDONNANCE()
+            {
+                ANIMAL = animal,
+                SOIN = soins.ToList()
+            });
             _ordonnanceRepository.Save();
         }
     }

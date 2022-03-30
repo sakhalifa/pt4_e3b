@@ -169,6 +169,12 @@
     <Compile Include="AjouterFacture.Designer.cs">
       <DependentUpon>AjouterFacture.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjouterOrdonnance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterOrdonnance.Designer.cs">
+      <DependentUpon>AjouterOrdonnance.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjouterProduitFacture.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,24 @@
     <Compile Include="AjouterStock.Designer.cs">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="ANIMAL.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CLIENT.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONGÉ.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FACTURE.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HISTORIQUEMALADIE.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MALADIE.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Entities\MyAnimal.cs" />
     <Compile Include="Model\Entities\MyProduit.cs" />
     <Compile Include="Model\Entities\MyProduitVendu.cs" />
@@ -201,6 +225,15 @@
     </Compile>
     <Compile Include="ModifierClient.Designer.cs">
       <DependentUpon>ModifierClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORDONNANCE.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUIT.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUIT_VENDU.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RechercheClient.cs">
       <SubType>Form</SubType>
@@ -236,12 +269,21 @@
     <Compile Include="ModifierStock.Designer.cs">
       <DependentUpon>ModifierStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="RENDEZVOUS.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ReplacingExpressionVisitor.cs" />
+    <Compile Include="SALARIÉ.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SingleNumericUpDown.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SingleNumericUpDown.Designer.cs">
       <DependentUpon>SingleNumericUpDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOIN.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Templates\TemplateAnimal.cs">
       <SubType>Form</SubType>
@@ -330,9 +372,6 @@
     <Compile Include="Connexion.Designer.cs">
       <DependentUpon>Connexion.cs</DependentUpon>
     </Compile>
-    <Compile Include="ANIMAL.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="BDModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -348,12 +387,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="CLIENT.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CONGÉ.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\SalarieController.cs" />
@@ -362,15 +395,6 @@
     <Compile Include="Controllers\OrdonnanceController.cs" />
     <Compile Include="Controllers\SoinController.cs" />
     <Compile Include="Controllers\ProduitController.cs" />
-    <Compile Include="FACTURE.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HISTORIQUEMALADIE.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MALADIE.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\impl\AnimalRepository.cs" />
     <Compile Include="Model\impl\ClientRepository.cs" />
     <Compile Include="Model\impl\CongeRepository.cs" />
@@ -382,26 +406,8 @@
     <Compile Include="Model\impl\RendezVousRepository.cs" />
     <Compile Include="Model\impl\SalarieRepository.cs" />
     <Compile Include="Model\impl\SoinRepository.cs" />
-    <Compile Include="ORDONNANCE.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PRODUIT.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PRODUIT_VENDU.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RENDEZVOUS.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SALARIÉ.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SOIN.cs">
-      <DependentUpon>BDModel.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AfficherClient.resx">
       <DependentUpon>AfficherClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -413,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AjouterFacture.resx">
       <DependentUpon>AjouterFacture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterOrdonnance.resx">
+      <DependentUpon>AjouterOrdonnance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjouterProduitFacture.resx">
       <DependentUpon>AjouterProduitFacture.cs</DependentUpon>

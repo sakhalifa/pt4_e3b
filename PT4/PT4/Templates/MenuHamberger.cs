@@ -230,6 +230,10 @@ namespace PT4
             toShow.ShowDialog();
         }
 
-        
+        private void buttonNewOrdonnance_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+
+        }
     }
 }

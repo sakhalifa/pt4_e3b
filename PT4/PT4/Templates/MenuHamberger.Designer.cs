@@ -45,10 +45,10 @@ namespace PT4
             this.buttonPlanning = new System.Windows.Forms.Button();
             this.buttonStock = new System.Windows.Forms.Button();
             this.buttonManagement = new System.Windows.Forms.Button();
-            this.buttonHamburger = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonX = new System.Windows.Forms.Button();
+            this.buttonHamburger = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -295,16 +295,6 @@ namespace PT4
             this.buttonManagement.UseVisualStyleBackColor = true;
             this.buttonManagement.Click += new System.EventHandler(this.buttonManagement_Click);
             // 
-            // buttonHamburger
-            // 
-            this.buttonHamburger.Location = new System.Drawing.Point(763, 12);
-            this.buttonHamburger.Name = "buttonHamburger";
-            this.buttonHamburger.Size = new System.Drawing.Size(25, 25);
-            this.buttonHamburger.TabIndex = 1;
-            this.buttonHamburger.Text = "O";
-            this.buttonHamburger.UseVisualStyleBackColor = true;
-            this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
-            // 
             // panelLogo
             // 
             this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
@@ -336,6 +326,16 @@ namespace PT4
             this.buttonX.Text = "X";
             this.buttonX.UseVisualStyleBackColor = true;
             this.buttonX.Click += new System.EventHandler(this.buttonX_Click);
+            // 
+            // buttonHamburger
+            // 
+            this.buttonHamburger.Location = new System.Drawing.Point(763, 12);
+            this.buttonHamburger.Name = "buttonHamburger";
+            this.buttonHamburger.Size = new System.Drawing.Size(25, 25);
+            this.buttonHamburger.TabIndex = 1;
+            this.buttonHamburger.Text = "O";
+            this.buttonHamburger.UseVisualStyleBackColor = true;
+            this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
             // 
             // MenuHamberger
             // 
