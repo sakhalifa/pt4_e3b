@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-03-03" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="3.0.3005" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-02-07" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="3.0.3005" locale="fr_FR">
     <description/>
-    <view zooming-state="default:2" id="gantt-chart">
+    <view zooming-state="default:5" id="gantt-chart">
         <field id="tpd3" name="Nom" width="158" order="0"/>
         <field id="tpd4" name="Date de début" width="62" order="1"/>
         <field id="tpd5" name="Date de fin" width="61" order="2"/>
@@ -39,14 +39,14 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="100" name="Architecture de la BD" color="#8cb6ce" meeting="false" start="2022-02-04" duration="31" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+        <task id="100" name="Architecture de la BD" color="#8cb6ce" meeting="false" start="2022-02-04" duration="33" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
             <task id="0" name="Création de la base de données" color="#8cb6ce" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-02-04" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="1" name="Création des tables" color="#8cb6ce" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-02-04" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="2" name="Insérer des données dans la base de données" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="2" name="Insérer des données dans la base de données" color="#8cb6ce" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="3" name="Développer l’interface de communication avec la BD" color="#8cb6ce" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="5" name="Développement des triggers permettant automatiquement supprimer les logs datant de plus d’un an" color="#7aaac4" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="5" name="Développement des triggers permettant automatiquement supprimer les logs datant de plus d’un an" color="#7aaac4" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="4" name="Vérifier la communication avec la BD" color="#8cb6ce" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="6" name="Tests" color="#8cb6ce" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="6" name="Tests" color="#8cb6ce" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="299" name="MAJ Acrchitecture Bd" color="#7aaac4" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-07" duration="30" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
                 <task id="300" name="Copie_Création de la base de données" color="#8cb6ce" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-07" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
                 <task id="301" name="Copie_Création des tables" color="#8cb6ce" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-11" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
@@ -55,56 +55,57 @@
                 <task id="325" name="Copie_Vérifier la communication avec la BD" color="#8cb6ce" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
             </task>
         </task>
-        <task id="103" name="Gestion des employés" color="#49996d" meeting="false" start="2022-02-11" duration="26" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+        <task id="103" name="Gestion des employés" color="#49996d" meeting="false" start="2022-02-11" duration="28" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
             <task id="7" name="Fonction d’ajout d’un employé dans la bd" color="#49996d" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="8" name="Fonction d’enregistrement fiche de paye" color="#49996d" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="8" name="Fonction d’enregistrement fiche de paye" color="#49996d" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="9" name="Fonction de positionnement de congés" color="#49996d" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-02-14" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="10" name="Fonction de vérifications d’entrées utilisateurs" color="#49996d" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="11" name="Tests" color="#49996d" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="11" name="Tests" color="#49996d" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="305" name="MAJ gestion des employés" color="#097c43" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-11" duration="26" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
                 <task id="237" name="MAJ_Fonction d’ajout d’un employé dans la bd" color="#097c43" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-11" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
                 <task id="253" name="Copie_Fonction de positionnement de congés" color="#097c43" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-11" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
                 <task id="332" name="Copie_Fonction de vérifications d’entrées utilisateurs" color="#49996d" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
             </task>
         </task>
-        <task id="105" name="Création des comptes" color="#003333" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
-            <task id="12" name="Création des accès administrateurs" color="#003333" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="13" name="Création des comptes" color="#003333" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="14" name="Tests" color="#003333" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+        <task id="105" name="Création des comptes" color="#003333" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+            <task id="12" name="Création des accès administrateurs" color="#003333" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="13" name="Création des comptes" color="#003333" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="14" name="Tests" color="#003333" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="119" name="Compte Utilisateur" color="#999999" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
-            <task id="22" name="Fonction création d’un compte à un niveau privilège “assistant”" color="#999999" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="23" name="Fonction de récupération de données" color="#999999" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="24" name="Fonction permettant de changer l’adresse mail de connexion" color="#999999" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="25" name="Fonction permettant de changer le mot de passe" color="#999999" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="26" name="Fonction permettant de changer toutes les autres informations à partir d’un seul formulaire" color="#999999" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="27" name="Fonction de vérification des entrées utilisateur" color="#999999" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="28" name="Tests" color="#999999" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+        <task id="119" name="Compte Utilisateur" color="#999999" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+            <task id="22" name="Fonction création d’un compte à un niveau privilège “assistant”" color="#999999" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="23" name="Fonction de récupération de données" color="#999999" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="24" name="Fonction permettant de changer l’adresse mail de connexion" color="#999999" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="25" name="Fonction permettant de changer le mot de passe" color="#999999" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="26" name="Fonction permettant de changer toutes les autres informations à partir d’un seul formulaire" color="#999999" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="27" name="Fonction de vérification des entrées utilisateur" color="#999999" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="28" name="Tests" color="#999999" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="113" name="Connexion/Déconnexion" color="#c65798" meeting="false" start="2022-02-28" duration="15" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
-            <task id="18" name="Fonction de connexion à un compte existant" color="#c65798" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="19" name="Fonction de déconnexion" color="#c65798" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+        <task id="113" name="Connexion/Déconnexion" color="#c65798" meeting="false" start="2022-02-28" duration="17" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+            <task id="18" name="Fonction de connexion à un compte existant" color="#c65798" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="19" name="Fonction de déconnexion" color="#c65798" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="20" name="Fonction de vérification des entrées utilisateurs" color="#c65798" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-04" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="21" name="Tests" color="#c65798" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="309" name="MAJ connexion/deconnexion" color="#b4449b" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-28" duration="1" complete="0" thirdDate="2022-02-28" thirdDate-constraint="0" expand="true">
+            <task id="21" name="Tests" color="#c65798" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="309" name="MAJ connexion/deconnexion" color="#b4449b" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-28" duration="15" complete="0" thirdDate="2022-02-28" thirdDate-constraint="0" expand="true">
                 <task id="262" name="Copie_Fonction de vérification des entrées utilisateurs" color="#c65798" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-28" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+                <task id="352" name="Copie_Fonction de connexion à un compte existant" color="#c65798" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
             </task>
         </task>
-        <task id="128" name="Gestion de la clientèle" color="#816f92" meeting="false" start="2022-02-18" duration="21" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+        <task id="128" name="Gestion de la clientèle" color="#816f92" meeting="false" start="2022-02-18" duration="23" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
             <task id="30" name="Fonction d’ajout d’un client" color="#816f92" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-07" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="31" name="Lister les clients" color="#816f92" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-07" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="32" name="Chercher un client" color="#816f92" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="33" name="Fiche informations clients" color="#816f92" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="32" name="Chercher un client" color="#816f92" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="33" name="Fiche informations clients" color="#816f92" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="34" name="Fonction d’enregistrement de rdv" color="#816f92" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-07" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="35" name="Fonction d’enregistrement d’un soin" color="#816f92" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-07" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="36" name="Fonction d’enregistrement d’une vente" color="#816f92" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="36" name="Fonction d’enregistrement d’une vente" color="#816f92" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="37" name="Fonction de création d’ordonnance" color="#816f92" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-07" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="38" name="Fonction de création de facture" color="#816f92" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-07" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="39" name="Fonction d’ajouts des informations dans la bd" color="#816f92" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="40" name="Fonction permettant d’obtenir un tarif préférentiel" color="#816f92" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="41" name="Fonction permettant de paramétrer un tarif" color="#816f92" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="42" name="Fonction de récupération des informations du client" color="#816f92" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="43" name="Tests" color="#816f92" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="39" name="Fonction d’ajouts des informations dans la bd" color="#816f92" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="40" name="Fonction permettant d’obtenir un tarif préférentiel" color="#816f92" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="41" name="Fonction permettant de paramétrer un tarif" color="#816f92" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="42" name="Fonction de récupération des informations du client" color="#816f92" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="43" name="Tests" color="#816f92" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="311" name="MAJ gestion de la clientele" color="#816f92" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-18" duration="7" complete="0" thirdDate="2022-02-18" thirdDate-constraint="0" expand="true">
                 <task id="239" name="Copie_Fonction d’ajout d’un client" color="#816f92" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
                 <task id="276" name="Copie_Lister les clients" color="#816f92" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
@@ -114,34 +115,35 @@
                 <task id="291" name="Copie_Fonction de création de facture" color="#816f92" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-28" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
             </task>
         </task>
-        <task id="29" name="Gestion logistique et stocks" color="#ff3333" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
-            <task id="44" name="Fonction d’ajout d’un produit en stock dans la bd" color="#ff3333" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+        <task id="29" name="Gestion logistique et stocks" color="#ff3333" meeting="false" start="2022-03-18" duration="3" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+            <task id="44" name="Fonction d’ajout d’un produit en stock dans la bd" color="#ff3333" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="45" name="Fonction de suppression d’un produit en stock" color="#ff3333" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="46" name="Fonction de récupération des informations concernant un produit en stock" color="#ff3333" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="47" name="Fonction de vérification des entrées utilisateurs" color="#ff3333" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="48" name="Fonctions permettant d’identifier les produits dont la fin du stock est proche" color="#ff3333" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="49" name="Tests" color="#ff3333" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="47" name="Fonction de vérification des entrées utilisateurs" color="#ff3333" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="48" name="Fonctions permettant d’identifier les produits dont la fin du stock est proche" color="#ff3333" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="49" name="Tests" color="#ff3333" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="347" name="Maj Gestion logistique et stocks" meeting="false" start="2022-03-18" duration="1" complete="0" expand="true">
                 <task id="345" name="Copie_Fonction de suppression d’un produit en stock" color="#ff3333" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
                 <task id="350" name="Copie_Fonction de récupération des informations concernant un produit en stock" color="#ff3333" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+                <task id="364" name="Copie_Fonctions permettant d’identifier les produits dont la fin du stock est proche" color="#ff3333" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
             </task>
         </task>
-        <task id="56" name="Gestion des soins" color="#ae27d9" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+        <task id="56" name="Gestion des soins" color="#ae27d9" meeting="false" start="2022-03-18" duration="3" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
             <task id="57" name="Lister les soins associés à une maladie" color="#ae27d9" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="58" name="Génération d’une ordonnance" color="#ae27d9" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="59" name="Mise en place de possibilité au format PDF" color="#ae27d9" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="60" name="Stockage de l’ordonnance et de la liste des médicaments" color="#ae27d9" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="61" name="Tests" color="#ae27d9" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="58" name="Génération d’une ordonnance" color="#ae27d9" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="59" name="Mise en place de possibilité au format PDF" color="#ae27d9" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="60" name="Stockage de l’ordonnance et de la liste des médicaments" color="#ae27d9" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="61" name="Tests" color="#ae27d9" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="336" name="Maj gestion des soins" meeting="false" start="2022-03-18" duration="1" complete="0" expand="true">
                 <task id="335" name="Copie_Lister les soins associés à une maladie" color="#ae27d9" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
             </task>
         </task>
-        <task id="50" name="Gestion des maladies" color="#bd5744" meeting="false" start="2022-02-18" duration="21" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+        <task id="50" name="Gestion des maladies" color="#bd5744" meeting="false" start="2022-02-18" duration="23" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
             <task id="51" name="Fonction d'ajout d'une maladie" color="#bd5744" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="52" name="Fonction permettant de lister les maladies" color="#bd5744" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="53" name="Fonction permettant de rechercher des maladies par critères" color="#8e5235" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="54" name="Fonction permettant d'afficher les détails pour une maladie" color="#bd5744" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="55" name="Tests" color="#bd5744" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="54" name="Fonction permettant d'afficher les détails pour une maladie" color="#bd5744" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="55" name="Tests" color="#bd5744" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="312" name="MAJ gestion de maladies" color="#8e5235" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-18" duration="7" complete="0" thirdDate="2022-02-18" thirdDate-constraint="0" expand="true">
                 <task id="279" name="Copie_Fonction d'ajout d'une maladie" color="#bd5744" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
                 <task id="286" name="Copie_Fonction permettant de lister les maladies" color="#bd5744" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
@@ -157,31 +159,33 @@
             <task id="84" name="Fonction permettant d’obtenir les produits qu’un client est le plus susceptible d’acheter" color="#cc0033" meeting="false" start="2022-03-28" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="85" name="Tests" color="#cc0033" meeting="false" start="2022-03-28" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="62" name="IHM" color="#ff9933" meeting="false" start="2022-02-11" duration="31" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+        <task id="62" name="IHM" color="#ff9933" meeting="false" start="2022-02-11" duration="33" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
             <task id="63" name="Mise en place des éléments de chaque écran" color="#ff9933" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-02-11" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="232" name="Développer les interfaces de l’application" color="#ff9933" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="74" name="Développer la page d’accueil" color="#ff9933" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="73" name="Développer les interfaces de ventes et de prescription" color="#ff9933" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="72" name="Développer les interfaces de gestion de stocks et de statistiques" color="#ff9933" meeting="false" start="2022-03-18" duration="6" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="71" name="Développer les interfaces de logs" color="#ff9933" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="70" name="Développer les interfaces de compte et de gestion client" color="#ff9933" meeting="false" start="2022-03-18" duration="4" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="65" name="Fonction permettant de changer de page" color="#ff9933" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="66" name="Liaison des composants graphiques aux fonctions" color="#ff9933" meeting="false" start="2022-03-18" duration="4" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="67" name="Fonction de conversion des données statistiquement" color="#ff9933" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="68" name="Fonction de redimensionnement de la page" color="#ff9933" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="64" name="Intégration des éléments graphiques" color="#ff9933" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="232" name="Développer les interfaces de l’application" color="#ff9933" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="74" name="Développer la page d’accueil" color="#ff9933" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="73" name="Développer les interfaces de ventes et de prescription" color="#ff9933" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="72" name="Développer les interfaces de gestion de stocks et de statistiques" color="#ff9933" meeting="false" start="2022-03-22" duration="6" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="71" name="Développer les interfaces de logs" color="#ff9933" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="70" name="Développer les interfaces de compte et de gestion client" color="#ff9933" meeting="false" start="2022-03-22" duration="4" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="65" name="Fonction permettant de changer de page" color="#ff9933" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="66" name="Liaison des composants graphiques aux fonctions" color="#ff9933" meeting="false" start="2022-03-22" duration="4" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="67" name="Fonction de conversion des données statistiquement" color="#ff9933" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="68" name="Fonction de redimensionnement de la page" color="#ff9933" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="64" name="Intégration des éléments graphiques" color="#ff9933" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="75" name="Vérifier que les interfaces sont bien cohérentes avec les maquettes" color="#ff9933" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="76" name="Intégrer la navigation inter page" color="#ff9933" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="77" name="Tests" color="#ff9933" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="76" name="Intégrer la navigation inter page" color="#ff9933" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="77" name="Tests" color="#ff9933" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
             <task id="315" name="MAJ IHM" color="#ff9933" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-11" duration="26" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
                 <task id="273" name="Copie_Mise en place des éléments de chaque écran" color="#ff9933" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-02-11" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
                 <task id="340" name="Copie_Vérifier que les interfaces sont bien cohérentes avec les maquettes" color="#ff9933" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+                <task id="356" name="Copie_Fonction permettant de changer de page" color="#ff9933" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+                <task id="361" name="Copie_Développer les interfaces de l’application" color="#ff9933" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2022-03-18" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
             </task>
         </task>
-        <task id="108" name="Ajout des données existantes" color="#c2a46c" meeting="false" start="2022-03-21" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
-            <task id="15" name="Script permettant de récupérer les données d'un tableau excel" color="#c2a46c" meeting="false" start="2022-03-21" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="16" name="Ajout d’une fonction dans le même script permettant d’ajouter les données récupérées dans la base" color="#c2a46c" meeting="false" start="2022-03-21" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="17" name="Tests" color="#c2a46c" meeting="false" start="2022-03-21" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+        <task id="108" name="Ajout des données existantes" color="#c2a46c" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
+            <task id="15" name="Script permettant de récupérer les données d'un tableau excel" color="#c2a46c" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="16" name="Ajout d’une fonction dans le même script permettant d’ajouter les données récupérées dans la base" color="#c2a46c" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="17" name="Tests" color="#c2a46c" meeting="false" start="2022-03-22" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="86" name="Environnement de travail" color="#0000ff" meeting="false" start="2022-02-14" duration="30" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true">
             <task id="199" name="Créer des jeux de données" color="#0000ff" shape="1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0" meeting="false" start="2022-03-25" duration="1" complete="0" thirdDate="2022-02-11" thirdDate-constraint="0" expand="true"/>
@@ -262,6 +266,8 @@
         <allocation task-id="325" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="345" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="350" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="352" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="364" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="0" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="2" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="3" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
@@ -323,6 +329,7 @@
         <allocation task-id="332" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="335" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="340" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="361" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="59" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="63" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="64" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
@@ -351,6 +358,8 @@
         <allocation task-id="85" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="273" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="340" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="356" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="361" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="63" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="64" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="65" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
@@ -379,6 +388,8 @@
         <allocation task-id="255" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="273" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="340" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="356" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="361" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
     </allocations>
     <vacations/>
     <previous/>

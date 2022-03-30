@@ -87,5 +87,6 @@ namespace PT4.Controllers
             _animalRepository.Delete(a);
             _animalRepository.Save();
         }
+
     }
 }
