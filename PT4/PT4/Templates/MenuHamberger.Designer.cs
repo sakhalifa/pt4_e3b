@@ -40,15 +40,15 @@ namespace PT4
             this.buttonNewSale = new System.Windows.Forms.Button();
             this.panelAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonCare = new System.Windows.Forms.Button();
             this.clientsGestion = new System.Windows.Forms.Button();
-            this.buttonWeekSale = new System.Windows.Forms.Button();
-            this.buttonPlanning = new System.Windows.Forms.Button();
             this.buttonStock = new System.Windows.Forms.Button();
             this.buttonManagement = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonX = new System.Windows.Forms.Button();
             this.buttonHamburger = new System.Windows.Forms.Button();
+            this.buttonOrdonnances = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -204,9 +204,9 @@ namespace PT4
             // 
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.buttonOrdonnances);
+            this.panel1.Controls.Add(this.buttonCare);
             this.panel1.Controls.Add(this.clientsGestion);
-            this.panel1.Controls.Add(this.buttonWeekSale);
-            this.panel1.Controls.Add(this.buttonPlanning);
             this.panel1.Controls.Add(this.buttonStock);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 195);
@@ -215,13 +215,29 @@ namespace PT4
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
             // 
+            // buttonCare
+            // 
+            this.buttonCare.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCare.FlatAppearance.BorderSize = 0;
+            this.buttonCare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCare.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonCare.Location = new System.Drawing.Point(0, 80);
+            this.buttonCare.Name = "buttonCare";
+            this.buttonCare.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonCare.Size = new System.Drawing.Size(233, 40);
+            this.buttonCare.TabIndex = 4;
+            this.buttonCare.Text = "Soins";
+            this.buttonCare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCare.UseVisualStyleBackColor = true;
+            this.buttonCare.Click += new System.EventHandler(this.buttonCare_Click);
+            // 
             // clientsGestion
             // 
             this.clientsGestion.Dock = System.Windows.Forms.DockStyle.Top;
             this.clientsGestion.FlatAppearance.BorderSize = 0;
             this.clientsGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clientsGestion.ForeColor = System.Drawing.Color.LightGray;
-            this.clientsGestion.Location = new System.Drawing.Point(0, 120);
+            this.clientsGestion.Location = new System.Drawing.Point(0, 40);
             this.clientsGestion.Name = "clientsGestion";
             this.clientsGestion.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.clientsGestion.Size = new System.Drawing.Size(233, 40);
@@ -230,38 +246,6 @@ namespace PT4
             this.clientsGestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.clientsGestion.UseVisualStyleBackColor = true;
             this.clientsGestion.Click += new System.EventHandler(this.clientsGestion_Click);
-            // 
-            // buttonWeekSale
-            // 
-            this.buttonWeekSale.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonWeekSale.FlatAppearance.BorderSize = 0;
-            this.buttonWeekSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWeekSale.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonWeekSale.Location = new System.Drawing.Point(0, 80);
-            this.buttonWeekSale.Name = "buttonWeekSale";
-            this.buttonWeekSale.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonWeekSale.Size = new System.Drawing.Size(233, 40);
-            this.buttonWeekSale.TabIndex = 2;
-            this.buttonWeekSale.Text = "Ventes de la semaine";
-            this.buttonWeekSale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonWeekSale.UseVisualStyleBackColor = true;
-            this.buttonWeekSale.Click += new System.EventHandler(this.buttonWeekSale_Click);
-            // 
-            // buttonPlanning
-            // 
-            this.buttonPlanning.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonPlanning.FlatAppearance.BorderSize = 0;
-            this.buttonPlanning.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPlanning.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonPlanning.Location = new System.Drawing.Point(0, 40);
-            this.buttonPlanning.Name = "buttonPlanning";
-            this.buttonPlanning.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonPlanning.Size = new System.Drawing.Size(233, 40);
-            this.buttonPlanning.TabIndex = 1;
-            this.buttonPlanning.Text = "Planning";
-            this.buttonPlanning.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPlanning.UseVisualStyleBackColor = true;
-            this.buttonPlanning.Click += new System.EventHandler(this.buttonPlanning_Click);
             // 
             // buttonStock
             // 
@@ -337,6 +321,22 @@ namespace PT4
             this.buttonHamburger.UseVisualStyleBackColor = true;
             this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
             // 
+            // buttonOrdonnances
+            // 
+            this.buttonOrdonnances.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonOrdonnances.FlatAppearance.BorderSize = 0;
+            this.buttonOrdonnances.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrdonnances.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonOrdonnances.Location = new System.Drawing.Point(0, 120);
+            this.buttonOrdonnances.Name = "buttonOrdonnances";
+            this.buttonOrdonnances.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonOrdonnances.Size = new System.Drawing.Size(233, 40);
+            this.buttonOrdonnances.TabIndex = 5;
+            this.buttonOrdonnances.Text = "Ordonnances";
+            this.buttonOrdonnances.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonOrdonnances.UseVisualStyleBackColor = true;
+            this.buttonOrdonnances.Click += new System.EventHandler(this.buttonOrdonnances_Click);
+            // 
             // MenuHamberger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,8 +362,6 @@ namespace PT4
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Button panelAdd;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonWeekSale;
-        private System.Windows.Forms.Button buttonPlanning;
         private System.Windows.Forms.Button buttonStock;
         private System.Windows.Forms.Button buttonManagement;
         private System.Windows.Forms.Panel panelLogo;
@@ -378,6 +376,8 @@ namespace PT4
         private System.Windows.Forms.Button deconnexion;
         private System.Windows.Forms.Button clientsGestion;
         protected System.Windows.Forms.Button buttonHamburger;
+        private System.Windows.Forms.Button buttonCare;
+        private System.Windows.Forms.Button buttonOrdonnances;
     }
 }
 

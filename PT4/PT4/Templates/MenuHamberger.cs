@@ -33,6 +33,7 @@ namespace PT4
             {
                 buttonNewCompte.Visible = false;
                 buttonNewPrescription.Visible = false;
+                buttonCare.Visible = false;
             }
             buttonHamburger.BringToFront();
         }
@@ -151,12 +152,12 @@ namespace PT4
         {
             //Code
             hideSubMenu();
-            _services.AddScoped<AjouterPrescription>();
+            _services.AddScoped<TemplateSoin>();
             using(ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())
                 {
-                    var ajouterPres = serviceScope.ServiceProvider.GetService<AjouterPrescription>();
+                    var ajouterPres = serviceScope.ServiceProvider.GetService<TemplateSoin>();
                     ajouterPres.ShowDialog();
                 }
             }
@@ -254,10 +255,30 @@ namespace PT4
             toShow.ShowDialog();
         }
 
-        private void buttonNewOrdonnance_Click(object sender, EventArgs e)
+        private void buttonCare_Click(object sender, EventArgs e)
         {
             hideSubMenu();
+            _services.AddScoped<AfficherSoin>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<AfficherSoin>().ShowDialog();
+                }
+            }
+        }
 
+        private void buttonOrdonnances_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AfficherOrdonnance>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<AfficherOrdonnance>().ShowDialog();
+                }
+            }
         }
     }
 }

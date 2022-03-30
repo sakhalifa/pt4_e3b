@@ -139,6 +139,12 @@
     <Compile Include="AfficherClient.Designer.cs">
       <DependentUpon>AfficherClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="AfficherOrdonnance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherOrdonnance.Designer.cs">
+      <DependentUpon>AfficherOrdonnance.cs</DependentUpon>
+    </Compile>
     <Compile Include="AfficherSoin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,12 @@
     <Compile Include="AjouterOrdonnance.Designer.cs">
       <DependentUpon>AjouterOrdonnance.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjouterPrescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterPrescription.Designer.cs">
+      <DependentUpon>AjouterPrescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjouterProduitFacture.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +231,7 @@
     </Compile>
     <Compile Include="Model\Entities\MyAnimal.cs" />
     <Compile Include="Model\Entities\MyMaladie.cs" />
+    <Compile Include="Model\Entities\MyOrdonnance.cs" />
     <Compile Include="Model\Entities\MyProduit.cs" />
     <Compile Include="Model\Entities\MyProduitVendu.cs" />
     <Compile Include="Model\Entities\MySoin.cs" />
@@ -233,6 +246,12 @@
     </Compile>
     <Compile Include="ModifierClient.Designer.cs">
       <DependentUpon>ModifierClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierSoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierSoin.Designer.cs">
+      <DependentUpon>ModifierSoin.cs</DependentUpon>
     </Compile>
     <Compile Include="ORDONNANCE.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
@@ -305,11 +324,11 @@
     <Compile Include="Templates\TemplateModifierStock.Designer.cs">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="AjouterPrescription.cs">
+    <Compile Include="Templates\TemplateSoin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AjouterPrescription.Designer.cs">
-      <DependentUpon>AjouterPrescription.cs</DependentUpon>
+    <Compile Include="Templates\TemplateSoin.Designer.cs">
+      <DependentUpon>TemplateSoin.cs</DependentUpon>
     </Compile>
     <Compile Include="EditerClient.cs">
       <SubType>Form</SubType>
@@ -419,6 +438,9 @@
     <EmbeddedResource Include="AfficherClient.resx">
       <DependentUpon>AfficherClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AfficherOrdonnance.resx">
+      <DependentUpon>AfficherOrdonnance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterAnimal.resx">
       <DependentUpon>AjouterAnimal.cs</DependentUpon>
     </EmbeddedResource>
@@ -448,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModifierAnimal.resx">
       <DependentUpon>ModifierAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierSoin.resx">
+      <DependentUpon>ModifierSoin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SingleNumericUpDown.resx">
       <DependentUpon>SingleNumericUpDown.cs</DependentUpon>
@@ -491,8 +516,8 @@
     <EmbeddedResource Include="Templates\TemplateModifierStock.resx">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AjouterPrescription.resx">
-      <DependentUpon>AjouterPrescription.cs</DependentUpon>
+    <EmbeddedResource Include="Templates\TemplateSoin.resx">
+      <DependentUpon>TemplateSoin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditerClient.resx">
       <DependentUpon>EditerClient.cs</DependentUpon>

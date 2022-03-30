@@ -1,7 +1,7 @@
 ﻿
 namespace PT4
 {
-    partial class AjouterPrescription
+    partial class ModifierSoin
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,7 +29,17 @@ namespace PT4
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ModifierSoin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "ModifierSoin";
+            this.Load += new System.EventHandler(this.ModifierSoin_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

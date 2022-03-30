@@ -31,5 +31,36 @@ namespace PT4.Controllers
             });
             _ordonnanceRepository.Save();
         }
+
+        public void DeletePrescription(ORDONNANCE o)
+        {
+            var allSoin = o.SOIN;
+            foreach(SOIN s in allSoin)
+            {
+                s.ORDONNANCE.Remove(o);
+            }
+            _ordonnanceRepository.Delete(o);
+            _ordonnanceRepository.Save();
+        }
+
+        public void SubscribePrescription(OnChanged<ORDONNANCE> onChanged)
+        {
+            _ordonnanceRepository.Subscribe(onChanged);
+        }
+
+        public void UnSubscribePrescription(OnChanged<ORDONNANCE> onChanged)
+        {
+            _ordonnanceRepository.UnSubscribe(onChanged);
+        }
+
+        public void SubscribeDeletePrescription(OnDelete<ORDONNANCE> onDelete)
+        {
+            _ordonnanceRepository.SubscribeDelete(onDelete);
+        }
+
+        public void UnSubscribeDeletePrescription(OnDelete<ORDONNANCE> onDelete)
+        {
+            _ordonnanceRepository.UnSubscribeDelete(onDelete);
+        }
     }
 }

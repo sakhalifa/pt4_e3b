@@ -36,7 +36,7 @@ namespace PT4
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.soinsDispo = new System.Windows.Forms.ListBox();
             this.masterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.buttonConfirm = new System.Windows.Forms.Button();
             this.leftRightLayout.SuspendLayout();
@@ -97,7 +97,7 @@ namespace PT4
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonAdd, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.listBox1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.soinsDispo, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(400, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -130,17 +130,17 @@ namespace PT4
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // listBox1
+            // soinsDispo
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 13);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(391, 373);
-            this.listBox1.TabIndex = 2;
+            this.soinsDispo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.soinsDispo.FormattingEnabled = true;
+            this.soinsDispo.HorizontalScrollbar = true;
+            this.soinsDispo.Location = new System.Drawing.Point(0, 13);
+            this.soinsDispo.Margin = new System.Windows.Forms.Padding(0);
+            this.soinsDispo.Name = "soinsDispo";
+            this.soinsDispo.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.soinsDispo.Size = new System.Drawing.Size(391, 373);
+            this.soinsDispo.TabIndex = 2;
             // 
             // masterLayout
             // 
@@ -194,7 +194,7 @@ namespace PT4
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox soinsDispo;
         private System.Windows.Forms.Button buttonConfirm;
         private System.Windows.Forms.Label labelAnimal;
     }
