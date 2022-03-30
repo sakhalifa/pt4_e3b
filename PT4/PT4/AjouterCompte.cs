@@ -61,6 +61,7 @@ namespace PT4
                     DonneesPersonnelles donnees = new DonneesPersonnelles(_salarieController, s);
 
                     donnees.ShowDialog();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {

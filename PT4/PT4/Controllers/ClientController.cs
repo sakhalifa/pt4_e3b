@@ -40,6 +40,14 @@ namespace PT4.Controllers
             _clientRepository.UnSubscribe(onChanged);
         }
 
+        /// <summary>
+        /// Find all customers in the database
+        /// </summary>
+        public IQueryable<CLIENT> FindAll()
+        {
+            return _clientRepository.FindAll();
+        }
+
         public void UnSubscribeDeleteCustomers(OnDelete<CLIENT> onDelete)
         {
             _clientRepository.UnSubscribeDelete(onDelete);

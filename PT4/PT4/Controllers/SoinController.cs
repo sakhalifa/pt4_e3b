@@ -16,24 +16,25 @@ namespace PT4.Controllers
             _soinRepository = soinRepo;
         }
 
-
-
-
-
-        public void CreerSoin(string description)
+        public void CreateCare(IEnumerable<MALADIE> diseases, IEnumerable<PRODUIT> products, string description)
         {
-            _soinRepository.Insert(new SOIN
+            SOIN newCare = new SOIN
             {
-                DESCRIPTION = description
-            });
+                DESCRIPTION = description,
+                MALADIE = diseases.ToList(),
+                PRODUIT = products.ToList()
+            };
+            _soinRepository.Insert(newCare);
+
+            _soinRepository.Save();
         }
 
-
-
-
-
-
-
-
+        /// <summary>
+        /// Find all cares in the database
+        /// </summary>
+        public IQueryable<SOIN> FindAll()
+        {
+            return _soinRepository.FindAll();
+        }
     }
 }
