@@ -244,5 +244,16 @@ namespace PT4
                 dlg.ShowDialog();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped((p) => new ajouterConge(p.GetRequiredService<SalarieController>(), salarieId));
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var dlg = provider.GetService<ajouterConge>();
+                dlg.ShowDialog();
+            }
+        }
     }
 }

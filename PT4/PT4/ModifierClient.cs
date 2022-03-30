@@ -1,4 +1,5 @@
-﻿using PT4.Controllers;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PT4.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,16 +16,18 @@ namespace PT4
     {
         private ClientController _clientController;
         private AnimalController _animalController;
+        private ServiceCollection _services;
 
         //Have to do it to them or else : Entity cannot be tracked by multiple EntityTracker :).
         private int idClient;
         private CLIENT client { get => _clientController.ClientById(idClient); }
 
-        public ModifierClient(ClientController clientController, AnimalController animalController)
+        public ModifierClient(ClientController clientController, AnimalController animalController, ServiceCollection services)
         {
             InitializeComponent();
             _clientController = clientController;
             _animalController = animalController;
+            _services = services;
             _animalController.SubscribeAnimal(OnChanged);
             _animalController.SubscribeDeleteAnimal(OnDelete);
             this.Closed += (_, __) => { _animalController.UnSubscribeAnimal(OnChanged); _animalController.UnSubscribeDeleteAnimal(OnDelete); };
@@ -175,7 +178,16 @@ namespace PT4
 
         private void rajouterUneMaladieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ANIMAL a = GetAnimalFromSelection();
+            if(a!=null)
+            {
+                _services.AddScoped((p) => new DeclarerMaladie(p.GetRequiredService<MaladiesController>(), a));
+                using (ServiceProvider provider = _services.BuildServiceProvider())
+                {
+                    var declarerMaladie = provider.GetService<DeclarerMaladie>();
+                    declarerMaladie.ShowDialog();
+                }
+            }
         }
 
         private void supprimermortXdToolStripMenuItem_Click(object sender, EventArgs e)

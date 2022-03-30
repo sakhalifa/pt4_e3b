@@ -46,8 +46,8 @@ namespace PT4
                     .AddTransient<ClientController>()
                     .AddTransient<SalarieController>()
                     .AddTransient<FactureController>()
-                    .AddTransient<MaladieRepository>()
-                    .AddTransient<OrdonnanceRepository>()
+                    .AddTransient<MaladiesController>()
+                    .AddTransient<OrdonnanceController>()
                     .AddTransient<ProduitController>()
                     .AddTransient<SoinController>()
             ;
