@@ -1,30 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj": {}
+    "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj": {
+    "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj",
+        "projectUniqueName": "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj",
         "projectName": "PT4",
-        "projectPath": "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj"
+        "projectPath": "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
       },
       "frameworks": {
         "net472": {}
       }
     },
-    "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj": {
+    "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
+        "projectUniqueName": "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
         "projectName": "TestProjetVeto",
-        "projectPath": "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
-        "packagesPath": "C:\\Users\\Ejeul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\obj\\",
+        "projectPath": "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\TestProjetVeto.csproj",
+        "packagesPath": "Z:\\AppData\\Roaming\\Nuget",
+        "outputPath": "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\TestProjetVeto\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Ejeul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "\\\\iut.bx1\\Etudiants\\Home\\ejeulin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,8 +47,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj": {
-                "projectPath": "C:\\Users\\Ejeul\\OneDrive\\Documents\\DUT_S4\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj"
+              "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj": {
+                "projectPath": "C:\\Users\\ejeulin\\Documents\\PT4\\pt4_e3b\\PT4\\PT4\\PT4.csproj"
               }
             }
           }
@@ -102,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

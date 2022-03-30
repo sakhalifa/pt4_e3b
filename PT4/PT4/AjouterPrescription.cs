@@ -13,72 +13,48 @@ namespace PT4
 {
     public partial class AjouterPrescription : Form
     {
-        private OrdonnanceController _orderController;
-        private ClientController _customerController;
-        private AnimalController _animalController;
+        private MaladiesController _diseaseController;
+        private ProduitController _productController;
         private SoinController _careController;
 
-        public CreerPrescription(OrdonnanceController orderController, ClientController customerController, AnimalController animalController, SoinController careController)
+        public AjouterPrescription(MaladiesController diseaseController, ProduitController productController, SoinController careController)
         {
-            _orderController = orderController;
-            _customerController = customerController;
-            _animalController = animalController;
-            _careController = careController;
-            InitializeComboBoxCares();
-            InitializeComboBoxCustomers();
-            InitializeComboBoxAnimals();
             InitializeComponent();
+            _diseaseController = diseaseController;
+            _productController = productController;
+            _careController = careController;
+            InitializeProduct();
+            InitializeDisease();
         }
 
-        /// <summary>
-        /// Add a new order in the database if conditions are checked
-        /// </summary>
+        public void InitializeDisease()
+        {
+            IEnumerable<MALADIE> diseases = _diseaseController.ListerMaladies();
+            foreach (MALADIE d in diseases)
+            {
+                listBox1.Items.Add(d);
+            }
+        }
+
+        public void InitializeProduct()
+        {
+            IEnumerable<PRODUIT> products = _productController.RecupererTousProduits();
+            foreach (PRODUIT p in products)
+            {
+                listBox2.Items.Add(p);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBoxAnimal.SelectedItem != null && numericUpDownPrix.Value != 0 && comboBoxProduit.SelectedItem != null)
+            if (listBox1.SelectedItems != null && listBox2.SelectedItems != null)
             {
-                _orderController.CreerOrdonnance(DateTime.Now, (ANIMAL) comboBoxAnimal.SelectedItem, (SOIN) comboBoxProduit.SelectedItem);
-            }
-        }
-
-        /// <summary>
-        /// Initialize the customer combo box
-        /// </summary>
-        private void InitializeComboBoxCustomers()
-        {
-            IQueryable<CLIENT> customers = _customerController.FindAll();
-            foreach (CLIENT customer in customers) {
-                comboBoxClient.Items.Add(customer);
-            }
-        }
-
-        /// <summary>
-        /// Initialize the animal combo box
-        /// </summary>
-        private void InitializeComboBoxAnimals()
-        {
-            IQueryable<ANIMAL> animals = _animalController.FindAll();
-            foreach (ANIMAL animal in animals)
+                _careController.CreateCare(listBox1.SelectedItems.Cast<MALADIE>(), listBox2.SelectedItems.Cast<PRODUIT>(), textBoxDescription.Text);
+            } else
             {
-                comboBoxAnimal.Items.Add(animal);
+                Utils.ShowError("ERROR! You needs to selected at least one disease and one product.");
             }
-        }
-
-        /// <summary>
-        /// Initialize the animal combo box
-        /// </summary>
-        private void InitializeComboBoxCares()
-        {
-            IQueryable<SOIN> cares = _careController.FindAll();
-            foreach (SOIN care in cares)
-            {
-                comboBoxProduit.Items.Add(care);
-            }
-        }
-
-        private void comboBoxProduit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            textBoxDescription.Text += comboBoxProduit.SelectedItem.ToString();
         }
     }
+
 }
