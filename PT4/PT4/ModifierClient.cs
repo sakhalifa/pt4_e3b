@@ -77,7 +77,8 @@ namespace PT4
                         num = numeroTextBox.Text.Replace(" ", "");
                     }
                     _clientController.ModifierClient(client, nomTextBox.Text, prenomTextBox.Text, num, emailTextBox.Text);
-                }catch(ArgumentException ex)
+                }
+                catch (ArgumentException ex)
                 {
                     Utils.ShowError(ex.Message);
                     return;
@@ -95,12 +96,12 @@ namespace PT4
                 Utils.ShowError("ERREUR! Vous devez renseigner un nom!");
                 return false;
             }
-            if(prenomTextBox.TextLength == 0)
+            if (prenomTextBox.TextLength == 0)
             {
                 Utils.ShowError("ERREUR! Vous devez renseigner un prénom!");
                 return false;
             }
-            if(emailTextBox.TextLength == 0)
+            if (emailTextBox.TextLength == 0)
             {
                 Utils.ShowError("ERREUR! Vous devez renseigner un email!");
                 return false;
@@ -128,7 +129,7 @@ namespace PT4
         {
             IEnumerable<ANIMAL> animalsOfClient = animals.Where((a) => a.CLIENT.IDCLIENT == idClient);
             HashSet<ANIMAL> animalsToAdd = new HashSet<ANIMAL>(animalsOfClient);
-            foreach(ANIMAL a in animalsOfClient)
+            foreach (ANIMAL a in animalsOfClient)
             {
                 string nom = "N/A";
                 if (!(a.NOMANIMAL is null))
@@ -149,7 +150,7 @@ namespace PT4
                     }
                 }
             }
-            foreach(ANIMAL a in animalsToAdd)
+            foreach (ANIMAL a in animalsToAdd)
             {
                 AddAnimalToGridView(a);
             }
@@ -167,7 +168,7 @@ namespace PT4
                     }
                 }
             }
-            foreach(DataGridViewRow row in rowsToDelete)
+            foreach (DataGridViewRow row in rowsToDelete)
             {
                 animalGridView.Rows.Remove(row);
             }
@@ -179,7 +180,7 @@ namespace PT4
             if (!(a is null))
             {
                 _services.AddScoped((p) => new ModifierAnimal(p.GetRequiredService<AnimalController>(), p.GetRequiredService<ClientController>(), a));
-                using(ServiceProvider provider = _services.BuildServiceProvider())
+                using (ServiceProvider provider = _services.BuildServiceProvider())
                 {
                     var dlg = provider.GetService<ModifierAnimal>();
                     dlg.ShowDialog();
@@ -189,7 +190,7 @@ namespace PT4
 
         private void rajouterUneMaladieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void supprimermortXdToolStripMenuItem_Click(object sender, EventArgs e)
@@ -227,6 +228,21 @@ namespace PT4
         {
             AjouterAnimal aj = new AjouterAnimal(_animalController, _clientController, client);
             aj.ShowDialog();
+        }
+
+        private void créerUneOrdonnanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ANIMAL a = GetAnimalFromSelection();
+            if (!(a is null))
+            {
+                _services.AddScoped((p) => new AjouterOrdonnance(p.GetRequiredService<AnimalController>(), p.GetRequiredService<OrdonnanceController>(), p.GetRequiredService<SoinController>(), _services, a));
+                using(ServiceProvider provider = _services.BuildServiceProvider())
+                {
+                    var dlg = provider.GetService<AjouterOrdonnance>();
+                    dlg.ShowDialog();
+                }
+            }
+
         }
     }
 }

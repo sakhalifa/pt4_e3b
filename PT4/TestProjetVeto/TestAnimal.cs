@@ -53,17 +53,17 @@ namespace TestProjetVeto
             var data = new List<ANIMAL>
             {
                 new ANIMAL
-            {
-                IDANIMAL = 1,
-                CLIENT = clientTest,
-                NOMESPECE = "chat",
-                NOMRACE = "tigre",
-                NOMANIMAL = "Test",
-                DATENAISSANCE = new DateTime(2009, 3, 10, 10, 0, 0),
-                TAILLE = 18,
-                POIDS = 7
-            }
-        };
+                {
+                    IDANIMAL = 1,
+                    CLIENT = clientTest,
+                    NOMESPECE = "chat",
+                    NOMRACE = "tigre",
+                    NOMANIMAL = "Test",
+                    DATENAISSANCE = new DateTime(2009, 3, 10, 10, 0, 0),
+                    TAILLE = 18,
+                    POIDS = 7
+                }
+            };
 
             var mockSet = Utils.CreateDbSet(data);
 

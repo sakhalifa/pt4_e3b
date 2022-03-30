@@ -28,6 +28,26 @@ namespace PT4.Controllers
             });
         }
 
+        public void SubscribeSoins(OnChanged<SOIN> onChanged)
+        {
+            _soinRepository.Subscribe(onChanged);
+        }
+
+        public void UnSubscribeSoins(OnChanged<SOIN> onChanged)
+        {
+            _soinRepository.UnSubscribe(onChanged);
+        }
+
+        public void SubscribeDeleteSoins(OnDelete<SOIN> onDelete)
+        {
+            _soinRepository.SubscribeDelete(onDelete);
+        }
+
+        public void UnSubscribeDeleteSoins(OnDelete<SOIN> onDelete)
+        {
+            _soinRepository.UnSubscribeDelete(onDelete);
+        }
+
 
 
 

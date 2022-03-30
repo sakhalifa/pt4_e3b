@@ -14,12 +14,18 @@ namespace PT4
     
     public partial class ORDONNANCE
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ORDONNANCE()
+        {
+            this.SOIN = new HashSet<SOIN>();
+        }
+    
         public short ID { get; set; }
         public short IDANIMAL { get; set; }
-        public short ID_CONCERNE { get; set; }
         public System.DateTime DATEORDO { get; set; }
     
         public virtual ANIMAL ANIMAL { get; set; }
-        public virtual SOIN SOIN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SOIN> SOIN { get; set; }
     }
 }

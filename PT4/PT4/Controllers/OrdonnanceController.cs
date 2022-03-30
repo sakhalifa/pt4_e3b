@@ -16,12 +16,15 @@ namespace PT4.Controllers
             _ordonnanceRepository = ordonnanceRepository;
         }
 
-        public void CreerOrdonnance(DateTime dateOrdonnance)
+        public void CreerOrdonnance(ANIMAL animal, IEnumerable<SOIN> soins)
         {
-            _ordonnanceRepository.Insert(new ORDONNANCE
+
+            _ordonnanceRepository.Insert(new ORDONNANCE()
             {
-                DATEORDO = dateOrdonnance
+                ANIMAL = animal,
+                SOIN = soins.ToList()
             });
+            _ordonnanceRepository.Save();
         }
 
     }
