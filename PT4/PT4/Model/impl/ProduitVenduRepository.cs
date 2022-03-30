@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class ProduitVenduRepository : AbstractRepository<PRODUIT_VENDU>
+    public class ProduitVenduRepository : AbstractRepository<PRODUIT_VENDU>
     {
         public ProduitVenduRepository(DbContext context) : base(context)
         {
