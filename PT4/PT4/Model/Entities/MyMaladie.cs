@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace PT4
 {
-    public partial class PRODUIT
+    public partial class MALADIE
     {
-
         public override string ToString()
         {
-            return $"{this.NOMPRODUIT} [{this.QUANTITEENSTOCK}]";
+            return NOMMALADIE;
         }
     }
 }

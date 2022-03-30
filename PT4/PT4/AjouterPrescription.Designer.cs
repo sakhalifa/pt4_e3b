@@ -34,11 +34,13 @@ namespace PT4
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.maladiesListBox = new System.Windows.Forms.ListBox();
+            this.produitListBox = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.buttonAddSickness = new System.Windows.Forms.Button();
+            this.buttonAddProduct = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -93,23 +95,23 @@ namespace PT4
             this.textBoxDescription.Size = new System.Drawing.Size(144, 227);
             this.textBoxDescription.TabIndex = 13;
             // 
-            // listBox1
+            // maladiesListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(33, 96);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(245, 303);
-            this.listBox1.TabIndex = 16;
+            this.maladiesListBox.FormattingEnabled = true;
+            this.maladiesListBox.Location = new System.Drawing.Point(33, 96);
+            this.maladiesListBox.Name = "maladiesListBox";
+            this.maladiesListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.maladiesListBox.Size = new System.Drawing.Size(245, 303);
+            this.maladiesListBox.TabIndex = 16;
             // 
-            // listBox2
+            // produitListBox
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(313, 96);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox2.Size = new System.Drawing.Size(245, 303);
-            this.listBox2.TabIndex = 18;
+            this.produitListBox.FormattingEnabled = true;
+            this.produitListBox.Location = new System.Drawing.Point(313, 96);
+            this.produitListBox.Name = "produitListBox";
+            this.produitListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.produitListBox.Size = new System.Drawing.Size(245, 303);
+            this.produitListBox.TabIndex = 18;
             // 
             // button1
             // 
@@ -139,17 +141,41 @@ namespace PT4
             this.label6.TabIndex = 22;
             this.label6.Text = "Produits";
             // 
+            // buttonAddSickness
+            // 
+            this.buttonAddSickness.Location = new System.Drawing.Point(33, 398);
+            this.buttonAddSickness.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonAddSickness.Name = "buttonAddSickness";
+            this.buttonAddSickness.Size = new System.Drawing.Size(245, 23);
+            this.buttonAddSickness.TabIndex = 23;
+            this.buttonAddSickness.Text = "+";
+            this.buttonAddSickness.UseVisualStyleBackColor = true;
+            this.buttonAddSickness.Click += new System.EventHandler(this.buttonAddSickness_Click);
+            // 
+            // buttonAddProduct
+            // 
+            this.buttonAddProduct.Location = new System.Drawing.Point(313, 398);
+            this.buttonAddProduct.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonAddProduct.Name = "buttonAddProduct";
+            this.buttonAddProduct.Size = new System.Drawing.Size(245, 23);
+            this.buttonAddProduct.TabIndex = 24;
+            this.buttonAddProduct.Text = "+";
+            this.buttonAddProduct.UseVisualStyleBackColor = true;
+            this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddProduct_Click);
+            // 
             // AjouterPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonAddProduct);
+            this.Controls.Add(this.buttonAddSickness);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.produitListBox);
+            this.Controls.Add(this.maladiesListBox);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
@@ -167,10 +193,12 @@ namespace PT4
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxDescription;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox maladiesListBox;
+        private System.Windows.Forms.ListBox produitListBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button buttonAddSickness;
+        private System.Windows.Forms.Button buttonAddProduct;
     }
 }

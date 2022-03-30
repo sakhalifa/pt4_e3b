@@ -26,7 +26,8 @@ namespace PT4.Controllers
             _ordonnanceRepository.Insert(new ORDONNANCE()
             {
                 ANIMAL = animal,
-                SOIN = soins.ToList()
+                SOIN = soins.ToList(),
+                DATEORDO = DateTime.Now
             });
             _ordonnanceRepository.Save();
         }

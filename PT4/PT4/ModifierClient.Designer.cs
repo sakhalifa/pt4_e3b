@@ -57,10 +57,10 @@ namespace PT4
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rajouterUneMaladieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.creerUneOrdonnanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimermortXdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.confirmButton = new System.Windows.Forms.Button();
-            this.créerUneOrdonnanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topLayout.SuspendLayout();
             this.textBoxesLayout.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -316,7 +316,7 @@ namespace PT4
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modifierToolStripMenuItem,
             this.rajouterUneMaladieToolStripMenuItem,
-            this.créerUneOrdonnanceToolStripMenuItem,
+            this.creerUneOrdonnanceToolStripMenuItem,
             this.supprimermortXdToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(193, 114);
@@ -334,6 +334,13 @@ namespace PT4
             this.rajouterUneMaladieToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.rajouterUneMaladieToolStripMenuItem.Text = "Déclarer une maladie";
             this.rajouterUneMaladieToolStripMenuItem.Click += new System.EventHandler(this.rajouterUneMaladieToolStripMenuItem_Click);
+            // 
+            // creerUneOrdonnanceToolStripMenuItem
+            // 
+            this.creerUneOrdonnanceToolStripMenuItem.Name = "creerUneOrdonnanceToolStripMenuItem";
+            this.creerUneOrdonnanceToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.creerUneOrdonnanceToolStripMenuItem.Text = "Créer une ordonnance";
+            this.creerUneOrdonnanceToolStripMenuItem.Click += new System.EventHandler(this.creerUneOrdonnanceToolStripMenuItem_Click);
             // 
             // supprimermortXdToolStripMenuItem
             // 
@@ -368,13 +375,6 @@ namespace PT4
             this.confirmButton.Text = "Confirmer";
             this.confirmButton.UseVisualStyleBackColor = true;
             this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
-            // 
-            // créerUneOrdonnanceToolStripMenuItem
-            // 
-            this.créerUneOrdonnanceToolStripMenuItem.Name = "créerUneOrdonnanceToolStripMenuItem";
-            this.créerUneOrdonnanceToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.créerUneOrdonnanceToolStripMenuItem.Text = "Créer une ordonnance";
-            this.créerUneOrdonnanceToolStripMenuItem.Click += new System.EventHandler(this.créerUneOrdonnanceToolStripMenuItem_Click);
             // 
             // ModifierClient
             // 
@@ -435,6 +435,6 @@ namespace PT4
         private System.Windows.Forms.DataGridViewTextBoxColumn Taille;
         private System.Windows.Forms.DataGridViewTextBoxColumn Poids;
         private System.Windows.Forms.DataGridViewTextBoxColumn NbreMaladies;
-        private System.Windows.Forms.ToolStripMenuItem créerUneOrdonnanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem creerUneOrdonnanceToolStripMenuItem;
     }
 }

@@ -68,11 +68,14 @@ namespace PT4
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            services.AddScoped<AjouterPrescription>();
+            services.AddScoped<Connexion>();
             using (ServiceProvider provider = services.BuildServiceProvider())
             {
-                AjouterPrescription form = provider.GetService<AjouterPrescription>();
-                Application.Run(form);
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    var form = serviceScope.ServiceProvider.GetService<Connexion>();
+                    Application.Run(form);
+                }
             }
         }
     }

@@ -27,6 +27,10 @@ namespace PT4
             _services = services;
             labelAnimal.Text = animal.NOMANIMAL;
             _animal = animal;
+            foreach(SOIN s in soinController.FindAll())
+            {
+                listBox1.Items.Add(s);
+            }
 
             soinController.SubscribeSoins(OnChanged);
             soinController.SubscribeDeleteSoins(OnDelete);
@@ -36,11 +40,14 @@ namespace PT4
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            _services.AddScoped<CreerPrescription>();
+            _services.AddScoped<AjouterPrescription>();
             using(ServiceProvider provider = _services.BuildServiceProvider())
             {
-                var dlg = provider.GetService<CreerPrescription>();
-                dlg.ShowDialog();
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    var dlg = serviceScope.ServiceProvider.GetService<AjouterPrescription>();
+                    dlg.ShowDialog();
+                }
             }
         }
 
@@ -94,6 +101,7 @@ namespace PT4
             }
             _ordonnanceController.CreerOrdonnance(_animal, listBox1.SelectedItems.Cast<SOIN>());
             MessageBox.Show($"Vous avez bien créé l'ordonnance pour l'animal {_animal.NOMANIMAL}");
+            this.Close();
         }
     }
 }

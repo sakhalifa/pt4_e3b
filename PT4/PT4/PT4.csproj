@@ -139,6 +139,12 @@
     <Compile Include="AfficherClient.Designer.cs">
       <DependentUpon>AfficherClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="AfficherSoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherSoin.Designer.cs">
+      <DependentUpon>AfficherSoin.cs</DependentUpon>
+    </Compile>
     <Compile Include="AfficherStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,8 +218,10 @@
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Entities\MyAnimal.cs" />
+    <Compile Include="Model\Entities\MyMaladie.cs" />
     <Compile Include="Model\Entities\MyProduit.cs" />
     <Compile Include="Model\Entities\MyProduitVendu.cs" />
+    <Compile Include="Model\Entities\MySoin.cs" />
     <Compile Include="ModifierAnimal.cs">
       <SubType>Form</SubType>
     </Compile>

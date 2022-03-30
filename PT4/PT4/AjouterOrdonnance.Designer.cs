@@ -31,18 +31,18 @@ namespace PT4
         {
             this.leftRightLayout = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelAnimal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.masterLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonConfirm = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.labelAnimal = new System.Windows.Forms.Label();
+            this.masterLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonConfirm = new System.Windows.Forms.Button();
             this.leftRightLayout.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.masterLayout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.masterLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftRightLayout
@@ -57,7 +57,7 @@ namespace PT4
             this.leftRightLayout.Name = "leftRightLayout";
             this.leftRightLayout.RowCount = 1;
             this.leftRightLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.leftRightLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.leftRightLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 415F));
             this.leftRightLayout.Size = new System.Drawing.Size(794, 415);
             this.leftRightLayout.TabIndex = 0;
             // 
@@ -71,6 +71,16 @@ namespace PT4
             this.panel1.Size = new System.Drawing.Size(134, 45);
             this.panel1.TabIndex = 0;
             // 
+            // labelAnimal
+            // 
+            this.labelAnimal.BackColor = System.Drawing.Color.Transparent;
+            this.labelAnimal.Location = new System.Drawing.Point(7, 22);
+            this.labelAnimal.Name = "labelAnimal";
+            this.labelAnimal.Size = new System.Drawing.Size(127, 23);
+            this.labelAnimal.TabIndex = 1;
+            this.labelAnimal.Text = "label3";
+            this.labelAnimal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
@@ -80,32 +90,6 @@ namespace PT4
             this.label1.TabIndex = 0;
             this.label1.Text = "Animal concerné";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // masterLayout
-            // 
-            this.masterLayout.ColumnCount = 1;
-            this.masterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.masterLayout.Controls.Add(this.leftRightLayout, 0, 0);
-            this.masterLayout.Controls.Add(this.buttonConfirm, 0, 1);
-            this.masterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.masterLayout.Location = new System.Drawing.Point(0, 0);
-            this.masterLayout.Name = "masterLayout";
-            this.masterLayout.RowCount = 2;
-            this.masterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.masterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.masterLayout.Size = new System.Drawing.Size(800, 450);
-            this.masterLayout.TabIndex = 1;
-            // 
-            // buttonConfirm
-            // 
-            this.buttonConfirm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonConfirm.Location = new System.Drawing.Point(362, 424);
-            this.buttonConfirm.Name = "buttonConfirm";
-            this.buttonConfirm.Size = new System.Drawing.Size(75, 23);
-            this.buttonConfirm.TabIndex = 1;
-            this.buttonConfirm.Text = "Confirmer";
-            this.buttonConfirm.UseVisualStyleBackColor = true;
-            this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -150,6 +134,7 @@ namespace PT4
             // 
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
             this.listBox1.Location = new System.Drawing.Point(0, 13);
             this.listBox1.Margin = new System.Windows.Forms.Padding(0);
             this.listBox1.Name = "listBox1";
@@ -157,15 +142,31 @@ namespace PT4
             this.listBox1.Size = new System.Drawing.Size(391, 373);
             this.listBox1.TabIndex = 2;
             // 
-            // labelAnimal
+            // masterLayout
             // 
-            this.labelAnimal.BackColor = System.Drawing.Color.Transparent;
-            this.labelAnimal.Location = new System.Drawing.Point(7, 22);
-            this.labelAnimal.Name = "labelAnimal";
-            this.labelAnimal.Size = new System.Drawing.Size(127, 23);
-            this.labelAnimal.TabIndex = 1;
-            this.labelAnimal.Text = "label3";
-            this.labelAnimal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.masterLayout.ColumnCount = 1;
+            this.masterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.masterLayout.Controls.Add(this.leftRightLayout, 0, 0);
+            this.masterLayout.Controls.Add(this.buttonConfirm, 0, 1);
+            this.masterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.masterLayout.Location = new System.Drawing.Point(0, 0);
+            this.masterLayout.Name = "masterLayout";
+            this.masterLayout.RowCount = 2;
+            this.masterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.masterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.masterLayout.Size = new System.Drawing.Size(800, 450);
+            this.masterLayout.TabIndex = 1;
+            // 
+            // buttonConfirm
+            // 
+            this.buttonConfirm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonConfirm.Location = new System.Drawing.Point(362, 424);
+            this.buttonConfirm.Name = "buttonConfirm";
+            this.buttonConfirm.Size = new System.Drawing.Size(75, 23);
+            this.buttonConfirm.TabIndex = 1;
+            this.buttonConfirm.Text = "Confirmer";
+            this.buttonConfirm.UseVisualStyleBackColor = true;
+            this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
             // AjouterOrdonnance
             // 
@@ -177,9 +178,9 @@ namespace PT4
             this.Text = "AjouterOrdonnance";
             this.leftRightLayout.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.masterLayout.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.masterLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -34,19 +34,22 @@ namespace PT4
             _services.AddScoped<AjouterProduitFacture>();
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
-                var dlg = provider.GetService<AjouterProduitFacture>();
-                if (dlg.ShowDialog() == DialogResult.OK)
+                using (IServiceScope serviceScope = provider.CreateScope())
                 {
-                    PRODUIT p = dlg.prodSelected;
-                    short quantite = dlg.quantiteProd;
-                    try
+                    var dlg = serviceScope.ServiceProvider.GetService<AjouterProduitFacture>();
+                    if (dlg.ShowDialog() == DialogResult.OK)
                     {
-                        _factureController.AddProductToReceipt(facture, p, quantite);
-                        ResetGridView();
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        Utils.ShowError(ex.Message);
+                        PRODUIT p = dlg.prodSelected;
+                        short quantite = dlg.quantiteProd;
+                        try
+                        {
+                            _factureController.AddProductToReceipt(facture, p, quantite);
+                            ResetGridView();
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Utils.ShowError(ex.Message);
+                        }
                     }
                 }
             }
