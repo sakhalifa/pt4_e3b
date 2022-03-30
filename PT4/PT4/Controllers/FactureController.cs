@@ -67,7 +67,7 @@ namespace PT4.Controllers
             {
                 throw new ArgumentException($"ERREUR! Le produit '{p.NOMPRODUIT}' n'est pas vendable!");
             }
-            PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.IDPRODUIT == p.IDPRODUIT);
+            PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.PRODUIT == p);
             if(pv is null)
             {
                 pv = new PRODUIT_VENDU
