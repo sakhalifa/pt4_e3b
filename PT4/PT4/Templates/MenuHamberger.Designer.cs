@@ -40,16 +40,15 @@ namespace PT4
             this.buttonNewSale = new System.Windows.Forms.Button();
             this.panelAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonEmployees = new System.Windows.Forms.Button();
             this.buttonOrdonnances = new System.Windows.Forms.Button();
             this.buttonCare = new System.Windows.Forms.Button();
             this.clientsGestion = new System.Windows.Forms.Button();
             this.buttonStock = new System.Windows.Forms.Button();
             this.buttonManagement = new System.Windows.Forms.Button();
-            this.buttonHamburger = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.buttonX = new System.Windows.Forms.Button();
-            this.buttonEmployees = new System.Windows.Forms.Button();
+            this.buttonHamburger = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -217,6 +216,22 @@ namespace PT4
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
             // 
+            // buttonEmployees
+            // 
+            this.buttonEmployees.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonEmployees.FlatAppearance.BorderSize = 0;
+            this.buttonEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEmployees.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonEmployees.Location = new System.Drawing.Point(0, 160);
+            this.buttonEmployees.Name = "buttonEmployees";
+            this.buttonEmployees.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonEmployees.Size = new System.Drawing.Size(233, 40);
+            this.buttonEmployees.TabIndex = 6;
+            this.buttonEmployees.Text = "Employés";
+            this.buttonEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEmployees.UseVisualStyleBackColor = true;
+            this.buttonEmployees.Click += new System.EventHandler(this.buttonEmployees_Click);
+            // 
             // buttonOrdonnances
             // 
             this.buttonOrdonnances.Dock = System.Windows.Forms.DockStyle.Top;
@@ -297,21 +312,10 @@ namespace PT4
             this.buttonManagement.UseVisualStyleBackColor = true;
             this.buttonManagement.Click += new System.EventHandler(this.buttonManagement_Click);
             // 
-            // buttonHamburger
-            // 
-            this.buttonHamburger.Location = new System.Drawing.Point(763, 12);
-            this.buttonHamburger.Name = "buttonHamburger";
-            this.buttonHamburger.Size = new System.Drawing.Size(25, 25);
-            this.buttonHamburger.TabIndex = 1;
-            this.buttonHamburger.Text = "O";
-            this.buttonHamburger.UseVisualStyleBackColor = true;
-            this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
-            // 
             // panelLogo
             // 
             this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
             this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelLogo.Controls.Add(this.label1);
             this.panelLogo.Controls.Add(this.buttonX);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
@@ -319,15 +323,6 @@ namespace PT4
             this.panelLogo.Padding = new System.Windows.Forms.Padding(30);
             this.panelLogo.Size = new System.Drawing.Size(233, 150);
             this.panelLogo.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(202, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
             // 
             // buttonX
             // 
@@ -339,21 +334,15 @@ namespace PT4
             this.buttonX.UseVisualStyleBackColor = true;
             this.buttonX.Click += new System.EventHandler(this.buttonX_Click);
             // 
-            // buttonEmployees
+            // buttonHamburger
             // 
-            this.buttonEmployees.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonEmployees.FlatAppearance.BorderSize = 0;
-            this.buttonEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEmployees.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonEmployees.Location = new System.Drawing.Point(0, 160);
-            this.buttonEmployees.Name = "buttonEmployees";
-            this.buttonEmployees.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonEmployees.Size = new System.Drawing.Size(233, 40);
-            this.buttonEmployees.TabIndex = 6;
-            this.buttonEmployees.Text = "Employés";
-            this.buttonEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEmployees.UseVisualStyleBackColor = true;
-            this.buttonEmployees.Click += new System.EventHandler(this.buttonEmployees_Click);
+            this.buttonHamburger.Location = new System.Drawing.Point(763, 12);
+            this.buttonHamburger.Name = "buttonHamburger";
+            this.buttonHamburger.Size = new System.Drawing.Size(25, 25);
+            this.buttonHamburger.TabIndex = 1;
+            this.buttonHamburger.Text = "O";
+            this.buttonHamburger.UseVisualStyleBackColor = true;
+            this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
             // 
             // MenuHamberger
             // 
@@ -370,7 +359,6 @@ namespace PT4
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
-            this.panelLogo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -389,7 +377,6 @@ namespace PT4
         private System.Windows.Forms.Button buttonNewSale;
         private System.Windows.Forms.Button buttonLog;
         private System.Windows.Forms.Button buttonX;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button mdpChange;
         private System.Windows.Forms.Button deconnexion;
         private System.Windows.Forms.Button clientsGestion;

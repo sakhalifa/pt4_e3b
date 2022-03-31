@@ -31,9 +31,9 @@ namespace PT4.Controllers
             return _salarieRepo.FindById(id);
         }
 
-        public IQueryable<SALARIÉ> FindAll()
+        public IQueryable<SALARIÉ> FindAllNotAdmin()
         {
-            return _salarieRepo.FindAll();
+            return _salarieRepo.FindWhere((s) => !s.estAdmin);
         }
 
         /// <summary>

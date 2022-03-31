@@ -28,7 +28,7 @@ namespace PT4
 
             this.Closed += (_, __) => { _salarieController.UnSubscribeEmployee(OnChanged); _salarieController.UnSubscribeDeleteEmployee(OnDelete); };
 
-            foreach (SALARIÉ s in _salarieController.FindAll())
+            foreach (SALARIÉ s in _salarieController.FindAllNotAdmin())
             {
                 allSalarie.Items.Add(s);
             }
@@ -44,7 +44,7 @@ namespace PT4
 
         private void OnChanged(IEnumerable<SALARIÉ> args)
         {
-            foreach (SALARIÉ s in args)
+            foreach (SALARIÉ s in args.Where(s => !s.estAdmin))
             {
                 allSalarie.Items.Remove(s);
                 allSalarie.Items.Add(s);
