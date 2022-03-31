@@ -145,6 +145,12 @@
     <Compile Include="AfficherOrdonnance.Designer.cs">
       <DependentUpon>AfficherOrdonnance.cs</DependentUpon>
     </Compile>
+    <Compile Include="AfficherRdv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherRdv.Designer.cs">
+      <DependentUpon>AfficherRdv.cs</DependentUpon>
+    </Compile>
     <Compile Include="AfficherSalarie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,7 @@
     <Compile Include="CONGÉ.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\RendezVousController.cs" />
     <Compile Include="FACTURE.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
@@ -447,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AfficherOrdonnance.resx">
       <DependentUpon>AfficherOrdonnance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfficherRdv.resx">
+      <DependentUpon>AfficherRdv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AfficherSalarie.resx">
       <DependentUpon>AfficherSalarie.cs</DependentUpon>
