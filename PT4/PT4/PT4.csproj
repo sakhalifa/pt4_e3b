@@ -157,11 +157,17 @@
     <Compile Include="AjouterClient.Designer.cs">
       <DependentUpon>AjouterClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="ajouterConge.cs">
+    <Compile Include="AjouterConge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ajouterConge.Designer.cs">
-      <DependentUpon>ajouterConge.cs</DependentUpon>
+    <Compile Include="AjouterConge.Designer.cs">
+      <DependentUpon>AjouterConge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterMaladie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterMaladie.Designer.cs">
+      <DependentUpon>AjouterMaladie.cs</DependentUpon>
     </Compile>
     <Compile Include="AjouterFacture.cs">
       <SubType>Form</SubType>
@@ -187,6 +193,12 @@
     <Compile Include="AjouterStock.Designer.cs">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeclarerMaladie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeclarerMaladie.Designer.cs">
+      <DependentUpon>DeclarerMaladie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Entities\MyAnimal.cs" />
     <Compile Include="Model\Entities\MyProduit.cs" />
     <Compile Include="Model\Entities\MyProduitVendu.cs" />
@@ -196,6 +208,8 @@
     <Compile Include="ModifierAnimal.Designer.cs">
       <DependentUpon>ModifierAnimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Entities\MyMaladie.cs" />
+    <Compile Include="Model\impl\HistoriqueMaladieRepository.cs" />
     <Compile Include="ModifierClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -417,8 +431,14 @@
     <EmbeddedResource Include="AjouterProduitFacture.resx">
       <DependentUpon>AjouterProduitFacture.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AjouterMaladie.resx">
+      <DependentUpon>AjouterMaladie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterStock.resx">
       <DependentUpon>AjouterStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeclarerMaladie.resx">
+      <DependentUpon>DeclarerMaladie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DonneesPersonnelles.resx">
       <DependentUpon>DonneesPersonnelles.cs</DependentUpon>
@@ -447,11 +467,11 @@
     <EmbeddedResource Include="AjouterCompte.resx">
       <DependentUpon>AjouterCompte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajouterConge.resx">
-      <DependentUpon>ajouterConge.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterConge.resx">
+      <DependentUpon>AjouterConge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajouterRDV.resx">
-      <DependentUpon>ajouterRDV.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterRDV.resx">
+      <DependentUpon>AjouterRDV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifierClient.resx">
       <DependentUpon>ModifierClient.cs</DependentUpon>

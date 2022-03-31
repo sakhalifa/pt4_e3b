@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class ajouterRDV : Form
+    public partial class AjouterRDV : Form
     {
         // New ClientController
         private ClientController _clientController;
 
         // Constructor
-        public ajouterRDV(ClientController clientController)
+        public AjouterRDV(ClientController clientController)
         {
             InitializeComponent();
             _clientController = clientController;

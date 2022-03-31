@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PT4.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,26 +11,59 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class ajouterConge : Form
+    public partial class AjouterConge : Form
     {
-        public ajouterConge()
+
+        private SalarieController _salarieController;
+        private int _salarieId;
+        public AjouterConge(int salarieId, SalarieController salarieController)
         {
             InitializeComponent();
+            _salarieController = salarieController;
+            _salarieId = salarieId;
         }
 
-        private void buttonAnnuler_Click(object sender, EventArgs e)
+
+        private void buttonConfirmer_Click(object sender, EventArgs e)
         {
 
-        }
+            if(dateTimePickerFin.Value < dateTimePickerDebut.Value || dateTimePickerDebut.Value.Date < DateTime.Now)
+            {
+                Utils.ShowError("La date de fin doit être supérieure à celle de début");
+                return;
+            }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+            try
+            {
+                _salarieController.PositionnerConge( _salarieId, dateTimePickerDebut.Value.Date, dateTimePickerFin.Value.Date, false, checkBoxRegulier.Checked);           
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            // if not, it shows the error
+            catch (ArgumentException ex)
+            {
+                Utils.ShowError(ex.Message);
+                return;
+            }
 
-        }
+            catch (DataMisalignedException ex)
+            {
+                if((bool)ex.Data["canModify"])
+                {
+                    if (MessageBox.Show("La case 'Est Régulier' ne correspond pas au congé correspondant. Souhaitez-vous le modifier ? ", "Confirmation : ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+                        _salarieController.PositionnerConge(_salarieId, dateTimePickerDebut.Value.Date, dateTimePickerFin.Value.Date, true, checkBoxRegulier.Checked);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La case 'Est Régulier' ne correspond pas au congé correspondant. Vous n'avez pas les droits pour le modifier");
+                }
+                 
+            }
         }
     }
 }
