@@ -34,6 +34,7 @@
             this.allSalarie = new System.Windows.Forms.ListBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierLeMdpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.masterLayout.SuspendLayout();
             this.SuspendLayout();
@@ -41,9 +42,10 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.supprimerToolStripMenuItem});
+            this.supprimerToolStripMenuItem,
+            this.modifierLeMdpToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(160, 48);
             // 
             // masterLayout
             // 
@@ -68,6 +70,7 @@
             this.allSalarie.Location = new System.Drawing.Point(0, 0);
             this.allSalarie.Margin = new System.Windows.Forms.Padding(0);
             this.allSalarie.Name = "allSalarie";
+            this.allSalarie.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.allSalarie.Size = new System.Drawing.Size(390, 368);
             this.allSalarie.TabIndex = 1;
             // 
@@ -81,6 +84,7 @@
             this.buttonAdd.TabIndex = 2;
             this.buttonAdd.Text = "+";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // supprimerToolStripMenuItem
             // 
@@ -88,6 +92,13 @@
             this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
+            // 
+            // modifierLeMdpToolStripMenuItem
+            // 
+            this.modifierLeMdpToolStripMenuItem.Name = "modifierLeMdpToolStripMenuItem";
+            this.modifierLeMdpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifierLeMdpToolStripMenuItem.Text = "Modifier le mdp";
+            this.modifierLeMdpToolStripMenuItem.Click += new System.EventHandler(this.modifierLeMdpToolStripMenuItem_Click);
             // 
             // AfficherSalarie
             // 
@@ -110,5 +121,6 @@
         private System.Windows.Forms.ListBox allSalarie;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifierLeMdpToolStripMenuItem;
     }
 }

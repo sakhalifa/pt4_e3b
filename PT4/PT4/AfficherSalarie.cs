@@ -28,7 +28,7 @@ namespace PT4
 
             this.Closed += (_, __) => { _salarieController.UnSubscribeEmployee(OnChanged); _salarieController.UnSubscribeDeleteEmployee(OnDelete); };
 
-            foreach(SALARIÉ s in _salarieController.FindAll())
+            foreach (SALARIÉ s in _salarieController.FindAll())
             {
                 allSalarie.Items.Add(s);
             }
@@ -36,7 +36,7 @@ namespace PT4
 
         private void OnDelete(IEnumerable<SALARIÉ> args)
         {
-            foreach(SALARIÉ s in args)
+            foreach (SALARIÉ s in args)
             {
                 allSalarie.Items.Remove(s);
             }
@@ -44,7 +44,7 @@ namespace PT4
 
         private void OnChanged(IEnumerable<SALARIÉ> args)
         {
-            foreach(SALARIÉ s in args)
+            foreach (SALARIÉ s in args)
             {
                 allSalarie.Items.Remove(s);
                 allSalarie.Items.Add(s);
@@ -59,20 +59,49 @@ namespace PT4
                 using (IServiceScope serviceScope = provider.CreateScope())
                 {
                     var form = serviceScope.ServiceProvider.GetService<AjouterCompte>();
-                    Application.Run(form);
+                    form.ShowDialog();
                 }
             }
         }
 
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(allSalarie.SelectedItem != null)
+            if (allSalarie.SelectedItem != null)
             {
-                if(MessageBox.Show("Voulez-vous vraiment supprimer ce salarié?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes) {
-                    SALARIÉ s = (SALARIÉ)allSalarie.SelectedItem;
-                    _salarieController.Delete(s);
-                    MessageBox.Show($"Vous avez bien supprimé le salarié {s.LOGIN}");
+                if (MessageBox.Show("Voulez-vous vraiment supprimer ce(s) salarié(s)?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var castedSalarie = allSalarie.SelectedItems.Cast<SALARIÉ>();
+                    StringBuilder sb = new StringBuilder("Vous avez bien supprimé le(s) salarié(s) ");
+                    foreach (SALARIÉ s in castedSalarie)
+                    {
+                        sb.Append($"'{s.LOGIN}' ");
+                    }
+                    sb.RemoveLastCharacter();
+                    _salarieController.DeleteBulk(castedSalarie);
+                    
+                    MessageBox.Show(sb.ToString());
                 }
+            }
+        }
+
+        private void modifierLeMdpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (allSalarie.SelectedItems.Count == 1)
+            {
+                SALARIÉ s = (SALARIÉ)allSalarie.SelectedItems[0];
+                _services.AddScoped((p) => new ModifierMdp(p.GetRequiredService<SalarieController>(), s.IDCOMPTE));
+                using (ServiceProvider provider = _services.BuildServiceProvider())
+                {
+                    using (IServiceScope serviceScope = provider.CreateScope())
+                    {
+                        var form = serviceScope.ServiceProvider.GetService<ModifierMdp>();
+                        form.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                Utils.ShowError("ERREUR! Veuillez choisir 1 et 1 seul salarié !");
             }
         }
     }

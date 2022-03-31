@@ -74,9 +74,19 @@ namespace PT4.Controllers
             _salarieRepo.Save();
         }
 
-        internal void Delete(SALARIÉ selectedItem)
+        public void Delete(SALARIÉ s)
         {
-            throw new NotImplementedException();
+            _salarieRepo.Delete(s);
+            _salarieRepo.Save();
+        }
+
+        public void DeleteBulk(IEnumerable<SALARIÉ> salaries)
+        {
+            foreach(SALARIÉ s in salaries)
+            {
+                _salarieRepo.Delete(s);
+            }
+            _salarieRepo.Save();
         }
 
         public void DonneesPersoSalarie(SALARIÉ s, string donnees_perso)
