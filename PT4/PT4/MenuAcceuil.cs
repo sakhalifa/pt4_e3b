@@ -43,5 +43,17 @@ namespace PT4
             monthCalendar1.RemoveAllBoldedDates();
             InitializeBoldedDates();
         }
+
+        private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            _services.AddScoped((p) => new AfficherJournee(p.GetRequiredService<RendezVousController>(), e.Start));
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using(IServiceScope scope = provider.CreateScope())
+                {
+                    scope.ServiceProvider.GetService<AfficherJournee>().ShowDialog();
+                }
+            }
+        }
     }
 }

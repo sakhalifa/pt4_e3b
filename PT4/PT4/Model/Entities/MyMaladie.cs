@@ -10,7 +10,7 @@ namespace PT4
     {
         public override string ToString()
         {
-            return NOMMALADIE;
+            return this.NOMMALADIE;
         }
     }
 }

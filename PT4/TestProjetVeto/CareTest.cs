@@ -34,7 +34,7 @@ namespace TestProjetVeto
             var mockContext = new Mock<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>();
             mockContext.Setup(c => c.Set<SOIN>()).Returns(mockSet);
 
-            var mockRepo = Utils.CreateMockRepo<SoinRepository, SOIN>(mockContext.Object);
+            /*var mockRepo = Utils.CreateMockRepo<SoinRepository, SOIN>(mockContext.Object);
             var careRepo = mockRepo.Object;
 
             var careController = new SoinController(careRepo);
@@ -44,7 +44,8 @@ namespace TestProjetVeto
 
             Assert.AreEqual(0, care.Count()); // Test if the database is empty
 
-            careController.CreerSoin(careTest.DESCRIPTION);
+            careController.CreateCare(careTest.DESCRIPTION);
+            */
 
             //Assert.AreEqual(1, maladies.Count()); ; // Test if the order creation function in the database works
         }

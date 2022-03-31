@@ -66,24 +66,24 @@ namespace PT4
         {
             if (clients.SelectedItem is null)
             {
-                _services.AddScoped<ajouterRDV>();
+                _services.AddScoped<AjouterRDV>();
                 using (ServiceProvider provider = _services.BuildServiceProvider())
                 {
                     using (IServiceScope scope = provider.CreateScope())
                     {
-                        scope.ServiceProvider.GetService<ajouterRDV>().ShowDialog();
+                        scope.ServiceProvider.GetService<AjouterRDV>().ShowDialog();
                     }
                 }
             }
             else
             {
                 CLIENT c = (CLIENT)clients.SelectedItem;
-                _services.AddScoped<ajouterRDV>();
+                _services.AddScoped<AjouterRDV>();
                 using (ServiceProvider provider = _services.BuildServiceProvider())
                 {
                     using (IServiceScope scope = provider.CreateScope())
                     {
-                        var dlg = scope.ServiceProvider.GetService<ajouterRDV>();
+                        var dlg = scope.ServiceProvider.GetService<AjouterRDV>();
                         dlg.SetClient(c);
                         dlg.ShowDialog();
                     }

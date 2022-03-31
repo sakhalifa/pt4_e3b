@@ -11,12 +11,13 @@ namespace PT4.Controllers
     public class AnimalController
     {
         private IGenericRepository<ANIMAL> _animalRepository;
+        private IGenericRepository<HISTORIQUEMALADIE> _histoMaladieRepo;
 
-        
 
-        public AnimalController(IGenericRepository<ANIMAL> animalRepository)
+        public AnimalController(IGenericRepository<ANIMAL> animalRepository, IGenericRepository<HISTORIQUEMALADIE> histoMaladieRepo)
         {
             _animalRepository = animalRepository;
+            _histoMaladieRepo = histoMaladieRepo;
         }
 
         public void SubscribeAnimal(OnChanged<ANIMAL> onChanged)
@@ -86,6 +87,25 @@ namespace PT4.Controllers
         {
             _animalRepository.Delete(a);
             _animalRepository.Save();
+        }
+
+        public void AddSickness(ANIMAL a, MALADIE m, DateTime date)
+        {
+            var histo = new HISTORIQUEMALADIE() { DATEDEBUT = date };
+            //Verif pas de histo avec la MEME date de début, le même ANIMAL pour 1 maladie
+            var tt = a.HISTORIQUEMALADIE.Where((h) => h.DATEDEBUT == date).Intersect(m.HISTORIQUEMALADIE.Where((h) => h.DATEDEBUT == date));
+            
+            if(tt.Count() > 0)
+            {
+                throw new ArgumentException("ERREUR! La maladie a déjà été déclarée");
+            }
+            histo.MALADIE.Add(m);
+            histo.ANIMAL.Add(a);
+            
+            a.HISTORIQUEMALADIE.Add(histo);
+            _animalRepository.Update(a);
+            _animalRepository.Save();
+      
         }
 
     }

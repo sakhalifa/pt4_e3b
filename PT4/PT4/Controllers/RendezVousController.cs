@@ -31,6 +31,11 @@ namespace PT4.Controllers
             _rdvRepo.Save();
         }
 
+        internal IEnumerable<RENDEZVOUS> FindForDay(DateTime datePicked)
+        {
+            return _rdvRepo.FindWhere((r) => r.DATEHEURERDV.Day == datePicked.Day);
+        }
+
         public void SubscribeAppointments(OnChanged<RENDEZVOUS> onChanged)
         {
             _rdvRepo.Subscribe(onChanged);
