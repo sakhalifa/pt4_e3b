@@ -31,18 +31,18 @@ namespace PT4
         {
             this.components = new System.ComponentModel.Container();
             this.masterLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.listBoxAddLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.rendezVous = new System.Windows.Forms.ListBox();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.clients = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBoxAddLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.masterLayout.SuspendLayout();
+            this.listBoxAddLayout.SuspendLayout();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
-            this.listBoxAddLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // masterLayout
@@ -60,15 +60,65 @@ namespace PT4
             this.masterLayout.Size = new System.Drawing.Size(416, 373);
             this.masterLayout.TabIndex = 0;
             // 
+            // listBoxAddLayout
+            // 
+            this.listBoxAddLayout.ColumnCount = 1;
+            this.listBoxAddLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.listBoxAddLayout.Controls.Add(this.rendezVous, 0, 0);
+            this.listBoxAddLayout.Controls.Add(this.buttonAdd, 0, 1);
+            this.listBoxAddLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxAddLayout.Location = new System.Drawing.Point(141, 3);
+            this.listBoxAddLayout.Name = "listBoxAddLayout";
+            this.listBoxAddLayout.RowCount = 2;
+            this.listBoxAddLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.listBoxAddLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.listBoxAddLayout.Size = new System.Drawing.Size(272, 367);
+            this.listBoxAddLayout.TabIndex = 2;
+            // 
+            // rendezVous
+            // 
+            this.rendezVous.ContextMenuStrip = this.contextMenuStrip1;
+            this.rendezVous.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rendezVous.FormattingEnabled = true;
+            this.rendezVous.HorizontalScrollbar = true;
+            this.rendezVous.Location = new System.Drawing.Point(0, 0);
+            this.rendezVous.Margin = new System.Windows.Forms.Padding(0);
+            this.rendezVous.Name = "rendezVous";
+            this.rendezVous.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.rendezVous.Size = new System.Drawing.Size(272, 344);
+            this.rendezVous.TabIndex = 1;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAdd.Location = new System.Drawing.Point(0, 344);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(272, 23);
+            this.buttonAdd.TabIndex = 2;
+            this.buttonAdd.Text = "+";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.clients);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 162);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(132, 48);
             this.panel1.TabIndex = 0;
+            // 
+            // clients
+            // 
+            this.clients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.clients.FormattingEnabled = true;
+            this.clients.Location = new System.Drawing.Point(3, 16);
+            this.clients.Name = "clients";
+            this.clients.Size = new System.Drawing.Size(121, 21);
+            this.clients.TabIndex = 1;
+            this.clients.SelectedIndexChanged += new System.EventHandler(this.clients_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -78,26 +128,6 @@ namespace PT4
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Client";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 16);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(272, 344);
-            this.listBox1.TabIndex = 1;
             // 
             // contextMenuStrip1
             // 
@@ -109,35 +139,9 @@ namespace PT4
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
-            // 
-            // listBoxAddLayout
-            // 
-            this.listBoxAddLayout.ColumnCount = 1;
-            this.listBoxAddLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.listBoxAddLayout.Controls.Add(this.listBox1, 0, 0);
-            this.listBoxAddLayout.Controls.Add(this.button1, 0, 1);
-            this.listBoxAddLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxAddLayout.Location = new System.Drawing.Point(141, 3);
-            this.listBoxAddLayout.Name = "listBoxAddLayout";
-            this.listBoxAddLayout.RowCount = 2;
-            this.listBoxAddLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.listBoxAddLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.listBoxAddLayout.Size = new System.Drawing.Size(272, 367);
-            this.listBoxAddLayout.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(0, 344);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(272, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
             // AfficherRdv
             // 
@@ -148,10 +152,10 @@ namespace PT4
             this.Name = "AfficherRdv";
             this.Text = "AfficherRdv";
             this.masterLayout.ResumeLayout(false);
+            this.listBoxAddLayout.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.listBoxAddLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -160,12 +164,12 @@ namespace PT4
 
         private System.Windows.Forms.TableLayoutPanel masterLayout;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox clients;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox rendezVous;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel listBoxAddLayout;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }

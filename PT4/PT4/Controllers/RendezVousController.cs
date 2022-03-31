@@ -21,6 +21,16 @@ namespace PT4.Controllers
             return _rdvRepo.FindAll();
         }
 
+        public void DeleteBulk(IEnumerable<RENDEZVOUS> toDelete)
+        {
+            foreach(RENDEZVOUS r in toDelete)
+            {
+                _rdvRepo.Delete(r);
+                
+            }
+            _rdvRepo.Save();
+        }
+
         public void SubscribeAppointments(OnChanged<RENDEZVOUS> onChanged)
         {
             _rdvRepo.Subscribe(onChanged);

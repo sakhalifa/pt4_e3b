@@ -247,6 +247,7 @@
     <Compile Include="Model\Entities\MyOrdonnance.cs" />
     <Compile Include="Model\Entities\MyProduit.cs" />
     <Compile Include="Model\Entities\MyProduitVendu.cs" />
+    <Compile Include="Model\Entities\MyRendezVous.cs" />
     <Compile Include="Model\Entities\MySalarie.cs" />
     <Compile Include="Model\Entities\MySoin.cs" />
     <Compile Include="ModifierAnimal.cs">

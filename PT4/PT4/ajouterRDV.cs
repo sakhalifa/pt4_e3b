@@ -28,6 +28,13 @@ namespace PT4
             }
         } 
 
+        public void SetClient(CLIENT c)
+        {
+            comboBoxClient.Items.Clear();
+            comboBoxClient.Items.Add(c);
+            comboBoxClient.SelectedItem = c;
+        }
+
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
             // If there is no reason written
