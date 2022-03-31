@@ -81,6 +81,7 @@ namespace PT4
             this.stocks.Location = new System.Drawing.Point(3, 3);
             this.stocks.Name = "stocks";
             this.stocks.ReadOnly = true;
+            this.stocks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.stocks.Size = new System.Drawing.Size(544, 374);
             this.stocks.TabIndex = 0;
             this.stocks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

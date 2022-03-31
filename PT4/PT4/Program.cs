@@ -31,6 +31,7 @@ namespace PT4
             var produitVenduRepo = new ProduitVenduRepository(dbContext);
             var rdvRepo = new RendezVousRepository(dbContext);
             var salarieRepo = new SalarieRepository(dbContext);
+            var careRepo = new SoinRepository(dbContext);
 
             services.AddSingleton<IGenericRepository<ANIMAL>>(animalRepo)
                     .AddSingleton<IGenericRepository<CLIENT>>(clientRepo)
@@ -42,14 +43,16 @@ namespace PT4
                     .AddSingleton<IGenericRepository<PRODUIT_VENDU>>(produitVenduRepo)
                     .AddSingleton<IGenericRepository<RENDEZVOUS>>(rdvRepo)
                     .AddSingleton<IGenericRepository<SALARIÉ>>(salarieRepo)
+                    .AddSingleton<IGenericRepository<SOIN>>(careRepo)
                     .AddTransient<AnimalController>()
                     .AddTransient<ClientController>()
                     .AddTransient<SalarieController>()
                     .AddTransient<FactureController>()
-                    .AddTransient<MaladieRepository>()
-                    .AddTransient<OrdonnanceRepository>()
+                    .AddTransient<MaladiesController>()
+                    .AddTransient<OrdonnanceController>()
                     .AddTransient<ProduitController>()
                     .AddTransient<SoinController>()
+                    .AddTransient<RendezVousController>()
             ;
             services.AddSingleton(services);
         }
@@ -69,8 +72,11 @@ namespace PT4
             services.AddScoped<Connexion>();
             using (ServiceProvider provider = services.BuildServiceProvider())
             {
-                Connexion form = provider.GetService<Connexion>();
-                Application.Run(form);
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    var form = serviceScope.ServiceProvider.GetService<Connexion>();
+                    Application.Run(form);
+                }
             }
         }
     }

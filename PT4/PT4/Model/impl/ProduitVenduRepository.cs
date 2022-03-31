@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    class ProduitVenduRepository : AbstractRepository<PRODUIT_VENDU>
+    public class ProduitVenduRepository : AbstractRepository<PRODUIT_VENDU>
     {
         public ProduitVenduRepository(DbContext context) : base(context)
         {
@@ -24,7 +24,7 @@ namespace PT4.Model.impl
             return _context.Set<PRODUIT_VENDU>().AsQueryable();
         }
 
-        public override PRODUIT_VENDU FindById(int id)
+        public override PRODUIT_VENDU FindById(params object[] id)
         {
             throw new NotSupportedException("ERREUR! Ce n'est pas à récupérer via un id.");
         }

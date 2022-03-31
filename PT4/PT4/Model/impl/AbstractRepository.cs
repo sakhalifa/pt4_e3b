@@ -26,7 +26,7 @@ namespace PT4.Model.impl
 
         public abstract IQueryable<T> FindWhere(Expression<Func<T, bool>> predicate);
 
-        public abstract T FindById(int id);
+        public abstract T FindById(params object[] id);
 
         public abstract void Insert(T obj);
 
@@ -36,12 +36,13 @@ namespace PT4.Model.impl
 
         public virtual void Save()
         {
+            List<T> entriesOfTypeChanged = new List<T>();
+            List<T> entriesOfTypeDeleted = new List<T>();
             _context.ChangeTracker.DetectChanges();
             if (_context.ChangeTracker.HasChanges())
             {
                 IEnumerable<DbEntityEntry> entriesChanged = _context.ChangeTracker.Entries();
-                List<T> entriesOfTypeChanged = new List<T>();
-                List<T> entriesOfTypeDeleted = new List<T>();
+                
 
                 foreach (DbEntityEntry entry in entriesChanged)
                 {
@@ -59,17 +60,19 @@ namespace PT4.Model.impl
                     }
 
                 }
-                if (entriesOfTypeChanged.Count() > 0)
-                {
-                    OnChangedHandler?.Invoke(entriesOfTypeChanged);
-                }
-                if(entriesOfTypeDeleted.Count() > 0) { 
-                    OnDeleteHandler?.Invoke(entriesOfTypeDeleted);
-                }
+                
 
 
             }
             _context.SaveChanges();
+            if (entriesOfTypeChanged.Count() > 0)
+            {
+                OnChangedHandler?.Invoke(entriesOfTypeChanged);
+            }
+            if (entriesOfTypeDeleted.Count() > 0)
+            {
+                OnDeleteHandler?.Invoke(entriesOfTypeDeleted);
+            }
 
         }
 

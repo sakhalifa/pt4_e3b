@@ -21,7 +21,7 @@ namespace PT4.Model.impl
             return _context.Set<CLIENT>().AsQueryable();
         }
 
-        public override CLIENT FindById(int id)
+        public override CLIENT FindById(params object[] id)
         {
             return _context.Set<CLIENT>().Find(id);
         }

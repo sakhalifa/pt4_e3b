@@ -57,13 +57,13 @@ namespace TestProjetVeto
             //END OF DATA MOCK CREATION
             var customers = customerRepo.FindAll();
 
-            Assert.AreEqual(0, customers.Count()); //Test si la base est bien vide
+            Assert.AreEqual(0, customers.Count()); // Test if the database is empty
 
             customerController.CreerClient(testCustomer.NOMCLIENT, testCustomer.PRENOMCLIENT, testCustomer.NUMERO, testCustomer.EMAIL);
 
             customers = customerRepo.FindAll();
 
-            Assert.AreEqual(1, customers.Count()); // Test si la fonction de création d'un client dans la base marche 
+            Assert.AreEqual(1, customers.Count()); // Test if the creation function of a customer in the database works
         }
 
         [TestMethod]
@@ -87,13 +87,13 @@ namespace TestProjetVeto
             //END OF DATA MOCK CREATION
             var customers = appointmentRepo.FindAll();
 
-            Assert.AreEqual(0, customers.Count()); //Test si la base est bien vide
+            Assert.AreEqual(0, customers.Count()); // Test if the database is empty
 
             customerController.CreerRendezVous(testCustomer, testAppointment.DATEHEURERDV, testAppointment.RAISON, testAppointment.HEUREFINRDV);
 
             customers = appointmentRepo.FindAll();
 
-            Assert.AreEqual(1, customers.Count()); // Test si la fonction de création d'un rendez vous dans la base marche 
+            Assert.AreEqual(1, customers.Count()); // Test if the creation function of a rendez vous in the database works
         }
     }
 }

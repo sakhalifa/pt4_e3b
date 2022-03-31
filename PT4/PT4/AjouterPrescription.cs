@@ -1,50 +1,20 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PT4.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class AjouterPrescription : Form
+    public partial class AjouterPrescription : PT4.TemplateSoin
     {
-        public AjouterPrescription()
+        public AjouterPrescription(MaladiesController diseaseController, ProduitController productController, SoinController careController, ServiceCollection service) : base(diseaseController, productController, careController, service)
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CreerPrescription_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

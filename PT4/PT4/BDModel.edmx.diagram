@@ -22,13 +22,13 @@
         <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.FK_FACTURE_CLIENT" ManuallyRouted="false" />
         <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.FK_RENDEZVOUS_CLIENT" ManuallyRouted="false" />
         <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.FK_PRODUIT_VENDU_FACTURE" ManuallyRouted="false" />
-        <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.FK_ORDONNANCE_SOIN" ManuallyRouted="false" />
         <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.FK_PRODUIT_VENDU_PRODUIT" ManuallyRouted="false" />
         <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.A_CONTRACTÉ" ManuallyRouted="false" />
         <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.A_ÉTÉ_CONTRACTÉ" ManuallyRouted="false" />
         <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_DANS_LE_SOIN" ManuallyRouted="false" />
         <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_SOIGNÉ" ManuallyRouted="false" />
         <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.ESTENCONGÉ" ManuallyRouted="false" />
+        <AssociationConnector Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_DANS_LORDONNANCE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

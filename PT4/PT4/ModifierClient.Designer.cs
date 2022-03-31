@@ -47,12 +47,6 @@ namespace PT4
             this.gridViewLayout = new System.Windows.Forms.TableLayoutPanel();
             this.addAnimal = new System.Windows.Forms.Button();
             this.animalGridView = new System.Windows.Forms.DataGridView();
-            this.masterLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.confirmButton = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rajouterUneMaladieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.supprimermortXdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Espece = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +54,13 @@ namespace PT4
             this.Taille = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Poids = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NbreMaladies = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rajouterUneMaladieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.creerUneOrdonnanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimermortXdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.masterLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.confirmButton = new System.Windows.Forms.Button();
             this.topLayout.SuspendLayout();
             this.textBoxesLayout.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -68,8 +69,8 @@ namespace PT4
             this.panel1.SuspendLayout();
             this.gridViewLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animalGridView)).BeginInit();
-            this.masterLayout.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.masterLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // topLayout
@@ -263,65 +264,9 @@ namespace PT4
             this.animalGridView.Margin = new System.Windows.Forms.Padding(0);
             this.animalGridView.Name = "animalGridView";
             this.animalGridView.ReadOnly = true;
+            this.animalGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.animalGridView.Size = new System.Drawing.Size(550, 372);
             this.animalGridView.TabIndex = 2;
-            // 
-            // masterLayout
-            // 
-            this.masterLayout.ColumnCount = 1;
-            this.masterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.masterLayout.Controls.Add(this.confirmButton, 0, 1);
-            this.masterLayout.Controls.Add(this.topLayout, 0, 0);
-            this.masterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.masterLayout.Location = new System.Drawing.Point(0, 0);
-            this.masterLayout.Name = "masterLayout";
-            this.masterLayout.RowCount = 2;
-            this.masterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.masterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.masterLayout.Size = new System.Drawing.Size(800, 450);
-            this.masterLayout.TabIndex = 1;
-            // 
-            // confirmButton
-            // 
-            this.confirmButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.confirmButton.Location = new System.Drawing.Point(362, 417);
-            this.confirmButton.Margin = new System.Windows.Forms.Padding(10);
-            this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(75, 23);
-            this.confirmButton.TabIndex = 0;
-            this.confirmButton.Text = "Confirmer";
-            this.confirmButton.UseVisualStyleBackColor = true;
-            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modifierToolStripMenuItem,
-            this.rajouterUneMaladieToolStripMenuItem,
-            this.supprimermortXdToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(186, 70);
-            // 
-            // modifierToolStripMenuItem
-            // 
-            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.modifierToolStripMenuItem.Text = "Modifier";
-            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
-            // 
-            // rajouterUneMaladieToolStripMenuItem
-            // 
-            this.rajouterUneMaladieToolStripMenuItem.Name = "rajouterUneMaladieToolStripMenuItem";
-            this.rajouterUneMaladieToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.rajouterUneMaladieToolStripMenuItem.Text = "Déclarer une maladie";
-            this.rajouterUneMaladieToolStripMenuItem.Click += new System.EventHandler(this.rajouterUneMaladieToolStripMenuItem_Click);
-            // 
-            // supprimermortXdToolStripMenuItem
-            // 
-            this.supprimermortXdToolStripMenuItem.Name = "supprimermortXdToolStripMenuItem";
-            this.supprimermortXdToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.supprimermortXdToolStripMenuItem.Text = "Supprimer";
-            this.supprimermortXdToolStripMenuItem.Click += new System.EventHandler(this.supprimermortXdToolStripMenuItem_Click);
             // 
             // Id
             // 
@@ -366,6 +311,71 @@ namespace PT4
             this.NbreMaladies.Name = "NbreMaladies";
             this.NbreMaladies.ReadOnly = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifierToolStripMenuItem,
+            this.rajouterUneMaladieToolStripMenuItem,
+            this.creerUneOrdonnanceToolStripMenuItem,
+            this.supprimermortXdToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(193, 114);
+            // 
+            // modifierToolStripMenuItem
+            // 
+            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.modifierToolStripMenuItem.Text = "Modifier";
+            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
+            // 
+            // rajouterUneMaladieToolStripMenuItem
+            // 
+            this.rajouterUneMaladieToolStripMenuItem.Name = "rajouterUneMaladieToolStripMenuItem";
+            this.rajouterUneMaladieToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.rajouterUneMaladieToolStripMenuItem.Text = "Déclarer une maladie";
+            this.rajouterUneMaladieToolStripMenuItem.Click += new System.EventHandler(this.rajouterUneMaladieToolStripMenuItem_Click);
+            // 
+            // creerUneOrdonnanceToolStripMenuItem
+            // 
+            this.creerUneOrdonnanceToolStripMenuItem.Name = "creerUneOrdonnanceToolStripMenuItem";
+            this.creerUneOrdonnanceToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.creerUneOrdonnanceToolStripMenuItem.Text = "Créer une ordonnance";
+            this.creerUneOrdonnanceToolStripMenuItem.Click += new System.EventHandler(this.creerUneOrdonnanceToolStripMenuItem_Click);
+            // 
+            // supprimermortXdToolStripMenuItem
+            // 
+            this.supprimermortXdToolStripMenuItem.Name = "supprimermortXdToolStripMenuItem";
+            this.supprimermortXdToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.supprimermortXdToolStripMenuItem.Text = "Supprimer";
+            this.supprimermortXdToolStripMenuItem.Click += new System.EventHandler(this.supprimermortXdToolStripMenuItem_Click);
+            // 
+            // masterLayout
+            // 
+            this.masterLayout.ColumnCount = 1;
+            this.masterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.masterLayout.Controls.Add(this.confirmButton, 0, 1);
+            this.masterLayout.Controls.Add(this.topLayout, 0, 0);
+            this.masterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.masterLayout.Location = new System.Drawing.Point(0, 0);
+            this.masterLayout.Name = "masterLayout";
+            this.masterLayout.RowCount = 2;
+            this.masterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.masterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.masterLayout.Size = new System.Drawing.Size(800, 450);
+            this.masterLayout.TabIndex = 1;
+            // 
+            // confirmButton
+            // 
+            this.confirmButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.confirmButton.Location = new System.Drawing.Point(362, 417);
+            this.confirmButton.Margin = new System.Windows.Forms.Padding(10);
+            this.confirmButton.Name = "confirmButton";
+            this.confirmButton.Size = new System.Drawing.Size(75, 23);
+            this.confirmButton.TabIndex = 0;
+            this.confirmButton.Text = "Confirmer";
+            this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
+            // 
             // ModifierClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,8 +397,8 @@ namespace PT4
             this.panel1.PerformLayout();
             this.gridViewLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.animalGridView)).EndInit();
-            this.masterLayout.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.masterLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -425,5 +435,6 @@ namespace PT4
         private System.Windows.Forms.DataGridViewTextBoxColumn Taille;
         private System.Windows.Forms.DataGridViewTextBoxColumn Poids;
         private System.Windows.Forms.DataGridViewTextBoxColumn NbreMaladies;
+        private System.Windows.Forms.ToolStripMenuItem creerUneOrdonnanceToolStripMenuItem;
     }
 }

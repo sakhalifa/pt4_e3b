@@ -20,7 +20,7 @@ namespace PT4.Model.impl
             return _context.Set<CONGÉ>().AsQueryable();
         }
 
-        public override CONGÉ FindById(int id)
+        public override CONGÉ FindById(params object[] id)
         {
             return _context.Set<CONGÉ>().Find(id);
         }

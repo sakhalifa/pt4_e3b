@@ -20,7 +20,7 @@ namespace PT4.Model.impl
             return _context.Set<FACTURE>().AsQueryable();
         }
 
-        public override FACTURE FindById(int id)
+        public override FACTURE FindById(params object[] id)
         {
             return _context.Set<FACTURE>().Find(id);
         }
