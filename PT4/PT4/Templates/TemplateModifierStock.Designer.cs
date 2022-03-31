@@ -210,7 +210,6 @@ namespace PT4
             // 
             // buttonConfirmer
             // 
-            this.buttonConfirmer.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonConfirmer.Location = new System.Drawing.Point(179, 431);
             this.buttonConfirmer.Name = "buttonConfirmer";
             this.buttonConfirmer.Size = new System.Drawing.Size(75, 23);

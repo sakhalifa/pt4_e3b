@@ -14,6 +14,7 @@ namespace PT4
     {
         
         public static int? connectedSalarieId;
+        public static bool connecteAdmin;
 
         public static DialogResult ShowError(string text)
         {

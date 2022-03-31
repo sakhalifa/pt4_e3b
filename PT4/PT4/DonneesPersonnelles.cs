@@ -68,7 +68,7 @@ namespace PT4
 
                 try
                 {
-                    _salarieController.DonneesPersoSalarie(_salarie, $"Sexe : {comboBoxSexe.SelectedItem} ; Age : {numericUpDownAge.Value} ; Telephone : {textBoxNumero.Text} ; Email : {textBoxMailDonnees.Text}");
+                    _salarieController.DonneesPersoSalarie(_salarie, $"{comboBoxSexe.SelectedItem};{numericUpDownAge.Value};{textBoxNumero.Text};{textBoxMailDonnees.Text}");
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

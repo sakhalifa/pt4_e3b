@@ -22,7 +22,7 @@ namespace PT4
         private int idClient;
         private CLIENT client { get => _clientController.ClientById(idClient); }
 
-        public ModifierClient(ClientController clientController, AnimalController animalController, ServiceCollection services, bool estAdmin)
+        public ModifierClient(ClientController clientController, AnimalController animalController, ServiceCollection services)
         {
             InitializeComponent();
             _clientController = clientController;
@@ -32,7 +32,7 @@ namespace PT4
             _animalController.SubscribeDeleteAnimal(OnDelete);
             this.Closed += (_, __) => { _animalController.UnSubscribeAnimal(OnChanged); _animalController.UnSubscribeDeleteAnimal(OnDelete); };
 
-            if (!estAdmin)
+            if (!Utils.connecteAdmin)
             {
                 rajouterUneMaladieToolStripMenuItem.Visible = false;
                 rajouterUneMaladieToolStripMenuItem.Enabled = false;

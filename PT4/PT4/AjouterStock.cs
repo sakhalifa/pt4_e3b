@@ -11,7 +11,7 @@ namespace PT4
 {
     public partial class AjouterStock : TemplateModifierStock
     {
-        public AjouterStock(ProduitController produitController, bool estAdmin) : base(produitController, estAdmin)
+        public AjouterStock(ProduitController produitController) : base(produitController)
         {
             InitializeComponent();
         }

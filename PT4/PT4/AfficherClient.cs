@@ -24,7 +24,7 @@ namespace PT4
 
         private int ElementCount { get => cachedCustomers.Count; }
 
-        public AfficherClient(ClientController clientController, ServiceCollection services, bool estAdmin) : base(services, Utils.connectedSalarieId.Value, estAdmin)
+        public AfficherClient(ClientController clientController, ServiceCollection services) : base(services)
         {
             _clientController = clientController;
             _clientController.SubscribeCustomers(OnChanged);
@@ -111,7 +111,7 @@ namespace PT4
                 Utils.ShowError("ERREUR! Veuillez sélectionner une seule cellule ou une seule ligne!");
                 return;
             }
-            _services.AddScoped((p) => new ModifierClient(p.GetRequiredService<ClientController>(), p.GetRequiredService<AnimalController>(), _services, estAdmin));
+            _services.AddScoped<ModifierClient>();
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())

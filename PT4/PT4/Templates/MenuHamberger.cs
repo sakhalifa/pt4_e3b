@@ -15,7 +15,6 @@ namespace PT4
     public partial class MenuHamberger : Form
     {
         protected ServiceCollection _services;
-        protected bool estAdmin;
 
         private MenuHamberger()
         {
@@ -26,9 +25,25 @@ namespace PT4
         {
             InitializeComponent();
             _services = services;
-            this.estAdmin = estAdmin;
+            Utils.connecteAdmin = estAdmin;
             Utils.connectedSalarieId = salarieId;
-            if (!this.estAdmin)
+            if (!estAdmin)
+            {
+                buttonNewCompte.Visible = false;
+                buttonNewPrescription.Visible = false;
+                buttonCare.Visible = false;
+                buttonEmployees.Visible = false;
+                buttonOrdonnances.Visible = false;
+                buttonAddDisease.Visible = false;
+            }
+            buttonHamburger.BringToFront();
+        }
+
+        public MenuHamberger(ServiceCollection services)
+        {
+            InitializeComponent();
+            _services = services;
+            if (!Utils.connecteAdmin)
             {
                 buttonNewCompte.Visible = false;
                 buttonNewPrescription.Visible = false;
@@ -81,10 +96,7 @@ namespace PT4
         private void buttonStock_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            _services.AddScoped((p) =>
-            {
-                return new AfficherStock(p.GetRequiredService<ProduitController>(), _services, estAdmin);
-            });
+            _services.AddScoped<AfficherStock>();
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())
@@ -98,10 +110,7 @@ namespace PT4
         private void clientsGestion_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            _services.AddScoped((p) =>
-            {
-                return new AfficherClient(p.GetRequiredService<ClientController>(), p.GetRequiredService<ServiceCollection>(), estAdmin);
-            });
+            _services.AddScoped<AfficherClient>();
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())
@@ -239,6 +248,7 @@ namespace PT4
         private void deconnexion_Click(object sender, EventArgs e)
         {
             Utils.connectedSalarieId = null;
+            Utils.connecteAdmin = false;
             this.DialogResult = DialogResult.Retry;
             this.Close();
         }
@@ -340,6 +350,32 @@ namespace PT4
                 using (IServiceScope serviceScope = provider.CreateScope())
                 {
                     serviceScope.ServiceProvider.GetService<AfficherRdv>().ShowDialog();
+                }
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AjouterStock>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<AjouterStock>().ShowDialog();
+                }
+            }
+        }
+
+        private void buttonAddCustomer_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AjouterClient>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<AjouterClient>().ShowDialog();
                 }
             }
         }

@@ -51,9 +51,9 @@ namespace PT4
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(309, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 20);
+            this.label1.Size = new System.Drawing.Size(131, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Création de prescription";
+            this.label1.Text = "Création de soin";
             // 
             // label2
             // 
@@ -163,7 +163,7 @@ namespace PT4
             this.buttonAddProduct.UseVisualStyleBackColor = true;
             this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddProduct_Click);
             // 
-            // AjouterPrescription
+            // TemplateSoin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,7 +179,7 @@ namespace PT4
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Name = "AjouterPrescription";
+            this.Name = "TemplateSoin";
             this.Text = "CreerPrescription";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -186,6 +186,7 @@ namespace PT4
             this.clients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clients.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.clients.Location = new System.Drawing.Point(3, 3);
+            this.clients.MultiSelect = false;
             this.clients.Name = "clients";
             this.clients.ReadOnly = true;
             this.clients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
