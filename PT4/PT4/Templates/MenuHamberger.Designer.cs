@@ -43,9 +43,10 @@ namespace PT4
             this.buttonNewSale = new System.Windows.Forms.Button();
             this.panelAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonEmployees = new System.Windows.Forms.Button();
+            this.buttonOrdonnances = new System.Windows.Forms.Button();
+            this.buttonCare = new System.Windows.Forms.Button();
             this.clientsGestion = new System.Windows.Forms.Button();
-            this.buttonWeekSale = new System.Windows.Forms.Button();
-            this.buttonPlanning = new System.Windows.Forms.Button();
             this.buttonStock = new System.Windows.Forms.Button();
             this.buttonManagement = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -83,6 +84,7 @@ namespace PT4
             this.deconnexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deconnexion.ForeColor = System.Drawing.Color.Gainsboro;
             this.deconnexion.Location = new System.Drawing.Point(0, 730);
+            this.deconnexion.Location = new System.Drawing.Point(0, 650);
             this.deconnexion.Name = "deconnexion";
             this.deconnexion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.deconnexion.Size = new System.Drawing.Size(233, 45);
@@ -98,7 +100,7 @@ namespace PT4
             this.buttonLog.FlatAppearance.BorderSize = 0;
             this.buttonLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLog.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonLog.Location = new System.Drawing.Point(0, 685);
+            this.buttonLog.Location = new System.Drawing.Point(0, 605);
             this.buttonLog.Name = "buttonLog";
             this.buttonLog.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonLog.Size = new System.Drawing.Size(233, 45);
@@ -114,7 +116,7 @@ namespace PT4
             this.mdpChange.FlatAppearance.BorderSize = 0;
             this.mdpChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mdpChange.ForeColor = System.Drawing.Color.Gainsboro;
-            this.mdpChange.Location = new System.Drawing.Point(0, 640);
+            this.mdpChange.Location = new System.Drawing.Point(0, 560);
             this.mdpChange.Name = "mdpChange";
             this.mdpChange.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.mdpChange.Size = new System.Drawing.Size(233, 45);
@@ -135,7 +137,7 @@ namespace PT4
             this.panel2.Controls.Add(this.buttonNewPrescription);
             this.panel2.Controls.Add(this.buttonNewSale);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 400);
+            this.panel2.Location = new System.Drawing.Point(0, 440);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(233, 240);
             this.panel2.TabIndex = 4;
@@ -243,7 +245,7 @@ namespace PT4
             this.panelAdd.FlatAppearance.BorderSize = 0;
             this.panelAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.panelAdd.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panelAdd.Location = new System.Drawing.Point(0, 355);
+            this.panelAdd.Location = new System.Drawing.Point(0, 395);
             this.panelAdd.Name = "panelAdd";
             this.panelAdd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panelAdd.Size = new System.Drawing.Size(233, 45);
@@ -257,16 +259,65 @@ namespace PT4
             // 
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.buttonEmployees);
+            this.panel1.Controls.Add(this.buttonOrdonnances);
+            this.panel1.Controls.Add(this.buttonCare);
             this.panel1.Controls.Add(this.clientsGestion);
-            this.panel1.Controls.Add(this.buttonWeekSale);
-            this.panel1.Controls.Add(this.buttonPlanning);
             this.panel1.Controls.Add(this.buttonStock);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 195);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 160);
+            this.panel1.Size = new System.Drawing.Size(233, 200);
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
+            // 
+            // buttonEmployees
+            // 
+            this.buttonEmployees.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonEmployees.FlatAppearance.BorderSize = 0;
+            this.buttonEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEmployees.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonEmployees.Location = new System.Drawing.Point(0, 160);
+            this.buttonEmployees.Name = "buttonEmployees";
+            this.buttonEmployees.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonEmployees.Size = new System.Drawing.Size(233, 40);
+            this.buttonEmployees.TabIndex = 6;
+            this.buttonEmployees.Text = "Employés";
+            this.buttonEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEmployees.UseVisualStyleBackColor = true;
+            this.buttonEmployees.Click += new System.EventHandler(this.buttonEmployees_Click);
+            // 
+            // buttonOrdonnances
+            // 
+            this.buttonOrdonnances.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonOrdonnances.FlatAppearance.BorderSize = 0;
+            this.buttonOrdonnances.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrdonnances.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonOrdonnances.Location = new System.Drawing.Point(0, 120);
+            this.buttonOrdonnances.Name = "buttonOrdonnances";
+            this.buttonOrdonnances.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonOrdonnances.Size = new System.Drawing.Size(233, 40);
+            this.buttonOrdonnances.TabIndex = 5;
+            this.buttonOrdonnances.Text = "Ordonnances";
+            this.buttonOrdonnances.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonOrdonnances.UseVisualStyleBackColor = true;
+            this.buttonOrdonnances.Click += new System.EventHandler(this.buttonOrdonnances_Click);
+            // 
+            // buttonCare
+            // 
+            this.buttonCare.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCare.FlatAppearance.BorderSize = 0;
+            this.buttonCare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCare.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonCare.Location = new System.Drawing.Point(0, 80);
+            this.buttonCare.Name = "buttonCare";
+            this.buttonCare.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonCare.Size = new System.Drawing.Size(233, 40);
+            this.buttonCare.TabIndex = 4;
+            this.buttonCare.Text = "Soins";
+            this.buttonCare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCare.UseVisualStyleBackColor = true;
+            this.buttonCare.Click += new System.EventHandler(this.buttonCare_Click);
             // 
             // clientsGestion
             // 
@@ -274,7 +325,7 @@ namespace PT4
             this.clientsGestion.FlatAppearance.BorderSize = 0;
             this.clientsGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clientsGestion.ForeColor = System.Drawing.Color.LightGray;
-            this.clientsGestion.Location = new System.Drawing.Point(0, 120);
+            this.clientsGestion.Location = new System.Drawing.Point(0, 40);
             this.clientsGestion.Name = "clientsGestion";
             this.clientsGestion.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.clientsGestion.Size = new System.Drawing.Size(233, 40);
@@ -283,38 +334,6 @@ namespace PT4
             this.clientsGestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.clientsGestion.UseVisualStyleBackColor = true;
             this.clientsGestion.Click += new System.EventHandler(this.clientsGestion_Click);
-            // 
-            // buttonWeekSale
-            // 
-            this.buttonWeekSale.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonWeekSale.FlatAppearance.BorderSize = 0;
-            this.buttonWeekSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWeekSale.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonWeekSale.Location = new System.Drawing.Point(0, 80);
-            this.buttonWeekSale.Name = "buttonWeekSale";
-            this.buttonWeekSale.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonWeekSale.Size = new System.Drawing.Size(233, 40);
-            this.buttonWeekSale.TabIndex = 2;
-            this.buttonWeekSale.Text = "Ventes de la semaine";
-            this.buttonWeekSale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonWeekSale.UseVisualStyleBackColor = true;
-            this.buttonWeekSale.Click += new System.EventHandler(this.buttonWeekSale_Click);
-            // 
-            // buttonPlanning
-            // 
-            this.buttonPlanning.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonPlanning.FlatAppearance.BorderSize = 0;
-            this.buttonPlanning.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPlanning.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonPlanning.Location = new System.Drawing.Point(0, 40);
-            this.buttonPlanning.Name = "buttonPlanning";
-            this.buttonPlanning.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonPlanning.Size = new System.Drawing.Size(233, 40);
-            this.buttonPlanning.TabIndex = 1;
-            this.buttonPlanning.Text = "Planning";
-            this.buttonPlanning.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPlanning.UseVisualStyleBackColor = true;
-            this.buttonPlanning.Click += new System.EventHandler(this.buttonPlanning_Click);
             // 
             // buttonStock
             // 
@@ -404,8 +423,6 @@ namespace PT4
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Button panelAdd;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonWeekSale;
-        private System.Windows.Forms.Button buttonPlanning;
         private System.Windows.Forms.Button buttonStock;
         private System.Windows.Forms.Button buttonManagement;
         private System.Windows.Forms.Panel panelLogo;
@@ -419,6 +436,9 @@ namespace PT4
         private System.Windows.Forms.Button deconnexion;
         private System.Windows.Forms.Button clientsGestion;
         protected System.Windows.Forms.Button buttonHamburger;
+        private System.Windows.Forms.Button buttonCare;
+        private System.Windows.Forms.Button buttonOrdonnances;
+        private System.Windows.Forms.Button buttonEmployees;
         private System.Windows.Forms.Button buttonAddDisease;
         private System.Windows.Forms.Button buttonAddConge;
         private System.Windows.Forms.Button buttonAddAppointment;

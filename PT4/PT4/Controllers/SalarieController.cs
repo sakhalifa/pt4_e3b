@@ -31,6 +31,11 @@ namespace PT4.Controllers
             return _salarieRepo.FindById(id);
         }
 
+        public IQueryable<SALARIÉ> FindAllNotAdmin()
+        {
+            return _salarieRepo.FindWhere((s) => !s.estAdmin);
+        }
+
         /// <summary>
         /// Creates a worker iif there's no worker with the specified login.
         /// The password is encrypted with SHA256
@@ -66,6 +71,21 @@ namespace PT4.Controllers
             }
             s.MDP = Utils.Hash(clearPwd);
             _salarieRepo.Update(s);
+            _salarieRepo.Save();
+        }
+
+        public void Delete(SALARIÉ s)
+        {
+            _salarieRepo.Delete(s);
+            _salarieRepo.Save();
+        }
+
+        public void DeleteBulk(IEnumerable<SALARIÉ> salaries)
+        {
+            foreach(SALARIÉ s in salaries)
+            {
+                _salarieRepo.Delete(s);
+            }
             _salarieRepo.Save();
         }
 
@@ -158,6 +178,26 @@ namespace PT4.Controllers
             conge.ESTREGULIER = estRegulier;
             _congeRepo.Update(conge);
             _congeRepo.Save();
+        }
+
+        public void SubscribeEmployee(OnChanged<SALARIÉ> onChanged)
+        {
+            _salarieRepo.Subscribe(onChanged);
+        }
+
+        public void SubscribeDeleteEmployee(OnDelete<SALARIÉ> onDelete)
+        {
+            _salarieRepo.SubscribeDelete(onDelete);
+        }
+
+        public void UnSubscribeEmployee(OnChanged<SALARIÉ> onChanged)
+        {
+            _salarieRepo.UnSubscribe(onChanged);
+        }
+
+        public void UnSubscribeDeleteEmployee(OnDelete<SALARIÉ> onDelete)
+        {
+            _salarieRepo.UnSubscribeDelete(onDelete);
         }
     }
 }

@@ -42,7 +42,7 @@ namespace PT4
 
         private void UnSubscribe(object sender, EventArgs e)
         {
-            _clientController.UnSubscribeCustomers(OnChanged); 
+            _clientController.UnSubscribeCustomers(OnChanged);
             _clientController.UnSubscribeDeleteCustomers(OnDelete);
         }
 
@@ -98,7 +98,7 @@ namespace PT4
             {
                 DataGridViewRow row = clients.SelectedRows[0];
                 c = _clientController.FindByEmail((string)row.Cells["Email"].Value);
-                
+
             }
             else if (clients.SelectedCells.Count == 1)
             {
@@ -111,12 +111,15 @@ namespace PT4
                 Utils.ShowError("ERREUR! Veuillez sélectionner une seule cellule ou une seule ligne!");
                 return;
             }
-            _services.AddScoped<ModifierClient>();
+            _services.AddScoped((p) => new ModifierClient(p.GetRequiredService<ClientController>(), p.GetRequiredService<AnimalController>(), _services, estAdmin));
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
-                var modifierClient = provider.GetService<ModifierClient>();
-                modifierClient.SetClient(c);
-                modifierClient.ShowDialog();
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    var modifierClient = serviceScope.ServiceProvider.GetService<ModifierClient>();
+                    modifierClient.SetClient(c);
+                    modifierClient.ShowDialog();
+                }
             }
         }
 

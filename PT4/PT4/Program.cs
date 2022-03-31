@@ -73,8 +73,11 @@ namespace PT4
             services.AddScoped<Connexion>();
             using (ServiceProvider provider = services.BuildServiceProvider())
             {
-                Connexion form = provider.GetService<Connexion>();
-                Application.Run(form);
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    var form = serviceScope.ServiceProvider.GetService<Connexion>();
+                    Application.Run(form);
+                }
             }
         }
     }
