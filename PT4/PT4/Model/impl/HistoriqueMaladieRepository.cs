@@ -19,7 +19,7 @@ namespace PT4.Model.impl
             return _context.Set<HISTORIQUEMALADIE>().AsQueryable();
         }
 
-        public override HISTORIQUEMALADIE FindById(int id)
+        public override HISTORIQUEMALADIE FindById(params object[] id)
         {
             return _context.Set<HISTORIQUEMALADIE>().Find(id);
         }

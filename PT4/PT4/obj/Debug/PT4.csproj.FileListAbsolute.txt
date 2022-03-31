@@ -374,14 +374,12 @@ C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\bin\Debug\System.ValueTuple.xml
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\bin\Debug\fr\EntityFramework.resources.dll
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CopyComplete
-Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.SuggestedBindingRedirects.cache
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterFacture.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterOrdonnance.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterProduitFacture.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierAnimal.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.SingleNumericUpDown.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Templates.TemplateAnimal.resources
-Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterPrescription.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterVente.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterOrdonnance.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterVente.resources
@@ -390,3 +388,9 @@ Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterVente.resource
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierSoin.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherOrdonnance.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherSalarie.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherOrdonnance.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherSalarie.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterMaladie.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.DeclarerMaladie.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierSoin.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.TemplateSoin.resources

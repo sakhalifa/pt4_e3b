@@ -22,7 +22,7 @@ namespace PT4
         private int idClient;
         private CLIENT client { get => _clientController.ClientById(idClient); }
 
-        public ModifierClient(ClientController clientController, AnimalController animalController, ServiceCollection services)
+        public ModifierClient(ClientController clientController, AnimalController animalController, ServiceCollection services, bool estAdmin)
         {
             InitializeComponent();
             _clientController = clientController;

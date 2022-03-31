@@ -111,7 +111,7 @@ namespace PT4
                 Utils.ShowError("ERREUR! Veuillez sélectionner une seule cellule ou une seule ligne!");
                 return;
             }
-            _services.AddScoped((p) => new ModifierClient(_services, p.GetRequiredService<ClientController>(), p.GetRequiredService<AnimalController>(), estAdmin));
+            _services.AddScoped((p) => new ModifierClient(p.GetRequiredService<ClientController>(), p.GetRequiredService<AnimalController>(), _services, estAdmin));
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())

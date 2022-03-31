@@ -260,7 +260,6 @@
     <Compile Include="ModifierAnimal.Designer.cs">
       <DependentUpon>ModifierAnimal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Entities\MyMaladie.cs" />
     <Compile Include="Model\impl\HistoriqueMaladieRepository.cs" />
     <Compile Include="ModifierClient.cs">
       <SubType>Form</SubType>
