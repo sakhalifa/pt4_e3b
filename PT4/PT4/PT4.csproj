@@ -145,6 +145,12 @@
     <Compile Include="AfficherOrdonnance.Designer.cs">
       <DependentUpon>AfficherOrdonnance.cs</DependentUpon>
     </Compile>
+    <Compile Include="AfficherSalarie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherSalarie.Designer.cs">
+      <DependentUpon>AfficherSalarie.cs</DependentUpon>
+    </Compile>
     <Compile Include="AfficherSoin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,7 @@
     <Compile Include="Model\Entities\MyOrdonnance.cs" />
     <Compile Include="Model\Entities\MyProduit.cs" />
     <Compile Include="Model\Entities\MyProduitVendu.cs" />
+    <Compile Include="Model\Entities\MySalarie.cs" />
     <Compile Include="Model\Entities\MySoin.cs" />
     <Compile Include="ModifierAnimal.cs">
       <SubType>Form</SubType>
@@ -440,6 +447,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AfficherOrdonnance.resx">
       <DependentUpon>AfficherOrdonnance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfficherSalarie.resx">
+      <DependentUpon>AfficherSalarie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjouterAnimal.resx">
       <DependentUpon>AjouterAnimal.cs</DependentUpon>

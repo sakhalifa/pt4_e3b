@@ -280,5 +280,18 @@ namespace PT4
                 }
             }
         }
+
+        private void buttonEmployees_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AfficherSalarie>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<AfficherSalarie>().ShowDialog();
+                }
+            }
+        }
     }
 }

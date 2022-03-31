@@ -89,7 +89,12 @@ namespace PT4
             this.Controls.Add(this.News);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "MenuAcceuil";
-            this.Text = "MenuAcceuil";
+            this.Text = ".";
+            this.Controls.SetChildIndex(this.News, 0);
+            this.Controls.SetChildIndex(this.PlanningJournée, 0);
+            this.Controls.SetChildIndex(this.Notes, 0);
+            this.Controls.SetChildIndex(this.monthCalendar1, 0);
+            this.Controls.SetChildIndex(this.buttonHamburger, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
