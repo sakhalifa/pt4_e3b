@@ -1,7 +1,7 @@
 ﻿
 namespace PT4
 {
-    partial class ajouterConge
+    partial class AjouterConge
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,8 @@ namespace PT4
             this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
             this.buttonAnnuler = new System.Windows.Forms.Button();
             this.buttonConfirmer = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxRegulier = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -47,7 +49,6 @@ namespace PT4
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Date début:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -79,6 +80,7 @@ namespace PT4
             // buttonAnnuler
             // 
             this.buttonAnnuler.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonAnnuler.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonAnnuler.Location = new System.Drawing.Point(69, 255);
             this.buttonAnnuler.Name = "buttonAnnuler";
@@ -86,7 +88,6 @@ namespace PT4
             this.buttonAnnuler.TabIndex = 5;
             this.buttonAnnuler.Text = "Annuler";
             this.buttonAnnuler.UseVisualStyleBackColor = false;
-            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
             // buttonConfirmer
             // 
@@ -98,6 +99,29 @@ namespace PT4
             this.buttonConfirmer.TabIndex = 6;
             this.buttonConfirmer.Text = "Confirmer";
             this.buttonConfirmer.UseVisualStyleBackColor = false;
+            this.buttonConfirmer.Click += new System.EventHandler(this.buttonConfirmer_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(66, 198);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Régulier ? ";
+            // 
+            // checkBoxRegulier
+            // 
+            this.checkBoxRegulier.AutoSize = true;
+            this.checkBoxRegulier.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxRegulier.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.checkBoxRegulier.Location = new System.Drawing.Point(130, 198);
+            this.checkBoxRegulier.Name = "checkBoxRegulier";
+            this.checkBoxRegulier.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxRegulier.TabIndex = 8;
+            this.checkBoxRegulier.UseVisualStyleBackColor = false;
             // 
             // ajouterConge
             // 
@@ -106,6 +130,8 @@ namespace PT4
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::PT4.Properties.Resources.parrot_g3fd41130a_1920;
             this.ClientSize = new System.Drawing.Size(347, 332);
+            this.Controls.Add(this.checkBoxRegulier);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonConfirmer);
             this.Controls.Add(this.buttonAnnuler);
             this.Controls.Add(this.dateTimePickerFin);
@@ -126,5 +152,7 @@ namespace PT4
         private System.Windows.Forms.DateTimePicker dateTimePickerFin;
         private System.Windows.Forms.Button buttonAnnuler;
         private System.Windows.Forms.Button buttonConfirmer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxRegulier;
     }
 }

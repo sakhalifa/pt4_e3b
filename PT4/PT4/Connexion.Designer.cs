@@ -37,7 +37,6 @@ namespace PT4
             this.Login = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -48,15 +47,16 @@ namespace PT4
             this.textBoxLogin.Location = new System.Drawing.Point(39, 110);
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(140, 34);
-            this.textBoxLogin.TabIndex = 13;
+            this.textBoxLogin.TabIndex = 0;
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(39, 199);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(140, 34);
-            this.textBoxPassword.TabIndex = 12;
+            this.textBoxPassword.TabIndex = 1;
             // 
             // label3
             // 
@@ -75,7 +75,7 @@ namespace PT4
             this.buttonConnexion.Location = new System.Drawing.Point(52, 274);
             this.buttonConnexion.Name = "buttonConnexion";
             this.buttonConnexion.Size = new System.Drawing.Size(114, 34);
-            this.buttonConnexion.TabIndex = 10;
+            this.buttonConnexion.TabIndex = 2;
             this.buttonConnexion.Text = "Connexion";
             this.buttonConnexion.UseVisualStyleBackColor = false;
             this.buttonConnexion.Click += new System.EventHandler(this.buttonConnexion_Click);
@@ -116,7 +116,6 @@ namespace PT4
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.buttonConnexion);
             this.panel1.Controls.Add(this.textBoxPassword);
             this.panel1.Controls.Add(this.textBoxLogin);
@@ -127,17 +126,6 @@ namespace PT4
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(239, 371);
             this.panel1.TabIndex = 15;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(28, 323);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 34);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Mot de passe oublié ?";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Connexion
             // 
@@ -166,7 +154,6 @@ namespace PT4
         private System.Windows.Forms.Label Login;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
     }
 }
 

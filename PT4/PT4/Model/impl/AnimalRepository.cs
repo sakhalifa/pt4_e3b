@@ -20,9 +20,9 @@ namespace PT4.Model.impl
             return _context.Set<ANIMAL>().AsQueryable();
         }
 
-        public override ANIMAL FindById(int animalId)
+        public override ANIMAL FindById(params object[] id)
         {
-            return _context.Set<ANIMAL>().Find(animalId);
+            return _context.Set<ANIMAL>().Find(id);
         }
 
         public override void Insert(ANIMAL animal)
@@ -37,7 +37,7 @@ namespace PT4.Model.impl
 
         public override void Update(ANIMAL animal)
         {
-            _context.Entry(animal).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(animal).State = EntityState.Modified;
         }
 
         public override IQueryable<ANIMAL> FindWhere(Expression<Func<ANIMAL, bool>> predicate)

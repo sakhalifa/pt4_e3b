@@ -17,19 +17,19 @@ namespace PT4
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SOIN()
         {
-            this.ORDONNANCE = new HashSet<ORDONNANCE>();
             this.PRODUIT = new HashSet<PRODUIT>();
             this.MALADIE = new HashSet<MALADIE>();
+            this.ORDONNANCE = new HashSet<ORDONNANCE>();
         }
     
         public short ID { get; set; }
         public string DESCRIPTION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDONNANCE> ORDONNANCE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUIT> PRODUIT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MALADIE> MALADIE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ORDONNANCE> ORDONNANCE { get; set; }
     }
 }

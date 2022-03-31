@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class menuCompte : Form
+    public partial class menuCompte : MenuHamberger
     {
-        public menuCompte()
+        public menuCompte(ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
         {
             InitializeComponent();
         }

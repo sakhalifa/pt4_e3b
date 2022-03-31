@@ -20,7 +20,7 @@ namespace PT4.Model.impl
             return _context.Set<RENDEZVOUS>().AsQueryable();
         }
 
-        public override RENDEZVOUS FindById(int id)
+        public override RENDEZVOUS FindById(params object[] id)
         {
             return _context.Set<RENDEZVOUS>().Find(id);
         }

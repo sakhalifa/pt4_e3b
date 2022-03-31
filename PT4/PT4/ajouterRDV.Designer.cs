@@ -1,7 +1,7 @@
 ﻿
 namespace PT4
 {
-    partial class ajouterRDV
+    partial class AjouterRDV
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,10 @@ namespace PT4
             this.label2 = new System.Windows.Forms.Label();
             this.buttonAnnuler = new System.Windows.Forms.Button();
             this.buttonConfirmer = new System.Windows.Forms.Button();
+            this.textBoxRaison = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBoxClient = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -44,7 +46,7 @@ namespace PT4
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(61, 23);
+            this.label1.Location = new System.Drawing.Point(100, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 20);
             this.label1.TabIndex = 1;
@@ -52,7 +54,8 @@ namespace PT4
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(60, 76);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker1.Location = new System.Drawing.Point(37, 76);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 2;
@@ -67,11 +70,11 @@ namespace PT4
             this.label2.Size = new System.Drawing.Size(151, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Date et heure du rendez-vous:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // buttonAnnuler
             // 
-            this.buttonAnnuler.Location = new System.Drawing.Point(60, 208);
+            this.buttonAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonAnnuler.Location = new System.Drawing.Point(85, 265);
             this.buttonAnnuler.Name = "buttonAnnuler";
             this.buttonAnnuler.Size = new System.Drawing.Size(75, 23);
             this.buttonAnnuler.TabIndex = 4;
@@ -80,31 +83,51 @@ namespace PT4
             // 
             // buttonConfirmer
             // 
-            this.buttonConfirmer.Location = new System.Drawing.Point(185, 208);
+            this.buttonConfirmer.Location = new System.Drawing.Point(239, 265);
             this.buttonConfirmer.Name = "buttonConfirmer";
             this.buttonConfirmer.Size = new System.Drawing.Size(75, 23);
             this.buttonConfirmer.TabIndex = 5;
             this.buttonConfirmer.Text = "Confirmer";
             this.buttonConfirmer.UseVisualStyleBackColor = true;
+            this.buttonConfirmer.Click += new System.EventHandler(this.buttonConfirmer_Click);
+            // 
+            // textBoxRaison
+            // 
+            this.textBoxRaison.Location = new System.Drawing.Point(60, 221);
+            this.textBoxRaison.Name = "textBoxRaison";
+            this.textBoxRaison.Size = new System.Drawing.Size(227, 20);
+            this.textBoxRaison.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(57, 205);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Raison : ";
+            // 
+            // comboBoxClient
+            // 
+            this.comboBoxClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxClient.FormattingEnabled = true;
+            this.comboBoxClient.Location = new System.Drawing.Point(60, 157);
+            this.comboBoxClient.Name = "comboBoxClient";
+            this.comboBoxClient.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxClient.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(57, 126);
+            this.label3.Location = new System.Drawing.Point(57, 141);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Nom du client:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(60, 142);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Client";
             // 
             // ajouterRDV
             // 
@@ -112,9 +135,11 @@ namespace PT4
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::PT4.Properties.Resources.parrot_g3fd41130a_1920;
-            this.ClientSize = new System.Drawing.Size(320, 274);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(388, 322);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBoxClient);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxRaison);
             this.Controls.Add(this.buttonConfirmer);
             this.Controls.Add(this.buttonAnnuler);
             this.Controls.Add(this.label2);
@@ -134,7 +159,9 @@ namespace PT4
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonAnnuler;
         private System.Windows.Forms.Button buttonConfirmer;
+        private System.Windows.Forms.TextBox textBoxRaison;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBoxClient;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

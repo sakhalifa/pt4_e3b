@@ -29,21 +29,23 @@ namespace PT4
         /// </summary>
         private void InitializeComponent()
         {
+            ((System.ComponentModel.ISupportInitialize)(this.quantite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prixAchat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prixVente)).BeginInit();
             this.SuspendLayout();
             // 
             // titre
             // 
             this.titre.Text = "Ajouter Stock";
             // 
-            // buttonConfirmer
-            // 
-            this.buttonConfirmer.Click += new System.EventHandler(this.buttonConfirmer_Click);
-            // 
             // AjouterStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(304, 477);
             this.Name = "AjouterStock";
+            ((System.ComponentModel.ISupportInitialize)(this.quantite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prixAchat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prixVente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -20,7 +20,7 @@ namespace PT4.Model.impl
             return _context.Set<PRODUIT>().AsQueryable();
         }
 
-        public override PRODUIT FindById(int id)
+        public override PRODUIT FindById(params object[] id)
         {
             return _context.Set<PRODUIT>().Find(id);
         }

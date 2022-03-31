@@ -12,9 +12,10 @@ namespace PT4
     public partial class ModifierStock : PT4.TemplateModifierStock
     {
 
-        public ModifierStock(ProduitController produitController) : base(produitController)
+        public ModifierStock(ProduitController produitController, bool estAdmin) : base(produitController, estAdmin)
         {
             InitializeComponent();
+            this.IsAdd = false;
         }
 
         
@@ -22,14 +23,6 @@ namespace PT4
         {
             base.SetProduit(p);
             quantite.Value = p.QUANTITEENSTOCK;
-        }
-
-        private void buttonConfirmer_Click(object sender, EventArgs e)
-        {
-            if (CheckRemplissage())
-            {
-                _prodController.CreerOuMaJProduit(nom.Text, prixVente.Value, prixAchat.Value, (int)quantite.Value, description.Text, estMedic.Checked, false);
-            }
         }
     }
 }

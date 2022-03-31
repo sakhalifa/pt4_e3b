@@ -21,8 +21,8 @@ namespace PT4
             this.MALADIE = new HashSet<MALADIE>();
         }
     
-        public string DATEDEBUT { get; set; }
-        public string DATEFIN { get; set; }
+        public System.DateTime DATEDEBUT { get; set; }
+        public Nullable<System.DateTime> DATEFIN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ANIMAL> ANIMAL { get; set; }

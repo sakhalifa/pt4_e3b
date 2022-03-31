@@ -74,7 +74,6 @@ namespace PT4
             this.textBoxCompte.Name = "textBoxCompte";
             this.textBoxCompte.Size = new System.Drawing.Size(100, 20);
             this.textBoxCompte.TabIndex = 2;
-            this.textBoxCompte.TextChanged += new System.EventHandler(this.textBoxCompte_TextChanged);
             // 
             // buttonConnexion
             // 
@@ -109,9 +108,9 @@ namespace PT4
             // 
             this.confirmerMotDePasse.Location = new System.Drawing.Point(45, 179);
             this.confirmerMotDePasse.Name = "confirmerMotDePasse";
+            this.confirmerMotDePasse.PasswordChar = '*';
             this.confirmerMotDePasse.Size = new System.Drawing.Size(100, 20);
             this.confirmerMotDePasse.TabIndex = 9;
-            this.confirmerMotDePasse.TextChanged += new System.EventHandler(this.confirmerMotDePasse_TextChanged);
             // 
             // label4
             // 
@@ -127,9 +126,9 @@ namespace PT4
             // 
             this.textBoxMdp.Location = new System.Drawing.Point(45, 121);
             this.textBoxMdp.Name = "textBoxMdp";
+            this.textBoxMdp.PasswordChar = '*';
             this.textBoxMdp.Size = new System.Drawing.Size(100, 20);
             this.textBoxMdp.TabIndex = 7;
-            this.textBoxMdp.TextChanged += new System.EventHandler(this.textBoxMdp_TextChanged);
             // 
             // motDePasse
             // 

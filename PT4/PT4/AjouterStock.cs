@@ -11,17 +11,9 @@ namespace PT4
 {
     public partial class AjouterStock : TemplateModifierStock
     {
-        public AjouterStock(ProduitController produitController) : base(produitController)
+        public AjouterStock(ProduitController produitController, bool estAdmin) : base(produitController, estAdmin)
         {
             InitializeComponent();
-        }
-
-        private void buttonConfirmer_Click(object sender, EventArgs e)
-        {
-            if (CheckRemplissage())
-            {
-                _prodController.CreerOuMaJProduit(nom.Text, prixVente.Value, prixAchat.Value, (int)quantite.Value, description.Text, estMedic.Checked, true);
-            }
         }
     }
 }

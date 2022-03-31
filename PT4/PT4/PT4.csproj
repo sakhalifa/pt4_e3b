@@ -133,17 +133,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AfficherClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherClient.Designer.cs">
+      <DependentUpon>AfficherClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="AfficherStock.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AfficherStock.Designer.cs">
       <DependentUpon>AfficherStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="ajouterConge.cs">
+    <Compile Include="AjouterAnimal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ajouterConge.Designer.cs">
-      <DependentUpon>ajouterConge.cs</DependentUpon>
+    <Compile Include="AjouterAnimal.Designer.cs">
+      <DependentUpon>AjouterAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterClient.Designer.cs">
+      <DependentUpon>AjouterClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterConge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterConge.Designer.cs">
+      <DependentUpon>AjouterConge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterMaladie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterMaladie.Designer.cs">
+      <DependentUpon>AjouterMaladie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterFacture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterFacture.Designer.cs">
+      <DependentUpon>AjouterFacture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterProduitFacture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterProduitFacture.Designer.cs">
+      <DependentUpon>AjouterProduitFacture.cs</DependentUpon>
     </Compile>
     <Compile Include="ajouterRDV.cs">
       <SubType>Form</SubType>
@@ -157,6 +193,45 @@
     <Compile Include="AjouterStock.Designer.cs">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeclarerMaladie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeclarerMaladie.Designer.cs">
+      <DependentUpon>DeclarerMaladie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\MyAnimal.cs" />
+    <Compile Include="Model\Entities\MyProduit.cs" />
+    <Compile Include="Model\Entities\MyProduitVendu.cs" />
+    <Compile Include="ModifierAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierAnimal.Designer.cs">
+      <DependentUpon>ModifierAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\MyMaladie.cs" />
+    <Compile Include="Model\impl\HistoriqueMaladieRepository.cs" />
+    <Compile Include="ModifierClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierClient.Designer.cs">
+      <DependentUpon>ModifierClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RechercheClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RechercheClient.Designer.cs">
+      <DependentUpon>RechercheClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BoolCriteria.cs" />
+    <Compile Include="Model\Criteria.cs" />
+    <Compile Include="Model\CriteriaCheckType.cs" />
+    <Compile Include="Model\CriteriaCombinationType.cs" />
+    <Compile Include="Model\DecimalCriteria.cs" />
+    <Compile Include="Model\Entities\MyClient.cs" />
+    <Compile Include="Model\IsNullCriteria.cs" />
+    <Compile Include="Model\NullableDecimalCriteria.cs" />
+    <Compile Include="Model\ShortCriteria.cs" />
+    <Compile Include="Model\StringCriteria.cs" />
     <Compile Include="DonneesPersonnelles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,29 +250,36 @@
     <Compile Include="ModifierStock.Designer.cs">
       <DependentUpon>ModifierStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="TemplateModifierStock.cs">
+    <Compile Include="ReplacingExpressionVisitor.cs" />
+    <Compile Include="SingleNumericUpDown.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TemplateModifierStock.Designer.cs">
+    <Compile Include="SingleNumericUpDown.Designer.cs">
+      <DependentUpon>SingleNumericUpDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TemplateAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\TemplateAnimal.Designer.cs">
+      <DependentUpon>TemplateAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TemplateModifierStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\TemplateModifierStock.Designer.cs">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreerPrescription.cs">
+    <Compile Include="AjouterPrescription.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreerPrescription.Designer.cs">
-      <DependentUpon>CreerPrescription.cs</DependentUpon>
+    <Compile Include="AjouterPrescription.Designer.cs">
+      <DependentUpon>AjouterPrescription.cs</DependentUpon>
     </Compile>
     <Compile Include="EditerClient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditerClient.Designer.cs">
       <DependentUpon>EditerClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EditerStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditerStock.Designer.cs">
-      <DependentUpon>EditerStock.cs</DependentUpon>
     </Compile>
     <Compile Include="AjouterCompte.cs">
       <SubType>Form</SubType>
@@ -213,11 +295,23 @@
     </Compile>
     <Compile Include="Model\dal\IGenericRepository.cs" />
     <Compile Include="Model\impl\AbstractRepository.cs" />
+    <Compile Include="RechercheStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RechercheStock.Designer.cs">
+      <DependentUpon>RechercheStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="statsProduit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="statsProduit.Designer.cs">
       <DependentUpon>statsProduit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\MenuHamberger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\MenuHamberger.Designer.cs">
+      <DependentUpon>MenuHamberger.cs</DependentUpon>
     </Compile>
     <Compile Include="TopVente.cs">
       <SubType>Form</SubType>
@@ -226,11 +320,11 @@
       <DependentUpon>TopVente.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
-    <Compile Include="Vente.cs">
+    <Compile Include="AjouterVente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vente.Designer.cs">
-      <DependentUpon>Vente.cs</DependentUpon>
+    <Compile Include="AjouterVente.Designer.cs">
+      <DependentUpon>AjouterVente.cs</DependentUpon>
     </Compile>
     <Compile Include="GestionPlanning.cs">
       <SubType>Form</SubType>
@@ -243,12 +337,6 @@
     </Compile>
     <Compile Include="MenuAcceuil.Designer.cs">
       <DependentUpon>MenuAcceuil.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MenuHamberger.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuHamberger.Designer.cs">
-      <DependentUpon>MenuHamberger.cs</DependentUpon>
     </Compile>
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
@@ -282,7 +370,7 @@
     </Compile>
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
-    <Compile Include="Controllers\EmployesController.cs" />
+    <Compile Include="Controllers\SalarieController.cs" />
     <Compile Include="Controllers\FactureController.cs" />
     <Compile Include="Controllers\MaladiesController.cs" />
     <Compile Include="Controllers\OrdonnanceController.cs" />
@@ -297,7 +385,6 @@
     <Compile Include="MALADIE.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Entities\MyFacture.cs" />
     <Compile Include="Model\impl\AnimalRepository.cs" />
     <Compile Include="Model\impl\ClientRepository.cs" />
     <Compile Include="Model\impl\CongeRepository.cs" />
@@ -305,6 +392,7 @@
     <Compile Include="Model\impl\MaladieRepository.cs" />
     <Compile Include="Model\impl\OrdonnanceRepository.cs" />
     <Compile Include="Model\impl\ProduitRepository.cs" />
+    <Compile Include="Model\impl\ProduitVenduRepository.cs" />
     <Compile Include="Model\impl\RendezVousRepository.cs" />
     <Compile Include="Model\impl\SalarieRepository.cs" />
     <Compile Include="Model\impl\SoinRepository.cs" />
@@ -328,8 +416,29 @@
     <Compile Include="SOIN.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AfficherClient.resx">
+      <DependentUpon>AfficherClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterAnimal.resx">
+      <DependentUpon>AjouterAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterClient.resx">
+      <DependentUpon>AjouterClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterFacture.resx">
+      <DependentUpon>AjouterFacture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterProduitFacture.resx">
+      <DependentUpon>AjouterProduitFacture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjouterMaladie.resx">
+      <DependentUpon>AjouterMaladie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterStock.resx">
       <DependentUpon>AjouterStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeclarerMaladie.resx">
+      <DependentUpon>DeclarerMaladie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DonneesPersonnelles.resx">
       <DependentUpon>DonneesPersonnelles.cs</DependentUpon>
@@ -340,7 +449,13 @@
     <EmbeddedResource Include="MenuAcceuil.resx">
       <DependentUpon>MenuAcceuil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuHamberger.resx">
+    <EmbeddedResource Include="ModifierAnimal.resx">
+      <DependentUpon>ModifierAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SingleNumericUpDown.resx">
+      <DependentUpon>SingleNumericUpDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates\MenuHamberger.resx">
       <DependentUpon>MenuHamberger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
@@ -352,11 +467,14 @@
     <EmbeddedResource Include="AjouterCompte.resx">
       <DependentUpon>AjouterCompte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajouterConge.resx">
-      <DependentUpon>ajouterConge.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterConge.resx">
+      <DependentUpon>AjouterConge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajouterRDV.resx">
-      <DependentUpon>ajouterRDV.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterRDV.resx">
+      <DependentUpon>AjouterRDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierClient.resx">
+      <DependentUpon>ModifierClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifierMdp.resx">
       <DependentUpon>ModifierMdp.cs</DependentUpon>
@@ -364,17 +482,23 @@
     <EmbeddedResource Include="ModifierStock.resx">
       <DependentUpon>ModifierStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TemplateModifierStock.resx">
+    <EmbeddedResource Include="RechercheClient.resx">
+      <DependentUpon>RechercheClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RechercheStock.resx">
+      <DependentUpon>RechercheStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates\TemplateAnimal.resx">
+      <DependentUpon>TemplateAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates\TemplateModifierStock.resx">
       <DependentUpon>TemplateModifierStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreerPrescription.resx">
-      <DependentUpon>CreerPrescription.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterPrescription.resx">
+      <DependentUpon>AjouterPrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditerClient.resx">
       <DependentUpon>EditerClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EditerStock.resx">
-      <DependentUpon>EditerStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuCompte.resx">
       <DependentUpon>menuCompte.cs</DependentUpon>
@@ -390,8 +514,8 @@
     <EmbeddedResource Include="TopVente.resx">
       <DependentUpon>TopVente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vente.resx">
-      <DependentUpon>Vente.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterVente.resx">
+      <DependentUpon>AjouterVente.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

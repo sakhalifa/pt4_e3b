@@ -12,11 +12,11 @@ using PT4.Model.dal;
 
 namespace PT4
 {
-    public partial class MenuAcceuil : Form
+    public partial class MenuAcceuil : MenuHamberger
     {
 
         
-        public MenuAcceuil()
+        public MenuAcceuil(ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
         {
             InitializeComponent();
         }

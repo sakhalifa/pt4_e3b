@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using PT4.Model;
 using PT4.Model.dal;
 
 namespace PT4.Controllers
@@ -22,6 +25,34 @@ namespace PT4.Controllers
             _rendezVousRepository = rendezVousRepository;
         }
 
+        public void SubscribeDeleteCustomers(OnDelete<CLIENT> onDelete)
+        {
+            _clientRepository.SubscribeDelete(onDelete);
+        }
+
+        public void SubscribeCustomers(OnChanged<CLIENT> onChanged)
+        {
+            _clientRepository.Subscribe(onChanged);
+        }
+
+        public void UnSubscribeCustomers(OnChanged<CLIENT> onChanged)
+        {
+            _clientRepository.UnSubscribe(onChanged);
+        }
+
+        /// <summary>
+        /// Find all customers in the database
+        /// </summary>
+        public IQueryable<CLIENT> FindAll()
+        {
+            return _clientRepository.FindAll();
+        }
+
+        public void UnSubscribeDeleteCustomers(OnDelete<CLIENT> onDelete)
+        {
+            _clientRepository.UnSubscribeDelete(onDelete);
+        }
+
         /// <summary>
         /// Creates a customer
         /// </summary>
@@ -34,7 +65,7 @@ namespace PT4.Controllers
             CLIENT client = _clientRepository.FindWhere(c => c.EMAIL == email).FirstOrDefault();
             if (client != null)
             {
-                throw new Exception("Cette adresse mail est déjà utilisée");
+                throw new ArgumentException("ERREUR! Cette adresse mail est déjà utilisée!");
 
             }
             _clientRepository.Insert(new CLIENT
@@ -44,6 +75,34 @@ namespace PT4.Controllers
                 PRENOMCLIENT = prenom,
                 NOMCLIENT = nom
             });
+
+            _clientRepository.Save();
+
+        }
+
+        public void ModifierClient(CLIENT client, string nom, string prenom, string numero, string email)
+        {
+            CLIENT _ = _clientRepository.FindWhere(c => c.IDCLIENT != client.IDCLIENT && c.EMAIL == email).FirstOrDefault();
+            if (_ != null)
+            {
+                throw new ArgumentException("ERREUR! Cette adresse mail est déjà utilisée pour un autre compte!");
+            }
+            client.NOMCLIENT = nom;
+            client.PRENOMCLIENT = prenom;
+            client.NUMERO = numero;
+            client.EMAIL = email;
+            _clientRepository.Update(client);
+            _clientRepository.Save();
+        }
+
+        public IQueryable<CLIENT> ListCustomers()
+        {
+            return _clientRepository.FindAll();
+        }
+
+        public CLIENT ClientById(int id)
+        {
+            return _clientRepository.FindById(id);
         }
 
 
@@ -71,5 +130,82 @@ namespace PT4.Controllers
 
             _rendezVousRepository.Save();
         }
+
+        public void RemoveByEmail(string email)
+        {
+            CLIENT c = this.FindByEmail(email);
+            if (c is null)
+            {
+                throw new ArgumentException($"ERREUR! Il n'y a pas de client avec l'email {email}");
+            }
+            _clientRepository.Delete(c);
+            _clientRepository.Save();
+        }
+
+        public CLIENT FindByEmail(string email)
+        {
+            return _clientRepository.FindWhere((cc) => cc.EMAIL == email).FirstOrDefault();
+        }
+        public Expression<Func<CLIENT, bool>> CreateCriteriasFromForm(RechercheClient rC)
+        {
+            Expression<Func<CLIENT, bool>> finalExpr = (p) => true;
+            TableLayoutPanel table = rC.tableLayoutPanel1;
+
+
+
+            //To ensure the order of combinations, I have to first go through all the rows
+            for (int i = 0; i < table.RowCount; i++)
+            {
+                //If we are not at the line where we can insert a new criteria
+                if (!(table.GetControlFromPosition(0, i) is Button))
+                {
+                    string criteria = null;
+                    if (table.GetControlFromPosition(1, i) is ComboBox criteriaCb)
+                    {
+                        criteria = (string)criteriaCb.SelectedItem;
+                    }
+                    CriteriaCombinationType? combinationType = null;
+                    if (table.GetControlFromPosition(0, i) is ComboBox combinationCb)
+                    {
+                        combinationType = CriteriaCombinationTypeHelper.FromString((string)(combinationCb.SelectedItem));
+                    }
+                    CriteriaCheckType? checkType = null;
+                    if (table.GetControlFromPosition(2, i) is ComboBox checkCb)
+                    {
+                        checkType = CriteriaCheckTypeHelper.FromString((string)(checkCb.SelectedItem));
+                    }
+
+                    object checkObj = null;
+                    if (table.GetControlFromPosition(3, i) is TextBox tb)
+                    {
+                        checkObj = tb.Text;
+                    }
+                    else if (table.GetControlFromPosition(3, i) is NumericUpDown nud)
+                    {
+                        checkObj = nud.Value;
+                    }
+                    switch (criteria)
+                    {
+                        case "Nom":
+                            Utils.CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new StringCriteria((string)checkObj), (c) => c.NOMCLIENT);
+                            break;
+                        case "Prenom":
+                            Utils.CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new StringCriteria((string)checkObj), (c) => c.PRENOMCLIENT);
+                            break;
+                        case "Email":
+                            Utils.CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new StringCriteria((string)checkObj), (c) => c.EMAIL);
+                            break;
+                        case "Nombre d'animaux":
+                            Utils.CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new DecimalCriteria((decimal)checkObj, checkType.Value), (c) => c.NumberOfAnimals);
+                            break;
+                        case "Nombre de RDV dans le mois":
+                            Utils.CreateCriteriaCheckFunc(ref finalExpr, combinationType, () => new DecimalCriteria((decimal)checkObj, checkType.Value), (c) => c.AppointmentOfTheMonth.Count());
+                            break;
+                    }
+                }
+            }
+            return finalExpr;
+        }
+
     }
 }

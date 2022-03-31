@@ -21,7 +21,7 @@ namespace PT4.Model.impl
             return _context.Set<ORDONNANCE>().AsQueryable();
         }
 
-        public override ORDONNANCE FindById(int id)
+        public override ORDONNANCE FindById(params object[] id)
         {
             return _context.Set<ORDONNANCE>().Find(id);
         }

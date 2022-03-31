@@ -20,7 +20,7 @@ namespace PT4.Model.impl
             return _context.Set<SOIN>().AsQueryable();
         }
 
-        public override SOIN FindById(int id)
+        public override SOIN FindById(params object[] id)
         {
             return _context.Set<SOIN>().Find(id);
         }
