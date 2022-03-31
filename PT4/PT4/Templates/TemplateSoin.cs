@@ -124,7 +124,7 @@ namespace PT4
         private void buttonAddProduct_Click(object sender, EventArgs e)
         {
             //We can do this because we can only access this window if we're admin
-            _services.AddScoped((p) => new AjouterStock(p.GetRequiredService<ProduitController>(), true));
+            _services.AddScoped<AjouterStock>();
             using(ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())
