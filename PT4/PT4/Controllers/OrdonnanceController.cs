@@ -20,23 +20,47 @@ namespace PT4.Controllers
             _ordonnanceRepository = ordonnanceRepository;
         }
 
-        /// <summary>
-        /// Creates a new order 
-        /// </summary>
-        /// <param name="orderDate">The date when the order is created</param>
-        /// <param name="animal">The animal for whom is intended the order</param>
-        /// <param name="care">The care that need the animal</param>
-        public void CreerOrdonnance(DateTime orderDate, ANIMAL animal, SOIN care)
-        {   
-            ORDONNANCE order = new ORDONNANCE
-            {
-                DATEORDO = orderDate,
-                ANIMAL = animal,
-                SOIN = care,
-            };
+        public void CreerOrdonnance(ANIMAL animal, IEnumerable<SOIN> soins)
+        {
 
-            _ordonnanceRepository.Insert(order);
+            _ordonnanceRepository.Insert(new ORDONNANCE()
+            {
+                ANIMAL = animal,
+                SOIN = soins.ToList(),
+                DATEORDO = DateTime.Now
+            });
             _ordonnanceRepository.Save();
+        }
+
+        public void DeletePrescription(ORDONNANCE o)
+        {
+            var allSoin = o.SOIN;
+            foreach(SOIN s in allSoin)
+            {
+                s.ORDONNANCE.Remove(o);
+            }
+            _ordonnanceRepository.Delete(o);
+            _ordonnanceRepository.Save();
+        }
+
+        public void SubscribePrescription(OnChanged<ORDONNANCE> onChanged)
+        {
+            _ordonnanceRepository.Subscribe(onChanged);
+        }
+
+        public void UnSubscribePrescription(OnChanged<ORDONNANCE> onChanged)
+        {
+            _ordonnanceRepository.UnSubscribe(onChanged);
+        }
+
+        public void SubscribeDeletePrescription(OnDelete<ORDONNANCE> onDelete)
+        {
+            _ordonnanceRepository.SubscribeDelete(onDelete);
+        }
+
+        public void UnSubscribeDeletePrescription(OnDelete<ORDONNANCE> onDelete)
+        {
+            _ordonnanceRepository.UnSubscribeDelete(onDelete);
         }
     }
 }

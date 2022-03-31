@@ -169,13 +169,11 @@
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierStock.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.RechercheStock.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.TemplateModifierStock.resources
-\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.CreerPrescription.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.EditerClient.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.menuCompte.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Properties.Resources.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.statsProduit.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.TopVente.resources
-\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Vente.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.GenerateResource.cache
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CoreCompileInputs.cache
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CopyComplete
@@ -203,13 +201,11 @@ Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierStock.resourc
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Controllers.RechercheClient.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.RechercheStock.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.TemplateModifierStock.resources
-Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.CreerPrescription.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.EditerClient.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.menuCompte.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Properties.Resources.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.statsProduit.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.TopVente.resources
-Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Vente.resources
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.GenerateResource.cache
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CoreCompileInputs.cache
 Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.exe
@@ -278,12 +274,10 @@ Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterAnimal.resourc
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterAnimal.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierClient.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Templates.TemplateAnimal.resources
-\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.AssemblyReference.cache
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierAnimal.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterFacture.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterProduitFacture.resources
 \\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.SingleNumericUpDown.resources
-\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.SuggestedBindingRedirects.cache
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.SuggestedBindingRedirects.cache
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherClient.resources
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterAnimal.resources
@@ -380,3 +374,19 @@ C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\bin\Debug\System.ValueTuple.xml
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\bin\Debug\fr\EntityFramework.resources.dll
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
 C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CopyComplete
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.SuggestedBindingRedirects.cache
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterFacture.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterOrdonnance.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterProduitFacture.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierAnimal.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.SingleNumericUpDown.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.Templates.TemplateAnimal.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterPrescription.resources
+Z:\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterVente.resources
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterOrdonnance.resources
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterVente.resources
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.TemplateSoin.resources
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.AssemblyReference.cache
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierSoin.resources
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherOrdonnance.resources
+\\iut.bx1\Etudiants\Home\skhalifa\Documents\Iut INFO\S4\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherSalarie.resources

@@ -33,6 +33,7 @@ namespace PT4
             {
                 buttonNewCompte.Visible = false;
                 buttonNewPrescription.Visible = false;
+                buttonCare.Visible = false;
             }
             buttonHamburger.BringToFront();
         }
@@ -84,8 +85,11 @@ namespace PT4
             });
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
-                AfficherStock form = provider.GetRequiredService<AfficherStock>();
-                ShowDialogLinked(form);
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    AfficherStock form = serviceScope.ServiceProvider.GetRequiredService<AfficherStock>();
+                    ShowDialogLinked(form);
+                }
             }
         }
 
@@ -98,8 +102,11 @@ namespace PT4
             });
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
-                AfficherClient form = provider.GetService<AfficherClient>();
-                ShowDialogLinked(form);
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    AfficherClient form = serviceScope.ServiceProvider.GetService<AfficherClient>();
+                    ShowDialogLinked(form);
+                }
             }
         }
 
@@ -130,8 +137,11 @@ namespace PT4
             _services.AddScoped<AjouterFacture>();
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
-                var ajouterFac = provider.GetService<AjouterFacture>();
-                ajouterFac.ShowDialog();
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    var ajouterFac = serviceScope.ServiceProvider.GetService<AjouterFacture>();
+                    ajouterFac.ShowDialog();
+                }
             }
         }
 
@@ -142,6 +152,15 @@ namespace PT4
         {
             //Code
             hideSubMenu();
+            _services.AddScoped<TemplateSoin>();
+            using(ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    var ajouterPres = serviceScope.ServiceProvider.GetService<TemplateSoin>();
+                    ajouterPres.ShowDialog();
+                }
+            }
             
         }
 
@@ -154,8 +173,11 @@ namespace PT4
             _services.AddScoped<AjouterCompte>();
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
-                var dlg = provider.GetService<AjouterCompte>();
-                dlg.ShowDialog();
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    var dlg = serviceScope.ServiceProvider.GetService<AjouterCompte>();
+                    dlg.ShowDialog();
+                }
             }
         }
 
@@ -204,7 +226,10 @@ namespace PT4
             });
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
-                provider.GetService<ModifierMdp>().ShowDialog();
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<ModifierMdp>().ShowDialog();
+                }
             }
 
         }
@@ -230,6 +255,43 @@ namespace PT4
             toShow.ShowDialog();
         }
 
-        
+        private void buttonCare_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AfficherSoin>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<AfficherSoin>().ShowDialog();
+                }
+            }
+        }
+
+        private void buttonOrdonnances_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AfficherOrdonnance>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<AfficherOrdonnance>().ShowDialog();
+                }
+            }
+        }
+
+        private void buttonEmployees_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AfficherSalarie>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<AfficherSalarie>().ShowDialog();
+                }
+            }
+        }
     }
 }

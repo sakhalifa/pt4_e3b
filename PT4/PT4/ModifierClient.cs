@@ -31,6 +31,15 @@ namespace PT4
             _animalController.SubscribeAnimal(OnChanged);
             _animalController.SubscribeDeleteAnimal(OnDelete);
             this.Closed += (_, __) => { _animalController.UnSubscribeAnimal(OnChanged); _animalController.UnSubscribeDeleteAnimal(OnDelete); };
+
+            if (!estAdmin)
+            {
+                rajouterUneMaladieToolStripMenuItem.Visible = false;
+                rajouterUneMaladieToolStripMenuItem.Enabled = false;
+
+                creerUneOrdonnanceToolStripMenuItem.Visible = false;
+                creerUneOrdonnanceToolStripMenuItem.Enabled = false;
+            }
         }
 
         public void SetClient(CLIENT c)
@@ -76,7 +85,8 @@ namespace PT4
                         num = numeroTextBox.Text.Replace(" ", "");
                     }
                     _clientController.ModifierClient(client, nomTextBox.Text, prenomTextBox.Text, num, emailTextBox.Text);
-                }catch(ArgumentException ex)
+                }
+                catch (ArgumentException ex)
                 {
                     Utils.ShowError(ex.Message);
                     return;
@@ -94,12 +104,12 @@ namespace PT4
                 Utils.ShowError("ERREUR! Vous devez renseigner un nom!");
                 return false;
             }
-            if(prenomTextBox.TextLength == 0)
+            if (prenomTextBox.TextLength == 0)
             {
                 Utils.ShowError("ERREUR! Vous devez renseigner un prénom!");
                 return false;
             }
-            if(emailTextBox.TextLength == 0)
+            if (emailTextBox.TextLength == 0)
             {
                 Utils.ShowError("ERREUR! Vous devez renseigner un email!");
                 return false;
@@ -127,7 +137,7 @@ namespace PT4
         {
             IEnumerable<ANIMAL> animalsOfClient = animals.Where((a) => a.CLIENT.IDCLIENT == idClient);
             HashSet<ANIMAL> animalsToAdd = new HashSet<ANIMAL>(animalsOfClient);
-            foreach(ANIMAL a in animalsOfClient)
+            foreach (ANIMAL a in animalsOfClient)
             {
                 string nom = "N/A";
                 if (!(a.NOMANIMAL is null))
@@ -148,7 +158,7 @@ namespace PT4
                     }
                 }
             }
-            foreach(ANIMAL a in animalsToAdd)
+            foreach (ANIMAL a in animalsToAdd)
             {
                 AddAnimalToGridView(a);
             }
@@ -166,7 +176,7 @@ namespace PT4
                     }
                 }
             }
-            foreach(DataGridViewRow row in rowsToDelete)
+            foreach (DataGridViewRow row in rowsToDelete)
             {
                 animalGridView.Rows.Remove(row);
             }
@@ -178,10 +188,13 @@ namespace PT4
             if (!(a is null))
             {
                 _services.AddScoped((p) => new ModifierAnimal(p.GetRequiredService<AnimalController>(), p.GetRequiredService<ClientController>(), a));
-                using(ServiceProvider provider = _services.BuildServiceProvider())
+                using (ServiceProvider provider = _services.BuildServiceProvider())
                 {
-                    var dlg = provider.GetService<ModifierAnimal>();
-                    dlg.ShowDialog();
+                    using (IServiceScope serviceScope = provider.CreateScope())
+                    {
+                        var dlg = serviceScope.ServiceProvider.GetService<ModifierAnimal>();
+                        dlg.ShowDialog();
+                    }
                 }
             }
         }
@@ -233,8 +246,33 @@ namespace PT4
 
         private void addAnimal_Click(object sender, EventArgs e)
         {
-            AjouterAnimal aj = new AjouterAnimal(_animalController, _clientController, client);
-            aj.ShowDialog();
+            _services.AddScoped((p) => new AjouterAnimal(p.GetRequiredService<AnimalController>(), p.GetRequiredService<ClientController>(), client));
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    var dlg = serviceScope.ServiceProvider.GetService<AjouterAnimal>();
+                    dlg.ShowDialog();
+                }
+            }
+        }
+
+        private void creerUneOrdonnanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ANIMAL a = GetAnimalFromSelection();
+            if (!(a is null))
+            {
+                _services.AddScoped((p) => new AjouterOrdonnance(p.GetRequiredService<AnimalController>(), p.GetRequiredService<OrdonnanceController>(), p.GetRequiredService<SoinController>(), _services, a));
+                using(ServiceProvider provider = _services.BuildServiceProvider())
+                {
+                    using (IServiceScope serviceScope = provider.CreateScope())
+                    {
+                        var dlg = serviceScope.ServiceProvider.GetService<AjouterOrdonnance>();
+                        dlg.ShowDialog();
+                    }
+                }
+            }
+
         }
     }
 }

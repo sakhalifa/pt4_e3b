@@ -33,7 +33,7 @@ namespace PT4
                     Control c = table.GetControlFromPosition(i, row);
                     if (!(c is null))
                     {
-                        if (c is ComboBox cb && cb.SelectedItem.Equals("Vendable"))
+                        if (c is ComboBox cb && "Vendable".Equals(cb.SelectedItem))
                         {
                             hasSellable = false;
                             AddSellableToCriterias();

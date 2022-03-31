@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public class Utils
+    public static class Utils
     {
         public static DialogResult ShowError(string text)
         {
@@ -81,6 +81,11 @@ namespace PT4
                     expr = Expression.Lambda<Func<V, bool>>(orExpr, pParameter);
                 }
             }
+        }
+
+        public static void RemoveLastCharacter(this StringBuilder sb)
+        {
+            sb.Remove(sb.Length - 1, 1);
         }
     }
 }

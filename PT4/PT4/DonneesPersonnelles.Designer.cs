@@ -78,6 +78,7 @@
             // 
             // comboBoxSexe
             // 
+            this.comboBoxSexe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSexe.FormattingEnabled = true;
             this.comboBoxSexe.Items.AddRange(new object[] {
             "Homme",
