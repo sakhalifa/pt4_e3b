@@ -28,15 +28,7 @@ namespace PT4.Controllers
         /// <param name="care">The care that need the animal</param>
         public void CreerOrdonnance(DateTime orderDate, ANIMAL animal, SOIN care)
         {   
-            ORDONNANCE order = new ORDONNANCE
-            {
-                DATEORDO = orderDate,
-                ANIMAL = animal,
-                SOIN = care,
-            };
-
-            _ordonnanceRepository.Insert(order);
-            _ordonnanceRepository.Save();
+            
         }
     }
 }

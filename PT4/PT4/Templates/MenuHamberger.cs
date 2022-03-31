@@ -230,6 +230,39 @@ namespace PT4
             toShow.ShowDialog();
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AjouterRDV>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var dlg = provider.GetService<AjouterRDV>();
+                dlg.ShowDialog();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped((p) => new AjouterConge(salarieId, p.GetRequiredService<SalarieController>()));
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<AjouterConge>().ShowDialog();
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AjouterMaladie>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var dlg = provider.GetService<AjouterMaladie>();
+                dlg.ShowDialog();
+            }
+        }
     }
 }
