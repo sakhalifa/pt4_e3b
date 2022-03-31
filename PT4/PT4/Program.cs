@@ -31,6 +31,7 @@ namespace PT4
             var produitVenduRepo = new ProduitVenduRepository(dbContext);
             var rdvRepo = new RendezVousRepository(dbContext);
             var salarieRepo = new SalarieRepository(dbContext);
+            var histoMaladieRepo = new HistoriqueMaladieRepository(dbContext);
 
             services.AddSingleton<IGenericRepository<ANIMAL>>(animalRepo)
                     .AddSingleton<IGenericRepository<CLIENT>>(clientRepo)
@@ -42,6 +43,7 @@ namespace PT4
                     .AddSingleton<IGenericRepository<PRODUIT_VENDU>>(produitVenduRepo)
                     .AddSingleton<IGenericRepository<RENDEZVOUS>>(rdvRepo)
                     .AddSingleton<IGenericRepository<SALARIÉ>>(salarieRepo)
+                    .AddSingleton<IGenericRepository<HISTORIQUEMALADIE>>(histoMaladieRepo)
                     .AddTransient<AnimalController>()
                     .AddTransient<ClientController>()
                     .AddTransient<SalarieController>()

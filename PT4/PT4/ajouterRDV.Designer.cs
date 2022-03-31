@@ -1,7 +1,7 @@
 ﻿
 namespace PT4
 {
-    partial class ajouterRDV
+    partial class AjouterRDV
     {
         /// <summary>
         /// Required designer variable.

@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace PT4
 {
-    public partial class ajouterConge : Form
+    public partial class AjouterConge : Form
     {
 
         private SalarieController _salarieController;
         private int _salarieId;
-        public ajouterConge(int salarieId, SalarieController salarieController)
+        public AjouterConge(int salarieId, SalarieController salarieController)
         {
             InitializeComponent();
             _salarieController = salarieController;
@@ -27,7 +27,7 @@ namespace PT4
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
 
-            if(dateTimePickerFin.Value < dateTimePickerDebut.Value)
+            if(dateTimePickerFin.Value < dateTimePickerDebut.Value || dateTimePickerDebut.Value.Date < DateTime.Now)
             {
                 Utils.ShowError("La date de fin doit être supérieure à celle de début");
                 return;

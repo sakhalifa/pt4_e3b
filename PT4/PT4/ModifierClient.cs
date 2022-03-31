@@ -181,7 +181,7 @@ namespace PT4
             ANIMAL a = GetAnimalFromSelection();
             if(a!=null)
             {
-                _services.AddScoped((p) => new DeclarerMaladie(p.GetRequiredService<MaladiesController>(), a));
+                _services.AddScoped((p) => new DeclarerMaladie(p.GetRequiredService<MaladiesController>(), p.GetRequiredService<AnimalController>(), a));
                 using (ServiceProvider provider = _services.BuildServiceProvider())
                 {
                     var declarerMaladie = provider.GetService<DeclarerMaladie>();
@@ -192,7 +192,7 @@ namespace PT4
 
         private void supprimermortXdToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(this, "Etes-vous sur?", "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show(this, "Êtes-vous sûr ? ", "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 ANIMAL a = GetAnimalFromSelection();
                 if (!(a is null))

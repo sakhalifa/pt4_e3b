@@ -14,7 +14,7 @@ namespace PT4
 {
     public partial class MenuHamberger : Form
     {
-        private ServiceCollection _services;
+        protected ServiceCollection _services;
         private int salarieId;
         protected bool estAdmin;
 
@@ -237,10 +237,10 @@ namespace PT4
         private void buttonRdv_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            _services.AddScoped<ajouterRDV>();
+            _services.AddScoped<AjouterRDV>();
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
-                var dlg = provider.GetService<ajouterRDV>();
+                var dlg = provider.GetService<AjouterRDV>();
                 dlg.ShowDialog();
             }
         }
@@ -248,10 +248,21 @@ namespace PT4
         private void button1_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            _services.AddScoped((p) => new ajouterConge(salarieId, p.GetRequiredService<SalarieController>()));
+            _services.AddScoped((p) => new AjouterConge(salarieId, p.GetRequiredService<SalarieController>()));
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
-                var dlg = provider.GetService<ajouterConge>();
+                var dlg = provider.GetService<AjouterConge>();
+                dlg.ShowDialog();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AjouterMaladie>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                var dlg = provider.GetService<AjouterMaladie>();
                 dlg.ShowDialog();
             }
         }

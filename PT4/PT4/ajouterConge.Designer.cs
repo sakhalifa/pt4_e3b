@@ -1,7 +1,7 @@
 ﻿
 namespace PT4
 {
-    partial class ajouterConge
+    partial class AjouterConge
     {
         /// <summary>
         /// Required designer variable.

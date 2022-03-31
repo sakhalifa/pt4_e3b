@@ -157,17 +157,23 @@
     <Compile Include="AjouterClient.Designer.cs">
       <DependentUpon>AjouterClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="ajouterConge.cs">
+    <Compile Include="AjouterConge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ajouterConge.Designer.cs">
-      <DependentUpon>ajouterConge.cs</DependentUpon>
+    <Compile Include="AjouterConge.Designer.cs">
+      <DependentUpon>AjouterConge.cs</DependentUpon>
     </Compile>
-    <Compile Include="ajouterRDV.cs">
+    <Compile Include="AjouterMaladie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ajouterRDV.Designer.cs">
-      <DependentUpon>ajouterRDV.cs</DependentUpon>
+    <Compile Include="AjouterMaladie.Designer.cs">
+      <DependentUpon>AjouterMaladie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterRDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterRDV.Designer.cs">
+      <DependentUpon>AjouterRDV.cs</DependentUpon>
     </Compile>
     <Compile Include="AjouterStock.cs">
       <SubType>Form</SubType>
@@ -182,6 +188,8 @@
       <DependentUpon>DeclarerMaladie.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Entities\MyAnimal.cs" />
+    <Compile Include="Model\Entities\MyMaladie.cs" />
+    <Compile Include="Model\impl\HistoriqueMaladieRepository.cs" />
     <Compile Include="ModifierClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,6 +393,9 @@
     <EmbeddedResource Include="AjouterClient.resx">
       <DependentUpon>AjouterClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AjouterMaladie.resx">
+      <DependentUpon>AjouterMaladie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterStock.resx">
       <DependentUpon>AjouterStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,11 +423,11 @@
     <EmbeddedResource Include="AjouterCompte.resx">
       <DependentUpon>AjouterCompte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajouterConge.resx">
-      <DependentUpon>ajouterConge.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterConge.resx">
+      <DependentUpon>AjouterConge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajouterRDV.resx">
-      <DependentUpon>ajouterRDV.cs</DependentUpon>
+    <EmbeddedResource Include="AjouterRDV.resx">
+      <DependentUpon>AjouterRDV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifierClient.resx">
       <DependentUpon>ModifierClient.cs</DependentUpon>

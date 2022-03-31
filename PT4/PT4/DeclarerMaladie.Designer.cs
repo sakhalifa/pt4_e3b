@@ -38,6 +38,7 @@ namespace PT4
             // 
             // comboBoxMaladie
             // 
+            this.comboBoxMaladie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMaladie.FormattingEnabled = true;
             this.comboBoxMaladie.Location = new System.Drawing.Point(129, 111);
             this.comboBoxMaladie.Name = "comboBoxMaladie";
@@ -55,16 +56,15 @@ namespace PT4
             // 
             // dateTimePickerDebut
             // 
-            this.dateTimePickerDebut.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerDebut.Location = new System.Drawing.Point(142, 53);
+            this.dateTimePickerDebut.Location = new System.Drawing.Point(110, 53);
             this.dateTimePickerDebut.Name = "dateTimePickerDebut";
-            this.dateTimePickerDebut.Size = new System.Drawing.Size(95, 20);
+            this.dateTimePickerDebut.Size = new System.Drawing.Size(169, 20);
             this.dateTimePickerDebut.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(139, 37);
+            this.label2.Location = new System.Drawing.Point(107, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 4;
