@@ -14,7 +14,7 @@ namespace PT4
 {
     public partial class MenuHamberger : Form
     {
-        protected ServiceCollection _services;
+        private ServiceCollection _services;
         private int salarieId;
         protected bool estAdmin;
 
@@ -94,7 +94,7 @@ namespace PT4
             hideSubMenu();
             _services.AddScoped((p) =>
             {
-                return new AfficherClient(p.GetRequiredService<ClientController>(), p.GetRequiredService<ServiceCollection>(), salarieId, estAdmin);
+                return new AfficherClient(p.GetRequiredService<ClientController>(), _services, salarieId, estAdmin);
             });
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
@@ -248,7 +248,7 @@ namespace PT4
         private void button1_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            _services.AddScoped((p) => new ajouterConge(p.GetRequiredService<SalarieController>(), salarieId));
+            _services.AddScoped((p) => new ajouterConge(salarieId, p.GetRequiredService<SalarieController>()));
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 var dlg = provider.GetService<ajouterConge>();

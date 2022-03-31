@@ -35,8 +35,8 @@ namespace PT4
             this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
             this.buttonAnnuler = new System.Windows.Forms.Button();
             this.buttonConfirmer = new System.Windows.Forms.Button();
-            this.checkBoxRegulier = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxRegulier = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -101,27 +101,27 @@ namespace PT4
             this.buttonConfirmer.UseVisualStyleBackColor = false;
             this.buttonConfirmer.Click += new System.EventHandler(this.buttonConfirmer_Click);
             // 
-            // checkBoxRegulier
-            // 
-            this.checkBoxRegulier.AutoSize = true;
-            this.checkBoxRegulier.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxRegulier.ForeColor = System.Drawing.Color.Coral;
-            this.checkBoxRegulier.Location = new System.Drawing.Point(143, 206);
-            this.checkBoxRegulier.Name = "checkBoxRegulier";
-            this.checkBoxRegulier.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxRegulier.TabIndex = 7;
-            this.checkBoxRegulier.UseVisualStyleBackColor = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(66, 207);
+            this.label1.Location = new System.Drawing.Point(66, 198);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Est régulier ? ";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Régulier ? ";
+            // 
+            // checkBoxRegulier
+            // 
+            this.checkBoxRegulier.AutoSize = true;
+            this.checkBoxRegulier.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxRegulier.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.checkBoxRegulier.Location = new System.Drawing.Point(130, 198);
+            this.checkBoxRegulier.Name = "checkBoxRegulier";
+            this.checkBoxRegulier.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxRegulier.TabIndex = 8;
+            this.checkBoxRegulier.UseVisualStyleBackColor = false;
             // 
             // ajouterConge
             // 
@@ -130,8 +130,8 @@ namespace PT4
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::PT4.Properties.Resources.parrot_g3fd41130a_1920;
             this.ClientSize = new System.Drawing.Size(347, 332);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBoxRegulier);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonConfirmer);
             this.Controls.Add(this.buttonAnnuler);
             this.Controls.Add(this.dateTimePickerFin);
@@ -152,7 +152,7 @@ namespace PT4
         private System.Windows.Forms.DateTimePicker dateTimePickerFin;
         private System.Windows.Forms.Button buttonAnnuler;
         private System.Windows.Forms.Button buttonConfirmer;
-        private System.Windows.Forms.CheckBox checkBoxRegulier;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxRegulier;
     }
 }

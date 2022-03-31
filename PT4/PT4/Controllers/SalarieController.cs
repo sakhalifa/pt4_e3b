@@ -105,6 +105,8 @@ namespace PT4.Controllers
             return _congeRepo.FindWhere(c => c.SALARIÉ.Contains(salarie));
         }
 
+
+
         /// <summary>
         /// Creates a holiday for the specified worker
         /// </summary>
@@ -112,11 +114,17 @@ namespace PT4.Controllers
         /// <param name="dateDebut">The starting date of the holiday</param>
         /// <param name="dateFin">The last date of the holiday</param>
         /// <param name="estRegulier">Tells if this holiday is regular (every year) or not</param>
-        public void PositionnerConge(SALARIÉ s, DateTime dateDebut, DateTime dateFin, bool estRegulier = false)
+        public void PositionnerConge(int salarieId, DateTime dateDebut, DateTime dateFin, bool ignoreEstRegulier, bool estRegulier = false)
         {
+            SALARIÉ s = _salarieRepo.FindById(salarieId);
+            if(s == null)
+            {
+                throw new ArgumentException("ERREUR CRITIQUE! Salarié introuvable !");
+            }
             CONGÉ conge = _congeRepo.FindWhere(c => c.DATEFIN == dateFin && c.DATEDEBUT == dateDebut).FirstOrDefault();
             if(conge == null)
             {
+
                 conge = new CONGÉ
                 {
                     SALARIÉ = new List<SALARIÉ>(),
@@ -124,12 +132,29 @@ namespace PT4.Controllers
                     ESTREGULIER = estRegulier,
                     DATEFIN = dateFin
                 };
+                
                 conge.SALARIÉ.Add(s);
                 _congeRepo.Insert(conge);
                 _congeRepo.Save();
                 return;
             }
+
+
+            if(conge.SALARIÉ.Contains(s))
+            {
+                throw new ArgumentException("Erreur ! Ce congé existe déjà");
+            }
+
+            if (conge.ESTREGULIER != estRegulier && !ignoreEstRegulier)
+            {
+                DataMisalignedException ex = new DataMisalignedException();
+                ex.Data.Add("canModify", s.estAdmin);
+                throw ex;
+            }
+
+
             conge.SALARIÉ.Add(s);
+            conge.ESTREGULIER = estRegulier;
             _congeRepo.Update(conge);
             _congeRepo.Save();
         }
