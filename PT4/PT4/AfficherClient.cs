@@ -24,7 +24,7 @@ namespace PT4
 
         private int ElementCount { get => cachedCustomers.Count; }
 
-        public AfficherClient(ClientController clientController, ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
+        public AfficherClient(ClientController clientController, ServiceCollection services, bool estAdmin) : base(services, Utils.connectedSalarieId.Value, estAdmin)
         {
             _clientController = clientController;
             _clientController.SubscribeCustomers(OnChanged);

@@ -74,8 +74,10 @@ namespace PT4
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(522, 149);
+            this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
+            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // MenuAcceuil
             // 

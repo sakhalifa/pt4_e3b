@@ -28,7 +28,7 @@ namespace PT4
         {
             InitializeComponent();
             _prodController = prodController;
-            if (estAdmin)
+            if (!estAdmin)
             {
                 estMedic.Visible = false;
             }

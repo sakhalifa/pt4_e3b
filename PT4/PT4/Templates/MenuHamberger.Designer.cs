@@ -49,9 +49,10 @@ namespace PT4
             this.clientsGestion = new System.Windows.Forms.Button();
             this.buttonStock = new System.Windows.Forms.Button();
             this.buttonManagement = new System.Windows.Forms.Button();
+            this.buttonHamburger = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.buttonX = new System.Windows.Forms.Button();
-            this.buttonHamburger = new System.Windows.Forms.Button();
+            this.buttonAppointments = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -100,7 +101,7 @@ namespace PT4
             this.buttonLog.FlatAppearance.BorderSize = 0;
             this.buttonLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLog.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonLog.Location = new System.Drawing.Point(0, 605);
+            this.buttonLog.Location = new System.Drawing.Point(0, 645);
             this.buttonLog.Name = "buttonLog";
             this.buttonLog.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonLog.Size = new System.Drawing.Size(233, 45);
@@ -116,7 +117,7 @@ namespace PT4
             this.mdpChange.FlatAppearance.BorderSize = 0;
             this.mdpChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mdpChange.ForeColor = System.Drawing.Color.Gainsboro;
-            this.mdpChange.Location = new System.Drawing.Point(0, 560);
+            this.mdpChange.Location = new System.Drawing.Point(0, 600);
             this.mdpChange.Name = "mdpChange";
             this.mdpChange.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.mdpChange.Size = new System.Drawing.Size(233, 45);
@@ -137,7 +138,7 @@ namespace PT4
             this.panel2.Controls.Add(this.buttonNewPrescription);
             this.panel2.Controls.Add(this.buttonNewSale);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 440);
+            this.panel2.Location = new System.Drawing.Point(0, 480);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(233, 240);
             this.panel2.TabIndex = 4;
@@ -245,7 +246,7 @@ namespace PT4
             this.panelAdd.FlatAppearance.BorderSize = 0;
             this.panelAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.panelAdd.ForeColor = System.Drawing.Color.Gainsboro;
-            this.panelAdd.Location = new System.Drawing.Point(0, 395);
+            this.panelAdd.Location = new System.Drawing.Point(0, 435);
             this.panelAdd.Name = "panelAdd";
             this.panelAdd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panelAdd.Size = new System.Drawing.Size(233, 45);
@@ -259,6 +260,7 @@ namespace PT4
             // 
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.buttonAppointments);
             this.panel1.Controls.Add(this.buttonEmployees);
             this.panel1.Controls.Add(this.buttonOrdonnances);
             this.panel1.Controls.Add(this.buttonCare);
@@ -267,7 +269,7 @@ namespace PT4
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 195);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 200);
+            this.panel1.Size = new System.Drawing.Size(233, 240);
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
             // 
@@ -367,6 +369,16 @@ namespace PT4
             this.buttonManagement.UseVisualStyleBackColor = true;
             this.buttonManagement.Click += new System.EventHandler(this.buttonManagement_Click);
             // 
+            // buttonHamburger
+            // 
+            this.buttonHamburger.Location = new System.Drawing.Point(763, 12);
+            this.buttonHamburger.Name = "buttonHamburger";
+            this.buttonHamburger.Size = new System.Drawing.Size(25, 25);
+            this.buttonHamburger.TabIndex = 1;
+            this.buttonHamburger.Text = "O";
+            this.buttonHamburger.UseVisualStyleBackColor = true;
+            this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
+            // 
             // panelLogo
             // 
             this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
@@ -389,15 +401,21 @@ namespace PT4
             this.buttonX.UseVisualStyleBackColor = true;
             this.buttonX.Click += new System.EventHandler(this.buttonX_Click);
             // 
-            // buttonHamburger
+            // buttonAppointments
             // 
-            this.buttonHamburger.Location = new System.Drawing.Point(763, 12);
-            this.buttonHamburger.Name = "buttonHamburger";
-            this.buttonHamburger.Size = new System.Drawing.Size(25, 25);
-            this.buttonHamburger.TabIndex = 1;
-            this.buttonHamburger.Text = "O";
-            this.buttonHamburger.UseVisualStyleBackColor = true;
-            this.buttonHamburger.Click += new System.EventHandler(this.buttonHamburger_Click);
+            this.buttonAppointments.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAppointments.FlatAppearance.BorderSize = 0;
+            this.buttonAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAppointments.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonAppointments.Location = new System.Drawing.Point(0, 200);
+            this.buttonAppointments.Name = "buttonAppointments";
+            this.buttonAppointments.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonAppointments.Size = new System.Drawing.Size(233, 40);
+            this.buttonAppointments.TabIndex = 7;
+            this.buttonAppointments.Text = "Rendez Vous";
+            this.buttonAppointments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAppointments.UseVisualStyleBackColor = true;
+            this.buttonAppointments.Click += new System.EventHandler(this.buttonAppointments_Click);
             // 
             // MenuHamberger
             // 
@@ -442,6 +460,7 @@ namespace PT4
         private System.Windows.Forms.Button buttonAddDisease;
         private System.Windows.Forms.Button buttonAddConge;
         private System.Windows.Forms.Button buttonAddAppointment;
+        private System.Windows.Forms.Button buttonAppointments;
     }
 }
 

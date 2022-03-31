@@ -15,7 +15,6 @@ namespace PT4
     public partial class MenuHamberger : Form
     {
         protected ServiceCollection _services;
-        private int salarieId;
         protected bool estAdmin;
 
         private MenuHamberger()
@@ -28,12 +27,15 @@ namespace PT4
             InitializeComponent();
             _services = services;
             this.estAdmin = estAdmin;
-            this.salarieId = salarieId;
+            Utils.connectedSalarieId = salarieId;
             if (!this.estAdmin)
             {
                 buttonNewCompte.Visible = false;
                 buttonNewPrescription.Visible = false;
                 buttonCare.Visible = false;
+                buttonEmployees.Visible = false;
+                buttonOrdonnances.Visible = false;
+                buttonAddDisease.Visible = false;
             }
             buttonHamburger.BringToFront();
         }
@@ -81,7 +83,7 @@ namespace PT4
             hideSubMenu();
             _services.AddScoped((p) =>
             {
-                return new AfficherStock(p.GetRequiredService<ProduitController>(), _services, salarieId, estAdmin);
+                return new AfficherStock(p.GetRequiredService<ProduitController>(), _services, estAdmin);
             });
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
@@ -98,7 +100,7 @@ namespace PT4
             hideSubMenu();
             _services.AddScoped((p) =>
             {
-                return new AfficherClient(p.GetRequiredService<ClientController>(), p.GetRequiredService<ServiceCollection>(), salarieId, estAdmin);
+                return new AfficherClient(p.GetRequiredService<ClientController>(), p.GetRequiredService<ServiceCollection>(), estAdmin);
             });
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
@@ -222,7 +224,7 @@ namespace PT4
             _services.AddScoped((p) =>
             {
                 var contr = p.GetRequiredService<SalarieController>();
-                return new ModifierMdp(contr, salarieId);
+                return new ModifierMdp(contr, Utils.connectedSalarieId.Value);
             });
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
@@ -236,6 +238,7 @@ namespace PT4
 
         private void deconnexion_Click(object sender, EventArgs e)
         {
+            Utils.connectedSalarieId = null;
             this.DialogResult = DialogResult.Retry;
             this.Close();
         }
@@ -282,7 +285,7 @@ namespace PT4
         private void button2_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            _services.AddScoped((p) => new AjouterConge(salarieId, p.GetRequiredService<SalarieController>()));
+            _services.AddScoped((p) => new AjouterConge(p.GetRequiredService<SalarieController>()));
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())
@@ -324,6 +327,19 @@ namespace PT4
                 using (IServiceScope serviceScope = provider.CreateScope())
                 {
                     serviceScope.ServiceProvider.GetService<AfficherSalarie>().ShowDialog();
+                }
+            }
+        }
+
+        private void buttonAppointments_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            _services.AddScoped<AfficherRdv>();
+            using (ServiceProvider provider = _services.BuildServiceProvider())
+            {
+                using (IServiceScope serviceScope = provider.CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetService<AfficherRdv>().ShowDialog();
                 }
             }
         }
