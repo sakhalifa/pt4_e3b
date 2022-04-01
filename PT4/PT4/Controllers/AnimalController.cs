@@ -90,10 +90,15 @@ namespace PT4.Controllers
         }
 
         public void AddSickness(ANIMAL a, MALADIE m, DateTime date)
-        {
+        { 
+            var tt = a.HISTORIQUEMALADIE.Where(h => h.DATEDEBUT == date);
+            if(tt.Count() > 0)
+            {
+                throw new ArgumentException("ERREUR! On ne peut avoir 2 historiques qui ont la même date de début!");
+            }
             var histo = new HISTORIQUEMALADIE() { DATEDEBUT = date };
             //Verif pas de histo avec la MEME date de début, le même ANIMAL pour 1 maladie
-            var tt = a.HISTORIQUEMALADIE.Where((h) => h.DATEDEBUT == date).Intersect(m.HISTORIQUEMALADIE.Where((h) => h.DATEDEBUT == date));
+            tt = a.HISTORIQUEMALADIE.Where((h) => h.DATEDEBUT == date).Intersect(m.HISTORIQUEMALADIE.Where((h) => h.DATEDEBUT == date));
             
             if(tt.Count() > 0)
             {

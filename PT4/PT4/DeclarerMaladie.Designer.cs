@@ -56,6 +56,7 @@ namespace PT4
             // 
             // dateTimePickerDebut
             // 
+            this.dateTimePickerDebut.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePickerDebut.Location = new System.Drawing.Point(110, 53);
             this.dateTimePickerDebut.Name = "dateTimePickerDebut";
             this.dateTimePickerDebut.Size = new System.Drawing.Size(169, 20);
