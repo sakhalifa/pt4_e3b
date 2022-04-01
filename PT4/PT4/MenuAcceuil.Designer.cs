@@ -53,11 +53,11 @@ namespace PT4
             this.PlanningJournée.BackColor = System.Drawing.Color.Transparent;
             this.PlanningJournée.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlanningJournée.ForeColor = System.Drawing.Color.White;
-            this.PlanningJournée.Location = new System.Drawing.Point(559, 96);
+            this.PlanningJournée.Location = new System.Drawing.Point(579, 96);
             this.PlanningJournée.Name = "PlanningJournée";
-            this.PlanningJournée.Size = new System.Drawing.Size(154, 17);
+            this.PlanningJournée.Size = new System.Drawing.Size(124, 17);
             this.PlanningJournée.TabIndex = 1;
-            this.PlanningJournée.Text = "Planning de la journée:";
+            this.PlanningJournée.Text = "Planning du mois :";
             // 
             // Notes
             // 
@@ -74,8 +74,10 @@ namespace PT4
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(522, 149);
+            this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
+            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // MenuAcceuil
             // 

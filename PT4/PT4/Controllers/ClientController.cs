@@ -117,7 +117,7 @@ namespace PT4.Controllers
                 if ((dateRdv >= rdv.DATEHEURERDV && dateRdv <= rdv.HEUREFINRDV)
                   || (finRdv >= rdv.DATEHEURERDV && finRdv <= rdv.HEUREFINRDV))
                 {
-                    throw new Exception("Cet horaire n'est pas disponible.");
+                    throw new ArgumentException($"Cet horaire n'est pas disponible. En conflit avec le rendez-vous :\n{rdv}");
                 }
             }
             _rendezVousRepository.Insert(new RENDEZVOUS

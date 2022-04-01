@@ -79,6 +79,7 @@ namespace PT4
             this.stocks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stocks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.stocks.Location = new System.Drawing.Point(3, 3);
+            this.stocks.MultiSelect = false;
             this.stocks.Name = "stocks";
             this.stocks.ReadOnly = true;
             this.stocks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

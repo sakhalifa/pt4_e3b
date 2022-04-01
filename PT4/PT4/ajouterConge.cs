@@ -32,7 +32,6 @@ namespace PT4
         {
             InitializeComponent();
             _salarieController = salarieController;
-            _salarieId = salarieId;
         }
 
         /// <summary>
@@ -51,7 +50,7 @@ namespace PT4
 
             try
             {
-                _salarieController.PositionnerConge( _salarieId, dateTimePickerDebut.Value.Date, dateTimePickerFin.Value.Date, false, checkBoxRegulier.Checked);           
+                _salarieController.PositionnerConge(Utils.connectedSalarieId.Value, dateTimePickerDebut.Value.Date, dateTimePickerFin.Value.Date, false, checkBoxRegulier.Checked);           
                 this.DialogResult = DialogResult.OK;
                 MessageBox.Show("Le congé a bien été positionné");
                 this.Close();
@@ -70,7 +69,7 @@ namespace PT4
                     if (MessageBox.Show("La case 'Est Régulier' ne correspond pas au congé correspondant. Souhaitez-vous le modifier ? ", "Confirmation : ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
 
-                        _salarieController.PositionnerConge(_salarieId, dateTimePickerDebut.Value.Date, dateTimePickerFin.Value.Date, true, checkBoxRegulier.Checked);
+                        _salarieController.PositionnerConge(Utils.connectedSalarieId.Value, dateTimePickerDebut.Value.Date, dateTimePickerFin.Value.Date, true, checkBoxRegulier.Checked);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }

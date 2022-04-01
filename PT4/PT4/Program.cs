@@ -54,6 +54,7 @@ namespace PT4
                     .AddTransient<OrdonnanceController>()
                     .AddTransient<ProduitController>()
                     .AddTransient<SoinController>()
+                    .AddTransient<RendezVousController>()
             ;
             services.AddSingleton(services);
         }

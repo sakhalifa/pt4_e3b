@@ -54,24 +54,31 @@ namespace PT4
                 {
                     MessageBox.Show($"Connecté avec succès en tant que {s.LOGIN}");
                     this.Hide();
-                    MenuAcceuil mh = new MenuAcceuil(_service, s.IDCOMPTE, s.estAdmin);
-
-
-                    mh.Closed += (send, __) =>
+                    _service.AddScoped((p) => new MenuAcceuil(p.GetRequiredService<RendezVousController>(), _service, s.IDCOMPTE, s.estAdmin));
+                    using (ServiceProvider provider = _service.BuildServiceProvider())
                     {
-                        if (send is MenuHamberger a)
+                        using (IServiceScope scope = provider.CreateScope())
                         {
-                            if (a.DialogResult == DialogResult.Retry)
+                            MenuAcceuil mh = scope.ServiceProvider.GetService<MenuAcceuil>();
+
+
+                            mh.Closed += (send, __) =>
                             {
-                                this.Show();
-                            }
-                            else
-                            {
-                                this.Close();
-                            }
+                                if (send is MenuHamberger a)
+                                {
+                                    if (a.DialogResult == DialogResult.Retry)
+                                    {
+                                        this.Show();
+                                    }
+                                    else
+                                    {
+                                        this.Close();
+                                    }
+                                }
+                            };
+                            mh.ShowDialog();
                         }
-                    };
-                    mh.ShowDialog();
+                    }
 
 
                 }

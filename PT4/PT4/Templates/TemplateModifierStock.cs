@@ -24,11 +24,12 @@ namespace PT4
             InitializeComponent();
         }
 
-        public TemplateModifierStock(ProduitController prodController, bool estAdmin)
+        public TemplateModifierStock(ProduitController prodController)
         {
             InitializeComponent();
             _prodController = prodController;
-            if (estAdmin)
+
+            if (!Utils.connecteAdmin)
             {
                 estMedic.Visible = false;
             }
@@ -75,12 +76,12 @@ namespace PT4
             }
             if (prixAchat.Value <= 0)
             {
-                Utils.ShowError("ERREUR! Le prix de vente ne peut pas être nul ou inférieur à 0!");
+                Utils.ShowError("ERREUR! Le prix d'achat ne peut pas être nul ou inférieur à 0!");
                 return false;
             }
-            if (prixAchat.Value <= 0)
+            if (prixVente.Enabled && prixVente.Value <= 0)
             {
-                Utils.ShowError("ERREUR! Le prix d'achat ne peut pas être nul ou inférieur à 0!");
+                Utils.ShowError("ERREUR! Le prix de vente ne peut pas être nul ou inférieur à 0!");
                 return false;
             }
             if (prixAchat.Value < prixAchat.Value)

@@ -52,7 +52,7 @@ namespace PT4
             _animalController.SubscribeDeleteAnimal(OnDelete);
             this.Closed += (_, __) => { _animalController.UnSubscribeAnimal(OnChanged); _animalController.UnSubscribeDeleteAnimal(OnDelete); };
 
-            if (!estAdmin)
+            if (!Utils.connecteAdmin)
             {
                 rajouterUneMaladieToolStripMenuItem.Visible = false;
                 rajouterUneMaladieToolStripMenuItem.Enabled = false;

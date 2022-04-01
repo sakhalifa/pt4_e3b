@@ -34,12 +34,12 @@
             this.sexe = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxNumero = new System.Windows.Forms.TextBox();
             this.motDePasse = new System.Windows.Forms.Label();
             this.titre = new System.Windows.Forms.Label();
             this.textBoxMail = new System.Windows.Forms.Label();
             this.textBoxMailDonnees = new System.Windows.Forms.TextBox();
             this.buttonConfirmer = new System.Windows.Forms.Button();
+            this.textBoxNumero = new System.Windows.Forms.MaskedTextBox();
             this.panelDonneesPersonnelles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAge)).BeginInit();
             this.SuspendLayout();
@@ -47,12 +47,12 @@
             // panelDonneesPersonnelles
             // 
             this.panelDonneesPersonnelles.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelDonneesPersonnelles.Controls.Add(this.textBoxNumero);
             this.panelDonneesPersonnelles.Controls.Add(this.numericUpDownAge);
             this.panelDonneesPersonnelles.Controls.Add(this.comboBoxSexe);
             this.panelDonneesPersonnelles.Controls.Add(this.sexe);
             this.panelDonneesPersonnelles.Controls.Add(this.label1);
             this.panelDonneesPersonnelles.Controls.Add(this.label4);
-            this.panelDonneesPersonnelles.Controls.Add(this.textBoxNumero);
             this.panelDonneesPersonnelles.Controls.Add(this.motDePasse);
             this.panelDonneesPersonnelles.Controls.Add(this.titre);
             this.panelDonneesPersonnelles.Controls.Add(this.textBoxMail);
@@ -118,13 +118,6 @@
             this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 8;
             // 
-            // textBoxNumero
-            // 
-            this.textBoxNumero.Location = new System.Drawing.Point(106, 139);
-            this.textBoxNumero.Name = "textBoxNumero";
-            this.textBoxNumero.Size = new System.Drawing.Size(100, 20);
-            this.textBoxNumero.TabIndex = 7;
-            // 
             // motDePasse
             // 
             this.motDePasse.AutoSize = true;
@@ -179,6 +172,14 @@
             this.buttonConfirmer.UseVisualStyleBackColor = false;
             this.buttonConfirmer.Click += new System.EventHandler(this.buttonConfirmer_Click);
             // 
+            // textBoxNumero
+            // 
+            this.textBoxNumero.Location = new System.Drawing.Point(106, 141);
+            this.textBoxNumero.Mask = "0000000000";
+            this.textBoxNumero.Name = "textBoxNumero";
+            this.textBoxNumero.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNumero.TabIndex = 16;
+            // 
             // DonneesPersonnelles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,7 +199,6 @@
 
         private System.Windows.Forms.Panel panelDonneesPersonnelles;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxNumero;
         private System.Windows.Forms.Label motDePasse;
         private System.Windows.Forms.Label titre;
         private System.Windows.Forms.Label textBoxMail;
@@ -208,5 +208,6 @@
         private System.Windows.Forms.Label sexe;
         private System.Windows.Forms.ComboBox comboBoxSexe;
         private System.Windows.Forms.NumericUpDown numericUpDownAge;
+        private System.Windows.Forms.MaskedTextBox textBoxNumero;
     }
 }

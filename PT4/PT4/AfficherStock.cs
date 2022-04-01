@@ -128,7 +128,7 @@ namespace PT4
             {
                 prixVente = prod.PRIXDEVENTE.ToString();
             }
-            if (estAdmin || !prod.MEDICAMENT)
+            if (Utils.connecteAdmin || !prod.MEDICAMENT)
             {
                 stocks.Rows.Add(prod.NOMPRODUIT, prixVente, prod.PRIXACHAT, prod.QUANTITEENSTOCK, prod.DESCRIPTION, prod.PRIXDEVENTE.HasValue, prod.MEDICAMENT);
             }
@@ -137,7 +137,7 @@ namespace PT4
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            AjouterStock ajouterStock = new AjouterStock(_produitController, estAdmin);
+            AjouterStock ajouterStock = new AjouterStock(_produitController);
             ajouterStock.ShowDialog();
         }
 
@@ -147,7 +147,7 @@ namespace PT4
             {
                 DataGridViewRow row = stocks.SelectedRows[0];
                 PRODUIT p = _produitController.FindByName((string)row.Cells["Nom"].Value);
-                AjouterStock ajouterStock = new AjouterStock(_produitController, estAdmin);
+                AjouterStock ajouterStock = new AjouterStock(_produitController);
                 ajouterStock.SetProduit(p);
                 ajouterStock.ShowDialog();
             }
@@ -157,9 +157,16 @@ namespace PT4
                 DataGridViewCell cell = stocks.Rows[selectedCell.RowIndex].Cells["Nom"];
 
                 PRODUIT p = _produitController.FindByName((string)cell.Value);
-                AjouterStock ajouterStock = new AjouterStock(_produitController, estAdmin);
-                ajouterStock.SetProduit(p);
-                ajouterStock.ShowDialog();
+                _services.AddScoped<AjouterStock>();
+                using (ServiceProvider provider = _services.BuildServiceProvider())
+                {
+                    using (IServiceScope serviceScope = provider.CreateScope())
+                    {
+                        AjouterStock form = serviceScope.ServiceProvider.GetService<AjouterStock>();
+                        form.SetProduit(p);
+                        form.ShowDialog();
+                    }
+                }
             }
             else
             {
@@ -174,9 +181,16 @@ namespace PT4
             {
                 DataGridViewRow row = stocks.SelectedRows[0];
                 PRODUIT p = _produitController.FindByName((string)row.Cells["Nom"].Value);
-                ModifierStock modifStock = new ModifierStock(_produitController, estAdmin);
-                modifStock.SetProduit(p);
-                modifStock.ShowDialog();
+                _services.AddScoped<ModifierStock>();
+                using (ServiceProvider provider = _services.BuildServiceProvider())
+                {
+                    using (IServiceScope serviceScope = provider.CreateScope())
+                    {
+                        ModifierStock form = serviceScope.ServiceProvider.GetService<ModifierStock>();
+                        form.SetProduit(p);
+                        form.ShowDialog();
+                    }
+                }
             }
             else if (stocks.SelectedCells.Count == 1)
             {
@@ -184,9 +198,16 @@ namespace PT4
                 DataGridViewCell cell = stocks.Rows[selectedCell.RowIndex].Cells["Nom"];
 
                 PRODUIT p = _produitController.FindByName((string)cell.Value);
-                ModifierStock modifierStock = new ModifierStock(_produitController, estAdmin);
-                modifierStock.SetProduit(p);
-                modifierStock.ShowDialog();
+                _services.AddScoped<ModifierStock>();
+                using (ServiceProvider provider = _services.BuildServiceProvider())
+                {
+                    using (IServiceScope serviceScope = provider.CreateScope())
+                    {
+                        ModifierStock form = serviceScope.ServiceProvider.GetService<ModifierStock>();
+                        form.SetProduit(p);
+                        form.ShowDialog();
+                    }
+                }
             }
             else
             {
