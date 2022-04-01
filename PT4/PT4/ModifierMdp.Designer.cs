@@ -45,7 +45,6 @@
             this.textBoxNewMdp.PasswordChar = '*';
             this.textBoxNewMdp.Size = new System.Drawing.Size(100, 20);
             this.textBoxNewMdp.TabIndex = 8;
-            this.textBoxNewMdp.TextChanged += new System.EventHandler(this.textBoxNewMdp_TextChanged);
             // 
             // textBoxConfirmerMdp
             // 
@@ -54,7 +53,6 @@
             this.textBoxConfirmerMdp.PasswordChar = '*';
             this.textBoxConfirmerMdp.Size = new System.Drawing.Size(100, 20);
             this.textBoxConfirmerMdp.TabIndex = 9;
-            this.textBoxConfirmerMdp.TextChanged += new System.EventHandler(this.textBoxConfirmerMdp_TextChanged);
             // 
             // titre
             // 

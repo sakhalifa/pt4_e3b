@@ -13,10 +13,15 @@ namespace PT4
 {
     public partial class AjouterRDV : Form
     {
-        // New ClientController
+        /// <summary>
+        /// Instance of ClientController
+        /// </summary>
         private ClientController _clientController;
 
-        // Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="clientController">Instance of ClientController</param>
         public AjouterRDV(ClientController clientController)
         {
             InitializeComponent();
@@ -28,12 +33,19 @@ namespace PT4
             }
         } 
 
+
         public void SetClient(CLIENT c)
         {
             comboBoxClient.Items.Clear();
             comboBoxClient.Items.Add(c);
             comboBoxClient.SelectedItem = c;
         }
+
+        /// <summary>
+        /// If the constraints are validated, it creates the new appointment
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
 
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
@@ -61,6 +73,7 @@ namespace PT4
                 {
                   _clientController.CreerRendezVous((CLIENT)comboBoxClient.SelectedItem, dateTimePicker1.Value, textBoxRaison.Text, dateTimePicker1.Value.AddHours(1));
                     this.DialogResult = DialogResult.OK;
+                    MessageBox.Show("Le rendez-vous a bien été créé pour le " + dateTimePicker1.Value);
                     this.Close();
                 }
                 // if not, it shows the error

@@ -13,9 +13,22 @@ namespace PT4
 {
     public partial class DeclarerMaladie : Form
     {
+        /// <summary>
+        /// Instance of AnimalController
+        /// </summary>
         private AnimalController _animalController;
+
+        /// <summary>
+        /// Instance of ANIMAL
+        /// </summary>
         private ANIMAL _animal;
-        // Constructor
+        
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="maladiesController">Instance of MaladieController</param>
+        /// <param name="animalController">Instance of AnimalController</param>
+        /// <param name="animal">Instance of ANIMAL</param>
         public DeclarerMaladie(MaladiesController maladiesController, AnimalController animalController, ANIMAL animal)
         {
             InitializeComponent();
@@ -29,6 +42,11 @@ namespace PT4
 
         }
 
+        /// <summary>
+        /// If all the constraints are validated, it creates the new disease
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
             // If there is no disease selected

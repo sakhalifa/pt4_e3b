@@ -12,10 +12,19 @@ namespace PT4
 {
     public partial class RechercheStock : Form
     {
+        /// <summary>
+        /// Boolean which says if somthing is sellable or not
+        /// </summary>
         private bool hasSellable = false;
 
+        /// <summary>
+        /// item list
+        /// </summary>
         private static readonly object[] ITEM_LIST = new object[] { "Nom", "Prix d'achat", "Prix de vente", "Quantité", "Description", "Medicament" };
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public RechercheStock()
         {
             InitializeComponent();
@@ -23,6 +32,11 @@ namespace PT4
 
         }
 
+        /// <summary>
+        /// Remove a row 
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void remove_Click(object sender, EventArgs e)
         {
             if (sender is Button button && button.Parent is TableLayoutPanel table)
@@ -77,6 +91,10 @@ namespace PT4
 
             }
         }
+        /// <summary>
+        /// Remove all sellable criteria
+        /// </summary>
+        /// <param name="rowToIgnore">number of row</param>
         private void RemoveEverySellableCriteria(int rowToIgnore)
         {
             for (int i = 0; i < tableLayoutPanel1.RowCount - 1; i++)
@@ -91,6 +109,9 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Add a sellable to criteria
+        /// </summary>
         private void AddSellableToCriterias()
         {
             for (int i = 0; i < tableLayoutPanel1.RowCount - 1; i++)
@@ -105,6 +126,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Shows every possibly type of research for a criteria
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void critere_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (sender is ComboBox comboBox && comboBox.Parent is TableLayoutPanel table)
@@ -183,6 +209,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Add a new row to have a new criteria
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addRow_click(object sender, EventArgs e)
         {
             if (addRow.Parent is TableLayoutPanel table)
@@ -237,6 +268,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// If all the constraints are validated, it shows all the products which are in the criterias 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
             bool sellable = false;

@@ -13,14 +13,25 @@ namespace PT4
 {
     public partial class AjouterClient : Form
     {
+        /// <summary>
+        /// Instance of ClientController
+        /// </summary>
         private ClientController _clientController;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="clientController">Instance of ClientController</param>
         public AjouterClient(ClientController clientController)
         {
             InitializeComponent();
             _clientController = clientController;
         }
 
+        /// <summary>
+        /// Function which checks if every textBox are well filled
+        /// </summary>
+        /// <returns> true if all constraints are validated </returns>
         private bool CheckRemplissage()
         {
             if(nom.TextLength == 0)
@@ -54,6 +65,11 @@ namespace PT4
             return true;
         }
 
+        /// <summary>
+        /// Add the new customer if all constraints are validated
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void confirm_Click(object sender, EventArgs e)
         {
             if (CheckRemplissage())

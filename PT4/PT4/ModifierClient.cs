@@ -14,15 +14,35 @@ namespace PT4
 {
     public partial class ModifierClient : Form
     {
+        /// <summary>
+        /// Instance of ClientController
+        /// </summary>
         private ClientController _clientController;
+        /// <summary>
+        /// Instance of AnimalController
+        /// </summary>
         private AnimalController _animalController;
+        /// <summary>
+        /// Instance of ServiceCollection
+        /// </summary>
         private ServiceCollection _services;
 
         //Have to do it to them or else : Entity cannot be tracked by multiple EntityTracker :).
         private int idClient;
+
+        /// <summary>
+        /// Instance of CLIENT
+        /// </summary>
         private CLIENT client { get => _clientController.ClientById(idClient); }
 
-        public ModifierClient(ClientController clientController, AnimalController animalController, ServiceCollection services)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="clientController">Instance of ClientController</param>
+        /// <param name="animalController">Instance of AnimalController</param>
+        /// <param name="services">Instance of ServiceCollection</param>
+        /// <param name="estAdmin">boolean admin</param>
+        public ModifierClient(ClientController clientController, AnimalController animalController, ServiceCollection services, bool estAdmin)
         {
             InitializeComponent();
             _clientController = clientController;
@@ -42,6 +62,10 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Set the new informations for a customer
+        /// </summary>
+        /// <param name="c">Instance of CLIENT</param>
         public void SetClient(CLIENT c)
         {
             this.idClient = c.IDCLIENT;
@@ -52,8 +76,9 @@ namespace PT4
             ResetGridView();
         }
 
-        //Pas besoin d'un cache et tt vu qu'un client n'aura pas genre 250 animaux quoi.
-        //C'est pour cette même raison qu'on ne fait pas de pagination
+        /// <summary>
+        /// It reset the dataGridView
+        /// </summary>
         private void ResetGridView()
         {
             animalGridView.Rows.Clear();
@@ -63,6 +88,10 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Add a row with the informations of the new animal
+        /// </summary>
+        /// <param name="a"></param>
         private void AddAnimalToGridView(ANIMAL a)
         {
             string nom = "N/A";
@@ -73,6 +102,11 @@ namespace PT4
             animalGridView.Rows.Add(a.IDANIMAL, nom, a.NOMESPECE, a.NOMRACE, $"{a.TAILLE}cm", $"{a.POIDS}kg", a.SicknessOfTheMonth.Count());
         }
 
+        /// <summary>
+        /// If all the constraints are validated, it validates the modifications
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void confirmButton_Click(object sender, EventArgs e)
         {
             if (CheckRemplissage())
@@ -97,6 +131,10 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// If all the constraints are validated, it returns true
+        /// </summary>
+        /// <returns>returns true if all the constraints are validated</returns>
         private bool CheckRemplissage()
         {
             if (nomTextBox.TextLength == 0)
@@ -132,7 +170,10 @@ namespace PT4
             return true;
         }
 
-        //I just reset the grid because nobody has like 25 animals or something. So it won't lag that much
+        /// <summary>
+        /// Function which is called whenever there is a customer updated or added
+        /// </summary>
+        /// <param name="animals"></param>
         private void OnChanged(IEnumerable<ANIMAL> animals)
         {
             IEnumerable<ANIMAL> animalsOfClient = animals.Where((a) => a.CLIENT.IDCLIENT == idClient);
@@ -163,6 +204,11 @@ namespace PT4
                 AddAnimalToGridView(a);
             }
         }
+
+        /// <summary>
+        /// Function which is called whenever there is a customer which is deleted 
+        /// </summary>
+        /// <param name="animals"></param>
         private void OnDelete(IEnumerable<ANIMAL> animals)
         {
             HashSet<DataGridViewRow> rowsToDelete = new HashSet<DataGridViewRow>();
@@ -182,6 +228,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// It shows the page where you can modify an animal
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ANIMAL a = GetAnimalFromSelection();
@@ -199,6 +250,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Add a new disease to an animal
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void rajouterUneMaladieToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ANIMAL a = GetAnimalFromSelection();
@@ -213,6 +269,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// it deletes the animals which are dead
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void supprimermortXdToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(this, "Êtes-vous sûr ? ", "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -226,6 +287,10 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// It shows the animal you chose
+        /// </summary>
+        /// <returns> the animal selected</returns>
         private ANIMAL GetAnimalFromSelection()
         {
             if (animalGridView.SelectedRows.Count == 1)
@@ -243,7 +308,11 @@ namespace PT4
                 return null;
             }
         }
-
+        /// <summary>
+        /// It shows the page where an animal can be added
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void addAnimal_Click(object sender, EventArgs e)
         {
             _services.AddScoped((p) => new AjouterAnimal(p.GetRequiredService<AnimalController>(), p.GetRequiredService<ClientController>(), client));

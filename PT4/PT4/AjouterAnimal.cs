@@ -15,15 +15,22 @@ namespace PT4
     public partial class AjouterAnimal : TemplateAnimal
     {
 
-        public AjouterAnimal(AnimalController animalController, ClientController clientController) : base(animalController, clientController)
-        {
-        }
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="animalController">Instance of AnimalController</param>
+        /// <param name="clientController">Instance of ClientController</param>
+        /// <param name="c">Instance of CLIENT</param>
         public AjouterAnimal(AnimalController animalController, ClientController clientController,CLIENT c) : base(animalController, clientController, c, false)
         {
         }
         
-        protected override void buttonConfirm_Click(object sender, EventArgs e)
+        /// <summary>
+        /// It creates the animal if all the constraint are validated
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
+        private void buttonConfirm_Click(object sender, EventArgs e)
         {
             if (CheckRemplissage())
             {

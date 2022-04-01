@@ -14,9 +14,22 @@ namespace PT4
 {
     public partial class AfficherOrdonnance : Form
     {
+        /// <summary>
+        /// Instance of OrdonnanceController
+        /// </summary>
         private OrdonnanceController _ordonnanceController;
+
+        /// <summary>
+        /// Instance of ServiceCollection
+        /// </summary>
         private ServiceCollection _services;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="ordonnanceController"> Instance of OrdonnanceController</param>
+        /// <param name="clientController"> Instance of ClientController</param>
+        /// <param name="service"> Instance of ServiceCollection</param>
         public AfficherOrdonnance(OrdonnanceController ordonnanceController, ClientController clientController, ServiceCollection service)
         {
             InitializeComponent();
@@ -34,6 +47,10 @@ namespace PT4
             this.Closed += (_, __) => { _ordonnanceController.UnSubscribePrescription(OnChanged); _ordonnanceController.UnSubscribeDeletePrescription(OnDelete); };
         }
 
+        /// <summary>
+        /// Function which is called whenever there is an ordonnance which is deleted 
+        /// </summary>
+        /// <param name="args"> The ordonnance which were delete</param>
         private void OnDelete(IEnumerable<ORDONNANCE> args)
         {
             HashSet<ORDONNANCE> careToRemove = new HashSet<ORDONNANCE>();
@@ -56,6 +73,10 @@ namespace PT4
 
         }
 
+        /// <summary>
+        /// Function which is called whenever there is an ordonnance updated or added
+        /// </summary>
+        /// <param name="args"> All the ordonnance which has been added or updated</param>
         private void OnChanged(IEnumerable<ORDONNANCE> args)
         {
             if (animalComboBox.SelectedItem != null)
@@ -68,7 +89,13 @@ namespace PT4
                 }
             }
         }
+        
 
+        /// <summary>
+        /// Function which deletes the cure chosen
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs </param>
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (allOrdo.SelectedItem != null)
@@ -81,6 +108,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which shows the window where you could add the ordonnance
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (animalComboBox.SelectedItem != null)
@@ -103,6 +135,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which is called whenever the selected index of the clientComboBox is changed
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs</param>
         private void clientComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             animalComboBox.Items.Clear();
@@ -115,6 +152,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which is called whenever the selected index of the animalComboBox is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void animalComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             allOrdo.Items.Clear();

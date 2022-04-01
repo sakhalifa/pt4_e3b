@@ -14,9 +14,20 @@ namespace PT4
 {
     public partial class AfficherSalarie : Form
     {
+        /// <summary>
+        /// Instance of SalarieController
+        /// </summary>
         private SalarieController _salarieController;
+        /// <summary>
+        /// Instance of ServiceCollection
+        /// </summary>
         private ServiceCollection _services;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="salarieController">Instance of SalarieController</param>
+        /// <param name="services"> Instance of ServiceCollection</param>
         public AfficherSalarie(SalarieController salarieController, ServiceCollection services)
         {
             InitializeComponent();
@@ -34,6 +45,10 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which is called whenever there is a salary which is deleted 
+        /// </summary>
+        /// <param name="args">All the salary deleted</param>
         private void OnDelete(IEnumerable<SALARIÉ> args)
         {
             foreach (SALARIÉ s in args)
@@ -42,6 +57,10 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which is called whenever there is a salary updated or added
+        /// </summary>
+        /// <param name="args">All the salary which has been added or updated</param>
         private void OnChanged(IEnumerable<SALARIÉ> args)
         {
             foreach (SALARIÉ s in args.Where(s => !s.estAdmin))
@@ -51,6 +70,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which shows the page to create a new acount for a new salary
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             _services.AddScoped<AjouterCompte>();
@@ -64,6 +88,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which deletes the salary
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e">EventArgs</param>
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (allSalarie.SelectedItem != null)
@@ -84,6 +113,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which shows the page to change password
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void modifierLeMdpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (allSalarie.SelectedItems.Count == 1)
