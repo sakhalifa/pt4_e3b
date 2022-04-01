@@ -46,7 +46,7 @@ namespace PT4
         /// <param name="services"> Instance of ServiceCollection </param>
         /// <param name="salarieId"> id of the salary </param>
         /// <param name="estAdmin"> boolean which defines if the person is an admin or not </param>
-        public AfficherClient(ClientController clientController, ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
+        public AfficherClient(ClientController clientController, ServiceCollection services) : base(services)
         {
             _clientController = clientController;
             _clientController.SubscribeCustomers(OnChanged);

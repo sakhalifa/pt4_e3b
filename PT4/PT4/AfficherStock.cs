@@ -46,7 +46,7 @@ namespace PT4
         /// <param name="services">Instance of ServiceCollection</param>
         /// <param name="salarieId">a salary</param>
         /// <param name="estAdmin">bool admin</param>
-        public AfficherStock(ProduitController produitController, ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
+        public AfficherStock(ProduitController produitController, ServiceCollection services) : base(services)
         {
             _produitController = produitController;
             _produitController.SubscribeProducts(OnChanged);
