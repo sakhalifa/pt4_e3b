@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="A_CONTRACTÉ">
           <Key>
             <PropertyRef Name="DATEDEBUT" />
@@ -484,7 +484,8 @@
             <End Role="RENDEZVOUS" EntitySet="RENDEZVOUS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PT4_PLANNIMAUX_S4p2B_JKVBLBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -499,7 +500,7 @@
           <Property Name="NOMANIMAL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="DATENAISSANCE" Type="DateTime" Precision="3" />
           <Property Name="TAILLE" Type="Int16" Nullable="false" />
-          <Property Name="POIDS" Type="Decimal" Nullable="false" Precision="7" Scale="3" />
+          <Property Name="POIDS" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
           <NavigationProperty Name="CLIENT" Relationship="Self.FK_ANIMAL_CLIENT" FromRole="ANIMAL" ToRole="CLIENT" />
           <NavigationProperty Name="ORDONNANCE" Relationship="Self.FK_ORDONNANCE_ANIMAL" FromRole="ANIMAL" ToRole="ORDONNANCE" />
           <NavigationProperty Name="HISTORIQUEMALADIE" Relationship="Self.A_CONTRACTÉ" FromRole="ANIMAL" ToRole="HISTORIQUEMALADIE" />
@@ -564,7 +565,7 @@
           <Property Name="IDANIMAL" Type="Int16" />
           <Property Name="DATEORDO" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="ANIMAL" Relationship="Self.FK_ORDONNANCE_ANIMAL" FromRole="ORDONNANCE" ToRole="ANIMAL" />
-          <NavigationProperty Name="SOIN" Relationship="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_DANS_LORDONNANCE" FromRole="ORDONNANCE" ToRole="SOIN" />
+          <NavigationProperty Name="SOIN" Relationship="Self.EST_DANS_LORDONNANCE" FromRole="ORDONNANCE" ToRole="SOIN" />
         </EntityType>
         <EntityType Name="PRODUIT">
           <Key>
@@ -599,8 +600,8 @@
           <Property Name="IDCLIENT" Type="Int16" Nullable="false" />
           <Property Name="RAISON" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DATEHEURERDV" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="CLIENT" Relationship="Self.FK_RENDEZVOUS_CLIENT" FromRole="RENDEZVOUS" ToRole="CLIENT" />
           <Property Name="HEUREFINRDV" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CLIENT" Relationship="Self.FK_RENDEZVOUS_CLIENT" FromRole="RENDEZVOUS" ToRole="CLIENT" />
         </EntityType>
         <EntityType Name="SALARIÉ">
           <Key>
@@ -621,10 +622,10 @@
           <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PRODUIT" Relationship="Self.EST_DANS_LE_SOIN" FromRole="SOIN" ToRole="PRODUIT" />
           <NavigationProperty Name="MALADIE" Relationship="Self.EST_SOIGNÉ" FromRole="SOIN" ToRole="MALADIE" />
-          <NavigationProperty Name="ORDONNANCE" Relationship="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_DANS_LORDONNANCE" FromRole="SOIN" ToRole="ORDONNANCE" />
+          <NavigationProperty Name="ORDONNANCE" Relationship="Self.EST_DANS_LORDONNANCE" FromRole="SOIN" ToRole="ORDONNANCE" />
         </EntityType>
         <Association Name="FK_ANIMAL_CLIENT">
-          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" >
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="*" />
@@ -662,7 +663,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RENDEZVOUS_CLIENT">
-          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" >
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="RENDEZVOUS" Type="Self.RENDEZVOUS" Multiplicity="*" />
@@ -704,8 +705,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="A_CONTRACTÉ">
-          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="*" >
-          </End>
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="*" />
           <End Role="HISTORIQUEMALADIE" Type="Self.HISTORIQUEMALADIE" Multiplicity="*" />
         </Association>
         <Association Name="A_ÉTÉ_CONTRACTÉ">
@@ -722,9 +722,11 @@
         </Association>
         <Association Name="ESTENCONGÉ">
           <End Role="CONGÉ" Type="Self.CONGÉ" Multiplicity="*" />
-          <End Role="SALARIÉ" Type="Self.SALARIÉ" Multiplicity="*" >
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="SALARIÉ" Type="Self.SALARIÉ" Multiplicity="*" />
+        </Association>
+        <Association Name="EST_DANS_LORDONNANCE">
+          <End Role="ORDONNANCE" Type="Self.ORDONNANCE" Multiplicity="*" />
+          <End Role="SOIN" Type="Self.SOIN" Multiplicity="*" />
         </Association>
         <EntityContainer Name="PT4_PLANNIMAUX_S4p2B_JKVBLBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ANIMAL" EntityType="Self.ANIMAL" />
@@ -783,15 +785,11 @@
             <End Role="CONGÉ" EntitySet="CONGÉ" />
             <End Role="SALARIÉ" EntitySet="SALARIÉ" />
           </AssociationSet>
-          <AssociationSet Name="EST_DANS_LORDONNANCE" Association="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_DANS_LORDONNANCE">
+          <AssociationSet Name="EST_DANS_LORDONNANCE" Association="Self.EST_DANS_LORDONNANCE">
             <End Role="ORDONNANCE" EntitySet="ORDONNANCE" />
             <End Role="SOIN" EntitySet="SOIN" />
           </AssociationSet>
         </EntityContainer>
-        <Association Name="EST_DANS_LORDONNANCE">
-          <End Type="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.ORDONNANCE" Role="ORDONNANCE" Multiplicity="*" />
-          <End Type="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.SOIN" Role="SOIN" Multiplicity="*" />
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -892,11 +890,11 @@
           <EntitySetMapping Name="RENDEZVOUS">
             <EntityTypeMapping TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.RENDEZVOUS">
               <MappingFragment StoreEntitySet="RENDEZVOUS">
-                <ScalarProperty Name="HEUREFINRDV" ColumnName="HEUREFINRDV" />
                 <ScalarProperty Name="IDRDV" ColumnName="IDRDV" />
                 <ScalarProperty Name="IDCLIENT" ColumnName="IDCLIENT" />
                 <ScalarProperty Name="RAISON" ColumnName="RAISON" />
                 <ScalarProperty Name="DATEHEURERDV" ColumnName="DATEHEURERDV" />
+                <ScalarProperty Name="HEUREFINRDV" ColumnName="HEUREFINRDV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -961,11 +959,11 @@
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="EST_DANS_LORDONNANCE" TypeName="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_DANS_LORDONNANCE" StoreEntitySet="EST_DANS_LORDONNANCE">
-            <EndProperty Name="SOIN">
-              <ScalarProperty Name="ID" ColumnName="IDSOIN" />
-            </EndProperty>
             <EndProperty Name="ORDONNANCE">
               <ScalarProperty Name="ID" ColumnName="IDORDONNANCE" />
+            </EndProperty>
+            <EndProperty Name="SOIN">
+              <ScalarProperty Name="ID" ColumnName="IDSOIN" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>
