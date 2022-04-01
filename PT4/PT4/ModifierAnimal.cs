@@ -29,7 +29,7 @@ namespace PT4
 
         }
 
-        private void buttonConfirm_Click(object sender, EventArgs e)
+        protected override void buttonConfirm_Click(object sender, EventArgs e)
         {
             if (CheckRemplissage())
             {
