@@ -138,6 +138,8 @@ namespace PT4.Controllers
                 _produitRepository.Update(p);
             }
             _factureRepository.Save();
+            produitsVenduToInsert = new HashSet<PRODUIT_VENDU>();
+            produitsToUpdate = new HashSet<PRODUIT>();
         }
     }
 }

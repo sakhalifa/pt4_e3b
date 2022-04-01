@@ -27,6 +27,8 @@ namespace PT4
             {
                 clients.Items.Add(c);
             }
+
+            this.Closed += (_, __) => _factureController.Reset();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -165,7 +167,7 @@ namespace PT4
                 Utils.ShowError("ERREUR! Vous ne pouvez pas créer une facture avec 0 produits vendus!");
                 return false;
             }
-            
+
 
             return true;
 
