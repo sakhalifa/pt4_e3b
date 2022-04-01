@@ -82,5 +82,10 @@ namespace PT4.Templates
 
             return true;
         }
+
+        protected virtual void buttonConfirm_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
