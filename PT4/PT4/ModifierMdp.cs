@@ -14,9 +14,21 @@ namespace PT4
 {
     public partial class ModifierMdp : Form
     {
+        /// <summary>
+        /// Instance of SALARIE
+        /// </summary>
         private SALARIÉ _salarie;
+
+        /// <summary>
+        /// Instance of SalarieController
+        /// </summary>
         private SalarieController _salarieController;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="contr">Instance of SalarieController</param>
+        /// <param name="salarieId">salarieId</param>
         public ModifierMdp(SalarieController contr, int salarieId)
         {
             InitializeComponent();
@@ -24,16 +36,11 @@ namespace PT4
             _salarieController = contr;
         }
 
-        private void textBoxNewMdp_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxConfirmerMdp_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// If all the constraints are validated, it changes the password
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void buttonConfirmation_Click(object sender, EventArgs e)
         {
             if (textBoxNewMdp.TextLength == 0)

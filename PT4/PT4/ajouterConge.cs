@@ -13,9 +13,21 @@ namespace PT4
 {
     public partial class AjouterConge : Form
     {
-
+        /// <summary>
+        /// Instance of SalarieController
+        /// </summary>
         private SalarieController _salarieController;
+
+        /// <summary>
+        /// the salarieId
+        /// </summary>
         private int _salarieId;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="salarieId">the SalarieId</param>
+        /// <param name="salarieController">Instance of SalarieController</param>
         public AjouterConge(int salarieId, SalarieController salarieController)
         {
             InitializeComponent();
@@ -23,7 +35,11 @@ namespace PT4
             _salarieId = salarieId;
         }
 
-
+        /// <summary>
+        /// If all the constraints are validated, it add the new holiday
+        /// </summary>
+        /// <param name="sender">object </param>
+        /// <param name="e">EventArgs</param>
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
 
@@ -37,6 +53,7 @@ namespace PT4
             {
                 _salarieController.PositionnerConge( _salarieId, dateTimePickerDebut.Value.Date, dateTimePickerFin.Value.Date, false, checkBoxRegulier.Checked);           
                 this.DialogResult = DialogResult.OK;
+                MessageBox.Show("Le congé a bien été positionné");
                 this.Close();
             }
             // if not, it shows the error

@@ -136,7 +136,6 @@ namespace PT4
             this.Controls.Add(this.pictureBox1);
             this.Name = "Connexion";
             this.Text = "Connexion";
-            this.Load += new System.EventHandler(this.Connexion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

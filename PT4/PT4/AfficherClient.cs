@@ -14,16 +14,38 @@ namespace PT4
 {
     public partial class AfficherClient : MenuHamberger
     {
+        /// <summary>
+        /// Instance of ClientController
+        /// </summary>
         private ClientController _clientController;
 
+        /// <summary>
+        /// A list of the customers
+        /// </summary>
         private List<CLIENT> cachedCustomers;
-
+        
+        /// <summary>
+        /// Instance which limits the number of elements per page 
+        /// </summary>
         private static readonly int ELEMENTS_PER_PAGE = 20;
 
+        /// <summary>
+        /// Instance which defines the current page
+        /// </summary>
         private int CurrentPage = 0;
 
+        /// <summary>
+        /// To get the number of elements in the cachedCustomers list
+        /// </summary>
         private int ElementCount { get => cachedCustomers.Count; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="clientController"> Instance of ClientController</param>
+        /// <param name="services"> Instance of ServiceCollection </param>
+        /// <param name="salarieId"> id of the salary </param>
+        /// <param name="estAdmin"> boolean which defines if the person is an admin or not </param>
         public AfficherClient(ClientController clientController, ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
         {
             _clientController = clientController;
@@ -46,6 +68,9 @@ namespace PT4
             _clientController.UnSubscribeDeleteCustomers(OnDelete);
         }
 
+        /// <summary>
+        /// Function which init all the board where customers will be
+        /// </summary>
         private void InitDataGridView()
         {
             IEnumerable<CLIENT> clients = _clientController.ListCustomers();
@@ -61,6 +86,10 @@ namespace PT4
             }
         }
 
+
+        /// <summary>
+        /// it resets the dataGridView and fills it with the data in cachedCustomers
+        /// </summary>
         private void ResetDataGridViewFromCache()
         {
             clients.Rows.Clear();
@@ -73,6 +102,10 @@ namespace PT4
             forward.Visible = ElementCount > (CurrentPage + 1) * ELEMENTS_PER_PAGE;
         }
 
+        /// <summary>
+        /// Modify the modified elements of the client
+        /// </summary>
+        /// <param name="clients">List of CLIENT changed</param>
         public void OnChanged(IEnumerable<CLIENT> clients)
         {
             cachedCustomers.RemoveAll((c) => clients.Any((cc) => c.IDCLIENT == cc.IDCLIENT));
@@ -80,18 +113,31 @@ namespace PT4
             ResetDataGridViewFromCache();
         }
 
+        /// <summary>
+        /// Delete the row of the client you delete
+        /// </summary>
+        /// <param name="clients">List of CLIENT deleted</param>
         public void OnDelete(IEnumerable<CLIENT> clients)
         {
             cachedCustomers.RemoveAll((c) => clients.Any((cc) => c.IDCLIENT == cc.IDCLIENT));
             ResetDataGridViewFromCache();
         }
 
+        /// <summary>
+        /// It adds the new customer to the datagrid (new row)
+        /// </summary>
+        /// <param name="client"> Instance of CLIENT </param>
         private void AddCustomerToDataGrid(CLIENT client)
         {
             clients.Rows.Add(client.NOMCLIENT, client.PRENOMCLIENT, client.EMAIL, client.NUMERO, client.NumberOfAnimals, client.AppointmentOfTheMonth.Count());
         }
 
-        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Function to modify a customer with the right click
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs </param>
+        private void modifyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CLIENT c;
             if (clients.SelectedRows.Count == 1)
@@ -123,7 +169,12 @@ namespace PT4
             }
         }
 
-        private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Function to delete a customer
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs </param>
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(this, "Etes-vous sur?", "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
@@ -158,6 +209,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function to research a customer
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs</param>
         private void rechercheButton_Click(object sender, EventArgs e)
         {
             RechercheClient rechercheClient = new RechercheClient();
@@ -175,6 +231,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which reset the dataGridView 
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void reset_Click(object sender, EventArgs e)
         {
             this.CurrentPage = 0;
@@ -182,18 +243,33 @@ namespace PT4
             reset.Visible = false;
         }
 
+        /// <summary>
+        /// Function which changes pages
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs </param>
         private void forward_Click(object sender, EventArgs e)
         {
             CurrentPage++;
             ResetDataGridViewFromCache();
         }
 
+        /// <summary>
+        /// Function which changes pages
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs </param>
         private void backwards_Click(object sender, EventArgs e)
         {
             CurrentPage--;
             ResetDataGridViewFromCache();
         }
 
+        /// <summary>
+        /// Function which adds the new Customer in the database
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs </param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             var dlg = new AjouterClient(_clientController);

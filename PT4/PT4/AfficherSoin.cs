@@ -14,9 +14,21 @@ namespace PT4
 {
     public partial class AfficherSoin : Form
     {
+        /// <summary>
+        /// Instance of ServiceCollection
+        /// </summary>
         private ServiceCollection _services;
+
+        /// <summary>
+        /// Instance of SoinController
+        /// </summary>
         private SoinController _soinController;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="soinController">Instance of soinController</param>
+        /// <param name="services">Instance of ServiceCollection</param>
         public AfficherSoin(SoinController soinController, ServiceCollection services)
         {
             InitializeComponent();
@@ -33,6 +45,10 @@ namespace PT4
             this.Closed += (_, __) => { soinController.UnSubscribeSoins(OnChanged); soinController.UnSubscribeDeleteSoins(OnDelete); };
         }
 
+        /// <summary>
+        /// Function which is called whenever there is a cure updated or added
+        /// </summary>
+        /// <param name="soins">All the cure which has been added or updated</param>
         private void OnChanged(IEnumerable<SOIN> soins)
         {
             HashSet<SOIN> addedSoins = new HashSet<SOIN>(soins);
@@ -58,6 +74,10 @@ namespace PT4
 
         }
 
+        /// <summary>
+        /// Function which is called whenever there is a cure which is deleted 
+        /// </summary>
+        /// <param name="soins">All the cure deleted</param>
         private void OnDelete(IEnumerable<SOIN> soins)
         {
             HashSet<SOIN> careToRemove = new HashSet<SOIN>();
@@ -78,7 +98,12 @@ namespace PT4
                 allSoins.Items.Remove(s);
             }
         }
-
+        
+        /// <summary>
+        /// Function which shows the page to add a new cure
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             _services.AddScoped<TemplateSoin>();
@@ -92,6 +117,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which deletes the cure
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs </param>
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (allSoins.SelectedItem != null)
@@ -110,6 +140,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which modify the cure chosen
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (allSoins.SelectedItem != null)

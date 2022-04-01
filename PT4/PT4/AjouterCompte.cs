@@ -14,15 +14,26 @@ namespace PT4
 {
     public partial class AjouterCompte : Form
     {
+        /// <summary>
+        /// Instance of SalarieController
+        /// </summary>
         private SalarieController _salarieController;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="salarieController">Instance of SalarieController</param>
         public AjouterCompte(SalarieController salarieController)
         {
             InitializeComponent();
             _salarieController = salarieController;
         }
 
-
+        /// <summary>
+        /// Function which shows the window to fill personnal datas of the new salary
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void buttonConnexion_Click(object sender, EventArgs e)
         {
             SALARIÉ s = null;

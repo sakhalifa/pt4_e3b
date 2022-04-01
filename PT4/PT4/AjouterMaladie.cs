@@ -15,13 +15,21 @@ namespace PT4
     {
         private MaladiesController _maladieController;
 
-        // Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="maladiesController"> an instance of a maladieController</param>
         public AjouterMaladie(MaladiesController maladiesController)
         {
             InitializeComponent();
             _maladieController = maladiesController;
         }
         
+        /// <summary>
+        /// The button which fills the database with the informations given
+        /// </summary>
+        /// <param name="sender"> object </param>
+        /// <param name="e"> EventArgs  </param>
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
             // If there is no test in the textbox, it tells you that you have to write

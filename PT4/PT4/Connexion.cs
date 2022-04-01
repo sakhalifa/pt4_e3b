@@ -14,9 +14,21 @@ namespace PT4
 {
     public partial class Connexion : Form
     {
-
+        /// <summary>
+        /// Instance of ServiceCollection
+        /// </summary>
         private ServiceCollection _service;
+
+        /// <summary>
+        /// Instance of SalarieController
+        /// </summary>
         private SalarieController _salarieController;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="service">Instance of ServiceCollection</param>
+        /// <param name="salarieController">Instance of SalarieController</param>
         public Connexion(ServiceCollection service, SalarieController salarieController)
         {
             InitializeComponent();
@@ -24,21 +36,11 @@ namespace PT4
             _salarieController = salarieController;
         }
 
-        private void Connexion_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// If all constraints are validated, it connects you to the application
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void buttonConnexion_Click(object sender, EventArgs e)
         {
             if (CheckRemplissage())
@@ -76,6 +78,10 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// If all the constraints are validated, it returns true
+        /// </summary>
+        /// <returns>returns true if all the constraints are validated</returns>
         private bool CheckRemplissage()
         {
             if (textBoxLogin.TextLength == 0)

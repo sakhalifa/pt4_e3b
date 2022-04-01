@@ -12,7 +12,14 @@ namespace PT4.Controllers
 {
     public partial class RechercheClient : Form
     {
+        /// <summary>
+        /// List of  informations
+        /// </summary>
         private static readonly object[] ITEM_LIST = new object[] { "Nom", "Prenom", "Email", "Nombre d'animaux", "Nombre de RDV dans le mois" };
+        
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public RechercheClient()
         {
             InitializeComponent();
@@ -20,7 +27,11 @@ namespace PT4.Controllers
         }
 
 
-
+        /// <summary>
+        /// Remove a row of criteria
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void remove_Click(object sender, EventArgs e)
         {
             if (sender is Button button && button.Parent is TableLayoutPanel table)
@@ -71,6 +82,11 @@ namespace PT4.Controllers
             }
         }
 
+        /// <summary>
+        /// ComboBox of all the possible criterias
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void critere_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (sender is ComboBox comboBox && comboBox.Parent is TableLayoutPanel table)
@@ -122,6 +138,11 @@ namespace PT4.Controllers
             }
         }
 
+        /// <summary>
+        /// Add a new row of criterias
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void addRow_click(object sender, EventArgs e)
         {
             if (addRow.Parent is TableLayoutPanel table)
@@ -172,6 +193,11 @@ namespace PT4.Controllers
             }
         }
 
+        /// <summary>
+        /// If all the constraints are validated, it shows all the customers which are in the conditions
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < tableLayoutPanel1.RowCount - 1; i++)

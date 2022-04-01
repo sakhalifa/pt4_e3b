@@ -14,10 +14,26 @@ namespace PT4
 {
     public partial class AjouterFacture : Form
     {
+        /// <summary>
+        /// Instance of ServiceCollection
+        /// </summary>
         private ServiceCollection _services;
+        /// <summary>
+        /// Instance of FactureController
+        /// </summary>
         private FactureController _factureController;
+        
+        /// <summary>
+        /// Instance of FACTURE
+        /// </summary>
         private FACTURE facture;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="factureController">Instance of FactureController</param>
+        /// <param name="clientController">Instance of ClientController</param>
+        /// <param name="services">Instance of ServiceCollection</param>
         public AjouterFacture(FactureController factureController, ClientController clientController, ServiceCollection services)
         {
             InitializeComponent();
@@ -29,6 +45,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which shows the page to create an invoice
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             _services.AddScoped<AjouterProduitFacture>();
@@ -55,6 +76,9 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which reset the dataGridView
+        /// </summary>
         private void ResetGridView()
         {
             _factureController.UpdateMontant(facture);
@@ -66,11 +90,20 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which adds a new row of sold product of the dataGridView
+        /// </summary>
+        /// <param name="p">new product</param>
         private void AddProduitVenduToGrid(PRODUIT_VENDU p)
         {
             produits.Rows.Add(p, p.PRODUIT.NOMPRODUIT, p.QUANTITÉ, $"{p.PRODUIT.PRIXDEVENTE}€", $"{p.Montant}€");
         }
 
+        /// <summary>
+        /// Combobox of the list of the customers
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void clients_SelectedIndexChanged(object sender, EventArgs e)
         {
             produits.Rows.Clear();
@@ -79,6 +112,10 @@ namespace PT4
             facture = _factureController.CreerFacture((CLIENT)clients.SelectedItem);
         }
 
+        /// <summary>
+        /// List of all the sold product
+        /// </summary>
+        /// <returns></returns>
         private PRODUIT_VENDU GetProduitVenduFromSelection()
         {
             if (produits.SelectedRows.Count == 1)
@@ -103,6 +140,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which deletes the invoice
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PRODUIT_VENDU selected = GetProduitVenduFromSelection();
@@ -123,6 +165,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which is called when an invoice is modified
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PRODUIT_VENDU selected = GetProduitVenduFromSelection();
@@ -143,6 +190,11 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Save the invoice
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
             if (CheckRemplissage())
@@ -153,6 +205,10 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Check if all the constraints are validated
+        /// </summary>
+        /// <returns> true if all the constraints are validated</returns>
         private bool CheckRemplissage()
         {
             if (clients.SelectedItem == null)

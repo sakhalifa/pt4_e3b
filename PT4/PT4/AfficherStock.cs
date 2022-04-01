@@ -14,16 +14,38 @@ namespace PT4
 {
     public partial class AfficherStock : MenuHamberger
     {
+        /// <summary>
+        /// Instance of ProduitController
+        /// </summary>
         private ProduitController _produitController;
 
+        /// <summary>
+        /// List of products
+        /// </summary>
         private List<PRODUIT> cachedProducts;
 
+        /// <summary>
+        /// Number of max elements per page
+        /// </summary>
         private static readonly int ELEMENTS_PER_PAGE = 20;
 
+        /// <summary>
+        /// Number of the current page
+        /// </summary>
         private int CurrentPage = 0;
 
+        /// <summary>
+        /// returns the number of products in cachedProducts
+        /// </summary>
         private int ElementCount { get => cachedProducts.Count; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="produitController"> Instance of ProduitController</param>
+        /// <param name="services">Instance of ServiceCollection</param>
+        /// <param name="salarieId">a salary</param>
+        /// <param name="estAdmin">bool admin</param>
         public AfficherStock(ProduitController produitController, ServiceCollection services, int salarieId, bool estAdmin) : base(services, salarieId, estAdmin)
         {
             _produitController = produitController;
@@ -41,6 +63,9 @@ namespace PT4
 
         }
 
+        /// <summary>
+        /// Function which inits the DataGridView
+        /// </summary>
         private void InitDataGridView()
         {
             IEnumerable<PRODUIT> produits = _produitController.RecupererTousProduits();
@@ -56,6 +81,9 @@ namespace PT4
             }
         }
 
+        /// <summary>
+        /// Function which resets the DataGridView
+        /// </summary>
         private void ResetDataGridViewFromCache()
         {
             stocks.Rows.Clear();
@@ -68,6 +96,10 @@ namespace PT4
             forward.Visible = ElementCount > (CurrentPage + 1) * ELEMENTS_PER_PAGE;
         }
 
+        /// <summary>
+        /// Function which is called whenever there is a stock updated or added
+        /// </summary>
+        /// <param name="prods">All the stock which has been added or updated</param>
         public void OnChanged(IEnumerable<PRODUIT> prods)
         {
             cachedProducts.RemoveAll((p) => prods.Any((pp) => p.IDPRODUIT == pp.IDPRODUIT));
@@ -75,12 +107,20 @@ namespace PT4
             ResetDataGridViewFromCache();
         }
 
+        /// <summary>
+        /// Fybctuib which is called whenever there is a stock deleted
+        /// </summary>
+        /// <param name="prods">All the stock deleted</param>
         public void OnDelete(IEnumerable<PRODUIT> prods)
         {
             cachedProducts.RemoveAll((p) => prods.Any((pp) => p.IDPRODUIT == pp.IDPRODUIT));
             ResetDataGridViewFromCache();
         }
 
+        /// <summary>
+        /// Add a new row to the dataGridView
+        /// </summary>
+        /// <param name="prod"></param>
         private void AddProductToDataGrid(PRODUIT prod)
         {
             string prixVente = "N/A";
@@ -94,25 +134,6 @@ namespace PT4
             }
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {

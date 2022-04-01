@@ -15,9 +15,21 @@ namespace PT4
 {
     public partial class DonneesPersonnelles : Form
     {
+        /// <summary>
+        /// Instance of SalarieController
+        /// </summary>
         private SalarieController _salarieController;
+
+        /// <summary>
+        /// Instance of SALARIE
+        /// </summary>
         private SALARIÉ _salarie;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="controller">Instance of SalarieController</param>
+        /// <param name="s">Instance of SALARIE</param>
         public DonneesPersonnelles(SalarieController controller, SALARIÉ s)
         {
             InitializeComponent();
@@ -25,7 +37,11 @@ namespace PT4
             _salarie = s;
         }
 
-
+        /// <summary>
+        /// If all the constraints are validated, it creates the new account with the personal data
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
 
