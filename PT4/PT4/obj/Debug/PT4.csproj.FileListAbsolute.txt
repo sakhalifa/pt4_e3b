@@ -10,7 +10,6 @@
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\PT4_14_Fevrier\pt4_e3b\PT4\PT4\obj\Debug\PT4.pdb
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\PT4_14_Fevrier\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.SuggestedBindingRedirects.cache
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterStock.resources
-\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.GestionPlanning.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.MenuAcceuil.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.MenuHamberger.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.Connexion.resources
@@ -21,7 +20,6 @@
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierStock.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.TemplateModifierStock.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.EditerClient.resources
-\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.menuCompte.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.Properties.Resources.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.statsProduit.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.TopVente.resources
@@ -395,3 +393,5 @@ C:\Users\ejeulin\Documents\PT4\pt4_e3b\PT4\PT4\obj\Debug\PT4.csproj.CopyComplete
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.AjouterOrdonnance.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.ModifierSoin.resources
 \\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.TemplateSoin.resources
+\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherJournee.resources
+\\iut.bx1\Etudiants\Home\dovidal\Desktop\Semestre 4\PT4\PT4_18_Mars\pt4_e3b\PT4\PT4\obj\Debug\PT4.AfficherRdv.resources

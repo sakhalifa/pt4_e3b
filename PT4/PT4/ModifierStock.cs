@@ -16,7 +16,7 @@ namespace PT4
         /// </summary>
         /// <param name="produitController">Instance of ProduitController</param>
         /// <param name="estAdmin">boolean admin</param>
-        public ModifierStock(ProduitController produitController, bool estAdmin) : base(produitController, estAdmin)
+        public ModifierStock(ProduitController produitController) : base(produitController)
         {
             InitializeComponent();
             this.IsAdd = false;

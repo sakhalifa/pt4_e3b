@@ -295,7 +295,7 @@ namespace PT4
         private void button2_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            _services.AddScoped((p) => new AjouterConge(p.GetRequiredService<SalarieController>()));
+            _services.AddScoped<AjouterConge>();
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())

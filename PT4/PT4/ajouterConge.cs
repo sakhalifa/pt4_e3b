@@ -19,16 +19,11 @@ namespace PT4
         private SalarieController _salarieController;
 
         /// <summary>
-        /// the salarieId
-        /// </summary>
-        private int _salarieId;
-
-        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="salarieId">the SalarieId</param>
         /// <param name="salarieController">Instance of SalarieController</param>
-        public AjouterConge(int salarieId, SalarieController salarieController)
+        public AjouterConge(SalarieController salarieController)
         {
             InitializeComponent();
             _salarieController = salarieController;
