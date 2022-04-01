@@ -13,20 +13,41 @@ namespace TestProjetVeto
     [TestClass]
     public class CareTest
     {
-        public SOIN careTest;
+        private SOIN careTest;
+        private List<MALADIE> diseaseTest;
+        private List<PRODUIT> productTest;
+        private SoinController careController;
+        private SoinRepository careRepo;
 
         [TestInitialize]
         public void TestInitialize()
         {
+            productTest = new List<PRODUIT>() {
+                new PRODUIT
+                {
+                    NOMPRODUIT = "Test",
+                    QUANTITEENSTOCK = 120,
+                    DESCRIPTION = "Test",
+                    MEDICAMENT = true,
+                    PRIXACHAT = 10,
+                    PRIXDEVENTE = 15
+                }
+            };
+
+            diseaseTest = new List<MALADIE>(){
+                new MALADIE
+                {
+                    NOMMALADIE = "Test",
+                } 
+            };
+
             careTest = new SOIN
             {
+                MALADIE = diseaseTest,
+                PRODUIT = productTest,
                 DESCRIPTION = "Test"
             };
-        }
 
-        [TestMethod]
-        public void TestCreateCare()
-        {
             //DATA MOCK CREATION
             var data = new List<SOIN> { };
             var mockSet = Utils.CreateDbSet(data);
@@ -34,20 +55,23 @@ namespace TestProjetVeto
             var mockContext = new Mock<PT4_PLANNIMAUX_S4p2B_JKVBLBEntities>();
             mockContext.Setup(c => c.Set<SOIN>()).Returns(mockSet);
 
-            /*var mockRepo = Utils.CreateMockRepo<SoinRepository, SOIN>(mockContext.Object);
-            var careRepo = mockRepo.Object;
+            var mockRepo = Utils.CreateMockRepo<SoinRepository, SOIN>(mockContext.Object);
+            careRepo = mockRepo.Object;
 
-            var careController = new SoinController(careRepo);
+            careController = new SoinController(careRepo);
             //END OF DATA MOCK CREATION
+        }
 
-            var care = careRepo.FindAll();
+        [TestMethod]
+        public void TestCreateCare()
+        {
+            var cares = careRepo.FindAll();
 
-            Assert.AreEqual(0, care.Count()); // Test if the database is empty
+            Assert.AreEqual(0, cares.Count()); // Test if the database is empty
 
-            careController.CreateCare(careTest.DESCRIPTION);
-            */
+            careController.CreateCare(careTest.MALADIE, careTest.PRODUIT, careTest.DESCRIPTION);
 
-            //Assert.AreEqual(1, maladies.Count()); ; // Test if the order creation function in the database works
+            Assert.AreEqual(1, cares.Count()); ; // Test if the order creation function in the database works
         }
     }
 }

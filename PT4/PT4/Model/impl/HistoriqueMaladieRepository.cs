@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
-    internal class HistoriqueMaladieRepository : AbstractRepository<HISTORIQUEMALADIE>
+    public class HistoriqueMaladieRepository : AbstractRepository<HISTORIQUEMALADIE>
     {
         public HistoriqueMaladieRepository(DbContext context) : base(context)
         {

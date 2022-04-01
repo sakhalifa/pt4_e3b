@@ -13,7 +13,9 @@ namespace TestProjetVeto
     [TestClass]
     public class ProductTest
     {
-        public PRODUIT productTest;
+        private PRODUIT productTest;
+        private ProduitRepository productRepo;
+        private ProduitController productController;
 
         [TestInitialize]
         public void TestInitialize()
@@ -27,11 +29,7 @@ namespace TestProjetVeto
                 PRIXACHAT = 10,
                 PRIXDEVENTE = 15
             };
-        }
 
-        [TestMethod]
-        public void TestCreateOrUpdateProductAndFindByName()
-        {
             //DATA MOCK CREATION
             var data = new List<PRODUIT> { };
             var mockSet = Utils.CreateDbSet(data);
@@ -40,13 +38,16 @@ namespace TestProjetVeto
             mockContext.Setup(c => c.Set<PRODUIT>()).Returns(mockSet);
 
             var mockRepo = Utils.CreateMockRepo<ProduitRepository, PRODUIT>(mockContext.Object);
-            var productRepo = mockRepo.Object;
+            productRepo = mockRepo.Object;
 
-            var productController = new ProduitController(productRepo);
+            productController = new ProduitController(productRepo);
             //END OF DATA MOCK CREATION
+        }
 
+        [TestMethod]
+        public void TestCreateOrUpdateProductAndFindByName()
+        {
             var products = productRepo.FindAll();
-
             Assert.AreEqual(0, products.Count()); // Test if the database is empty
 
             Assert.IsNull(productController.FindByName(productTest.NOMPRODUIT)); // Test if finding a product that does not exist returns null
@@ -58,6 +59,38 @@ namespace TestProjetVeto
 
             productController.CreerOuMaJProduit(productTest.NOMPRODUIT, (decimal)productTest.PRIXDEVENTE, productTest.PRIXACHAT, productTest.QUANTITEENSTOCK, productTest.DESCRIPTION, productTest.MEDICAMENT, true);
             Assert.AreEqual(240, products.First().QUANTITEENSTOCK); // Test if the update function works well
+
+            TestRemoveByName(products);
+            productController.CreerOuMaJProduit(productTest.NOMPRODUIT, (decimal)productTest.PRIXDEVENTE, productTest.PRIXACHAT, 5, productTest.DESCRIPTION, productTest.MEDICAMENT, true);
+            TestGetAlmostExpiredProducts();
+            TestGetAllSellableProducts();
+
         }
+
+      
+        private void TestRemoveByName(IQueryable<PRODUIT> products)
+        {
+            productController.RemoveByName(productTest.NOMPRODUIT);
+            Assert.AreEqual(0, products.Count());
+        }
+
+        private void TestGetAlmostExpiredProducts()
+        {
+            var products = productController.GetAlmostExpiredProducts();
+            Assert.AreEqual(1, products.Count());
+            Assert.AreEqual(products.First().QUANTITEENSTOCK, 5);
+        }
+
+        private void TestGetAllSellableProducts()
+        {
+            var products = productController.GetAllSellableProducts();
+            Assert.AreEqual(1, products.Count());
+            productController.CreerOuMaJProduit("Test2", null, 3, 5, productTest.DESCRIPTION, productTest.MEDICAMENT, true);
+            products = productController.GetAllSellableProducts();
+            Assert.AreEqual(1, products.Count());
+        }
+
+      
+        
     }
 }

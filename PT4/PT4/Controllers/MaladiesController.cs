@@ -28,7 +28,7 @@ namespace PT4.Controllers
             MALADIE maladie = _maladieRepo.FindWhere(m => m.NOMMALADIE == nomMaladie).FirstOrDefault();
             if (maladie != null)
             {
-                throw new Exception("Une maladie porte déjà ce nom");
+                throw new ArgumentException("Une maladie porte déjà ce nom");
             }
             maladie = new MALADIE
             {

@@ -10,7 +10,6 @@ namespace PT4.Controllers
     public class FactureController
     {
         private HashSet<PRODUIT_VENDU> produitsVenduToInsert;
-        private HashSet<PRODUIT_VENDU> produitsVenduToUpdate;
         private HashSet<PRODUIT> produitsToUpdate;
 
         private IGenericRepository<FACTURE> _factureRepository;
@@ -27,8 +26,14 @@ namespace PT4.Controllers
 
         public void Reset()
         {
+            if (produitsVenduToInsert != null)
+            {
+                foreach (var p in produitsVenduToInsert)
+                {
+                    p.PRODUIT.QUANTITEENSTOCK += p.QUANTITÉ;
+                }
+            }
             produitsVenduToInsert = new HashSet<PRODUIT_VENDU>();
-            produitsVenduToUpdate = new HashSet<PRODUIT_VENDU>();
             produitsToUpdate = new HashSet<PRODUIT>();
         }
 
@@ -36,10 +41,6 @@ namespace PT4.Controllers
         {
             decimal sum = 0;
             foreach (PRODUIT_VENDU p in produitsVenduToInsert)
-            {
-                sum += p.Montant;
-            }
-            foreach (PRODUIT_VENDU p in produitsVenduToUpdate)
             {
                 sum += p.Montant;
             }
@@ -68,7 +69,7 @@ namespace PT4.Controllers
                 throw new ArgumentException($"ERREUR! Le produit '{p.NOMPRODUIT}' n'est pas vendable!");
             }
             PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.PRODUIT == p);
-            if(pv is null)
+            if (pv is null)
             {
                 pv = new PRODUIT_VENDU
                 {
@@ -83,8 +84,7 @@ namespace PT4.Controllers
             else
             {
                 pv.QUANTITÉ += quantite;
-                produitsVenduToUpdate.Add(pv);
-                
+
             }
             p.QUANTITEENSTOCK -= quantite;
             produitsToUpdate.Add(p);
@@ -96,22 +96,22 @@ namespace PT4.Controllers
             //We can do that because we will always have the same references because all of the receipt and the sold products are
             //pushed to the database at the last moment, so no proxies magic yay
             PRODUIT_VENDU pv = f.PRODUIT_VENDU.FirstOrDefault((tpv) => tpv.PRODUIT == p);
-            if(pv is null)
+            if (pv is null)
             {
                 throw new ArgumentException("ERREUR! Le produit n'est pas vendu dans cette facture!");
             }
             else
             {
-                if(quantite > pv.QUANTITÉ)
+                if (quantite > pv.QUANTITÉ)
                 {
                     throw new ArgumentException($"ERREUR! Vous ne pouvez pas retirer plus de {quantite} '{p.NOMPRODUIT}' sur cette facture!");
-                }else if(quantite == pv.QUANTITÉ)
+                }
+                else if (quantite == pv.QUANTITÉ)
                 {
                     f.PRODUIT_VENDU.Remove(pv);
                     produitsVenduToInsert.Remove(pv);
-                    produitsVenduToUpdate.Remove(pv);
 
-                    p.QUANTITEENSTOCK = quantite;
+                    p.QUANTITEENSTOCK += quantite;
                     produitsToUpdate.Remove(p);
                 }
                 else
@@ -129,15 +129,11 @@ namespace PT4.Controllers
         {
             f.DATEFACTURE = DateTime.Now;
             _factureRepository.Insert(f);
-            foreach(PRODUIT_VENDU p in produitsVenduToInsert)
+            foreach (PRODUIT_VENDU p in produitsVenduToInsert)
             {
                 _produitVendusRepository.Insert(p);
             }
-            foreach(PRODUIT_VENDU p in produitsVenduToUpdate)
-            {
-                _produitVendusRepository.Update(p);
-            }
-            foreach(PRODUIT p in produitsToUpdate)
+            foreach (PRODUIT p in produitsToUpdate)
             {
                 _produitRepository.Update(p);
             }
