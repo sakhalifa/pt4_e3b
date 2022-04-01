@@ -30,7 +30,7 @@ namespace PT4
         /// </summary>
         /// <param name="sender">object</param>
         /// <param name="e">EventArgs</param>
-        private void buttonConfirm_Click(object sender, EventArgs e)
+        protected override void buttonConfirm_Click(object sender, EventArgs e)
         {
             if (CheckRemplissage())
             {
