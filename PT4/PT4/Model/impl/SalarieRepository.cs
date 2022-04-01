@@ -32,12 +32,23 @@ namespace PT4.Model.impl
 
         public override void Delete(SALARIÉ obj)
         {
+            HashSet<CONGÉ> congeToRemove = new HashSet<CONGÉ>();
+            foreach(CONGÉ c in obj.CONGÉ)
+            {
+                congeToRemove.Add(c);
+            }
+
+            foreach(CONGÉ c in congeToRemove)
+            {
+                c.SALARIÉ.Remove(obj);
+                _context.Entry(c).State = EntityState.Modified;
+            }
             _context.Set<SALARIÉ>().Remove(obj);
         }
 
         public override void Update(SALARIÉ obj)
         {
-            _context.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(obj).State = EntityState.Modified;
         }
 
         public override IQueryable<SALARIÉ> FindWhere(Expression<Func<SALARIÉ, bool>> predicate)

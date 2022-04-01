@@ -33,6 +33,7 @@ namespace PT4.Model.impl
 
         public override void Delete(CLIENT obj)
         {
+
             _context.Set<CLIENT>().Remove(obj);
         }
 

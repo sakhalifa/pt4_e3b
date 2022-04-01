@@ -84,7 +84,7 @@
             <PropertyRef Name="IDFACTURE" />
           </Key>
           <Property Name="IDFACTURE" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDCLIENT" Type="smallint" Nullable="false" />
+          <Property Name="IDCLIENT" Type="smallint" />
           <Property Name="MONTANT" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="DATEFACTURE" Type="datetime" Nullable="false" />
         </EntityType>
@@ -107,7 +107,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDANIMAL" Type="smallint" Nullable="false" />
+          <Property Name="IDANIMAL" Type="smallint" />
           <Property Name="DATEORDO" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="PRODUIT">
@@ -167,7 +167,9 @@
           <Property Name="IDSOIN" Type="smallint" Nullable="false" />
         </EntityType>
         <Association Name="FK_A_CONTRACTÉ_ANIMAL">
-          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="1" />
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="A_CONTRACTÉ" Type="Self.A_CONTRACTÉ" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ANIMAL">
@@ -191,7 +193,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_A_ÉTÉ_CONTRACTÉ_HISTORIQUEMALADIE">
-          <End Role="HISTORIQUEMALADIE" Type="Self.HISTORIQUEMALADIE" Multiplicity="1" />
+          <End Role="HISTORIQUEMALADIE" Type="Self.HISTORIQUEMALADIE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="A_ÉTÉ_CONTRACTÉ" Type="Self.A_ÉTÉ_CONTRACTÉ" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HISTORIQUEMALADIE">
@@ -215,7 +219,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ANIMAL_CLIENT">
-          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" />
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENT">
@@ -325,7 +331,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FACTURE_CLIENT">
-          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" />
           <End Role="FACTURE" Type="Self.FACTURE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENT">
@@ -337,7 +343,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ORDONNANCE_ANIMAL">
-          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="1" />
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="0..1" />
           <End Role="ORDONNANCE" Type="Self.ORDONNANCE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ANIMAL">
@@ -373,7 +379,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RENDEZVOUS_CLIENT">
-          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="RENDEZVOUS" Type="Self.RENDEZVOUS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENT">
@@ -524,7 +532,7 @@
             <PropertyRef Name="IDFACTURE" />
           </Key>
           <Property Name="IDFACTURE" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDCLIENT" Type="Int16" Nullable="false" />
+          <Property Name="IDCLIENT" Type="Int16" />
           <Property Name="MONTANT" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="DATEFACTURE" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="CLIENT" Relationship="Self.FK_FACTURE_CLIENT" FromRole="FACTURE" ToRole="CLIENT" />
@@ -553,7 +561,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDANIMAL" Type="Int16" Nullable="false" />
+          <Property Name="IDANIMAL" Type="Int16" />
           <Property Name="DATEORDO" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="ANIMAL" Relationship="Self.FK_ORDONNANCE_ANIMAL" FromRole="ORDONNANCE" ToRole="ANIMAL" />
           <NavigationProperty Name="SOIN" Relationship="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_DANS_LORDONNANCE" FromRole="ORDONNANCE" ToRole="SOIN" />
@@ -616,7 +624,9 @@
           <NavigationProperty Name="ORDONNANCE" Relationship="PT4_PLANNIMAUX_S4p2B_JKVBLBModel.EST_DANS_LORDONNANCE" FromRole="SOIN" ToRole="ORDONNANCE" />
         </EntityType>
         <Association Name="FK_ANIMAL_CLIENT">
-          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" />
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENT">
@@ -628,7 +638,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ORDONNANCE_ANIMAL">
-          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="1" />
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="0..1" />
           <End Role="ORDONNANCE" Type="Self.ORDONNANCE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ANIMAL">
@@ -640,7 +650,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_FACTURE_CLIENT">
-          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" />
           <End Role="FACTURE" Type="Self.FACTURE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENT">
@@ -652,7 +662,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RENDEZVOUS_CLIENT">
-          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="RENDEZVOUS" Type="Self.RENDEZVOUS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENT">
@@ -664,7 +676,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PRODUIT_VENDU_FACTURE">
-          <End Role="FACTURE" Type="Self.FACTURE" Multiplicity="1" />
+          <End Role="FACTURE" Type="Self.FACTURE" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PRODUIT_VENDU" Type="Self.PRODUIT_VENDU" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FACTURE">
@@ -676,7 +690,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PRODUIT_VENDU_PRODUIT">
-          <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="1" />
+          <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PRODUIT_VENDU" Type="Self.PRODUIT_VENDU" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUIT">
@@ -688,7 +704,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="A_CONTRACTÉ">
-          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="*" />
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="*" >
+          </End>
           <End Role="HISTORIQUEMALADIE" Type="Self.HISTORIQUEMALADIE" Multiplicity="*" />
         </Association>
         <Association Name="A_ÉTÉ_CONTRACTÉ">
@@ -705,7 +722,9 @@
         </Association>
         <Association Name="ESTENCONGÉ">
           <End Role="CONGÉ" Type="Self.CONGÉ" Multiplicity="*" />
-          <End Role="SALARIÉ" Type="Self.SALARIÉ" Multiplicity="*" />
+          <End Role="SALARIÉ" Type="Self.SALARIÉ" Multiplicity="*" >
+            <OnDelete Action="Cascade" />
+          </End>
         </Association>
         <EntityContainer Name="PT4_PLANNIMAUX_S4p2B_JKVBLBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ANIMAL" EntityType="Self.ANIMAL" />

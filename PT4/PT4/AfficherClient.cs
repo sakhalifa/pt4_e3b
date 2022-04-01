@@ -132,8 +132,9 @@ namespace PT4
                     foreach (var obj in clients.SelectedRows)
                     {
                         DataGridViewRow row = (DataGridViewRow)obj;
+                        string email = (string)row.Cells["Email"].Value;
                         _clientController.RemoveByEmail((string)row.Cells["Email"].Value);
-                        MessageBox.Show($"Vous avez bien supprimé le client '{row.Cells["Email"].Value}'");
+                        MessageBox.Show($"Vous avez bien supprimé le client '{email}'");
                     }
                 }
                 else if (clients.SelectedCells.Count > 0)
