@@ -1,13 +1,5 @@
 ﻿using PT4.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -65,7 +57,8 @@ namespace PT4
                 {
                     _salarieController.ChangerMotDePasse(_salarie, textBoxConfirmerMdp.Text);
                     this.Close();
-                }catch (ArgumentException ex)
+                }
+                catch (ArgumentException ex)
                 {
                     Utils.ShowError(ex.Message);
                 }

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
@@ -13,7 +12,7 @@ namespace PT4.Controllers
         private IGenericRepository<SALARIÉ> _salarieRepo;
         private IGenericRepository<CONGÉ> _congeRepo;
 
-        
+
 
         /// <summary>
         /// Constructor of the EmployesController object
@@ -51,7 +50,8 @@ namespace PT4.Controllers
                 throw new ArgumentException("Il y a déjà un salarié avec ce login");
             }
             var hash = SHA256.Create().ComputeHash(new UTF8Encoding().GetBytes(clearPwd));
-            salarie = new SALARIÉ {
+            salarie = new SALARIÉ
+            {
                 LOGIN = login,
                 MDP = Utils.Hash(clearPwd),
                 estAdmin = false
@@ -82,7 +82,7 @@ namespace PT4.Controllers
 
         public void DeleteBulk(IEnumerable<SALARIÉ> salaries)
         {
-            foreach(SALARIÉ s in salaries)
+            foreach (SALARIÉ s in salaries)
             {
                 _salarieRepo.Delete(s);
             }
@@ -118,7 +118,7 @@ namespace PT4.Controllers
         public IEnumerable<CONGÉ> RecupCongesPourSalarie(string login)
         {
             SALARIÉ salarie = _salarieRepo.FindWhere(s => s.LOGIN == login).FirstOrDefault();
-            if(salarie == null)
+            if (salarie == null)
             {
                 throw new ArgumentException("Il n'y a pas de salariés avec le login spécifié");
             }
@@ -138,12 +138,12 @@ namespace PT4.Controllers
         public void PositionnerConge(int salarieId, DateTime dateDebut, DateTime dateFin, bool ignoreEstRegulier, bool estRegulier = false)
         {
             SALARIÉ s = _salarieRepo.FindById(salarieId);
-            if(s == null)
+            if (s == null)
             {
                 throw new ArgumentException("ERREUR CRITIQUE! Salarié introuvable !");
             }
             CONGÉ conge = _congeRepo.FindWhere(c => c.DATEFIN == dateFin && c.DATEDEBUT == dateDebut).FirstOrDefault();
-            if(conge == null)
+            if (conge == null)
             {
 
                 conge = new CONGÉ
@@ -153,7 +153,7 @@ namespace PT4.Controllers
                     ESTREGULIER = estRegulier,
                     DATEFIN = dateFin
                 };
-                
+
                 conge.SALARIÉ.Add(s);
                 _congeRepo.Insert(conge);
                 _congeRepo.Save();
@@ -161,7 +161,7 @@ namespace PT4.Controllers
             }
 
 
-            if(conge.SALARIÉ.Contains(s))
+            if (conge.SALARIÉ.Contains(s))
             {
                 throw new ArgumentException("Erreur ! Ce congé existe déjà");
             }

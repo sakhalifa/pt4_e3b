@@ -1,13 +1,6 @@
 ﻿using PT4.Controllers;
 using PT4.Templates;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -21,10 +14,10 @@ namespace PT4
         /// <param name="animalController">Instance of AnimalController</param>
         /// <param name="clientController">Instance of ClientController</param>
         /// <param name="c">Instance of CLIENT</param>
-        public AjouterAnimal(AnimalController animalController, ClientController clientController,CLIENT c) : base(animalController, clientController, c, false)
+        public AjouterAnimal(AnimalController animalController, ClientController clientController, CLIENT c) : base(animalController, clientController, c, false)
         {
         }
-        
+
         /// <summary>
         /// It creates the animal if all the constraint are validated
         /// </summary>
@@ -35,7 +28,7 @@ namespace PT4
             if (CheckRemplissage())
             {
                 string strNom = null;
-                if(nom.TextLength > 0)
+                if (nom.TextLength > 0)
                 {
                     strNom = nom.Text;
                 }

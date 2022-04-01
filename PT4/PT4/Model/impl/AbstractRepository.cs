@@ -5,8 +5,6 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
@@ -42,7 +40,7 @@ namespace PT4.Model.impl
             if (_context.ChangeTracker.HasChanges())
             {
                 IEnumerable<DbEntityEntry> entriesChanged = _context.ChangeTracker.Entries();
-                
+
 
                 foreach (DbEntityEntry entry in entriesChanged)
                 {
@@ -60,7 +58,7 @@ namespace PT4.Model.impl
                     }
 
                 }
-                
+
 
 
             }

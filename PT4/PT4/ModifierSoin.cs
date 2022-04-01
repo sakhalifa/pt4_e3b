@@ -1,12 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PT4.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace PT4
 {
@@ -32,7 +26,7 @@ namespace PT4
         /// <exception cref="ArgumentException">Arguments if the form is launched without cure </exception>
         private void ModifierSoin_Load(object sender, EventArgs e)
         {
-            if(soin is null)
+            if (soin is null)
             {
                 throw new ArgumentException("ERREUR CRITIQUE! Form lancé sans soin correspondant!");
             }

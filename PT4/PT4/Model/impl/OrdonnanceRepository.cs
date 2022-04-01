@@ -1,11 +1,7 @@
-﻿using PT4.Model.dal;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
@@ -13,7 +9,7 @@ namespace PT4.Model.impl
     {
         public OrdonnanceRepository(DbContext context) : base(context)
         {
-            
+
         }
 
         public override IQueryable<ORDONNANCE> FindAll()

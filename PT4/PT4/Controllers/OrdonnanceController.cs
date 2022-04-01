@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
@@ -35,7 +33,7 @@ namespace PT4.Controllers
         public void DeletePrescription(ORDONNANCE o)
         {
             var allSoin = o.SOIN;
-            foreach(SOIN s in allSoin)
+            foreach (SOIN s in allSoin)
             {
                 s.ORDONNANCE.Remove(o);
             }

@@ -1,12 +1,6 @@
 ﻿using PT4.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -45,7 +39,8 @@ namespace PT4
                     prixDeVente = prixVente.Value;
                 }
                 _prodController.CreerOuMaJProduit(nom.Text, prixDeVente, prixAchat.Value, (int)quantite.Value, description.Text, estMedic.Checked, IsAdd);
-                if(prixVente is null) {
+                if (prixVente is null)
+                {
                     MessageBox.Show($"Vous avez bien rajouté {quantite.Value} '{nom.Text}' invendable et acheté à {prixAchat.Value}€");
                 }
                 else

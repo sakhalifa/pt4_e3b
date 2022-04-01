@@ -2,12 +2,8 @@
 using PT4.Controllers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -42,7 +38,7 @@ namespace PT4
         /// <param name="animalController">Instance of AnimalController</param>
         /// <param name="services">Instance of ServiceCollection</param>
         /// <param name="estAdmin">boolean admin</param>
-        public ModifierClient(ClientController clientController, AnimalController animalController, ServiceCollection services, bool estAdmin)
+        public ModifierClient(ClientController clientController, AnimalController animalController, ServiceCollection services)
         {
             InitializeComponent();
             _clientController = clientController;
@@ -258,7 +254,7 @@ namespace PT4
         private void rajouterUneMaladieToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ANIMAL a = GetAnimalFromSelection();
-            if(a!=null)
+            if (a != null)
             {
                 _services.AddScoped((p) => new DeclarerMaladie(p.GetRequiredService<MaladiesController>(), p.GetRequiredService<AnimalController>(), a));
                 using (ServiceProvider provider = _services.BuildServiceProvider())
@@ -332,7 +328,7 @@ namespace PT4
             if (!(a is null))
             {
                 _services.AddScoped((p) => new AjouterOrdonnance(p.GetRequiredService<AnimalController>(), p.GetRequiredService<OrdonnanceController>(), p.GetRequiredService<SoinController>(), _services, a));
-                using(ServiceProvider provider = _services.BuildServiceProvider())
+                using (ServiceProvider provider = _services.BuildServiceProvider())
                 {
                     using (IServiceScope serviceScope = provider.CreateScope())
                     {

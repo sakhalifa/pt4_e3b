@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
@@ -50,7 +49,7 @@ namespace PT4.Controllers
             {
                 throw new ArgumentException("ERREUR! Vous ne pouvez pas avoir 2x exactement le même soin avec les même produits et les même maladies impliqués");
             }
-            
+
 
             SOIN newCare = new SOIN
             {
@@ -93,11 +92,11 @@ namespace PT4.Controllers
 
         internal void RemoveCare(SOIN s)
         {
-            if(s.ORDONNANCE.Count > 0)
+            if (s.ORDONNANCE.Count > 0)
             {
                 StringBuilder sb = new StringBuilder("ERREUR! Ce soin est contenu dans une ou plusieurs ordonnances." +
                     " Veuillez les supprimer de ces ordonnances avant de supprimer le soin :\n");
-                foreach(ORDONNANCE o in s.ORDONNANCE)
+                foreach (ORDONNANCE o in s.ORDONNANCE)
                 {
                     sb.Append("- ").Append(o.ToString()).Append("\n");
                 }

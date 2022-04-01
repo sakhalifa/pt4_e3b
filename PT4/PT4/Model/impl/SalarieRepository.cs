@@ -1,11 +1,8 @@
-﻿using PT4.Model.dal;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PT4.Model.impl
 {
@@ -33,12 +30,12 @@ namespace PT4.Model.impl
         public override void Delete(SALARIÉ obj)
         {
             HashSet<CONGÉ> congeToRemove = new HashSet<CONGÉ>();
-            foreach(CONGÉ c in obj.CONGÉ)
+            foreach (CONGÉ c in obj.CONGÉ)
             {
                 congeToRemove.Add(c);
             }
 
-            foreach(CONGÉ c in congeToRemove)
+            foreach (CONGÉ c in congeToRemove)
             {
                 c.SALARIÉ.Remove(obj);
                 _context.Entry(c).State = EntityState.Modified;

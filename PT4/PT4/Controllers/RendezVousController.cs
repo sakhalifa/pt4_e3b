@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PT4.Controllers
 {
@@ -23,10 +21,10 @@ namespace PT4.Controllers
 
         public void DeleteBulk(IEnumerable<RENDEZVOUS> toDelete)
         {
-            foreach(RENDEZVOUS r in toDelete)
+            foreach (RENDEZVOUS r in toDelete)
             {
                 _rdvRepo.Delete(r);
-                
+
             }
             _rdvRepo.Save();
         }

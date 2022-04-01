@@ -1,14 +1,6 @@
 ﻿using PT4.Controllers;
-using PT4.Model.dal;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -45,7 +37,7 @@ namespace PT4
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
 
-            if (textBoxMailDonnees.Text.Length == 0 )
+            if (textBoxMailDonnees.Text.Length == 0)
             {
                 Utils.ShowError("Veuillez entrer une adresse mail");
             }
@@ -59,13 +51,13 @@ namespace PT4
                 return;
             }
 
-            if ((Regex.IsMatch(textBoxNumero.Text, @"^[+]\d+$") && textBoxNumero.Text.Length != 12) 
+            if ((Regex.IsMatch(textBoxNumero.Text, @"^[+]\d+$") && textBoxNumero.Text.Length != 12)
                 || (Regex.IsMatch(textBoxNumero.Text, @"^\d+$") && textBoxNumero.Text.Length != 10)
                 || (!Regex.IsMatch(textBoxNumero.Text, @"^\d+$") && !Regex.IsMatch(textBoxNumero.Text, @"^[+]\d+$")))
             {
-                    Utils.ShowError("Ce numéro est invalide");
+                Utils.ShowError("Ce numéro est invalide");
             }
-            else if (textBoxNumero.Text.Length >12 )
+            else if (textBoxNumero.Text.Length > 12)
             {
                 Utils.ShowError("Ce numéro est invalide");
 
@@ -95,6 +87,6 @@ namespace PT4
             }
         }
 
- 
+
     }
 }

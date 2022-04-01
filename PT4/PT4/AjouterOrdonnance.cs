@@ -2,12 +2,8 @@
 using PT4.Controllers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -67,7 +63,7 @@ namespace PT4
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             _services.AddScoped<TemplateSoin>();
-            using(ServiceProvider provider = _services.BuildServiceProvider())
+            using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())
                 {
@@ -99,11 +95,11 @@ namespace PT4
                 }
             }
 
-            foreach(SOIN s in addedSoins)
+            foreach (SOIN s in addedSoins)
             {
                 soinsDispo.Items.Add(s);
             }
-            
+
         }
         /// <summary>
         /// Function which is called whenever there is an order which is deleted 
@@ -119,7 +115,7 @@ namespace PT4
                     if (s.ID == ss.ID)
                     {
                         soinsDispo.Items.Remove(s);
-                        
+
                     }
                 }
             }
@@ -132,7 +128,7 @@ namespace PT4
         /// <param name="e"> EventArgs </param>
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
-            if(soinsDispo.SelectedItems is null || soinsDispo.SelectedItems.Count == 0)
+            if (soinsDispo.SelectedItems is null || soinsDispo.SelectedItems.Count == 0)
             {
                 Utils.ShowError("ERREUR! Veuillez sélectionner au moins un soin!");
                 return;

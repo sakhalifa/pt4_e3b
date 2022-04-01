@@ -1,12 +1,4 @@
 ﻿using PT4.Controllers;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -31,7 +23,7 @@ namespace PT4
         {
             InitializeComponent();
             var listProd = produitController.GetAllSellableProducts();
-            foreach(var prod in listProd)
+            foreach (var prod in listProd)
             {
                 listBox1.Items.Add(prod);
             }

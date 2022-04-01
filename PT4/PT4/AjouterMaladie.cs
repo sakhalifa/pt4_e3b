@@ -1,12 +1,5 @@
 ﻿using PT4.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -24,7 +17,7 @@ namespace PT4
             InitializeComponent();
             _maladieController = maladiesController;
         }
-        
+
         /// <summary>
         /// The button which fills the database with the informations given
         /// </summary>
@@ -33,7 +26,7 @@ namespace PT4
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
             // If there is no test in the textbox, it tells you that you have to write
-            if(textBoxMaladie.Text == null)
+            if (textBoxMaladie.Text == null)
             {
                 Utils.ShowError("Veuillez inscrire le nom d'une maladie");
             }

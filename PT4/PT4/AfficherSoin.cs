@@ -2,12 +2,8 @@
 using PT4.Controllers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -93,12 +89,12 @@ namespace PT4
                 }
             }
 
-            foreach(SOIN s in careToRemove)
+            foreach (SOIN s in careToRemove)
             {
                 allSoins.Items.Remove(s);
             }
         }
-        
+
         /// <summary>
         /// Function which shows the page to add a new cure
         /// </summary>
@@ -128,9 +124,11 @@ namespace PT4
             {
                 if (MessageBox.Show("Voulez-vous vraiment supprimer ce soin?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    try { 
+                    try
+                    {
                         _soinController.RemoveCare((SOIN)allSoins.SelectedItem);
-                    }catch(ArgumentException ex)
+                    }
+                    catch (ArgumentException ex)
                     {
                         Utils.ShowError(ex.Message);
                         return;

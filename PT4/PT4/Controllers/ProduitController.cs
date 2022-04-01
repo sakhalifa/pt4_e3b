@@ -1,13 +1,10 @@
-﻿using PT4.Model.dal;
+﻿using PT4.Model;
+using PT4.Model.dal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PT4.Model;
 using System.Linq.Expressions;
-using System.Reflection;
+using System.Windows.Forms;
 
 namespace PT4.Controllers
 {
@@ -199,7 +196,7 @@ namespace PT4.Controllers
             return finalExpr;
         }
 
-        
+
 
     }
 }

@@ -1,12 +1,5 @@
 ﻿using PT4.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -37,7 +30,7 @@ namespace PT4
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
 
-            if(dateTimePickerFin.Value < dateTimePickerDebut.Value || dateTimePickerDebut.Value.Date < DateTime.Now)
+            if (dateTimePickerFin.Value < dateTimePickerDebut.Value || dateTimePickerDebut.Value.Date < DateTime.Now)
             {
                 Utils.ShowError("La date de fin doit être supérieure à celle de début");
                 return;
@@ -45,7 +38,7 @@ namespace PT4
 
             try
             {
-                _salarieController.PositionnerConge(Utils.connectedSalarieId.Value, dateTimePickerDebut.Value.Date, dateTimePickerFin.Value.Date, false, checkBoxRegulier.Checked);           
+                _salarieController.PositionnerConge(Utils.connectedSalarieId.Value, dateTimePickerDebut.Value.Date, dateTimePickerFin.Value.Date, false, checkBoxRegulier.Checked);
                 this.DialogResult = DialogResult.OK;
                 MessageBox.Show("Le congé a bien été positionné");
                 this.Close();
@@ -59,7 +52,7 @@ namespace PT4
 
             catch (DataMisalignedException ex)
             {
-                if((bool)ex.Data["canModify"])
+                if ((bool)ex.Data["canModify"])
                 {
                     if (MessageBox.Show("La case 'Est Régulier' ne correspond pas au congé correspondant. Souhaitez-vous le modifier ? ", "Confirmation : ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
@@ -73,7 +66,7 @@ namespace PT4
                 {
                     MessageBox.Show("La case 'Est Régulier' ne correspond pas au congé correspondant. Vous n'avez pas les droits pour le modifier");
                 }
-                 
+
             }
         }
     }

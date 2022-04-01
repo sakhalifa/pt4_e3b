@@ -1,13 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using PT4.Controllers;
 using PT4.Model.dal;
 using PT4.Model.impl;
-using System.Data.Entity;
-using PT4.Controllers;
+using System;
+using System.Windows.Forms;
 
 namespace PT4
 {

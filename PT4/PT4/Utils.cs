@@ -5,14 +5,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
 {
     public static class Utils
     {
-        
+
         public static int? connectedSalarieId;
         public static bool connecteAdmin;
 
@@ -24,7 +23,7 @@ namespace PT4
         public static List<T> GetRangeAndCut<T>(List<T> list, int offset, int count)
         {
             int realCount = count;
-            if(count * (offset+1) > list.Count())
+            if (count * (offset + 1) > list.Count())
             {
                 realCount = list.Count() / (offset + 1);
             }

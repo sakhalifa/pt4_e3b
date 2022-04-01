@@ -1,12 +1,5 @@
 ﻿using PT4.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -34,16 +27,17 @@ namespace PT4
         /// <returns> true if all constraints are validated </returns>
         private bool CheckRemplissage()
         {
-            if(nom.TextLength == 0)
+            if (nom.TextLength == 0)
             {
                 Utils.ShowError("ERREUR! Vous devez rentrer un nom!");
                 return false;
             }
-            if(prenom.TextLength == 0)
+            if (prenom.TextLength == 0)
             {
                 Utils.ShowError("ERREUR! Vous devez rentrer un prénom!");
                 return false;
-            }if(email.TextLength == 0)
+            }
+            if (email.TextLength == 0)
             {
                 Utils.ShowError("ERREUR! Vous devez rentrer un email!");
                 return false;
@@ -57,7 +51,7 @@ namespace PT4
                 Utils.ShowError("ERREUR! Veuillez rentrer un email correctement formaté!");
                 return false;
             }
-            if(numeroTel.Text.Trim().Length > 0 && !numeroTel.MaskCompleted)
+            if (numeroTel.Text.Trim().Length > 0 && !numeroTel.MaskCompleted)
             {
                 Utils.ShowError("ERREUR! Veuillez soit ne pas mettre de numéro soit le mettre au complet!");
                 return false;
@@ -75,7 +69,7 @@ namespace PT4
             if (CheckRemplissage())
             {
                 string num = null;
-                if(numeroTel.Text.Trim().Length > 0)
+                if (numeroTel.Text.Trim().Length > 0)
                 {
                     num = numeroTel.Text.Replace(" ", "");
                 }
@@ -85,7 +79,9 @@ namespace PT4
                     _clientController.CreerClient(nom.Text, prenom.Text, num, email.Text);
                     MessageBox.Show($"Vous avez bien créé le client '{nom.Text} {prenom.Text}'");
                     this.Close();
-                }catch (ArgumentException ex){
+                }
+                catch (ArgumentException ex)
+                {
                     Utils.ShowError(ex.Message);
                 }
             }

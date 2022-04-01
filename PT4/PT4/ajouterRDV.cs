@@ -1,12 +1,5 @@
 ﻿using PT4.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -31,7 +24,7 @@ namespace PT4
             {
                 comboBoxClient.Items.Add(c);
             }
-        } 
+        }
 
 
         public void SetClient(CLIENT c)
@@ -50,12 +43,12 @@ namespace PT4
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
             // If there is no reason written
-            if(textBoxRaison.Text == null)
+            if (textBoxRaison.Text == null)
             {
                 Utils.ShowError("Veuillez insérer une raison au rendez-vous");
             }
             // If there is no customer chosen
-            if(comboBoxClient.SelectedItem == null)
+            if (comboBoxClient.SelectedItem == null)
             {
                 Utils.ShowError("Veuillez sélectionner un client");
             }
@@ -71,7 +64,7 @@ namespace PT4
                 // If everything's ok, it creates the new appointment
                 try
                 {
-                  _clientController.CreerRendezVous((CLIENT)comboBoxClient.SelectedItem, dateTimePicker1.Value, textBoxRaison.Text, dateTimePicker1.Value.AddHours(1));
+                    _clientController.CreerRendezVous((CLIENT)comboBoxClient.SelectedItem, dateTimePicker1.Value, textBoxRaison.Text, dateTimePicker1.Value.AddHours(1));
                     this.DialogResult = DialogResult.OK;
                     MessageBox.Show("Le rendez-vous a bien été créé pour le " + dateTimePicker1.Value);
                     this.Close();
@@ -83,7 +76,7 @@ namespace PT4
                     return;
                 }
             }
-            
+
         }
     }
 }

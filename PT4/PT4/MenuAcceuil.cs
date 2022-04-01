@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using PT4.Controllers;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace PT4
 {
@@ -49,7 +43,7 @@ namespace PT4
             _services.AddScoped((p) => new AfficherJournee(p.GetRequiredService<RendezVousController>(), e.Start));
             using (ServiceProvider provider = _services.BuildServiceProvider())
             {
-                using(IServiceScope scope = provider.CreateScope())
+                using (IServiceScope scope = provider.CreateScope())
                 {
                     scope.ServiceProvider.GetService<AfficherJournee>().ShowDialog();
                 }

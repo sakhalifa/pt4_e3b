@@ -2,12 +2,9 @@
 using PT4.Controllers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -71,11 +68,11 @@ namespace PT4
             textBoxDescription.Text = s.DESCRIPTION;
             maladiesListBox.SelectedItems.Clear();
             produitListBox.SelectedItems.Clear();
-            foreach(PRODUIT p in s.PRODUIT)
+            foreach (PRODUIT p in s.PRODUIT)
             {
                 produitListBox.SelectedItems.Add(p);
             }
-            foreach(MALADIE m in s.MALADIE)
+            foreach (MALADIE m in s.MALADIE)
             {
                 maladiesListBox.SelectedItems.Add(m);
             }
@@ -87,8 +84,10 @@ namespace PT4
             {
                 IEnumerable<MALADIE> castedMaladie = maladiesListBox.SelectedItems.Cast<MALADIE>();
                 IEnumerable<PRODUIT> castedProduits = produitListBox.SelectedItems.Cast<PRODUIT>();
-                try { 
-                    if(this.soin is null) { 
+                try
+                {
+                    if (this.soin is null)
+                    {
                         _careController.CreateCare(castedMaladie, castedProduits, textBoxDescription.Text);
                     }
                     else
@@ -96,13 +95,13 @@ namespace PT4
                         _careController.EditCare(this.soin, castedMaladie.ToList(), castedProduits.ToList(), textBoxDescription.Text); ;
                     }
                 }
-                catch(ArgumentException ex)
+                catch (ArgumentException ex)
                 {
                     Utils.ShowError(ex.Message);
                     return;
                 }
                 StringBuilder sb = new StringBuilder("Vous avez bien rajouté un soin pour la/les maladies ");
-                foreach(MALADIE m in castedMaladie)
+                foreach (MALADIE m in castedMaladie)
                 {
                     sb.Append($"'{m.NOMMALADIE}' ");
                 }
@@ -125,7 +124,7 @@ namespace PT4
         {
             //We can do this because we can only access this window if we're admin
             _services.AddScoped<AjouterStock>();
-            using(ServiceProvider provider = _services.BuildServiceProvider())
+            using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())
                 {
@@ -170,9 +169,9 @@ namespace PT4
 
             foreach (PRODUIT p in produits)
             {
-                foreach(PRODUIT prod in casted)
+                foreach (PRODUIT prod in casted)
                 {
-                    if(p.IDPRODUIT == prod.IDPRODUIT)
+                    if (p.IDPRODUIT == prod.IDPRODUIT)
                     {
                         produitListBox.Items.Remove(prod);
                     }

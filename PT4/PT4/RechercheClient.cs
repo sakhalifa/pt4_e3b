@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4.Controllers
@@ -16,7 +9,7 @@ namespace PT4.Controllers
         /// List of  informations
         /// </summary>
         private static readonly object[] ITEM_LIST = new object[] { "Nom", "Prenom", "Email", "Nombre d'animaux", "Nombre de RDV dans le mois" };
-        
+
         /// <summary>
         /// Constructor
         /// </summary>

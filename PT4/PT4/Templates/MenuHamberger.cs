@@ -1,13 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PT4.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -164,7 +157,7 @@ namespace PT4
             //Code
             hideSubMenu();
             _services.AddScoped<TemplateSoin>();
-            using(ServiceProvider provider = _services.BuildServiceProvider())
+            using (ServiceProvider provider = _services.BuildServiceProvider())
             {
                 using (IServiceScope serviceScope = provider.CreateScope())
                 {
@@ -172,7 +165,7 @@ namespace PT4
                     ajouterPres.ShowDialog();
                 }
             }
-            
+
         }
 
         /**
@@ -259,7 +252,8 @@ namespace PT4
             {
                 if (send is MenuHamberger a)
                 {
-                    if(a.DialogResult == DialogResult.Retry) {
+                    if (a.DialogResult == DialogResult.Retry)
+                    {
                         this.DialogResult = DialogResult.Retry;
                         this.Close();
                     }

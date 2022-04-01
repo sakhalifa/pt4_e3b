@@ -1,12 +1,5 @@
 ﻿using PT4.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PT4
@@ -22,7 +15,7 @@ namespace PT4
         /// Instance of ANIMAL
         /// </summary>
         private ANIMAL _animal;
-        
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -50,14 +43,14 @@ namespace PT4
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
             // If there is no disease selected
-            if(comboBoxMaladie.SelectedItem == null )
+            if (comboBoxMaladie.SelectedItem == null)
             {
                 Utils.ShowError("Veuillez sélectionner une maladie");
 
             }
 
             // If the date chosen is impossible (foresight)
-            else if(dateTimePickerDebut.Value.Date > DateTime.Now.Date)
+            else if (dateTimePickerDebut.Value.Date > DateTime.Now.Date)
             {
                 Utils.ShowError("Veuillez sélectionner une date valide");
             }

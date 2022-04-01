@@ -379,12 +379,6 @@
     <Compile Include="Templates\TemplateSoin.Designer.cs">
       <DependentUpon>TemplateSoin.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditerClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditerClient.Designer.cs">
-      <DependentUpon>EditerClient.cs</DependentUpon>
-    </Compile>
     <Compile Include="AjouterCompte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,23 +393,11 @@
     <Compile Include="RechercheStock.Designer.cs">
       <DependentUpon>RechercheStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="statsProduit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="statsProduit.Designer.cs">
-      <DependentUpon>statsProduit.cs</DependentUpon>
-    </Compile>
     <Compile Include="Templates\MenuHamberger.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Templates\MenuHamberger.Designer.cs">
       <DependentUpon>MenuHamberger.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TopVente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TopVente.Designer.cs">
-      <DependentUpon>TopVente.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="AjouterVente.cs">
@@ -553,19 +535,10 @@
     <EmbeddedResource Include="Templates\TemplateSoin.resx">
       <DependentUpon>TemplateSoin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditerClient.resx">
-      <DependentUpon>EditerClient.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="statsProduit.resx">
-      <DependentUpon>statsProduit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TopVente.resx">
-      <DependentUpon>TopVente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AjouterVente.resx">
       <DependentUpon>AjouterVente.cs</DependentUpon>

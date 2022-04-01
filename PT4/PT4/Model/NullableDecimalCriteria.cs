@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PT4.Model
 {
@@ -24,7 +20,7 @@ namespace PT4.Model
             //Because AND and OR operations are read left to right
             //If it has a value, d.HasValue is true, and if d.HasValue is false, if null isn't allowed then it stops at the left side
             //and won't evaluate the right side. It IS null-safe.
-            
+
 
             switch (CheckType)
             {
